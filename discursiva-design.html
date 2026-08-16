@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="As duas questões discursivas de Design Gráfico para a prova da ALECE 2026: método, banco de frases e temas prováveis.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🖨️</text></svg>">
+<title>Original</title>
+<style>
+:root{
+  --paper:#F1F4F5; --card:#FFFFFF; --band:#E3E9EB;
+  --ink:#12171A; --ink2:#48575E; --ink3:#78888F;
+  --rule:#C9D4D8; --rule2:#DEE6E8;
+  --mag:#BE0066; --cyan:#0079AF; --yell:#C58F00;
+  --magSoft:#FBE6F1; --cyanSoft:#E0F1F9; --yellSoft:#FBF0D2;
+  --shadow:0 1px 0 rgba(18,23,26,.06), 0 2px 12px rgba(18,23,26,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E1315; --card:#161E21; --band:#1A2427;
+    --ink:#E7EEF0; --ink2:#A6B5BB; --ink3:#76868D;
+    --rule:#2B383C; --rule2:#212C30;
+    --mag:#FF4D9C; --cyan:#48BAEA; --yell:#F0C64A;
+    --magSoft:#2A1420; --cyanSoft:#0F2430; --yellSoft:#2A2210;
+    --shadow:0 1px 0 rgba(0,0,0,.4), 0 2px 14px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E1315; --card:#161E21; --band:#1A2427;
+  --ink:#E7EEF0; --ink2:#A6B5BB; --ink3:#76868D;
+  --rule:#2B383C; --rule2:#212C30;
+  --mag:#FF4D9C; --cyan:#48BAEA; --yell:#F0C64A;
+  --magSoft:#2A1420; --cyanSoft:#0F2430; --yellSoft:#2A2210;
+  --shadow:0 1px 0 rgba(0,0,0,.4), 0 2px 14px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Segoe UI Variable Text","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  font-size:16px; line-height:1.58; -webkit-font-smoothing:antialiased;
+}
+.grot{font-family:"Helvetica Neue",Helvetica,Arial,"Segoe UI",sans-serif}
+.serif{font-family:Georgia,"Times New Roman",serif}
+.mono{font-family:"Cascadia Mono",Consolas,"SF Mono",ui-monospace,monospace}
+
+/* ---------- shell ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,44px) 120px}
+.measure{max-width:68ch}
+
+/* ---------- press-proof header ---------- */
+header.proof{
+  position:relative; border-bottom:2px solid var(--ink);
+  padding:clamp(28px,5vw,60px) 0 22px; margin-bottom:8px;
+}
+.regmark{position:absolute;width:26px;height:26px;opacity:.75}
+.regmark.tl{top:10px;left:-34px} .regmark.tr{top:10px;right:-34px}
+@media(max-width:1260px){.regmark{display:none}}
+.eyebrow{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink3);
+}
+h1{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight:800; letter-spacing:-.035em; line-height:.92;
+  font-size:clamp(38px,8.5vw,86px); margin:.18em 0 .12em; text-wrap:balance;
+}
+h1 em{font-style:normal;color:var(--mag)}
+.dek{color:var(--ink2);max-width:60ch;font-size:clamp(15px,1.6vw,18px);margin:0}
+
+/* color control bar — the subject's own instrument */
+.colorbar{display:flex;height:14px;margin:22px 0 0;border:1px solid var(--rule)}
+.colorbar span{flex:1}
+
+/* ---------- nav ---------- */
+nav.toc{
+  position:sticky;top:0;z-index:40;background:var(--paper);
+  border-bottom:1px solid var(--rule);margin-bottom:44px;
+  padding:9px 0; overflow-x:auto;
+}
+nav.toc ul{display:flex;gap:2px;list-style:none;margin:0;padding:0;white-space:nowrap}
+nav.toc a{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink2);text-decoration:none;padding:6px 10px;border-radius:3px;display:block;
+}
+nav.toc a:hover{background:var(--band);color:var(--ink)}
+nav.toc a:focus-visible{outline:2px solid var(--mag);outline-offset:1px}
+
+/* ---------- sections ---------- */
+section{margin:0 0 clamp(56px,8vw,96px)}
+.sechead{display:flex;align-items:baseline;gap:16px;border-top:2px solid var(--ink);padding-top:12px;margin-bottom:26px;flex-wrap:wrap}
+.signature{
+  font-family:"Cascadia Mono",Consolas,monospace;font-size:12px;font-weight:700;
+  background:var(--ink);color:var(--paper);padding:3px 8px;letter-spacing:.04em;
+}
+h2{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight:800;letter-spacing:-.028em;line-height:1.02;
+  font-size:clamp(26px,4.2vw,42px);margin:0;flex:1;text-wrap:balance;
+}
+.weight{
+  font-family:"Cascadia Mono",Consolas,monospace;font-size:11.5px;font-weight:700;
+  letter-spacing:.04em;padding:3px 9px;border-radius:99px;white-space:nowrap;
+}
+.w-alta{background:var(--mag);color:#fff}
+.w-media{background:var(--cyanSoft);color:var(--cyan);border:1px solid var(--cyan)}
+.w-base{background:var(--band);color:var(--ink2)}
+
+h3{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:19px;font-weight:800;letter-spacing:-.012em;margin:38px 0 12px;
+}
+h3:first-child{margin-top:0}
+h4{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink3);margin:26px 0 10px;
+}
+p{margin:0 0 14px;max-width:68ch}
+ul,ol{margin:0 0 14px;padding-left:1.15em;max-width:68ch}
+li{margin-bottom:6px}
+strong{font-weight:700}
+b.k{font-weight:700;color:var(--mag)}
+code{font-family:"Cascadia Mono",Consolas,monospace;font-size:.88em;background:var(--band);padding:1px 5px;border-radius:3px}
+
+/* ---------- components ---------- */
+.card{background:var(--card);border:1px solid var(--rule2);border-radius:5px;padding:20px 22px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:18px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+
+.fig{margin:22px 0;background:var(--card);border:1px solid var(--rule2);border-radius:5px;overflow:hidden;box-shadow:var(--shadow)}
+.fig .body{padding:20px 22px}
+.fig figcaption{
+  border-top:1px solid var(--rule2);background:var(--band);
+  padding:9px 22px;font-size:13px;color:var(--ink2);
+}
+.fig figcaption b{color:var(--ink)}
+.scroll{overflow-x:auto}
+svg{display:block;max-width:100%;height:auto}
+
+.alerta{border-left:4px solid var(--mag);background:var(--magSoft);padding:14px 18px;border-radius:0 4px 4px 0;margin:20px 0}
+.alerta p{margin:0}
+.alerta .lbl{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--mag);display:block;margin-bottom:5px}
+.dica{border-left:4px solid var(--cyan);background:var(--cyanSoft);padding:14px 18px;border-radius:0 4px 4px 0;margin:20px 0}
+.dica .lbl{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:5px}
+.dica p{margin:0}
+
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:18px 0}
+th{
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  text-align:left;color:var(--ink3);border-bottom:2px solid var(--ink);padding:7px 12px 7px 0;vertical-align:bottom;
+}
+td{border-bottom:1px solid var(--rule2);padding:9px 12px 9px 0;vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.num{font-family:"Cascadia Mono",Consolas,monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.chip{display:inline-block;font-family:"Cascadia Mono",Consolas,monospace;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:3px;background:var(--band);color:var(--ink2)}
+
+dl.defs{margin:0}
+dl.defs dt{font-weight:700;margin-top:14px}
+dl.defs dt:first-child{margin-top:0}
+dl.defs dd{margin:2px 0 0;color:var(--ink2);max-width:68ch}
+
+/* tree */
+.tree{font-size:14.5px;line-height:1.5}
+.tree ul{list-style:none;margin:0;padding-left:22px;position:relative}
+.tree>ul{padding-left:0}
+.tree li{position:relative;padding:4px 0 4px 0;margin:0}
+.tree ul ul li::before{
+  content:"";position:absolute;left:-14px;top:0;bottom:0;border-left:1px solid var(--rule);
+}
+.tree ul ul li::after{
+  content:"";position:absolute;left:-14px;top:16px;width:11px;border-top:1px solid var(--rule);
+}
+.tree ul ul li:last-child::before{bottom:auto;height:16px}
+.tree .node{font-weight:700;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+.tree .leaf{color:var(--ink2)}
+.tree .tag{font-family:"Cascadia Mono",Consolas,monospace;font-size:11px;color:var(--mag);font-weight:700}
+
+/* swatch strip */
+.sw{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+.sw figure{margin:0;width:118px}
+.sw .chipbox{height:56px;border-radius:3px;border:1px solid var(--rule)}
+.sw figcaption{font-size:11.5px;color:var(--ink2);margin-top:5px;line-height:1.35}
+
+/* type specimen */
+.spec{border:1px solid var(--rule2);border-radius:4px;padding:14px 16px;background:var(--card)}
+.spec .big{font-size:40px;line-height:1;margin:0 0 6px}
+.spec .lbl{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+
+.hr-reg{display:flex;align-items:center;gap:14px;margin:44px 0;color:var(--rule)}
+.hr-reg::before,.hr-reg::after{content:"";flex:1;border-top:1px solid var(--rule)}
+
+footer{border-top:2px solid var(--ink);padding-top:18px;font-size:13px;color:var(--ink3)}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+a{color:var(--mag)}
+
+/* discursiva themes */
+.tema{border:1px solid var(--rule);border-radius:5px;background:var(--card);margin:0 0 18px;overflow:hidden;box-shadow:var(--shadow)}
+.tema>summary{
+  list-style:none;cursor:pointer;display:flex;gap:14px;align-items:baseline;
+  padding:15px 18px;background:var(--band);
+}
+.tema>summary::-webkit-details-marker{display:none}
+.tema>summary::after{content:"+";margin-left:auto;font-family:"Helvetica Neue",Arial,sans-serif;font-weight:800;font-size:20px;color:var(--mag);line-height:1}
+.tema[open]>summary::after{content:"–"}
+.tema>summary:focus-visible{outline:2px solid var(--mag);outline-offset:-2px}
+.tema .rank{font-family:"Cascadia Mono",Consolas,monospace;font-size:12px;font-weight:700;color:var(--paper);background:var(--ink);padding:2px 7px;border-radius:3px}
+.tema .tt{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:800;font-size:16.5px;letter-spacing:-.01em;line-height:1.25}
+.tema .inner{padding:20px 22px}
+.tema h5{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:11.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin:22px 0 8px}
+.tema h5:first-child{margin-top:0}
+.modelo{
+  font-family:Georgia,"Times New Roman",serif;font-size:15.5px;line-height:1.85;
+  background:var(--band);border-left:4px solid var(--cyan);padding:16px 20px;border-radius:0 4px 4px 0;
+}
+.modelo p{margin:0 0 10px;max-width:none}
+.modelo p:last-child{margin:0}
+.termos{display:flex;flex-wrap:wrap;gap:6px;margin:0}
+.termos span{font-family:"Cascadia Mono",Consolas,monospace;font-size:11.5px;background:var(--magSoft);color:var(--mag);border:1px solid var(--mag);padding:2px 8px;border-radius:3px}
+.termos span.n{background:var(--cyanSoft);color:var(--cyan);border-color:var(--cyan)}
+.blocos{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin:0}
+.blocos>div{border:1px solid var(--rule2);border-radius:4px;padding:12px 14px;background:var(--paper)}
+.blocos b{display:block;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mag);margin-bottom:5px}
+.blocos p{margin:0;font-size:13.5px;color:var(--ink2)}
+
+@media print{
+  .voltar-indice{display:none}
+  nav.toc{display:none}
+  body{background:#fff;color:#000;font-size:11pt}
+  .tema .inner{display:block!important}
+  section{page-break-inside:auto}
+  .fig,.card,.tema{page-break-inside:avoid;box-shadow:none}
+  h2{page-break-after:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div style="padding:14px 0 12px;margin-bottom:2px;border-bottom:1px solid currentColor;opacity:.85" class="voltar-indice"><a href="index.html" style="display:inline-block;font-family:'Cascadia Mono',Consolas,monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:currentColor;opacity:.65;text-decoration:none">&#8592; Revisões ALECE 2026</a></div>
+
+<header class="proof">
+  <svg class="regmark tl" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="8" fill="none" stroke="var(--ink3)" stroke-width="1"/><path d="M13 0v26M0 13h26" stroke="var(--ink3)" stroke-width="1"/></svg>
+  <svg class="regmark tr" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="8" fill="none" stroke="var(--ink3)" stroke-width="1"/><path d="M13 0v26M0 13h26" stroke="var(--ink3)" stroke-width="1"/></svg>
+
+  <div class="eyebrow">ALECE · Edital 01/2026 · Banca IDECAN · Analista Legislativo</div>
+  <h1>Original:<br>as duas<br><em>discursivas</em></h1>
+  <p class="dek">Discursiva de concurso não é redação criativa — é <strong>montagem de peças</strong>. Aqui está a fábrica de peças: critérios de correção, método em cinco passos, arquitetura das 20 linhas, banco de frases e dez temas prováveis.</p>
+
+  <div class="colorbar" aria-hidden="true">
+    <span style="background:#00AEEF"></span><span style="background:#EC008C"></span>
+    <span style="background:#FFF200"></span><span style="background:#000"></span>
+    <span style="background:#1B1464"></span><span style="background:#00A651"></span>
+    <span style="background:#ED1C24"></span><span style="background:#808080"></span>
+    <span style="background:#fff;border-left:1px solid var(--rule)"></span>
+  </div>
+</header>
+
+<section id="discursiva">
+  <div class="sechead">
+    <span class="signature">15</span>
+    <h2>Discursiva: 40 pontos e o corte real</h2>
+    <span class="weight w-alta">decide a vaga</span>
+  </div>
+
+  <p class="measure">São <strong>2 questões de até 20 linhas</strong>, 20 pontos cada, com mínimo de <strong>24,00 de 40</strong>. Só 30 candidatos de Design Gráfico têm a discursiva corrigida — quem chega até aqui já passou pela objetiva, então <strong>é aqui que a classificação se decide</strong>. A boa notícia: discursiva de concurso não é redação criativa. É <strong>montagem de peças</strong>. Abaixo está a fábrica de peças.</p>
+
+  <h3>Os critérios de correção do edital — o que o corretor procura</h3>
+  <div class="fig">
+    <div class="body scroll">
+      <svg viewBox="0 0 760 200" width="760" role="img" aria-label="Critérios de avaliação da prova discursiva">
+        <g font-family="Helvetica Neue,Arial,sans-serif" font-size="12.5">
+          <g>
+            <rect x="8" y="16" width="176" height="76" rx="4" fill="var(--magSoft)" stroke="var(--mag)" stroke-width="2"/>
+            <text x="96" y="42" text-anchor="middle" font-size="13" font-weight="800" fill="var(--mag)">DOMÍNIO DA MATÉRIA</text>
+            <text x="96" y="62" text-anchor="middle" fill="var(--ink2)">terminologia técnica</text>
+            <text x="96" y="80" text-anchor="middle" fill="var(--ink2)">precisa e correta</text>
+          </g>
+          <g>
+            <rect x="200" y="16" width="176" height="76" rx="4" fill="var(--magSoft)" stroke="var(--mag)" stroke-width="2"/>
+            <text x="288" y="42" text-anchor="middle" font-size="13" font-weight="800" fill="var(--mag)">ENFRENTAMENTO</text>
+            <text x="288" y="62" text-anchor="middle" fill="var(--ink2)">responder exatamente</text>
+            <text x="288" y="80" text-anchor="middle" fill="var(--ink2)">o que foi perguntado</text>
+          </g>
+          <g>
+            <rect x="392" y="16" width="176" height="76" rx="4" fill="var(--card)" stroke="var(--ink)" stroke-width="1.5"/>
+            <text x="480" y="42" text-anchor="middle" font-size="13" font-weight="800" fill="var(--ink)">COESÃO E COERÊNCIA</text>
+            <text x="480" y="62" text-anchor="middle" fill="var(--ink2)">conectivos, progressão,</text>
+            <text x="480" y="80" text-anchor="middle" fill="var(--ink2)">organização textual</text>
+          </g>
+          <g>
+            <rect x="584" y="16" width="168" height="76" rx="4" fill="var(--card)" stroke="var(--ink)" stroke-width="1.5"/>
+            <text x="668" y="42" text-anchor="middle" font-size="13" font-weight="800" fill="var(--ink)">NORMA CULTA</text>
+            <text x="668" y="62" text-anchor="middle" fill="var(--ink2)">gramática, ortografia,</text>
+            <text x="668" y="80" text-anchor="middle" fill="var(--ink2)">pontuação</text>
+          </g>
+          <g>
+            <rect x="200" y="108" width="368" height="60" rx="4" fill="var(--cyanSoft)" stroke="var(--cyan)" stroke-width="2"/>
+            <text x="384" y="134" text-anchor="middle" font-size="13" font-weight="800" fill="var(--cyan)">FUNDAMENTAÇÃO TÉCNICA — E LEGAL, QUANDO CABÍVEL</text>
+            <text x="384" y="156" text-anchor="middle" fill="var(--ink2)">é o critério que separa nota 12 de nota 18</text>
+          </g>
+          <text x="384" y="192" text-anchor="middle" font-size="12.5" fill="var(--ink2)">Mera reprodução de norma, <tspan font-weight="800" fill="var(--mag)">sem articulação com o caso, não pontua</tspan>.</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Manuscrita, caneta azul ou preta, <b>sem qualquer identificação</b>. Texto além de 20 linhas é <b>desconsiderado</b> — não “perde ponto”: simplesmente não é lido.</figcaption>
+  </div>
+
+  <h3>O método: 50 minutos por questão, divididos em 5 passos</h3>
+  <div class="fig">
+    <div class="body scroll">
+      <svg viewBox="0 0 760 230" width="760" role="img" aria-label="Cinco passos para escrever a discursiva">
+        <g font-family="Helvetica Neue,Arial,sans-serif">
+          <!-- timeline -->
+          <line x1="30" y1="60" x2="730" y2="60" stroke="var(--rule)" stroke-width="3"/>
+          <g>
+            <circle cx="66" cy="60" r="15" fill="var(--mag)"/><text x="66" y="65" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">1</text>
+            <circle cx="216" cy="60" r="15" fill="var(--mag)"/><text x="216" y="65" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">2</text>
+            <circle cx="380" cy="60" r="15" fill="var(--mag)"/><text x="380" y="65" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">3</text>
+            <circle cx="544" cy="60" r="15" fill="var(--cyan)"/><text x="544" y="65" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">4</text>
+            <circle cx="694" cy="60" r="15" fill="var(--cyan)"/><text x="694" y="65" text-anchor="middle" font-size="13" font-weight="800" fill="#fff">5</text>
+          </g>
+          <g font-size="12.5">
+            <text x="66" y="30" text-anchor="middle" font-weight="800" fill="var(--ink)">3 min</text>
+            <text x="216" y="30" text-anchor="middle" font-weight="800" fill="var(--ink)">7 min</text>
+            <text x="380" y="30" text-anchor="middle" font-weight="800" fill="var(--ink)">5 min</text>
+            <text x="544" y="30" text-anchor="middle" font-weight="800" fill="var(--ink)">25 min</text>
+            <text x="694" y="30" text-anchor="middle" font-weight="800" fill="var(--ink)">10 min</text>
+          </g>
+          <g font-size="12.5">
+            <text x="66" y="96" text-anchor="middle" font-weight="800" fill="var(--mag)">DECIFRAR</text>
+            <text x="10" y="118" font-size="11.5" fill="var(--ink2)">Sublinhe o verbo de</text>
+            <text x="10" y="134" font-size="11.5" fill="var(--ink2)">comando e o recorte.</text>
+            <text x="10" y="150" font-size="11.5" fill="var(--ink2)">“Discorra”? “Aponte</text>
+            <text x="10" y="166" font-size="11.5" fill="var(--ink2)">três”? “Justifique”?</text>
+            <text x="10" y="182" font-size="11.5" font-weight="700" fill="var(--ink)">Circule quantos itens</text>
+            <text x="10" y="198" font-size="11.5" font-weight="700" fill="var(--ink)">o comando exige.</text>
+
+            <text x="216" y="96" text-anchor="middle" font-weight="800" fill="var(--mag)">DESPEJAR</text>
+            <text x="152" y="118" font-size="11.5" fill="var(--ink2)">No rascunho, jogue</text>
+            <text x="152" y="134" font-size="11.5" fill="var(--ink2)">TODOS os termos</text>
+            <text x="152" y="150" font-size="11.5" fill="var(--ink2)">técnicos e normas que</text>
+            <text x="152" y="166" font-size="11.5" fill="var(--ink2)">vierem à cabeça —</text>
+            <text x="152" y="182" font-size="11.5" font-weight="700" fill="var(--ink)">sem frase, só palavras.</text>
+
+            <text x="380" y="96" text-anchor="middle" font-weight="800" fill="var(--mag)">ORDENAR</text>
+            <text x="318" y="118" font-size="11.5" fill="var(--ink2)">Numere os termos em</text>
+            <text x="318" y="134" font-size="11.5" fill="var(--ink2)">3 blocos e descarte o</text>
+            <text x="318" y="150" font-size="11.5" fill="var(--ink2)">que não couber em 20</text>
+            <text x="318" y="166" font-size="11.5" fill="var(--ink2)">linhas. Escolha o</text>
+            <text x="318" y="182" font-size="11.5" font-weight="700" fill="var(--ink)">exemplo da ALECE.</text>
+
+            <text x="544" y="96" text-anchor="middle" font-weight="800" fill="var(--cyan)">ESCREVER</text>
+            <text x="482" y="118" font-size="11.5" fill="var(--ink2)">Direto no rascunho, já</text>
+            <text x="482" y="134" font-size="11.5" fill="var(--ink2)">contando as linhas.</text>
+            <text x="482" y="150" font-size="11.5" fill="var(--ink2)">Uma ideia por período.</text>
+            <text x="482" y="166" font-size="11.5" font-weight="700" fill="var(--ink)">Períodos curtos erram</text>
+            <text x="482" y="182" font-size="11.5" font-weight="700" fill="var(--ink)">menos gramática.</text>
+
+            <text x="694" y="96" text-anchor="middle" font-weight="800" fill="var(--cyan)">TRANSCREVER</text>
+            <text x="632" y="118" font-size="11.5" fill="var(--ink2)">Passe a limpo com</text>
+            <text x="632" y="134" font-size="11.5" fill="var(--ink2)">letra legível. Reveja</text>
+            <text x="632" y="150" font-size="11.5" fill="var(--ink2)">crase, concordância</text>
+            <text x="632" y="166" font-size="11.5" fill="var(--ink2)">e pontuação.</text>
+            <text x="632" y="182" font-size="11.5" font-weight="700" fill="var(--mag)">Zero identificação.</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Reserve os <b>últimos 30 minutos da prova</b> só para transcrição das duas discursivas. Rascunho não é corrigido — texto que ficou no rascunho vale zero.</figcaption>
+  </div>
+
+  <h3>A arquitetura das 20 linhas</h3>
+  <div class="fig">
+    <div class="body scroll">
+      <svg viewBox="0 0 760 330" width="760" role="img" aria-label="Distribuição das 20 linhas da resposta discursiva">
+        <g font-family="Helvetica Neue,Arial,sans-serif">
+          <!-- 20 ruled lines -->
+          <g stroke="var(--rule2)" stroke-width="1">
+            <line x1="30" y1="30" x2="470" y2="30"/><line x1="30" y1="44" x2="470" y2="44"/>
+            <line x1="30" y1="58" x2="470" y2="58"/><line x1="30" y1="72" x2="470" y2="72"/>
+            <line x1="30" y1="86" x2="470" y2="86"/><line x1="30" y1="100" x2="470" y2="100"/>
+            <line x1="30" y1="114" x2="470" y2="114"/><line x1="30" y1="128" x2="470" y2="128"/>
+            <line x1="30" y1="142" x2="470" y2="142"/><line x1="30" y1="156" x2="470" y2="156"/>
+            <line x1="30" y1="170" x2="470" y2="170"/><line x1="30" y1="184" x2="470" y2="184"/>
+            <line x1="30" y1="198" x2="470" y2="198"/><line x1="30" y1="212" x2="470" y2="212"/>
+            <line x1="30" y1="226" x2="470" y2="226"/><line x1="30" y1="240" x2="470" y2="240"/>
+            <line x1="30" y1="254" x2="470" y2="254"/><line x1="30" y1="268" x2="470" y2="268"/>
+            <line x1="30" y1="282" x2="470" y2="282"/><line x1="30" y1="296" x2="470" y2="296"/>
+          </g>
+          <!-- blocks -->
+          <rect x="30" y="18" width="440" height="40" fill="var(--mag)" opacity=".17"/>
+          <rect x="30" y="58" width="440" height="196" fill="var(--cyan)" opacity=".13"/>
+          <rect x="30" y="254" width="440" height="42" fill="var(--yell)" opacity=".22"/>
+          <rect x="30" y="296" width="440" height="14" fill="var(--ink)" opacity=".13"/>
+          <g fill="var(--ink3)" font-size="10" class="mono" font-family="Cascadia Mono,Consolas,monospace">
+            <text x="16" y="34" text-anchor="end">1</text><text x="16" y="62" text-anchor="end">3</text>
+            <text x="16" y="146" text-anchor="end">9</text><text x="16" y="258" text-anchor="end">17</text><text x="16" y="300" text-anchor="end">20</text>
+          </g>
+
+          <g font-size="13">
+            <text x="492" y="32" font-weight="800" fill="var(--mag)">LINHAS 1–2 · DEFINIR</text>
+            <text x="492" y="50" fill="var(--ink2)">Conceito central + recorte da resposta.</text>
+            <text x="492" y="66" fill="var(--ink2)">Nunca comece com “A questão pede que…”.</text>
+
+            <text x="492" y="100" font-weight="800" fill="var(--cyan)">LINHAS 3–16 · DESENVOLVER</text>
+            <text x="492" y="118" fill="var(--ink2)">3 blocos técnicos nomeados, ~4 a 5 linhas cada.</text>
+            <text x="492" y="134" fill="var(--ink2)">Terminologia precisa: grid, sangria, gamut,</text>
+            <text x="492" y="150" fill="var(--ink2)">contraste 4,5:1, PDF/X-1a, hierarquia tipográfica.</text>
+            <text x="492" y="166" fill="var(--ink2)">Ancoragem normativa: CF art. 37 § 1º, Lei 9.610/98,</text>
+            <text x="492" y="182" fill="var(--ink2)">LGPD, NBR 9050, WCAG/e-MAG, Lei 14.133/2021.</text>
+            <text x="492" y="204" font-weight="700" fill="var(--ink)">Abra cada bloco com um conectivo forte:</text>
+            <text x="492" y="220" fill="var(--ink2)">“Em primeiro lugar…” / “No plano da produção…” /</text>
+            <text x="492" y="236" fill="var(--ink2)">“Do ponto de vista normativo…”</text>
+
+            <text x="492" y="268" font-weight="800" fill="var(--yell)">LINHAS 17–19 · ATERRISSAR NA ALECE</text>
+            <text x="492" y="286" fill="var(--ink2)">Aplicação concreta ao Legislativo cearense.</text>
+            <text x="492" y="302" fill="var(--ink2)">É o que separa resposta genérica de resposta do cargo.</text>
+
+            <text x="492" y="326" font-weight="800" fill="var(--ink)">LINHA 20 · SALVAGUARDA</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Fechamento com uma <b>salvaguarda</b>: padronização · acessibilidade · impessoalidade · licenciamento. Uma frase só, e ela quase sempre cabe em qualquer tema.</figcaption>
+  </div>
+
+  <h3>Banco de tijolos — frases prontas para encaixar</h3>
+  <div class="grid g2">
+    <div class="card">
+      <h4>Aberturas (linhas 1–2)</h4>
+      <ul style="margin:0;font-size:14.5px">
+        <li>“<em>[Conceito]</em> designa <em>[definição técnica]</em> e, no âmbito do Poder Legislativo, cumpre função <strong>informativa e de orientação social</strong>, nos termos do art. 37, § 1º, da Constituição.”</li>
+        <li>“O <em>[objeto]</em> é o instrumento que assegura <strong>consistência, reprodutibilidade e acessibilidade</strong> da comunicação institucional.”</li>
+        <li>“Responder a <em>[demanda]</em> exige articular três planos: o <strong>projetual</strong>, o <strong>produtivo</strong> e o <strong>normativo</strong>.”</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Aterrissagens na ALECE (linhas 17–19)</h4>
+      <ul style="margin:0;font-size:14.5px">
+        <li>“Na Assembleia Legislativa do Ceará, isso se traduz em <em>[peça]</em>: identidade visual institucional, publicações e cartilhas, sinalização do prédio, campanhas de cidadania, portal e TV Assembleia, redes sociais e atendimento a gabinetes e comissões.”</li>
+        <li>“Cabe ao Analista de Design Gráfico <strong>orientar a correta aplicação</strong> desses parâmetros em todo material veiculado ao público interno e externo, inclusive por fornecedores contratados.”</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Salvaguardas (linha 20)</h4>
+      <ul style="margin:0;font-size:14.5px">
+        <li>“Assim, padronização, acessibilidade e impessoalidade não são restrições estéticas, mas <strong>condições de legitimidade</strong> da comunicação pública.”</li>
+        <li>“Garante-se, com isso, <strong>eficiência no gasto público</strong>, segurança jurídica quanto a direitos autorais e efetivo acesso da população à informação.”</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Conectivos que sustentam a coesão</h4>
+      <p style="margin:0;font-size:14.5px">Em primeiro lugar · Além disso · Nesse sentido · Do ponto de vista técnico · No plano normativo · Por conseguinte · Cumpre observar que · Sob outra perspectiva · Por fim.<br><br><strong>Evite:</strong> “Bom”, “Enfim”, “Vale ressaltar que” repetido, e qualquer primeira pessoa (“eu acredito”). Use <strong>3ª pessoa e voz impessoal</strong>.</p>
+    </div>
+  </div>
+
+  <h3>Pontos de atenção — o que derruba a nota</h3>
+  <div class="grid g2">
+    <div class="alerta" style="margin:0">
+      <span class="lbl">Elimina ou zera</span>
+      <ul style="margin:0">
+        <li><strong>Qualquer identificação</strong> — nome, inscrição, assinatura, marca no papel.</li>
+        <li>Escrever <strong>além da linha 20</strong> — o excedente é desconsiderado, então se o argumento estava lá, ele sumiu.</li>
+        <li>Escrever só no rascunho e não transcrever.</li>
+        <li>Caneta que não seja azul ou preta.</li>
+      </ul>
+    </div>
+    <div class="dica" style="margin:0">
+      <span class="lbl">Não pontua (ou pontua pouco)</span>
+      <ul style="margin:0">
+        <li><strong>Copiar a norma sem articular</strong> com o caso concreto.</li>
+        <li>Encher linha com definição de dicionário e não responder o comando.</li>
+        <li>Opinião estética (“fica mais bonito”) no lugar de fundamento técnico.</li>
+        <li>Listar tudo que sabe sem hierarquia — o corretor procura <strong>enfrentamento do tema</strong>, não inventário.</li>
+        <li>Resposta genérica que serviria para qualquer órgão: <strong>falta o recorte ALECE</strong>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dica">
+    <span class="lbl">Regra prática de calibragem</span>
+    <p>Em letra manuscrita média, <strong>uma linha comporta cerca de 10 a 12 palavras</strong>. Vinte linhas = <strong>~200 a 240 palavras</strong>. Escreva o rascunho já com essa contagem em mente: se passou de 240, corte adjetivo e repetição, não corte argumento. E prefira <strong>períodos de 2 linhas</strong> — período longo é onde mora o erro de concordância e de crase.</p>
+  </div>
+
+  <h3>Os 10 temas prováveis — abra e leia o esqueleto</h3>
+  <p class="measure">Ordenados por probabilidade. Os três primeiros vêm com <strong>resposta-modelo escrita por inteiro</strong>, no tamanho exato de 20 linhas. Os demais trazem blocos, termos obrigatórios e a norma a citar — que é o que realmente falta na hora.</p>
+
+  <details class="tema" open>
+    <summary><span class="rank">01</span><span class="tt">Gestão e preservação da identidade visual institucional</span></summary>
+    <div class="inner">
+      <h5>O que a banca quer ouvir</h5>
+      <p>Que o manual de IV é <strong>instrumento de governança</strong>, não catálogo estético — e que o cargo tem atribuição expressa de fiscalizar a aplicação. Este é o tema mais colado à descrição do cargo no edital.</p>
+
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>Bloco 1 · conceito</b><p>Marca × identidade visual × logotipo/símbolo/assinatura. IV como sistema.</p></div>
+        <div><b>Bloco 2 · o manual</b><p>Elementos obrigatórios: grid construtivo, área de reserva, redução mínima, cores em Pantone/CMYK/RGB/hex, tipografia, usos indevidos, coassinatura.</p></div>
+        <div><b>Bloco 3 · governança</b><p>Parecer técnico, orientação a gabinetes e fornecedores, guarda dos arquivos-fonte, cláusula contratual, brasão como uso oficial regulado.</p></div>
+      </div>
+
+      <h5>Termos e normas obrigatórios</h5>
+      <p class="termos"><span>assinatura visual</span><span>área de reserva</span><span>redução mínima</span><span>malha construtiva</span><span>usos indevidos</span><span>coassinatura</span><span>arquivos-fonte</span><span class="n">CF art. 37 § 1º</span><span class="n">Lei 9.279/1996 — INPI</span><span class="n">Lei 14.133/2021</span></p>
+
+      <h5>Resposta-modelo · 20 linhas</h5>
+      <div class="modelo">
+        <p>A identidade visual é o sistema de elementos gráficos — símbolo, logotipo, assinatura, tipografia, cores e grafismos — pelo qual uma instituição se torna reconhecível; a marca, por sua vez, é a percepção que esse sistema constrói no público. Preservá-la é, portanto, preservar a própria credibilidade da comunicação pública.</p>
+        <p>O instrumento dessa preservação é o manual de identidade visual, que deve fixar as assinaturas e suas variações (horizontal, vertical, reduzida, monocromática e negativa), a malha construtiva, a área de reserva, a redução mínima, as equivalências cromáticas em Pantone, CMYK, RGB e hexadecimal, a tipografia institucional e as aplicações admitidas sobre fundos claros, escuros e fotográficos. Igualmente essencial é o capítulo de usos indevidos, que veda distorção, rotação, recomposição, alteração de proporção e troca de cor.</p>
+        <p>No plano da governança, contudo, o manual só produz efeito se houver gestão. Cabe orientação técnica permanente a gabinetes, comissões e fornecedores, guarda centralizada dos arquivos-fonte e previsão contratual de cessão dos direitos patrimoniais, nos termos da Lei nº 14.133/2021. Registre-se ainda que brasões e insígnias oficiais não são elementos livres de composição, mas uso regulado.</p>
+        <p>Na Assembleia Legislativa do Ceará, isso alcança publicações institucionais, sinalização do prédio, campanhas de cidadania, portal, TV Assembleia e redes sociais, sempre observado o caráter educativo e informativo e a vedação à promoção pessoal do art. 37, § 1º, da Constituição. Assim, a padronização não é restrição estética, mas condição de impessoalidade e de eficiência no gasto público.</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="tema">
+    <summary><span class="rank">02</span><span class="tt">Acessibilidade na comunicação pública</span></summary>
+    <div class="inner">
+      <h5>O que a banca quer ouvir</h5>
+      <p>Números concretos de contraste + as siglas certas + que acessibilidade é <strong>obrigação legal</strong>, não cortesia. Este tema é o queridinho das bancas porque é objetivo e verificável.</p>
+
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>Bloco 1 · fundamento legal</b><p>LBI 13.146/2015, Decreto 5.296/2004, e-MAG obrigatório para sítios do governo, NBR 9050.</p></div>
+        <div><b>Bloco 2 · parâmetros técnicos</b><p>WCAG POUR, nível AA, 4,5:1 e 3:1, cor nunca como único meio, alt text, foco visível, 200%.</p></div>
+        <div><b>Bloco 3 · audiovisual e documentos</b><p>Legendas, audiodescrição, janela de Libras, PDF marcado/tagged, desenho universal.</p></div>
+      </div>
+
+      <h5>Termos e normas obrigatórios</h5>
+      <p class="termos"><span>POUR</span><span>nível AA</span><span>4,5:1 · 3:1 · 7:1</span><span>texto alternativo</span><span>PDF marcado</span><span>desenho universal</span><span class="n">WCAG 2.1/2.2</span><span class="n">e-MAG</span><span class="n">Lei 13.146/2015</span><span class="n">NBR 9050:2020</span><span class="n">NBR 15290</span></p>
+
+      <h5>Resposta-modelo · 20 linhas</h5>
+      <div class="modelo">
+        <p>Acessibilidade na comunicação pública não é atributo desejável, mas dever legal: a Lei nº 13.146/2015 impõe acessibilidade a sítios, conteúdos e serviços, e o e-MAG é de observância obrigatória para os sítios governamentais. Seu fundamento conceitual é o desenho universal, que orienta projetar para o maior número de pessoas sem adaptações posteriores.</p>
+        <p>Tecnicamente, a referência é a WCAG, estruturada nos princípios de conteúdo perceptível, operável, compreensível e robusto, sendo o nível AA o padrão exigido do setor público. Dele decorrem parâmetros objetivos: contraste mínimo de 4,5:1 para texto normal e de 3:1 para texto grande, componentes de interface e elementos gráficos; vedação ao uso da cor como único meio de transmitir informação; texto alternativo em imagens informativas e alt vazio nas decorativas; foco visível, navegação por teclado e ordem lógica de leitura; e redimensionamento até 200% sem perda de conteúdo.</p>
+        <p>No material audiovisual acrescentam-se legendagem, audiodescrição e janela de Libras; nos documentos, o PDF deve ser marcado, com texto real, idioma e metadados definidos, jamais imagem digitalizada. Na sinalização física, aplica-se a NBR 9050, com sinalização visual, tátil em relevo e Braille, e sonora.</p>
+        <p>Na Assembleia Legislativa do Ceará, tais parâmetros incidem sobre o portal, a TV Assembleia, cartilhas de cidadania e a sinalização do prédio. Garante-se, assim, transparência ativa efetiva: informação publicada que não pode ser percebida por todos não cumpriu sua finalidade pública.</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="tema">
+    <summary><span class="rank">03</span><span class="tt">Fechamento de arquivo e escolha do processo de impressão para uma cartilha institucional</span></summary>
+    <div class="inner">
+      <h5>O que a banca quer ouvir</h5>
+      <p>Números. Este é o tema em que a resposta boa é <strong>uma especificação técnica</strong>, quase um termo de referência escrito em prosa. Cite milímetros, ppi, perfil ICC e o padrão PDF.</p>
+
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>Bloco 1 · projeto</b><p>Formato aberto/fechado, nº de páginas em múltiplos de 4, grid, hierarquia tipográfica.</p></div>
+        <div><b>Bloco 2 · fechamento</b><p>Sangria 3 mm, marcas, área de segurança, 300 ppi (PPI ≈ 2 × LPI), CMYK com perfil ICC, fontes incorporadas, 100K, preflight e package, PDF/X-1a.</p></div>
+        <div><b>Bloco 3 · processo e acabamento</b><p>Offset × digital pelo ponto de equilíbrio, papel e gramatura, grampo canoa × lombada colada, laminação, prova de contrato.</p></div>
+      </div>
+
+      <h5>Termos e normas obrigatórios</h5>
+      <p class="termos"><span>sangria 3 mm</span><span>300 ppi</span><span>PPI ≈ 2 × LPI</span><span>perfil ICC</span><span>PDF/X-1a</span><span>preflight / package</span><span>TAC 300%</span><span>creep/shingling</span><span>prova de contrato</span><span class="n">Lei 14.133/2021</span></p>
+
+      <h5>Resposta-modelo · 20 linhas</h5>
+      <div class="modelo">
+        <p>A produção de uma cartilha institucional exige decisões encadeadas de projeto, fechamento e processo. No projeto, define-se o formato fechado, o grid e a hierarquia tipográfica, observando que a paginação deve ser múltipla de quatro, em razão da imposição em cadernos.</p>
+        <p>No fechamento do arquivo, aplicam-se parâmetros técnicos objetivos: sangria de 3 mm por lado, com todo elemento que alcança a borda avançando sobre ela; marcas de corte, registro e dobra; área de segurança de ao menos 3 a 5 mm para texto e elementos essenciais; imagens em 300 ppi na escala final de uso, conforme a relação PPI aproximadamente igual ao dobro da lineatura; conversão para CMYK com perfil ICC declarado; fontes incorporadas; texto em preto chapado 100K com sobreimpressão, reservando o preto rico às grandes áreas; cobertura total de tinta limitada a cerca de 300% em couché. Concluídos o pré-voo e o empacotamento, exporta-se em PDF/X-1a, padrão mais conservador e amplamente aceito pelas gráficas.</p>
+        <p>A escolha do processo decorre da tiragem: abaixo de algumas centenas de exemplares, a impressão digital é mais econômica por dispensar chapas e acerto; acima disso, o offset dilui o custo fixo e oferece melhor custo unitário. O acabamento acompanha a extensão — grampo canoa até cerca de oitenta páginas, compensando o creep na imposição, ou lombada quadrada colada em PUR acima disso.</p>
+        <p>Por fim, exige-se prova digital calibrada e boneco físico antes da tiragem, e a especificação deve ser objetiva e não direcionada a marca, nos termos da Lei nº 14.133/2021.</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="tema">
+    <summary><span class="rank">04</span><span class="tt">Projeto de sinalização e wayfinding do prédio da Assembleia</span></summary>
+    <div class="inner">
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>Bloco 1 · categorias</b><p>Identificação · direcional · de orientação · regulatória. Definir cada uma em uma oração.</p></div>
+        <div><b>Bloco 2 · princípios</b><p>Hierarquia informacional, consistência de nomenclatura, progressão da informação ao longo do percurso, pontos de decisão, redundância controlada, legibilidade a distância.</p></div>
+        <div><b>Bloco 3 · norma e execução</b><p>NBR 9050: visual, tátil em relevo e Braille, sonora; Símbolo Internacional de Acesso; ISO 7001; rotas acessíveis; altura de instalação; acompanhamento de montagem.</p></div>
+      </div>
+      <h5>Termos e normas</h5>
+      <p class="termos"><span>wayfinding</span><span>pontos de decisão</span><span>progressão da informação</span><span>sem serifa humanista</span><span>altura de caractere × distância</span><span>pictograma</span><span class="n">NBR 9050:2020</span><span class="n">NBR 16537</span><span class="n">ISO 7001</span><span class="n">Lei 13.146/2015</span></p>
+      <h5>Abertura pronta</h5>
+      <div class="modelo"><p>A sinalização de um edifício público é sistema de informação orientado ao deslocamento, e não conjunto isolado de placas: organiza-se em quatro categorias — identificação, direcional, de orientação e regulatória — distribuídas ao longo do percurso do visitante.</p></div>
+      <h5>Fechamento pronto</h5>
+      <div class="modelo"><p>Em um edifício de acesso público e de forte circulação de cidadãos, como a Assembleia Legislativa, a sinalização é instrumento de acessibilidade e de exercício do direito de participação, devendo ser acompanhada tecnicamente também na fase de montagem e instalação.</p></div>
+      <div class="alerta" style="margin:16px 0 0"><span class="lbl">Atenção</span><p>Não invente número de altura de letra. Diga a <strong>relação</strong> (a altura cresce com a distância de leitura) e <strong>remeta à tabela da NBR 9050</strong>. Isso demonstra domínio sem risco de erro.</p></div>
+    </div>
+  </details>
+
+  <details class="tema">
+    <summary><span class="rank">05</span><span class="tt">Direito autoral e uso de imagens em campanha institucional</span></summary>
+    <div class="inner">
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>Bloco 1 · a lei</b><p>Lei 9.610/1998 protege a expressão, não a ideia. Direitos morais inalienáveis × patrimoniais cedíveis por contrato escrito. Prazo de 70 anos.</p></div>
+        <div><b>Bloco 2 · imagem da pessoa</b><p>CF art. 5º, V, X e XXVIII; CC arts. 20 e 21; termo de autorização; Súmula 403 do STJ; cuidado redobrado com crianças (ECA).</p></div>
+        <div><b>Bloco 3 · licenças e LGPD</b><p>Creative Commons (BY, SA, ND, NC), royalty free × rights managed × editorial only, model e property release, licença de fonte. Foto que identifica pessoa é dado pessoal.</p></div>
+      </div>
+      <h5>Termos e normas</h5>
+      <p class="termos"><span>direitos morais irrenunciáveis</span><span>cessão por contrato escrito</span><span>70 anos</span><span>editorial only</span><span>model release</span><span>licença de fonte</span><span class="n">Lei 9.610/1998</span><span class="n">Súmula 403 STJ</span><span class="n">Lei 13.709/2018</span><span class="n">art. 184 CP</span></p>
+      <h5>Abertura pronta</h5>
+      <div class="modelo"><p>A produção de campanha institucional exige compatibilizar três regimes jurídicos distintos: o direito de autor sobre a obra, o direito de imagem da pessoa retratada e a proteção de dados pessoais.</p></div>
+      <div class="dica" style="margin:16px 0 0"><span class="lbl">Frase de ouro para este tema</span><p>“Os direitos morais do autor são <strong>inalienáveis e irrenunciáveis</strong>, não se transferindo por contrato; apenas os patrimoniais são cedíveis, e a cessão total exige <strong>instrumento escrito</strong>, presumindo-se onerosa.”</p></div>
+    </div>
+  </details>
+
+  <details class="tema">
+    <summary><span class="rank">06</span><span class="tt">Publicidade institucional e impessoalidade</span></summary>
+    <div class="inner">
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>Bloco 1 · o comando constitucional</b><p>CF art. 37, § 1º: caráter educativo, informativo ou de orientação social; vedação a nome, símbolo ou imagem que caracterize promoção pessoal. LIMPE.</p></div>
+        <div><b>Bloco 2 · as três coisas diferentes</b><p>Publicidade institucional × propaganda eleitoral × promoção pessoal. Definir e separar cada uma.</p></div>
+        <div><b>Bloco 3 · restrições eleitorais</b><p>Lei 9.504/1997, art. 73, VI, “b” (três meses antes do pleito) e VII (limite de gastos no 1º semestre).</p></div>
+      </div>
+      <h5>Termos e normas</h5>
+      <p class="termos"><span>caráter educativo e informativo</span><span>promoção pessoal</span><span>LIMPE</span><span>orientação social</span><span class="n">CF art. 37 § 1º</span><span class="n">Lei 9.504/1997 art. 73</span><span class="n">Lei 12.527/2011</span></p>
+      <h5>Como o designer entra na resposta</h5>
+      <p>Traduza o princípio em <strong>decisão de projeto</strong>: nome e retrato de autoridade fora da peça; protagonismo do serviço e não do gestor; assinatura institucional padronizada em vez de marca de gestão; linguagem simples e hierarquia que privilegie a informação útil ao cidadão.</p>
+      <h5>Fechamento pronto</h5>
+      <div class="modelo"><p>Cabe ao designer, no exercício da consultoria técnica, recusar fundamentadamente elementos que configurem promoção pessoal, registrando o parecer — a impessoalidade, no material gráfico, se realiza em escolhas concretas de composição, e não apenas em declaração de intenção.</p></div>
+    </div>
+  </details>
+
+  <details class="tema">
+    <summary><span class="rank">07</span><span class="tt">Parecer técnico para licitação de serviços gráficos (Lei 14.133/2021)</span></summary>
+    <div class="inner">
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>Bloco 1 · o termo de referência</b><p>Formato aberto e fechado, nº de páginas, papel e gramatura de capa e miolo, cores (4/4, 1/1, 4/0), acabamento, tiragem, prazo e logística.</p></div>
+        <div><b>Bloco 2 · aceitação</b><p>Provas exigidas, amostra, critérios objetivos de aceite, controle de qualidade: registro, uniformidade de cor, refile, esquadro, alceamento, colagem, ausência de repinte.</p></div>
+        <div><b>Bloco 3 · salvaguardas jurídicas</b><p>Vedação de direcionamento por marca sem justificativa técnica; cessão dos direitos patrimoniais; entrega dos arquivos abertos/fonte.</p></div>
+      </div>
+      <h5>Termos e normas</h5>
+      <p class="termos"><span>termo de referência</span><span>especificação objetiva</span><span>4/4 · 1/1 · 4/0</span><span>quebra técnica</span><span>prova de contrato</span><span>critérios de aceite</span><span class="n">Lei 14.133/2021</span><span class="n">Lei 9.610/1998</span></p>
+      <h5>Abertura pronta</h5>
+      <div class="modelo"><p>O parecer técnico em contratação de serviços gráficos tem por função converter a necessidade da Administração em especificação objetiva, mensurável e não direcionada, assegurando isonomia entre licitantes e previsibilidade do resultado impresso.</p></div>
+    </div>
+  </details>
+
+  <details class="tema">
+    <summary><span class="rank">08</span><span class="tt">Projeto gráfico editorial de um relatório institucional</span></summary>
+    <div class="inner">
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>Bloco 1 · estrutura</b><p>Grid (colunar ou modular), margens e mancha, baseline grid, páginas-mestras, estilos de parágrafo e caractere obrigatórios.</p></div>
+        <div><b>Bloco 2 · legibilidade</b><p>Hierarquia tipográfica, medida de 45–75 caracteres, entrelinha 120–145%, alinhamento à esquerda em textos longos, numerais tabulares em tabelas.</p></div>
+        <div><b>Bloco 3 · dados e versão digital</b><p>Tratamento padronizado de tabelas e infográficos (data-ink ratio, sem 3D, eixo em zero), sumário automático, PDF acessível marcado.</p></div>
+      </div>
+      <h5>Termos e normas</h5>
+      <p class="termos"><span>mancha gráfica</span><span>baseline grid</span><span>páginas-mestras</span><span>45–75 caracteres</span><span>entrelinha 120–145%</span><span>chartjunk</span><span>PDF marcado</span><span class="n">WCAG AA</span><span class="n">e-MAG</span></p>
+      <div class="dica" style="margin:16px 0 0"><span class="lbl">Diferencial</span><p>Diga que, em relatório técnico, <strong>não cabem capitulares decorativas nem justificação em texto longo destinado a leitura acessível</strong> — é o tipo de julgamento profissional que a banca premia.</p></div>
+    </div>
+  </details>
+
+  <details class="tema">
+    <summary><span class="rank">09</span><span class="tt">Design para redes sociais e comunicação digital do Legislativo</span></summary>
+    <div class="inner">
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>Bloco 1 · sistema, não peça avulsa</b><p>Consistência do sistema visual, kit de templates, design tokens, adaptação por proporção (1:1, 4:5, 9:16, 16:9).</p></div>
+        <div><b>Bloco 2 · legibilidade em tela pequena</b><p>Corpo mínimo, contraste, hierarquia de um único recado por peça, evitar texto dentro de imagem.</p></div>
+        <div><b>Bloco 3 · acessibilidade e limites</b><p>Texto alternativo, legenda em vídeo, janela de Libras, contraste AA; e o limite institucional: impessoalidade, veracidade, LAI.</p></div>
+      </div>
+      <h5>Termos e normas</h5>
+      <p class="termos"><span>adaptação por proporção</span><span>sistema visual</span><span>alt text</span><span>legenda embutida</span><span>linguagem simples</span><span class="n">CF art. 37 § 1º</span><span class="n">WCAG AA</span><span class="n">LGPD</span></p>
+      <h5>Fechamento pronto</h5>
+      <div class="modelo"><p>Nas redes, o Legislativo não disputa atenção como anunciante, mas informa como Poder: o design deve favorecer compreensão e acesso, sem transformar o conteúdo oficial em peça de promoção.</p></div>
+    </div>
+  </details>
+
+  <details class="tema">
+    <summary><span class="rank">10</span><span class="tt">UX/UI do portal institucional</span></summary>
+    <div class="inner">
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>Bloco 1 · processo</b><p>Pesquisa com usuários, personas, jornada, arquitetura da informação (organização, rotulagem, navegação, busca), card sorting.</p></div>
+        <div><b>Bloco 2 · entregáveis e sistema</b><p>Wireframe → mockup → protótipo → teste de usabilidade → handoff. Design system, atomic design, estados dos componentes, mobile first.</p></div>
+        <div><b>Bloco 3 · avaliação e obrigações</b><p>Heurísticas de Nielsen, leis de Fitts e Hick; acessibilidade WCAG AA e e-MAG; transparência ativa da LAI.</p></div>
+      </div>
+      <h5>Termos e normas</h5>
+      <p class="termos"><span>arquitetura da informação</span><span>heurísticas de Nielsen</span><span>atomic design</span><span>mobile first</span><span>teste de usabilidade</span><span class="n">e-MAG</span><span class="n">WCAG 2.1 AA</span><span class="n">Lei 12.527/2011</span><span class="n">Lei 14.129/2021</span></p>
+      <h5>Abertura pronta</h5>
+      <div class="modelo"><p>No portal de um órgão público, usabilidade e acessibilidade deixam de ser atributos de qualidade e passam a ser condição de eficácia da transparência ativa: a informação disponível que o cidadão não consegue encontrar equivale à informação não publicada.</p></div>
+    </div>
+  </details>
+
+  <div class="alerta">
+    <span class="lbl">Se cair um tema fora da lista</span>
+    <p>Use o <strong>molde universal de três planos</strong>, que serve para qualquer enunciado de design institucional: <strong>(1) plano conceitual</strong> — defina o termo com precisão; <strong>(2) plano técnico-projetual</strong> — traga parâmetros mensuráveis (números, normas, procedimentos); <strong>(3) plano normativo e institucional</strong> — ancore em lei e aterrisse na ALECE. Fecha com a salvaguarda. Esse molde já garante os critérios de “domínio da matéria” e “fundamentação técnica” mesmo num tema que você não previu.</p>
+  </div>
+</section>
+
+<!-- ============ 16. CHECKLIST ============ -->
+<footer>
+  <p style="margin:0 0 6px"><strong>Original ALECE</strong> — as duas discursivas para Analista Legislativo, especialidade 12 · Design Gráfico.</p>
+  <p style="margin:0 0 10px">Conteúdo consolidado a partir do Edital 01/2026 da Assembleia Legislativa do Estado do Ceará. Os temas prováveis são <strong>estimativa</strong>, não indicação da banca.</p>
+  <p style="margin:0"><a href="caderno-visual.html">← Boneco: a revisão completa</a> &#160;·&#160; <a href="questoes-design.html">Prova de Prelo: as objetivas</a> &#160;·&#160; <a href="index.html">Índice dos materiais</a></p>
+</footer>
+
+</div>
+
+<script>
+// Um <details> fechado nao imprime seu conteudo. Abre todos antes de imprimir e restaura depois.
+(function () {
+  var fechados = [];
+  function abrir() {
+    fechados = [].slice.call(document.querySelectorAll('details:not([open])'));
+    fechados.forEach(function (d) { d.open = true; });
+  }
+  function restaurar() {
+    fechados.forEach(function (d) { d.open = false; });
+    fechados = [];
+  }
+  window.addEventListener('beforeprint', abrir);
+  window.addEventListener('afterprint', restaurar);
+  var mq = window.matchMedia && window.matchMedia('print');
+  if (mq && mq.addEventListener) {
+    mq.addEventListener('change', function (e) { e.matches ? abrir() : restaurar(); });
+  }
+})();
+</script>
+</body>
+</html>

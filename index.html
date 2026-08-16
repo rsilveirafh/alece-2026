@@ -47,7 +47,7 @@ h1 em{font-style:normal;color:var(--mag)}
 h2{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:800;letter-spacing:-.02em;font-size:20px;margin:0 0 4px}
 .sec{border-top:2px solid var(--ink);padding-top:14px;margin:clamp(44px,7vw,72px) 0 0}
 .sec>.lbl{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:14px}
-.cards{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:16px}
+.cards{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:16px;align-items:start}
 a.card{
   display:block;text-decoration:none;color:inherit;background:var(--card);
   border:1px solid var(--rule2);border-radius:6px;padding:20px 22px;box-shadow:var(--shadow);
@@ -55,7 +55,8 @@ a.card{
 }
 a.card:hover{border-color:var(--mag);transform:translateY(-2px)}
 a.card:focus-visible{outline:2px solid var(--mag);outline-offset:2px}
-a.card .ic{font-size:26px;line-height:1;display:block;margin-bottom:10px}
+a.card .ic{font-size:26px;line-height:1;display:block;margin-bottom:8px}
+a.card .kind{display:inline-block;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);border:1px solid currentColor;border-radius:99px;padding:1px 8px;margin-bottom:8px}
 a.card p{margin:0;color:var(--ink2);font-size:14.5px}
 a.card .go{display:inline-block;margin-top:12px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mag)}
 .meta{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0}
@@ -70,7 +71,7 @@ footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:16px;font-si
 
   <div class="eyebrow">Assembleia Legislativa do Ceará · Edital 01/2026 · Banca IDECAN</div>
   <h1>Revisões<br><em>ALECE 2026</em></h1>
-  <p class="dek">Materiais de estudo ilustrados para a prova de Analista Legislativo. Cada página é autocontida: abre no computador ou no celular, funciona em tema claro e escuro, e imprime em PDF pelo <strong>Ctrl+P</strong> com todo o conteúdo expandido.</p>
+  <p class="dek">Materiais de estudo ilustrados para a prova de Analista Legislativo. Cada especialidade tem três páginas — <strong>conteúdo</strong>, <strong>discursivas</strong> e <strong>objetivas</strong> —, para você abrir só a que vai usar. Cada página é autocontida: abre no computador ou no celular, funciona em tema claro e escuro, e imprime em PDF pelo <strong>Ctrl+P</strong> com todo o conteúdo expandido.</p>
 
   <div class="meta">
     <span>prova 16/08/2026</span><span>turno da tarde · 14h–19h</span><span>70 questões · 120 pts</span><span>2 discursivas · 20 linhas</span>
@@ -88,14 +89,23 @@ footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:16px;font-si
     <div class="cards">
       <a class="card" href="caderno-visual.html">
         <span class="ic" aria-hidden="true">🖨️</span>
+        <span class="kind">Conteúdo</span>
         <h2>Boneco</h2>
-        <p>A revisão inteira desenhada: Gestalt, anatomia tipográfica, cor e gamut, fechamento de arquivo, processos de impressão, grid, acessibilidade e legislação. Inclui o método completo da discursiva, com respostas-modelo.</p>
+        <p>A revisão inteira desenhada: Gestalt, anatomia tipográfica, cor e gamut, fechamento de arquivo, processos de impressão, grid, acessibilidade e legislação.</p>
+        <span class="go">Abrir →</span>
+      </a>
+      <a class="card" href="discursiva-design.html">
+        <span class="ic" aria-hidden="true">✍️</span>
+        <span class="kind">Discursivas</span>
+        <h2>Original</h2>
+        <p>As duas questões de 20 linhas: critérios de correção do edital, método em cinco passos, arquitetura das linhas, banco de frases prontas e dez temas prováveis com esqueleto.</p>
         <span class="go">Abrir →</span>
       </a>
       <a class="card" href="questoes-design.html">
         <span class="ic" aria-hidden="true">✅</span>
+        <span class="kind">Objetivas</span>
         <h2>Prova de Prelo</h2>
-        <p>Como a IDECAN monta uma questão, doze questões reais de Design Gráfico de provas de 2025 com resposta comentada, e um simulado autoral de vinte questões no formato da banca.</p>
+        <p>Como a IDECAN monta uma questão, doze questões reais de Design Gráfico de provas de 2025 com resposta comentada, e um simulado autoral de vinte questões.</p>
         <span class="go">Abrir →</span>
       </a>
     </div>
@@ -106,14 +116,23 @@ footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:16px;font-si
     <div class="cards">
       <a class="card" href="analise-de-dados.html">
         <span class="ic" aria-hidden="true">📊</span>
+        <span class="kind">Conteúdo</span>
         <h2>Conjunto de Treino</h2>
-        <p>A revisão inteira, com dezoito esquemas desenhados: LGPD e LAI, fundamentos e qualidade de dados, coleta e interoperabilidade, estatística e clustering, classificação e métricas, simulação, PLN, séries temporais, SQL e ética. Inclui o método completo da discursiva, com respostas-modelo, e um drill de cinquenta cartões.</p>
+        <p>A revisão inteira, com dezoito esquemas desenhados: LGPD e LAI, fundamentos e qualidade, coleta e interoperabilidade, estatística e clustering, métricas, simulação, PLN, séries temporais, SQL e ética. Com drill de cinquenta cartões.</p>
+        <span class="go">Abrir →</span>
+      </a>
+      <a class="card" href="discursiva-analise-de-dados.html">
+        <span class="ic" aria-hidden="true">✍️</span>
+        <span class="kind">Discursivas</span>
+        <h2>Conjunto de Validação</h2>
+        <p>As duas questões de 20 linhas: método, arquitetura, banco de frases e catorze temas prováveis — cada um com resposta pronta medida em 20 linhas, resumo em palavras simples e gancho de IA. Dois temas são inteiramente sobre inteligência artificial.</p>
         <span class="go">Abrir →</span>
       </a>
       <a class="card" href="questoes-analise-de-dados.html">
         <span class="ic" aria-hidden="true">🎯</span>
+        <span class="kind">Objetivas</span>
         <h2>Conjunto de Teste</h2>
-        <p>Como a IDECAN monta uma questão, vinte e quatro questões reais de ciência de dados com gabarito oficial e comentário, e um simulado autoral de vinte e uma questões no formato da banca.</p>
+        <p>Como a IDECAN monta uma questão, vinte e quatro questões reais de ciência de dados com gabarito oficial e comentário, e um simulado autoral de vinte e uma questões.</p>
         <span class="go">Abrir →</span>
       </a>
     </div>
@@ -124,14 +143,23 @@ footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:16px;font-si
     <div class="cards">
       <a class="card" href="jornalismo-caderno.html">
         <span class="ic" aria-hidden="true">📰</span>
+        <span class="kind">Conteúdo</span>
         <h2>Pauta</h2>
-        <p>A revisão inteira desenhada: teorias da comunicação, noticiabilidade, lead e pirâmide invertida, gêneros, comunicação pública, assessoria, crise e media training, desinformação, rádio e telejornalismo, legislação e linguagem simples. Inclui o método completo da discursiva, com respostas-modelo.</p>
+        <p>A revisão inteira desenhada: teorias da comunicação, noticiabilidade, lead e pirâmide invertida, gêneros, comunicação pública, assessoria, crise e media training, desinformação, rádio e telejornalismo, legislação e linguagem simples.</p>
+        <span class="go">Abrir →</span>
+      </a>
+      <a class="card" href="discursiva-jornalismo.html">
+        <span class="ic" aria-hidden="true">✍️</span>
+        <span class="kind">Discursivas</span>
+        <h2>Editorial</h2>
+        <p>As duas questões de 20 linhas: critérios de correção do edital, arquitetura das linhas, banco de tijolos com frases prontas e dez temas prováveis com esqueleto.</p>
         <span class="go">Abrir →</span>
       </a>
       <a class="card" href="jornalismo-questoes.html">
         <span class="ic" aria-hidden="true">🎙️</span>
+        <span class="kind">Objetivas</span>
         <h2>Fechamento</h2>
-        <p>Dezesseis questões reais comentadas — a maioria da prova FGV/AL-RO de fevereiro de 2026, mesmo tipo de cargo em assembleia legislativa — e um simulado autoral de vinte questões no formato da banca.</p>
+        <p>Dezesseis questões reais comentadas — a maioria da prova FGV/AL-RO de fevereiro de 2026, mesmo tipo de cargo em assembleia legislativa — e um simulado autoral de vinte questões.</p>
         <span class="go">Abrir →</span>
       </a>
     </div>

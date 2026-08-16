@@ -1,0 +1,1002 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="As duas questões discursivas de Análise de Dados para a prova da ALECE 2026: método, temas prováveis e respostas prontas.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+<title>Conjunto de Validação</title>
+<style>
+:root{
+  --paper:#F1F4F3; --surface:#FFFFFF; --surface-2:#E7ECEB;
+  --ink:#14191B; --ink-2:#3E4A4D; --muted:#657376;
+  --line:#D2DAD9; --line-strong:#B4C0BF;
+  --accent:#1B4B57; --accent-soft:#DCE9EB;
+  --warn:#8C2F2A; --warn-soft:#F3E1DF;
+  --good:#3A6B45; --good-soft:#DFEBE1;
+  --gold:#7A5B18; --gold-soft:#F0E7D0;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --mono:"Cascadia Mono",Consolas,"SF Mono",Menlo,"DejaVu Sans Mono",monospace;
+  --measure:94ch;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#101618; --surface:#182023; --surface-2:#1F292C;
+    --ink:#E3EAEA; --ink-2:#B6C3C4; --muted:#849496;
+    --line:#2C3A3D; --line-strong:#3D4E52;
+    --accent:#77B6C5; --accent-soft:#1B3138;
+    --warn:#E08A83; --warn-soft:#38201F;
+    --good:#8FC297; --good-soft:#1D2E22;
+    --gold:#D6B96E; --gold-soft:#332B18;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#101618; --surface:#182023; --surface-2:#1F292C;
+  --ink:#E3EAEA; --ink-2:#B6C3C4; --muted:#849496;
+  --line:#2C3A3D; --line-strong:#3D4E52;
+  --accent:#77B6C5; --accent-soft:#1B3138;
+  --warn:#E08A83; --warn-soft:#38201F;
+  --good:#8FC297; --good-soft:#1D2E22;
+  --gold:#D6B96E; --gold-soft:#332B18;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:1rem;line-height:1.62;-webkit-font-smoothing:antialiased}
+html{font-size:17.5px}
+.wrap{max-width:960px;margin:0 auto;padding:0 clamp(16px,4vw,36px) 6rem}
+header.hero{padding:3rem 0 1.8rem;border-bottom:2px solid var(--ink);margin-bottom:2rem}
+.kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--warn);margin:0 0 .8rem}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,5.5vw,2.9rem);line-height:1.08;letter-spacing:-.01em;margin:0 0 .7rem;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.dek{font-size:1.03rem;color:var(--ink-2);max-width:62ch;margin:0}
+.metastrip{display:flex;flex-wrap:wrap;gap:.35rem .85rem;margin-top:1.2rem;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+.metastrip span{white-space:nowrap}
+.metastrip span::before{content:"·";margin-right:.85rem;color:var(--line-strong)}
+.metastrip span:first-child::before{content:"";margin:0}
+section{margin:0 0 3rem;scroll-margin-top:1rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.62rem;line-height:1.2;margin:0 0 .3rem;text-wrap:balance;letter-spacing:-.005em;break-after:avoid}
+.sec-eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin:0 0 .45rem}
+.sec-lede{color:var(--ink-2);margin:.4rem 0 1.4rem;max-width:var(--measure)}
+h3{font-family:var(--sans);font-weight:650;font-size:1.02rem;margin:1.8rem 0 .5rem;color:var(--ink);break-after:avoid}
+h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin:1.4rem 0 .45rem;font-weight:600;break-after:avoid}
+p{margin:0 0 .75rem;max-width:var(--measure)}
+ul,ol{margin:0 0 .8rem;padding-left:1.15rem;max-width:var(--measure)}
+li{margin-bottom:.28rem}
+li::marker{color:var(--line-strong)}
+strong{font-weight:650}
+a{color:var(--accent)}
+code,.mono{font-family:var(--mono);font-size:.87em}
+code{background:var(--surface-2);padding:.06em .3em;border-radius:3px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:2px;padding:1rem 1.15rem;margin:0 0 .9rem;break-inside:avoid}
+.callout{border-left:3px solid var(--warn);background:var(--warn-soft);padding:.8rem 1.05rem;margin:1rem 0;border-radius:0 2px 2px 0;break-inside:avoid}
+.callout.good{border-left-color:var(--good);background:var(--good-soft)}
+.callout.note{border-left-color:var(--accent);background:var(--accent-soft)}
+.callout.gold{border-left-color:var(--gold);background:var(--gold-soft)}
+.callout p:last-child,.card p:last-child,.callout ul:last-child,.card ul:last-child,.callout ol:last-child{margin-bottom:0}
+.callout-label{font-family:var(--mono);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;display:block;margin-bottom:.3rem;color:var(--warn);font-weight:600}
+.callout.good .callout-label{color:var(--good)}
+.callout.note .callout-label{color:var(--accent)}
+.callout.gold .callout-label{color:var(--gold)}
+.tablewrap{overflow-x:auto;margin:0 0 1.1rem;border:1px solid var(--line);border-radius:2px;background:var(--surface);break-inside:avoid}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{text-align:left;padding:.45rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--surface-2);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+td.num,th.num{font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:.84rem;white-space:nowrap}
+.q{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--line-strong);border-radius:0 2px 2px 0;padding:.95rem 1.1rem;margin:0 0 .9rem;break-inside:avoid}
+.q-head{display:flex;gap:.55rem;align-items:baseline;flex-wrap:wrap;margin-bottom:.55rem}
+.q-id{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--accent);font-weight:600;white-space:nowrap}
+.q-src{font-family:var(--mono);font-size:.66rem;color:var(--muted)}
+.q-stem{margin:0 0 .6rem}
+.q-opts{list-style:none;padding:0;margin:0 0 .75rem}
+.q-opts li{margin:0 0 .25rem;padding-left:2rem;text-indent:-2rem;font-size:.93rem;color:var(--ink-2)}
+.q-opts .lt{font-family:var(--mono);font-weight:600;color:var(--muted);display:inline-block;width:1.65rem;text-indent:0}
+details.reveal{border-top:1px dashed var(--line-strong);padding-top:.55rem}
+details.reveal summary{cursor:pointer;list-style:none;font-family:var(--mono);font-size:.71rem;letter-spacing:.11em;text-transform:uppercase;color:var(--accent);font-weight:600;display:inline-flex;align-items:center;gap:.4rem}
+details.reveal summary::-webkit-details-marker{display:none}
+details.reveal summary::before{content:"▸";display:inline-block;transition:transform .15s ease}
+@media (prefers-reduced-motion: reduce){details.reveal summary::before{transition:none}}
+details.reveal[open] summary::before{transform:rotate(90deg)}
+details.reveal summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.answer{margin-top:.6rem;padding-left:.85rem;border-left:2px solid var(--good)}
+.answer .key{font-family:var(--mono);font-weight:700;color:var(--good);font-size:.98rem}
+.answer p{font-size:.93rem;color:var(--ink-2);margin-bottom:.45rem}
+.answer p:last-child{margin-bottom:0}
+.drill{display:grid;gap:.45rem;margin:0 0 1.1rem}
+.fc{background:var(--surface);border:1px solid var(--line);border-radius:2px;padding:.65rem .9rem;break-inside:avoid}
+.fc summary{cursor:pointer;list-style:none;font-weight:600;font-size:.94rem;display:flex;gap:.55rem;align-items:flex-start}
+.fc summary::-webkit-details-marker{display:none}
+.fc summary::before{content:"?";font-family:var(--mono);font-size:.68rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:2px;padding:.08rem .36rem;flex:none;margin-top:.18rem}
+.fc[open] summary::before{content:"✓";color:var(--good);background:var(--good-soft)}
+.fc summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.fc .a{margin-top:.5rem;padding-left:1.65rem;font-size:.92rem;color:var(--ink-2)}
+.fc .a p{margin-bottom:.35rem}
+.fc .a p:last-child{margin-bottom:0}
+.plan{list-style:none;padding:0;margin:0 0 1.1rem}
+.plan li{display:grid;grid-template-columns:5.2rem 1fr;gap:.85rem;padding:.6rem 0;border-bottom:1px solid var(--line);margin:0;break-inside:avoid}
+.plan li:last-child{border-bottom:0}
+.plan .t{font-family:var(--mono);font-size:.76rem;font-variant-numeric:tabular-nums;color:var(--accent);font-weight:600;padding-top:.1rem}
+.plan .d strong{display:block;margin-bottom:.08rem}
+.plan .d span{font-size:.88rem;color:var(--muted)}
+.chip{display:inline-block;font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;padding:.12rem .42rem;border-radius:2px;font-weight:600;background:var(--surface-2);color:var(--muted);vertical-align:middle}
+.chip.new{background:var(--good-soft);color:var(--good)}
+.chip.fix{background:var(--warn-soft);color:var(--warn)}
+/* glosa: o que a sigla quer dizer, em uma linha, antes do conteudo */
+.gloss{margin:-.15rem 0 .9rem;padding:.45rem .8rem;background:var(--surface);border-left:2px solid var(--line-strong);font-size:.88rem;line-height:1.5;color:var(--ink-2);max-width:var(--measure);break-inside:avoid}
+.gloss b{font-weight:650;color:var(--ink)}
+.gloss i{font-style:italic;color:var(--muted)}
+.formula{font-family:var(--mono);font-size:.88rem;background:var(--surface-2);padding:.55rem .8rem;border-radius:2px;margin:.45rem 0 .85rem;overflow-x:auto;white-space:pre-wrap;break-inside:avoid}
+/* --- diagramas --- */
+figure.dg{margin:1.3rem 0;padding:1rem 1.1rem .9rem;background:var(--surface);border:1px solid var(--line);border-radius:2px;break-inside:avoid;max-width:none}
+figure.dg svg{display:block;width:100%;max-width:100%;height:auto;color:var(--ink-2);overflow:visible}
+figure.dg figcaption{margin-top:.75rem;padding-top:.6rem;border-top:1px solid var(--line);font-size:.86rem;line-height:1.5;color:var(--muted);max-width:none}
+figure.dg figcaption b{color:var(--ink-2);font-weight:650}
+figure.dg figcaption i{font-style:italic}
+.dg text{font-family:var(--sans);fill:currentColor}
+.dg .lbl{font-size:12px;font-weight:600}
+.dg .hd{font-size:12.5px;font-weight:700}
+.dg .sm{font-size:10.5px;fill:var(--muted)}
+.dg .mono{font-family:var(--mono);font-size:11px}
+.dg .box{fill:var(--surface-2);stroke:currentColor;stroke-width:1.1}
+.dg .box-a{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.3}
+.dg .box-w{fill:var(--warn-soft);stroke:var(--warn);stroke-width:1.3}
+.dg .box-g{fill:var(--good-soft);stroke:var(--good);stroke-width:1.3}
+.dg .ln{stroke:currentColor;stroke-width:1.1;fill:none}
+.dg .ln-a{stroke:var(--accent);stroke-width:1.5;fill:none}
+.dg .ln-w{stroke:var(--warn);stroke-width:1.5;fill:none}
+.dg .dash{stroke-dasharray:4 3}
+/* modelo de resposta com linhas numeradas */
+.lines{counter-reset:ln;margin:.6rem 0 1rem;border:1px solid var(--line);background:var(--surface);border-radius:2px;break-inside:avoid}
+.lines p{counter-increment:ln;margin:0;padding:.22rem .8rem .22rem 3rem;position:relative;font-size:.9rem;line-height:1.5;border-bottom:1px dotted var(--line);max-width:none}
+.lines p:last-child{border-bottom:0}
+.lines p::before{content:counter(ln,decimal-leading-zero);position:absolute;left:.8rem;font-family:var(--mono);font-size:.7rem;color:var(--line-strong);top:.32rem}
+.lines p.over{background:var(--warn-soft)}
+.toc{background:var(--surface);border:1px solid var(--line);border-radius:2px;padding:1rem 1.2rem;margin:0 0 2.4rem;columns:2;column-gap:2rem}
+@media (max-width:640px){.toc{columns:1}}
+.toc ol{list-style:none;padding:0;margin:0;font-size:.88rem}
+.toc li{margin-bottom:.28rem;break-inside:avoid}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.toc a:hover{color:var(--accent)}
+.toc .n{font-family:var(--mono);font-size:.7rem;color:var(--line-strong);margin-right:.4rem}
+footer{border-top:1px solid var(--line);padding-top:1.3rem;margin-top:2.6rem;font-size:.83rem;color:var(--muted)}
+footer a{color:var(--muted)}
+hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
+::selection{background:var(--accent-soft)}
+@media print{
+  .voltar-indice{display:none}
+  @page{size:A4;margin:16mm 14mm}
+  :root{--paper:#fff;--surface:#fff}
+  html{font-size:16px}
+  html,body{background:#fff;color:#000;font-size:9.6pt;line-height:1.42}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .wrap{max-width:none;padding:0}
+  header.hero{padding-top:0;break-after:page}
+  .toc{break-after:page;columns:2}
+  section{break-before:auto;margin-bottom:1.6rem}
+  h2{font-size:15pt;margin-top:0}
+  h3{font-size:10.6pt;margin-top:1.1rem}
+  h4{font-size:8pt}
+  p,li{max-width:none}
+  .q,.fc,.callout,.card,.tablewrap,.lines,.formula{break-inside:avoid}
+  details{break-inside:avoid}
+  details.reveal summary,.fc summary{color:#000}
+  a{color:#000;text-decoration:none}
+  .drill{gap:.3rem}
+  table{font-size:8.6pt}
+  th,td{padding:.28rem .5rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div style="padding:14px 0 12px;margin-bottom:2px;border-bottom:1px solid currentColor;opacity:.85" class="voltar-indice"><a href="index.html" style="display:inline-block;font-family:'Cascadia Mono',Consolas,monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:currentColor;opacity:.65;text-decoration:none">&#8592; Revisões ALECE 2026</a></div>
+
+<header class="hero">
+  <p class="kicker">Analista Legislativo · Análise de Dados · ALECE · Edital 01/2026 · Banca IDECAN</p>
+  <h1>Conjunto de validação:<br>as duas<br><em>discursivas</em></h1>
+  <p class="dek">O método de escrita, os critérios de correção do edital, a arquitetura das 20 linhas, o banco de frases de ancoragem e catorze temas prováveis — cada um com resposta pronta já medida em 20 linhas, resumo em palavras simples e gancho de inteligência artificial.</p>
+  <div class="metastrip">
+    <span>2 discursivas · 40 pts</span>
+    <span>mínimo 24,00</span>
+    <span>até 20 linhas cada</span>
+    <span>só 64 corrigidas</span>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Sumário">
+  <ol>
+    <li><a href="#s19"><span class="n">01</span>Metodologia e regras de correção</a></li>
+    <li><a href="#s19b"><span class="n">02</span>14 temas com resposta pronta</a></li>
+    <li><a href="#s19c"><span class="n">03</span>Três respostas modelo, linha a linha</a></li>
+  </ol>
+</nav>
+
+<section id="s19">
+  <p class="sec-eyebrow">19 <span class="chip new">seção principal da v3</span></p>
+  <h2>Discursiva: metodologia, pontos de atenção e simulados</h2>
+  <p class="sec-lede">Duas questões, até 20 linhas cada, 20 pontos cada, mínimo de 24,00 em 40. Só é corrigida se você entrar nos 64 primeiros. É o gargalo silencioso do concurso — e o único ponto onde a preparação de uma noite ainda muda o resultado de forma decisiva.</p>
+
+  <h3>Como a correção realmente funciona</h3>
+  <p>O item <strong>12.4.1</strong> do edital diz que a banca divulgará um <em>padrão de resposta</em> contendo "os critérios objetivos de correção e os elementos jurídicos considerados relevantes para atribuição da pontuação", e o <strong>12.4.1.1</strong> completa: "os critérios de correção compreenderão <strong>distribuição objetiva da pontuação</strong>".</p>
+  <div class="callout gold">
+    <span class="callout-label">O que isso significa na prática</span>
+    <p>Sua resposta não é lida como redação e avaliada por impressão geral. Ela é <strong>conferida contra uma lista de elementos esperados</strong>, cada um com pontuação atribuída. O corretor procura ocorrências. <strong>A variável que você controla é a densidade de elementos corretos e nomeados por linha.</strong></p>
+  </div>
+
+  <p>Os critérios do item <strong>12.3.7</strong> são, literalmente:</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Critério do edital</th><th>O que o corretor procura</th></tr></thead>
+      <tbody>
+        <tr><td>a) domínio técnico-jurídico da matéria</td><td>terminologia exata: "pseudonimização", não "esconder o nome"</td></tr>
+        <tr><td>b) fundamentação legal e jurisprudencial</td><td>dispositivo citado <strong>e articulado</strong> com o problema</td></tr>
+        <tr><td>c) enfrentamento adequado do tema proposto</td><td>você respondeu tudo o que foi perguntado, não só a parte fácil</td></tr>
+        <tr><td>d) coerência, coesão e organização textual</td><td>blocos com progressão lógica e conectivos explícitos</td></tr>
+        <tr><td>e) clareza e objetividade da argumentação</td><td>frase curta, uma ideia por período, sem rodeio</td></tr>
+        <tr><td>f) linguagem adequada e norma culta</td><td>ortografia, morfossintaxe, pontuação, precisão vocabular</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout">
+    <span class="callout-label">A regra que mais elimina ponto — itens 12.3.10 e 12.3.12</span>
+    <p><em>"Não será atribuída pontuação adicional em razão de mera reprodução de dispositivos legais, doutrina ou jurisprudência <strong>sem pertinência com a fundamentação desenvolvida</strong>."</em> E: <em>"A mera referência a artigo de lei ou reprodução de seu texto, <strong>por si só</strong>, não garantem a pontuação."</em></p>
+    <p style="margin-top:.5rem">Traduzindo: <strong>"conforme o art. 6º da LGPD"</strong> não vale nada sozinho. <strong>"O tratamento viola o princípio da finalidade (art. 6º, I), pois o dado foi coletado para inscrição em audiência pública e seria usado para divulgação institucional"</strong> vale. Sempre <em>dispositivo + o que ele resolve neste caso concreto</em>.</p>
+  </div>
+
+  <h4>O que zera a questão (item 12.4)</h4>
+  <p>Resposta identificada de qualquer forma em local indevido · resposta escrita fora do espaço destinado ao texto definitivo · resposta em branco · <strong>texto ilegível ou incompreensível</strong> · texto em língua diversa da portuguesa · <strong>caneta de cor diferente de azul ou preta</strong> · qualquer meio de identificação irregular.</p>
+  <p>E o item <strong>12.3.11</strong>: será desconsiderado qualquer fragmento escrito <strong>fora do local apropriado ou que ultrapasse as 20 linhas</strong>. A linha 21 não é penalizada — ela simplesmente não existe para o corretor. Se o seu fecho estava nela, você perdeu o fecho.</p>
+  <p>Não esqueça: é <strong>proibido corretivo e caneta marca-texto</strong> (12.3.4, c) — o que significa que erro na transcrição vira rasura, e rasura demais compromete a legibilidade, que é critério de nota zero. Escreva devagar na transcrição.</p>
+
+  <h3>Metodologia: cinco passos, ~55 minutos por questão</h3>
+
+  <ul class="plan">
+    <li><span class="t">3 min</span><span class="d"><strong>1. Decodificar o comando</strong><span>Circule o <em>verbo de comando</em> (disserte, analise, explique, apresente, indique, justifique) e conte quantas <strong>entregas</strong> o enunciado pede. "Explique o conceito X, apresente duas técnicas e indique os riscos" são três entregas. Numere-as na margem do rascunho: ①②③. Se você entregar duas de três, perde ~1/3 da nota por mais bem escrito que esteja.</span></span></li>
+    <li><span class="t">7 min</span><span class="d"><strong>2. Inventário bruto de elementos</strong><span>No caderno de prova, despeje <strong>termos técnicos e dispositivos</strong>, não frases. Objetivo: 18–25 termos. Não filtre nesta fase. É aqui que você acessa o vocabulário que o padrão de resposta vai conter.</span></span></li>
+    <li><span class="t">5 min</span><span class="d"><strong>3. Selecionar, agrupar e ordenar</strong><span>Escolha os 10–14 elementos com maior chance de estar no padrão de resposta. Agrupe em <strong>três blocos temáticos</strong> e nomeie cada bloco. Risque o que sobrou — dispersão custa linha.</span></span></li>
+    <li><span class="t">20 min</span><span class="d"><strong>4. Redigir o rascunho</strong><span>Escreva as 20 linhas no caderno de prova, contando as linhas de verdade. Uma ideia por período. Cada frase deve conter pelo menos um elemento nomeado.</span></span></li>
+    <li><span class="t">20 min</span><span class="d"><strong>5. Transcrever e revisar</strong><span>Transcreva com letra legível e sem pressa. Revise apenas ortografia e concordância — não reescreva conteúdo, você não tem tempo nem corretivo.</span></span></li>
+  </ul>
+
+  <div class="callout note">
+    <span class="callout-label">Ordem de execução na prova</span>
+    <p>Faça as <strong>duas</strong> questões em rascunho antes de transcrever qualquer uma. Motivo: se o tempo apertar, é melhor ter dois textos completos de qualidade média do que um excelente e um em branco — <strong>resposta em branco é nota zero na questão</strong>, e você precisa de 24 dos 40 pontos somados.</p>
+  </div>
+
+  <h3>Arquitetura das 20 linhas</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th class="num">Linhas</th><th>Função</th><th>O que colocar</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1–2</td><td>Enquadramento</td><td>Defina o conceito central com precisão e delimite o problema. Sem introdução genérica sobre "a era digital" — você não tem linha para isso.</td></tr>
+        <tr><td class="num">3–7</td><td>Bloco técnico 1</td><td>O núcleo conceitual. Terminologia densa.</td></tr>
+        <tr><td class="num">8–12</td><td>Bloco técnico 2</td><td>Método, técnicas, pipeline ou critérios.</td></tr>
+        <tr><td class="num">13–15</td><td>Bloco jurídico</td><td>Dispositivo + articulação. Aqui você marca o critério (b) do 12.3.7.</td></tr>
+        <tr><td class="num">16–19</td><td>Aplicação concreta</td><td>Traga para o Legislativo estadual com exemplo nomeado: proposição, tramitação, execução orçamentária, ouvidoria, transparência ativa.</td></tr>
+        <tr><td class="num">20</td><td>Salvaguarda</td><td>Uma linha de governança, anonimização, explicabilidade ou limite ético. Fecha e marca mais um elemento.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+<figure class="dg">
+<svg viewBox="0 0 660 330" role="img" aria-label="Distribuição das vinte linhas da discursiva em cinco blocos: duas de enquadramento, cinco e cinco de blocos técnicos, três de fundamentação jurídica, quatro de aplicação e uma de salvaguarda.">
+<defs><marker id="dIa" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 z" fill="currentColor"/></marker></defs>
+<g class="mono" fill="var(--line-strong)">
+<text x="42" y="34" text-anchor="end">01</text><text x="42" y="47" text-anchor="end">02</text>
+<text x="42" y="66" text-anchor="end">03</text><text x="42" y="79" text-anchor="end">04</text><text x="42" y="92" text-anchor="end">05</text><text x="42" y="105" text-anchor="end">06</text><text x="42" y="118" text-anchor="end">07</text>
+<text x="42" y="137" text-anchor="end">08</text><text x="42" y="150" text-anchor="end">09</text><text x="42" y="163" text-anchor="end">10</text><text x="42" y="176" text-anchor="end">11</text><text x="42" y="189" text-anchor="end">12</text>
+<text x="42" y="208" text-anchor="end">13</text><text x="42" y="221" text-anchor="end">14</text><text x="42" y="234" text-anchor="end">15</text>
+<text x="42" y="253" text-anchor="end">16</text><text x="42" y="266" text-anchor="end">17</text><text x="42" y="279" text-anchor="end">18</text><text x="42" y="292" text-anchor="end">19</text>
+<text x="42" y="311" text-anchor="end">20</text>
+</g>
+<rect class="box-a" x="54" y="22" width="300" height="30"/>
+<text class="sm" x="66" y="41" fill="var(--accent)">ENQUADRAMENTO — defina e delimite</text>
+<rect class="box" x="54" y="54" width="300" height="70"/>
+<text class="sm" x="66" y="75">BLOCO TÉCNICO 1</text>
+<text class="sm" x="66" y="91">núcleo conceitual, terminologia densa</text>
+<rect class="box" x="54" y="126" width="300" height="70"/>
+<text class="sm" x="66" y="147">BLOCO TÉCNICO 2</text>
+<text class="sm" x="66" y="163">método, pipeline ou critérios</text>
+<rect class="box-w" x="54" y="198" width="300" height="44"/>
+<text class="sm" x="66" y="217" fill="var(--warn)">BLOCO JURÍDICO</text>
+<text class="sm" x="66" y="233">dispositivo + o que ele resolve aqui</text>
+<rect class="box" x="54" y="244" width="300" height="56"/>
+<text class="sm" x="66" y="263">APLICAÇÃO CONCRETA ao Legislativo</text>
+<text class="sm" x="66" y="279">proposição, tramitação, orçamento, ouvidoria</text>
+<rect class="box-g" x="54" y="302" width="300" height="18"/>
+<text class="sm" x="66" y="315" fill="var(--good)">SALVAGUARDA</text>
+
+<line class="ln" x1="366" y1="37" x2="396" y2="37" marker-end="url(#dIa)"/>
+<text class="sm" x="404" y="34">Nada de "vivemos na era dos dados".</text>
+<text class="sm" x="404" y="48">A linha 1 já define.</text>
+<line class="ln" x1="366" y1="220" x2="396" y2="220" marker-end="url(#dIa)"/>
+<text class="sm" x="404" y="210">Marca o critério (b) do item 12.3.7.</text>
+<text class="sm" x="404" y="224">Citar artigo solto não pontua</text>
+<text class="sm" x="404" y="238">— itens 12.3.10 e 12.3.12.</text>
+<line class="ln" x1="366" y1="272" x2="396" y2="272" marker-end="url(#dIa)"/>
+<text class="sm" x="404" y="269">É aqui que a resposta deixa de ser</text>
+<text class="sm" x="404" y="283">genérica e vira específica da ALECE.</text>
+<line class="ln" x1="366" y1="311" x2="396" y2="311" marker-end="url(#dIa)"/>
+<text class="sm" x="404" y="308">Governança, anonimização, XAI</text>
+<text class="sm" x="404" y="322">ou limite ético. Nunca "em conclusão…".</text>
+<text class="sm" x="404" y="110" fill="var(--warn)">A linha 21 não é penalizada —</text>
+<text class="sm" x="404" y="124" fill="var(--warn)">ela simplesmente é DESCONSIDERADA</text>
+<text class="sm" x="404" y="138">(item 12.3.11). Se o seu fecho estava</text>
+<text class="sm" x="404" y="152">nela, você perdeu o fecho.</text>
+</svg>
+<figcaption><b>O orçamento de linhas, decidido antes de escrever.</b> Vinte linhas manuscritas comportam entre 1.200 e 1.500 caracteres — não cabe introdução de aquecimento nem conclusão retórica. Reserve as proporções acima no rascunho e escreva para preenchê-las: dois blocos técnicos sustentam o critério (a), o bloco jurídico marca o (b), e a aplicação concreta é o que o corretor usa para distinguir você de quem decorou o manual.</figcaption>
+</figure>
+  <h3>Sete regras de densidade</h3>
+  <ol>
+    <li><strong>Uma frase = um elemento nomeado + sua função.</strong> "Aplica-se a generalização de quase-identificadores, pois CEP, data de nascimento e sexo permitem reidentificação por cruzamento."</li>
+    <li><strong>Empacote listas com ponto e vírgula.</strong> "A governança se materializa em catálogo de dados; dicionário; linhagem; política de retenção; e papéis de <em>data owner</em> e <em>data steward</em>." São seis elementos em uma linha e meia.</li>
+    <li><strong>Nunca cite artigo sem dizer o que ele resolve.</strong> É a regra 12.3.12 do edital, e é onde a maioria perde ponto achando que ganhou.</li>
+    <li><strong>Prefira o termo técnico ao sinônimo comum.</strong> "Vazamento de dados entre treino e teste (<em>data leakage</em>)" &gt; "contaminação da amostra". O corretor procura o termo.</li>
+    <li><strong>Nomeie os blocos com conectivos de estrutura.</strong> "No plano técnico… No plano jurídico… No plano da governança…". Isso marca o critério (d), coesão e organização, praticamente de graça.</li>
+    <li><strong>Escreva períodos curtos.</strong> Período longo em prova manuscrita gera erro de concordância e regência, que descontam no critério (f).</li>
+    <li><strong>Não use a primeira pessoa nem opinião não fundamentada.</strong> "Entendo que" e "acredito que" ocupam linha e não pontuam.</li>
+  </ol>
+
+  <h3>Erros que custam ponto — checklist antes de transcrever</h3>
+  <ul>
+    <li>Respondi <strong>todas</strong> as entregas que o enunciado pediu? (volte aos ①②③)</li>
+    <li>Citei algum artigo sem explicar o que ele resolve aqui?</li>
+    <li>Tenho pelo menos um exemplo concreto do <strong>Legislativo estadual</strong>?</li>
+    <li>Ultrapassei as 20 linhas? (o excesso é desconsiderado, não penalizado — mas some)</li>
+    <li>Escrevi meu nome, matrícula ou qualquer marca fora do local apropriado?</li>
+    <li>Está legível? Rasura demais compromete o critério de legibilidade.</li>
+    <li>Fechei com salvaguarda ou terminei no meio de um raciocínio?</li>
+  </ul>
+
+  <h3>Banco de frases de ancoragem</h3>
+  <p>Frases prontas que carregam elemento técnico + articulação jurídica. Adapte à questão; não decore literalmente, decore a <em>estrutura</em>.</p>
+  <div class="card">
+    <ul>
+      <li><strong>Base legal no setor público:</strong> "O tratamento encontra fundamento na execução de política pública (art. 7º, III, c/c art. 23 da LGPD), o que <strong>dispensa o consentimento</strong> do titular, sem afastar a incidência dos princípios do art. 6º, notadamente finalidade, necessidade e transparência."</li>
+      <li><strong>Conciliação LAI × LGPD:</strong> "A tensão entre o dever de transparência (Lei 12.527/2011) e a proteção de dados pessoais resolve-se tecnicamente: publica-se, em transparência ativa, o dado <strong>agregado e anonimizado</strong>, mantendo-se o dado individualizado em ambiente controlado, com acesso por perfil e trilha de auditoria."</li>
+      <li><strong>Limite da anonimização:</strong> "A anonimização deve considerar o risco de <strong>reidentificação por cruzamento</strong> de quase-identificadores — CEP, data de nascimento e sexo —, aplicando-se generalização, supressão e <em>k</em>-anonimato; ressalva-se o art. 12, §2º, que reconduz ao regime de dado pessoal a informação usada para formação de perfil comportamental."</li>
+      <li><strong>Modelo preditivo e explicabilidade:</strong> "Por se tratar de decisão apoiada em tratamento automatizado com efeito sobre interesses do titular, incide o <strong>art. 20 da LGPD</strong>, que assegura o direito à revisão e exige informação clara sobre critérios e procedimentos — dever que converge com a <strong>motivação do ato administrativo</strong> e se operacionaliza por técnicas de explicabilidade como SHAP e importância por permutação."</li>
+      <li><strong>Validação correta:</strong> "A validação deve ser <strong>temporal</strong>, com janela expansiva, treinando-se no passado e testando-se no futuro, sob pena de <em>data leakage</em> e superestimação do desempenho."</li>
+      <li><strong>Escolha de métrica:</strong> "A métrica adequada é o <strong>recall</strong>, dado que o custo do falso negativo — deixar passar a irregularidade — supera o do falso positivo; a acurácia é enganosa em base desbalanceada."</li>
+      <li><strong>Governança:</strong> "A sustentação do ativo exige governança formal: catálogo; dicionário de dados; linhagem; classificação da informação; política de retenção e descarte; e atribuição dos papéis de <em>data owner</em>, <em>data steward</em> e custodiante técnico."</li>
+      <li><strong>Viés:</strong> "Ainda que se removam atributos sensíveis, persiste o risco de <strong>proxy discriminatório</strong> — CEP e escola como substitutos de raça e renda —, e os critérios de equidade (paridade demográfica, igualdade de oportunidade, <em>equalized odds</em>) são <strong>matematicamente incompatíveis entre si</strong>, de modo que a escolha é normativa e deve ser explicitada."</li>
+      <li><strong>Qualidade do dado de origem:</strong> "A extração de diários oficiais exige distinguir o PDF nativo do digitalizado; neste, o OCR introduz taxa de erro que deve ser mensurada e reportada, sob pena de propagar ruído para toda a cadeia analítica."</li>
+      <li><strong>Salvaguarda de fecho:</strong> "Em qualquer cenário, a entrega analítica deve vir acompanhada de documentação de premissas, versionamento de código e dados, e comunicação da incerteza — sob pena de conferir aparência de objetividade a uma decisão que permanece política."</li>
+    </ul>
+  </div>
+</section>
+<section id="s19b">
+  <p class="sec-eyebrow">19 · continuação</p>
+  <h2>Catorze temas prováveis, com resposta pronta</h2>
+  <p class="sec-lede">O item 12.3.2 do edital autoriza qualquer conteúdo do programa de conhecimentos específicos. Para cada tema: o ponto de atenção que derruba candidato, os elementos que o padrão de resposta provavelmente exige, o esqueleto, o <strong>texto pronto já medido em 20 linhas</strong>, um resumo <strong>em palavras simples</strong> para memorizar a lógica, e o <strong>gancho de IA</strong> caso a banca puxe o tema para inteligência artificial.</p>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">TEMA 1</span><span class="q-src">probabilidade alta</span></div>
+    <p class="q-stem"><strong>LGPD aplicada a bases legislativas: bases legais no setor público, anonimização e conciliação com a LAI.</strong></p>
+    <div class="callout" style="margin:.6rem 0">
+      <span class="callout-label">Ponto de atenção</span>
+      <p>O erro que derruba é tratar LAI e LGPD como conflito insolúvel, ou dizer que "a transparência prevalece". Elas <strong>não se anulam</strong>: a solução é técnica (agregação e anonimização) e a LGPD tem base legal própria para o setor público. Outro erro: dizer que o consentimento é necessário — no tratamento para política pública ele é <em>dispensado</em>.</p>
+    </div>
+    <p><strong>Elementos esperados:</strong> dado pessoal e sensível · art. 7º, III + art. 23 (política pública, dispensa consentimento) · princípios da finalidade, necessidade e transparência · anonimização × pseudonimização · art. 12 e §2º · quase-identificadores e reidentificação · <em>k</em>-anonimato, generalização, supressão · LAI: publicidade como regra, transparência ativa × passiva · art. 31 da LAI (informação pessoal) · RIPD · segurança: acesso por perfil, criptografia, log de auditoria.</p>
+    <p><strong>Esqueleto:</strong> ①definir dado pessoal e delimitar que bases legislativas contêm dado de parlamentar (público) e de cidadão (protegido) → ②base legal aplicável e dispensa de consentimento → ③técnicas de anonimização e risco de reidentificação → ④como conciliar com a LAI na prática (agregado publicado, individualizado em ambiente controlado) → ⑤salvaguarda: RIPD e governança.</p>
+    <h4>Texto pronto — 20 linhas</h4>
+    <p>Está escrito na íntegra, linha a linha, logo abaixo: <a href="#s19c"><strong>Modelo 1 — LGPD, anonimização e conciliação com a LAI</strong></a>.</p>
+    <div class="callout good" style="margin:.6rem 0">
+      <span class="callout-label">Em palavras simples</span>
+      <p>Duas leis, uma solução técnica. A LAI manda publicar; a LGPD manda proteger. Você não escolhe entre elas: publica o número somado e sem nome, e guarda o dado individual num ambiente fechado, com perfil de acesso e registro de quem consultou. E, no serviço público, política pública é base legal — consentimento não é exigido.</p>
+    </div>
+    <div class="callout note" style="margin:.6rem 0">
+      <span class="callout-label">Gancho de IA</span>
+      <p>Se o enunciado juntar LGPD e IA: treinar modelo com base legislativa também é tratamento e precisa de base legal e finalidade declarada; e a saída do modelo sobre pessoa identificada atrai o art. 20, que garante revisão.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">TEMA 2</span><span class="q-src">probabilidade alta</span></div>
+    <p class="q-stem"><strong>Ciclo de vida do dado e implantação de governança: catálogo, dicionário, linhagem, qualidade, retenção e descarte.</strong></p>
+    <div class="callout" style="margin:.6rem 0">
+      <span class="callout-label">Ponto de atenção</span>
+      <p>Candidato descreve governança como "boas práticas" genéricas. O padrão de resposta espera <strong>instrumentos nomeados</strong> e <strong>papéis nomeados</strong>. E quase todos esquecem o <strong>descarte</strong> — que é justamente a etapa que o edital lista por último e que conecta com o princípio da necessidade da LGPD.</p>
+    </div>
+    <p><strong>Elementos esperados:</strong> ciclo coleta → armazenamento → processamento → análise → visualização → descarte · catálogo · dicionário de dados · linhagem · metadados (descritivos, estruturais, administrativos) · dimensões de qualidade (acurácia, completude, consistência, atualidade, unicidade, validade) · <em>data owner</em>, <em>data steward</em>, custodiante · MDM · política de retenção · classificação da informação · princípio da necessidade e da qualidade (art. 6º, III e V).</p>
+    <p><strong>Esqueleto:</strong> ①ciclo de vida nomeado nas seis etapas → ②instrumentos de governança, empacotados com ponto e vírgula → ③dimensões de qualidade e como medi-las → ④papéis e responsabilidades → ⑤retenção e descarte ancorados na LGPD.</p>
+    <h4>Texto pronto — 20 linhas</h4>
+    <div class="lines">
+      <p>O dado tem ciclo de vida em seis etapas: coleta, armazenamento,</p>
+      <p>processamento, análise, visualização e descarte. Governança é o conjunto</p>
+      <p>de regras, papéis e instrumentos que cuida desse ciclo inteiro. No plano</p>
+      <p>dos instrumentos, são necessários o catálogo, que inventaria o que</p>
+      <p>existe; o dicionário de dados, que fixa campo, tipo, domínio e regra de</p>
+      <p>negócio; a linhagem, que registra origem, transformações e consumo; e os</p>
+      <p>metadados descritivos, estruturais e administrativos. No plano da</p>
+      <p>qualidade, as dimensões viram métrica: acurácia, completude,</p>
+      <p>consistência, atualidade, unicidade e validade. Completude mede-se pelo</p>
+      <p>percentual de nulos por campo; unicidade, pelo número de duplicatas;</p>
+      <p>validade, pela taxa de valores fora do domínio. No plano dos papéis, o</p>
+      <p>data owner responde pelo dado da sua área, o data steward zela pela</p>
+      <p>qualidade diária e o custodiante técnico mantém a infraestrutura; sem</p>
+      <p>responsável nomeado, a política não sai do papel. Por fim, o descarte,</p>
+      <p>etapa que quase todos esquecem. A LGPD impõe a necessidade (art. 6º,</p>
+      <p>III) e o término do tratamento (art. 15): guardar dado pessoal além do</p>
+      <p>prazo é irregularidade, não zelo. A política de retenção deve fixar</p>
+      <p>prazo por tipo de dado e prever eliminação segura e registrada. Como</p>
+      <p>salvaguarda, a classificação da informação separa o público do restrito</p>
+      <p>e do sigiloso, articulando a governança com a LAI e com a LGPD.</p>
+    </div>
+    <div class="callout good" style="margin:.6rem 0">
+      <span class="callout-label">Em palavras simples</span>
+      <p>Pense numa biblioteca. O catálogo diz o que existe; o dicionário explica o que cada campo quer dizer; a linhagem conta de onde veio e por onde passou; e alguém tem nome e cargo para responder por cada base. No fim, o que não serve mais é descartado com registro — e essa última parte é a que quase todo candidato esquece.</p>
+    </div>
+    <div class="callout note" style="margin:.6rem 0">
+      <span class="callout-label">Gancho de IA</span>
+      <p>Se o enunciado puxar para IA: modelo também é ativo governado. Entra no catálogo com versão, dado de treino, responsável e data da última reavaliação.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">TEMA 3</span><span class="q-src">probabilidade alta</span></div>
+    <p class="q-stem"><strong>Indicadores e dashboard de desempenho legislativo: definição de KPIs, fonte, granularidade, visualização e riscos de má interpretação.</strong></p>
+    <div class="callout" style="margin:.6rem 0">
+      <span class="callout-label">Ponto de atenção</span>
+      <p>A parte que quase ninguém entrega é a última — <strong>riscos de má interpretação</strong>. É onde estão os pontos fáceis: eixo truncado, <em>lie factor</em>, indicador que induz comportamento indesejado (lei de Goodhart), média mascarando distribuição assimétrica, comparação entre períodos de tamanho diferente. Se o enunciado pedir isso e você só descrever KPIs, perde um terço.</p>
+    </div>
+    <p><strong>Elementos esperados:</strong> definição operacional do indicador (fórmula, fonte, periodicidade, responsável) · granularidade e nível de agregação · KPIs plausíveis: tempo médio de tramitação por fase, taxa de aprovação, volume de proposições por comissão, execução orçamentária (empenhado × liquidado × pago), tempo de resposta da ouvidoria · escolha de gráfico por objetivo · Tufte, <em>data-ink ratio</em>, eixo em zero · RLS no Power BI · medida × coluna calculada · risco de reidentificação em painel público.</p>
+    <p><strong>Esqueleto:</strong> ①o que é um indicador e sua definição operacional → ②KPIs propostos com fonte e granularidade → ③escolha de visualização por objetivo → ④riscos de má interpretação, nomeados → ⑤salvaguarda: agregação, RLS e nota metodológica no painel.</p>
+    <h4>Texto pronto — 20 linhas</h4>
+    <div class="lines">
+      <p>Indicador é medida com definição operacional: fórmula, fonte,</p>
+      <p>periodicidade, granularidade e responsável. Sem esses cinco itens, o</p>
+      <p>número não é indicador, é opinião com casa decimal. Para o desempenho</p>
+      <p>legislativo propõem-se: tempo de tramitação por fase, lido pela mediana</p>
+      <p>e não pela média, porque a distribuição é assimétrica; taxa de aprovação</p>
+      <p>por comissão; volume de proposições por autor e por período; execução</p>
+      <p>orçamentária nos três estágios, empenhado, liquidado e pago; e tempo de</p>
+      <p>resposta da ouvidoria e dos pedidos da LAI. A fonte de cada um é o</p>
+      <p>sistema de tramitação, o sistema orçamentário ou o SIC, e a</p>
+      <p>granularidade mínima é o evento individual, agregado depois. Na</p>
+      <p>visualização, o gráfico segue o objetivo: linhas para evolução no tempo,</p>
+      <p>barras com eixo iniciando em zero para comparar categorias, boxplot para</p>
+      <p>comparar distribuições e mapa de calor para correlação. Os riscos de má</p>
+      <p>interpretação são a parte decisiva: eixo truncado infla diferença</p>
+      <p>pequena; a média esconde a cauda longa; comparar períodos de tamanho</p>
+      <p>diferente distorce; e indicador que vira meta deixa de ser bom</p>
+      <p>indicador, que é a lei de Goodhart. Como salvaguarda, o painel traz nota</p>
+      <p>metodológica com a fórmula, publica dado agregado em transparência ativa</p>
+      <p>e aplica segurança em nível de linha sobre o dado individualizado,</p>
+      <p>conciliando LAI e LGPD.</p>
+    </div>
+    <div class="callout good" style="margin:.6rem 0">
+      <span class="callout-label">Em palavras simples</span>
+      <p>Todo número do painel precisa de cinco respostas: como se calcula, de onde vem, de quanto em quanto tempo se atualiza, em que nível de detalhe e quem responde por ele. E a parte que rende ponto é a última — dizer como o gráfico pode enganar quem lê.</p>
+    </div>
+    <div class="callout note" style="margin:.6rem 0">
+      <span class="callout-label">Gancho de IA</span>
+      <p>Se o enunciado puxar para IA: proponha classificação automática do tema das proposições para alimentar o painel, sempre com conferência humana por amostra e a taxa de erro publicada junto do indicador.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">TEMA 4</span><span class="q-src">probabilidade alta</span></div>
+    <p class="q-stem"><strong>Modelo preditivo de tempo de tramitação: definição do problema, features, algoritmo, métrica, validação, explicabilidade e limites éticos.</strong></p>
+    <div class="callout" style="margin:.6rem 0">
+      <span class="callout-label">Ponto de atenção</span>
+      <p>Dois erros clássicos. Primeiro: escolher métrica de <em>classificação</em> (acurácia, F1) para um problema de <em>regressão</em> — tempo é numérico, então MAE/RMSE/MAPE. Se o enunciado reformular como "vai ser votado até o fim da sessão? sim/não", aí é classificação. <strong>Leia o alvo.</strong> Segundo: propor validação cruzada embaralhada — em dado temporal isso é <em>data leakage</em>.</p>
+    </div>
+    <p><strong>Elementos esperados:</strong> definição do alvo (regressão × classificação) · features: tipo de proposição, autoria, comissões pelo rito, regime de urgência, número de emendas, mês da sessão · <strong>cuidado com feature que só existe após o desfecho</strong> · algoritmo (baseline linear → gradient boosting) · métrica adequada ao alvo · <strong>validação temporal com janela expansiva</strong> · overfitting e regularização · SHAP / importância por permutação · art. 20 da LGPD · viés histórico e risco de profecia autorrealizável.</p>
+    <p><strong>Esqueleto:</strong> ①formular o problema e definir o alvo → ②features e o risco de vazamento → ③algoritmo e justificativa → ④métrica e validação temporal → ⑤explicabilidade e limite ético.</p>
+    <h4>Texto pronto — 20 linhas</h4>
+    <p>Está escrito na íntegra, linha a linha, logo abaixo: <a href="#s19c"><strong>Modelo 2 — Modelo preditivo de tempo de tramitação</strong></a>.</p>
+    <div class="callout good" style="margin:.6rem 0">
+      <span class="callout-label">Em palavras simples</span>
+      <p>Tempo é número, então o modelo é de regressão e o erro se mede em dias, com MAE ou RMSE. Só use métrica de classificação se o enunciado perguntar sim ou não. E treine no passado para testar no futuro: embaralhar as datas é trapacear consigo mesmo.</p>
+    </div>
+    <div class="callout note" style="margin:.6rem 0">
+      <span class="callout-label">Gancho de IA</span>
+      <p>Se o enunciado puxar para IA: o modelo apenas ordena a fila; a decisão continua sendo do agente público, com motivação própria, sob pena de incidir o art. 20 da LGPD.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">TEMA 5</span><span class="q-src">probabilidade média-alta</span></div>
+    <p class="q-stem"><strong>PLN em textos legislativos: pipeline, representações, similaridade entre proposições, NER e limitações do OCR.</strong></p>
+    <div class="callout" style="margin:.6rem 0">
+      <span class="callout-label">Ponto de atenção</span>
+      <p>Pular o diagnóstico do PDF. A primeira decisão técnica de qualquer pipeline sobre diário oficial é <strong>PDF nativo ou digitalizado</strong> — e é o item que separa quem já fez do quem só leu. Outro erro: dizer que <em>stemming</em> e lematização são a mesma coisa.</p>
+    </div>
+    <p><strong>Elementos esperados:</strong> diagnóstico PDF nativo × imagem · OCR (Tesseract), pré-processamento e taxa de erro · pipeline: limpeza → tokenização → normalização → stopwords → stemming (RSLP) ou lematização → vetorização · BoW, <strong>TF-IDF com a fórmula</strong>, n-gramas, embeddings (Word2Vec/FastText), contextuais (BERT) · <strong>similaridade do cosseno</strong> · NER para parlamentar, número de lei, órgão, data · LDA para tópicos · limitações: ironia, negação, jargão jurídico, siglas.</p>
+    <p><strong>Esqueleto:</strong> ①natureza do corpus legislativo e o problema do PDF → ②pipeline nomeado etapa a etapa → ③representações e quando usar cada uma → ④aplicações: similaridade, NER, tópicos → ⑤limitações e validação humana.</p>
+    <h4>Texto pronto — 20 linhas</h4>
+    <div class="lines">
+      <p>O corpus legislativo é texto não estruturado: diários oficiais, ementas,</p>
+      <p>pareceres e proposições. A primeira decisão técnica é diagnosticar se o</p>
+      <p>PDF é nativo ou digitalizado. No nativo, o texto sai direto com</p>
+      <p>pdfplumber ou PyMuPDF. No digitalizado é preciso OCR, o reconhecimento</p>
+      <p>óptico de caracteres, com Tesseract, pré-processamento da imagem e</p>
+      <p>medição da taxa de erro, que se propaga por toda a cadeia. O pipeline</p>
+      <p>segue: limpeza, tokenização, normalização, remoção de stopwords e então</p>
+      <p>stemming, que corta sufixos por regra com o RSLP, ou lematização, que</p>
+      <p>devolve o lema de dicionário e é mais precisa e mais custosa. Depois vem</p>
+      <p>a vetorização. O Bag of Words conta palavras; o TF-IDF pesa o termo pela</p>
+      <p>frequência no documento e pelo inverso da frequência na coleção,</p>
+      <p>valorizando o que discrimina; os embeddings, como Word2Vec e FastText,</p>
+      <p>dão vetores densos; e modelos contextuais, como o BERT, dão vetores</p>
+      <p>diferentes conforme o contexto. As aplicações são diretas: similaridade</p>
+      <p>por cosseno entre proposições, para achar texto duplicado ou semelhante;</p>
+      <p>NER, o reconhecimento de entidades nomeadas, para extrair parlamentar,</p>
+      <p>órgão, número de lei e data; e modelagem de tópicos com LDA para agrupar</p>
+      <p>por assunto. Como limite, o resultado exige validação humana por</p>
+      <p>amostra, e o erro de OCR deve ser reportado junto com o indicador, sob</p>
+      <p>pena de dar aparência de precisão a um dado ruidoso.</p>
+    </div>
+    <div class="callout good" style="margin:.6rem 0">
+      <span class="callout-label">Em palavras simples</span>
+      <p>Antes de tudo, descubra se o PDF tem texto de verdade ou é só uma foto da página. Se for foto, o computador precisa ler a imagem e erra — e esse erro contamina tudo o que vier depois. Feito isso, é limpar, cortar em palavras, tirar palavra sem valor e virar número, porque modelo não lê letra, lê número.</p>
+    </div>
+    <div class="callout note" style="margin:.6rem 0">
+      <span class="callout-label">Gancho de IA</span>
+      <p>Se o enunciado puxar para IA: ofereça busca semântica e sumarização com modelo de linguagem apoiado em RAG, que recupera o trecho oficial e cita a fonte, reduzindo a alucinação.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">TEMA 6</span><span class="q-src">probabilidade média</span></div>
+    <p class="q-stem"><strong>Integração de dados heterogêneos: ETL/ELT, interoperabilidade, dados abertos, tratamento de missing e outliers.</strong></p>
+    <div class="callout" style="margin:.6rem 0">
+      <span class="callout-label">Ponto de atenção</span>
+      <p>Descrever só ETL e esquecer <strong>interoperabilidade semântica</strong>, que é o termo que o edital usa. O gargalo real não é técnico — é dois sistemas discordarem sobre o que significa "proposição arquivada". Cite os quatro níveis.</p>
+    </div>
+    <p><strong>Elementos esperados:</strong> ETL × ELT · fontes do edital (diários, proposições, votação, orçamento, bases externas) · <strong>quatro níveis de interoperabilidade</strong>: técnica, semântica, organizacional, legal · vocabulário controlado e dicionário · ausência de chave comum, <em>record linkage</em> determinístico × probabilístico, blocagem, Levenshtein/Jaro-Winkler · requisitos de dados abertos (art. 8º, §3º) · hierarquia dado aberto &gt; API &gt; scraping · MCAR/MAR/MNAR · IQR e z-score robusto · outlier ≠ erro.</p>
+    <p><strong>Esqueleto:</strong> ①natureza heterogênea das fontes → ②ETL/ELT e a arquitetura de destino → ③interoperabilidade nos quatro níveis e resolução de entidades → ④qualidade: missing e outliers → ⑤dados abertos e governança.</p>
+    <h4>Texto pronto — 20 linhas</h4>
+    <div class="lines">
+      <p>As fontes do Legislativo são heterogêneas: diários oficiais em PDF,</p>
+      <p>proposições semiestruturadas, sistemas de votação estruturados, dados</p>
+      <p>orçamentários hierárquicos e bases externas. Integrar exige decidir onde</p>
+      <p>transformar. No ETL extrai-se, transforma-se e só então carrega-se,</p>
+      <p>padrão do data warehouse com área de staging. No ELT carrega-se o bruto</p>
+      <p>e transforma-se no destino, o que se ajusta ao data lake e à nuvem; a</p>
+      <p>arquitetura madura combina os dois em camadas. O ponto que o edital</p>
+      <p>nomeia é a interoperabilidade, em quatro níveis: técnica, de protocolos</p>
+      <p>e formatos; semântica, de significado comum; organizacional, de</p>
+      <p>processos e responsabilidades entre órgãos; e legal, de bases legais</p>
+      <p>compatíveis para o compartilhamento. O gargalo real é a semântica: dois</p>
+      <p>sistemas trocam JSON perfeitamente e ainda discordam do que é proposição</p>
+      <p>arquivada. A solução passa por vocabulário controlado, dicionário de</p>
+      <p>dados e padrões como o e-PING e o Dublin Core. Falta a chave comum,</p>
+      <p>resolvida por record linkage: normalizar, blocar, comparar com</p>
+      <p>Levenshtein ou Jaro-Winkler e decidir de forma determinística ou</p>
+      <p>probabilística. Na qualidade, tratam-se os ausentes conforme o</p>
+      <p>mecanismo, MCAR, MAR ou MNAR, e os outliers pela regra do IQR, lembrando</p>
+      <p>que outlier pode ser evento legítimo. Como salvaguarda, publica-se em</p>
+      <p>formato aberto e legível por máquina, com metadados (art. 8º, §3º, LAI).</p>
+    </div>
+    <div class="callout good" style="margin:.6rem 0">
+      <span class="callout-label">Em palavras simples</span>
+      <p>O problema não é cabo nem formato de arquivo. Dois sistemas podem conversar perfeitamente e mesmo assim chamar coisas diferentes pelo mesmo nome. Por isso o acordo sobre o significado da palavra vale mais que a tecnologia — e, sem chave comum, você junta os cadastros comparando nomes parecidos.</p>
+    </div>
+    <div class="callout note" style="margin:.6rem 0">
+      <span class="callout-label">Gancho de IA</span>
+      <p>Se o enunciado puxar para IA: cite o uso de modelos de linguagem para casar registros e padronizar nomes de órgãos, sempre com regra determinística antes e revisão humana nos casos duvidosos.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">TEMA 7</span><span class="q-src">probabilidade média</span></div>
+    <p class="q-stem"><strong>Vieses algorítmicos e transparência em decisões que afetam cidadãos.</strong></p>
+    <div class="callout" style="margin:.6rem 0">
+      <span class="callout-label">Ponto de atenção</span>
+      <p>Dizer que "basta remover a variável sensível". Não basta — sobram os <strong>proxies</strong>. E o ponto que distingue resposta boa de excelente: os critérios de equidade são <strong>matematicamente incompatíveis entre si</strong>, logo a escolha é normativa e precisa ser declarada.</p>
+    </div>
+    <p><strong>Elementos esperados:</strong> viés de seleção, histórico, de rotulagem, de automação, <em>feedback loop</em> · proxy discriminatório · critérios de fairness e sua incompatibilidade · XAI: intrinsecamente interpretável × caixa-preta, SHAP, LIME, contrafactuais · art. 20 da LGPD e §2º (auditoria pela ANPD) · não discriminação (art. 6º, IX) · motivação do ato administrativo · publicidade · revisão humana.</p>
+    <h4>Texto pronto — 20 linhas</h4>
+    <div class="lines">
+      <p>Viés algorítmico é o erro sistemático que faz o modelo tratar grupos de</p>
+      <p>forma desigual, e entra por vários caminhos. O viés de seleção nasce de</p>
+      <p>amostra que não representa a população. O histórico é o mais difícil: o</p>
+      <p>dado reflete desigualdade que já existia e o modelo a repete, ainda que</p>
+      <p>o registro esteja correto. Há ainda o viés de rotulagem, o de automação,</p>
+      <p>quando o servidor confia demais na saída, e o feedback loop, em que a</p>
+      <p>decisão gera o dado que a realimenta. Remover a variável sensível não</p>
+      <p>resolve, porque sobram os proxies discriminatórios: CEP, escola e nome</p>
+      <p>funcionam como substitutos de raça e renda. Para medir equidade usam-se</p>
+      <p>critérios nomeados: paridade demográfica, igualdade de oportunidade,</p>
+      <p>equalized odds e calibração por grupo. O ponto decisivo é que esses</p>
+      <p>critérios são matematicamente incompatíveis entre si, de modo que a</p>
+      <p>escolha é normativa, não técnica, e precisa ser declarada e justificada.</p>
+      <p>No plano jurídico, o art. 20 da LGPD assegura a revisão de decisão</p>
+      <p>tomada unicamente por tratamento automatizado e obriga a informar</p>
+      <p>critérios e procedimentos; o §2º permite à ANPD auditar quando se alega</p>
+      <p>segredo comercial. Some-se o princípio da não discriminação do art. 6º,</p>
+      <p>IX. No plano técnico, a resposta é a explicabilidade: preferir modelo</p>
+      <p>interpretável e, em caixa-preta, aplicar SHAP, LIME e contrafactuais.</p>
+      <p>Como salvaguarda, mantêm-se supervisão humana e auditoria por grupo.</p>
+    </div>
+    <div class="callout good" style="margin:.6rem 0">
+      <span class="callout-label">Em palavras simples</span>
+      <p>Tirar a coluna raça não apaga a discriminação, porque o CEP conta a mesma história. E não dá para ser justo de todas as formas ao mesmo tempo: os critérios de justiça brigam entre si na matemática, então escolher qual deles vale é decisão de gente — e precisa ser dita em voz alta.</p>
+    </div>
+    <div class="callout note" style="margin:.6rem 0">
+      <span class="callout-label">Gancho de IA</span>
+      <p>Se o enunciado puxar para IA generativa: o modelo herda o viés do texto em que foi treinado, e a saída deve ser avaliada por amostra antes de virar insumo de decisão.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">TEMA 8</span><span class="q-src">probabilidade média</span></div>
+    <p class="q-stem"><strong>Segurança da informação e anonimização em publicações de transparência ativa.</strong></p>
+    <div class="callout" style="margin:.6rem 0">
+      <span class="callout-label">Ponto de atenção</span>
+      <p>Confundir segurança com anonimização. São camadas distintas: <strong>anonimização atua sobre o dado</strong>; <strong>segurança atua sobre o acesso e o ambiente</strong>. Uma boa resposta trata as duas separadamente e mostra que a segunda protege o dado individualizado que a primeira não pôde publicar.</p>
+    </div>
+    <p><strong>Elementos esperados:</strong> CID (confidencialidade, integridade, disponibilidade) · controle de acesso por perfil e menor privilégio · criptografia em trânsito (TLS) e em repouso · log de auditoria · segregação de ambientes · supressão, generalização, mascaramento, ruído, <em>k</em>-anonimato, <em>l</em>-diversidade, privacidade diferencial · reidentificação por cruzamento · art. 46 e 47 da LGPD (segurança e boas práticas) · requisitos de dados abertos.</p>
+    <h4>Texto pronto — 20 linhas</h4>
+    <div class="lines">
+      <p>Segurança e anonimização são camadas distintas e complementares: a</p>
+      <p>anonimização atua sobre o dado, a segurança atua sobre o acesso e o</p>
+      <p>ambiente. A primeira decide o que pode ser publicado; a segunda protege</p>
+      <p>o que não pode. Na anonimização aplicam-se supressão de campos</p>
+      <p>identificantes, generalização em faixas, mascaramento, ruído e</p>
+      <p>agregação, com as garantias formais do k-anonimato, da l-diversidade e</p>
+      <p>da privacidade diferencial. O limite é a reidentificação por cruzamento</p>
+      <p>de quase-identificadores, cujo exemplo clássico é CEP, data de</p>
+      <p>nascimento e sexo. Vale a distinção que a banca cobra: pseudonimizar não</p>
+      <p>é anonimizar, pois a chave de reversão subsiste e o dado continua</p>
+      <p>pessoal; e o art. 12, §2º, permite considerar pessoal o dado usado para</p>
+      <p>formar perfil comportamental. Na segurança, o tripé é confidencialidade,</p>
+      <p>integridade e disponibilidade, ao qual se somam autenticidade e não</p>
+      <p>repúdio. Os controles são acesso por perfil com menor privilégio,</p>
+      <p>criptografia em trânsito com TLS e em repouso, log de auditoria,</p>
+      <p>segregação entre produção e análise, e backup pela regra 3-2-1. No</p>
+      <p>Legislativo, publica-se em transparência ativa o dado agregado e</p>
+      <p>anonimizado, mantendo-se o individualizado em ambiente controlado, com</p>
+      <p>base legal própria e trilha de auditoria. Como salvaguarda, o RIPD</p>
+      <p>documenta o risco e a política de retenção fecha o ciclo com o descarte.</p>
+    </div>
+    <div class="callout good" style="margin:.6rem 0">
+      <span class="callout-label">Em palavras simples</span>
+      <p>São dois cadeados diferentes. A anonimização mexe no dado: apaga, agrupa em faixas, embaralha. A segurança mexe na porta: quem entra, com que senha, e fica registrado. O que você não pode publicar, porque não dá para anonimizar, você guarda atrás da porta.</p>
+    </div>
+    <div class="callout note" style="margin:.6rem 0">
+      <span class="callout-label">Gancho de IA</span>
+      <p>Se o enunciado puxar para IA: enviar dado pessoal a serviço externo de IA é tratamento e transferência, exigindo base legal, contrato e avaliação de risco no RIPD.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">TEMA 9</span><span class="q-src">probabilidade média</span></div>
+    <p class="q-stem"><strong>Análise exploratória e detecção de padrões em dados orçamentários: clustering de despesas e séries temporais de execução.</strong></p>
+    <div class="callout" style="margin:.6rem 0">
+      <span class="callout-label">Ponto de atenção</span>
+      <p><strong>Empenhado não é pago.</strong> Uma resposta que trate "execução orçamentária" como número único ignora os estágios da despesa e perde credibilidade técnica. E, no clustering, esquecer que dado monetário tem escala muito diferente entre rubricas — <strong>K-means exige padronização</strong>.</p>
+    </div>
+    <p><strong>Elementos esperados:</strong> estágios empenho → liquidação → pagamento · classificação orçamentária hierárquica · EDA: descritivas, distribuição assimétrica, mediana &gt; média, boxplot · outliers como evento legítimo (empenho de fim de exercício) · padronização antes de K-means · escolha de k por cotovelo e silhueta · DBSCAN para forma arbitrária e ruído · série temporal: sazonalidade (dezembro), decomposição, estacionariedade, validação temporal.</p>
+    <h4>Texto pronto — 20 linhas</h4>
+    <div class="lines">
+      <p>A análise de dados orçamentários começa por um cuidado conceitual: a</p>
+      <p>despesa passa por três estágios, empenho, liquidação e pagamento, e</p>
+      <p>somar o empenhado chamando de executado é erro técnico. A classificação</p>
+      <p>é hierárquica, do órgão ao elemento de despesa, e é ela que define a</p>
+      <p>granularidade da análise. Na exploração, descrevem-se as distribuições.</p>
+      <p>Valor de despesa é fortemente assimétrico à direita, então a mediana</p>
+      <p>representa melhor o centro do que a média, e o boxplot compara rubricas</p>
+      <p>e expõe outliers. Aqui o outlier costuma ser evento legítimo, como o</p>
+      <p>empenho de fim de exercício, e removê-lo sem análise é erro. Para</p>
+      <p>agrupar rubricas de comportamento parecido aplica-se clustering, sempre</p>
+      <p>com padronização antes, porque o K-means depende de distância e as</p>
+      <p>escalas monetárias são muito diferentes. Escolhe-se k pelo método do</p>
+      <p>cotovelo e pelo coeficiente de silhueta. Quando os grupos não são</p>
+      <p>esféricos ou há ruído, o DBSCAN é mais adequado, pois agrupa por</p>
+      <p>densidade e marca ruído explicitamente. Na série temporal da execução</p>
+      <p>mensal, decompõe-se em tendência, sazonalidade e ruído, testa-se</p>
+      <p>estacionariedade com ADF e KPSS e modela-se com ARIMA ou suavização</p>
+      <p>exponencial. A validação é temporal, treinando no passado e testando no</p>
+      <p>futuro, nunca embaralhada. Como salvaguarda, todo achado é confrontado</p>
+      <p>com a regra orçamentária antes de virar indicador.</p>
+    </div>
+    <div class="callout good" style="margin:.6rem 0">
+      <span class="callout-label">Em palavras simples</span>
+      <p>Empenhado não é pago: são três carimbos diferentes na mesma despesa. Dinheiro tem valores muito desiguais, então use a mediana e coloque tudo na mesma escala antes de agrupar. E o gasto enorme de dezembro não é defeito do dado — é o fim do exercício.</p>
+    </div>
+    <div class="callout note" style="margin:.6rem 0">
+      <span class="callout-label">Gancho de IA</span>
+      <p>Se o enunciado puxar para IA: proponha detecção de anomalia em empenhos como triagem que apenas prioriza a análise humana, nunca como acusação automática de irregularidade.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">TEMA 10</span><span class="q-src">probabilidade média</span></div>
+    <p class="q-stem"><strong>Data lake × data warehouse para o Legislativo: quando cada um e riscos de governança.</strong></p>
+    <div class="callout" style="margin:.6rem 0">
+      <span class="callout-label">Ponto de atenção</span>
+      <p>Tratar como escolha excludente. A resposta madura é <strong>arquitetura em camadas</strong>: lake para ingestão bruta de fontes heterogêneas (diários em PDF, logs, APIs) e DW dimensional para consumo analítico governado. E citar o risco nomeado: <strong>data swamp</strong>.</p>
+    </div>
+    <p><strong>Elementos esperados:</strong> DW de Inmon (orientado a assunto, integrado, não volátil, variável no tempo), <em>schema-on-write</em> · lake, <em>schema-on-read</em>, formato nativo · lakehouse · modelagem dimensional de Kimball, fato e dimensão, granularidade, estrela × floco de neve, SCD 1 e 2 · data mart · OLTP × OLAP · <em>data swamp</em> · catálogo, linhagem e classificação como cura.</p>
+    <h4>Texto pronto — 20 linhas</h4>
+    <div class="lines">
+      <p>Data warehouse e data lake não competem por tecnologia, e sim pelo</p>
+      <p>momento em que o esquema é imposto. O warehouse de Inmon é orientado a</p>
+      <p>assunto, integrado, não volátil e variável no tempo, com schema-on-</p>
+      <p>write: o esquema entra na porta de entrada, o que garante consistência e</p>
+      <p>velocidade ao custo de rigidez. O lake guarda o dado bruto no formato</p>
+      <p>nativo, com schema-on-read: o esquema só é aplicado na leitura, o que</p>
+      <p>preserva o original ao custo de exigir catálogo e linhagem. Sem</p>
+      <p>governança, o lake degenera em data swamp, o pântano em que ninguém sabe</p>
+      <p>o que existe nem de onde veio. Para o Legislativo, a resposta madura é a</p>
+      <p>arquitetura em camadas: o lake recebe a ingestão bruta das fontes</p>
+      <p>heterogêneas, como diários em PDF, logs e APIs, e o warehouse</p>
+      <p>dimensional serve o consumo analítico governado, modelado à maneira de</p>
+      <p>Kimball, com tabela fato de granularidade declarada e dimensões</p>
+      <p>descritivas. O esquema estrela mantém dimensões desnormalizadas, com</p>
+      <p>menos junções e consulta mais rápida; o floco de neve normaliza,</p>
+      <p>economiza espaço e cobra junções. Mudança de atributo trata-se por SCD:</p>
+      <p>o tipo 1 sobrescreve e o tipo 2 versiona o histórico, indispensável para</p>
+      <p>acompanhar o partido do parlamentar ao longo do tempo. Distingue-se</p>
+      <p>ainda o OLTP, transacional do dia a dia, do OLAP, analítico. Como</p>
+      <p>salvaguarda, catálogo, dicionário e linhagem sustentam as duas camadas.</p>
+    </div>
+    <div class="callout good" style="margin:.6rem 0">
+      <span class="callout-label">Em palavras simples</span>
+      <p>A diferença não é tamanho nem tecnologia: é quando você arruma. O warehouse arruma na entrada, então é rápido e rígido. O lake joga tudo cru lá dentro e arruma só na hora de ler, então é flexível e vira bagunça sem catálogo. A resposta boa usa os dois, em camadas.</p>
+    </div>
+    <div class="callout note" style="margin:.6rem 0">
+      <span class="callout-label">Gancho de IA</span>
+      <p>Se o enunciado puxar para IA: treinar modelo exige o dado bruto e histórico do lake, enquanto o painel de gestão consome o warehouse — mais um argumento para as duas camadas coexistirem.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">TEMA 11</span><span class="q-src">a lacuna — leia com atenção</span></div>
+    <p class="q-stem"><strong>Simulação e cenários preditivos para apoio a comissões e gabinetes.</strong></p>
+    <div class="callout gold" style="margin:.6rem 0">
+      <span class="callout-label">Por que este tema merece atenção desproporcional</span>
+      <p>Está <strong>nominalmente no edital</strong> e é o tópico menos coberto pelo material de cursinho. Se a banca quiser separar candidatos, é aqui. A seção 11 deste documento existe por causa dele.</p>
+    </div>
+    <div class="callout" style="margin:.6rem 0">
+      <span class="callout-label">Ponto de atenção</span>
+      <p>Confundir <strong>predição</strong> com <strong>simulação</strong>. Predição estima um valor a partir de features observadas; simulação propaga incerteza através de um modelo para gerar uma <em>distribuição</em> de resultados. E o erro ético: apresentar cenário como previsão determinística.</p>
+    </div>
+    <p><strong>Elementos esperados:</strong> análise prescritiva no espectro descritiva → diagnóstica → preditiva → prescritiva · Monte Carlo: amostragem de distribuições, propagação, saída como distribuição, percentis P10/P50/P90, convergência com √n · cenários discretos nomeados com premissas explícitas · análise de sensibilidade e gráfico tornado · <em>what-if</em> no Power BI · simulação de eventos discretos e filas (gargalo, utilização, tempo de espera) · programação linear para alocação · comunicação da incerteza · LGPD se houver dado pessoal.</p>
+    <p><strong>Esqueleto:</strong> ①situar a análise prescritiva e distinguir predição de simulação → ②Monte Carlo, mecanismo e saída → ③cenários e sensibilidade → ④aplicação à tramitação como sistema de filas → ⑤comunicação da incerteza e limite ético.</p>
+    <h4>Texto pronto — 20 linhas</h4>
+    <p>Está escrito na íntegra, linha a linha, logo abaixo: <a href="#s19c"><strong>Modelo 3 — Simulação e cenários preditivos para comissões</strong></a>.</p>
+    <div class="callout good" style="margin:.6rem 0">
+      <span class="callout-label">Em palavras simples</span>
+      <p>Prever é dizer um número; simular é mostrar o leque de resultados possíveis com a chance de cada um. Por isso a resposta a uma comissão nunca é “vai levar 90 dias”, e sim “há 80% de chance de terminar até tal data”. O que entra é incerteza; o que sai é distribuição.</p>
+    </div>
+    <div class="callout note" style="margin:.6rem 0">
+      <span class="callout-label">Gancho de IA</span>
+      <p>Se o enunciado puxar para IA: separe bem os papéis. O modelo preditivo estima a duração de cada fase a partir do histórico, e a simulação usa essas estimativas para propagar a incerteza até a data final.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">TEMA 12</span><span class="q-src">curinga</span></div>
+    <p class="q-stem"><strong>Qualidade de dados: dimensões, diagnóstico e plano de melhoria em uma base legislativa.</strong></p>
+    <div class="callout" style="margin:.6rem 0">
+      <span class="callout-label">Ponto de atenção</span>
+      <p>Listar dimensões sem dizer <strong>como medir cada uma</strong>. Uma resposta forte associa dimensão → métrica → ação: completude → % de nulos por campo → imputação ou correção na origem. E cita a taxonomia de <strong>Wang &amp; Strong</strong> para organizar.</p>
+    </div>
+    <p><strong>Elementos esperados:</strong> quatro categorias (intrínseca, contextual, representacional, acessibilidade) · dimensões e como medi-las · MCAR/MAR/MNAR · IQR, z-score modificado com MAD · deduplicação e <em>record linkage</em> · perfilamento (<em>data profiling</em>) · regras de validação no dicionário de dados · correção na origem × correção no pipeline · SLA de dados.</p>
+    <h4>Texto pronto — 20 linhas</h4>
+    <div class="lines">
+      <p>Qualidade de dado não é impressão, é medida. A taxonomia de Wang e</p>
+      <p>Strong a organiza em quatro categorias: intrínseca, contextual,</p>
+      <p>representacional e de acessibilidade. Dentro delas estão as dimensões</p>
+      <p>operacionais: acurácia, completude, consistência, atualidade, unicidade,</p>
+      <p>validade e integridade. Cada dimensão vira métrica e cada métrica vira</p>
+      <p>ação. Completude mede-se pelo percentual de nulos por campo e trata-se</p>
+      <p>por correção na origem ou imputação. Unicidade mede-se por duplicatas e</p>
+      <p>trata-se por deduplicação e record linkage, com Levenshtein e Jaro-</p>
+      <p>Winkler quando não há chave comum. Validade mede-se pela taxa de valores</p>
+      <p>fora do domínio e resolve-se por regra declarada no dicionário.</p>
+      <p>Consistência compara fontes; atualidade, a data do dado com a</p>
+      <p>periodicidade prometida. O diagnóstico começa pelo perfilamento (data</p>
+      <p>profiling): tipos, domínios e nulos. Nos ausentes, o tratamento depende</p>
+      <p>do mecanismo: MCAR permite exclusão sem viés; MAR admite imputação</p>
+      <p>condicional; MNAR exige modelar o próprio mecanismo. Imputar pela média</p>
+      <p>reduz a variância artificialmente, e com assimetria a mediana é</p>
+      <p>preferível. Nos outliers usa-se a regra do IQR ou o z modificado com</p>
+      <p>mediana e MAD, lembrando que outlier não é erro. O plano de melhoria</p>
+      <p>prioriza a correção na origem, e não a limpeza repetida depois. Como</p>
+      <p>salvaguarda, os indicadores de qualidade entram no painel de governança.</p>
+    </div>
+    <div class="callout good" style="margin:.6rem 0">
+      <span class="callout-label">Em palavras simples</span>
+      <p>Não basta listar as dimensões: para cada uma, diga como se mede e o que se faz. Falta dado? Conte os vazios e corrija na origem. Repetido? Junte os iguais. Fora do padrão? Crie a regra no dicionário. E arrume no lugar onde o dado nasce, não toda vez que for usá-lo.</p>
+    </div>
+    <div class="callout note" style="margin:.6rem 0">
+      <span class="callout-label">Gancho de IA</span>
+      <p>Se o enunciado puxar para IA, use a frase que fecha o tema: modelo treinado em dado ruim aprende o erro e o distribui em escala — qualidade é pré-requisito de qualquer projeto de IA.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">TEMA 13</span><span class="q-src">IA · novo</span></div>
+    <p class="q-stem"><strong>Uso de inteligência artificial generativa no Legislativo: aplicações, riscos e governança.</strong></p>
+    <h4>Texto pronto — 20 linhas</h4>
+    <div class="lines">
+      <p>Inteligência artificial é o campo que faz a máquina executar tarefas que</p>
+      <p>exigiriam inteligência humana; dentro dele está o aprendizado de máquina</p>
+      <p>e, mais dentro, o aprendizado profundo. A IA generativa produz conteúdo</p>
+      <p>novo a partir de um modelo de linguagem treinado em grande volume de</p>
+      <p>texto. No Legislativo, os usos plausíveis são a sumarização de</p>
+      <p>proposições e pareceres, a classificação temática de documentos, a</p>
+      <p>triagem da ouvidoria, o apoio à redação e a busca semântica no acervo. O</p>
+      <p>primeiro risco é a alucinação: o modelo gera texto plausível e falso, o</p>
+      <p>que é inaceitável em ato administrativo. A mitigação técnica é o RAG, a</p>
+      <p>geração aumentada por recuperação, que busca o trecho no acervo oficial</p>
+      <p>e o injeta no contexto com citação da fonte, permitindo conferência.</p>
+      <p>Adaptar o modelo tem três caminhos distintos, do mais barato ao mais</p>
+      <p>caro: engenharia de prompt, RAG e fine-tuning. O segundo risco é</p>
+      <p>jurídico: enviar dado pessoal a serviço externo é tratamento e</p>
+      <p>transferência, o que exige base legal, contrato e avaliação de risco no</p>
+      <p>RIPD, e a saída do modelo não pode ser a decisão final, sob pena de</p>
+      <p>incidir o art. 20 da LGPD sem revisão humana. O terceiro risco é o viés</p>
+      <p>herdado do texto de treino. Como governança, exigem-se supervisão humana</p>
+      <p>obrigatória, registro de prompts e respostas, avaliação por amostra e</p>
+      <p>política interna que declare onde a IA pode e onde não pode ser usada.</p>
+    </div>
+    <div class="callout good" style="margin:.6rem 0">
+      <span class="callout-label">Em palavras simples</span>
+      <p>O modelo escreve bonito mesmo quando está errado — isso é alucinação. A defesa é obrigá-lo a responder só com base no documento oficial e a mostrar de onde tirou, que é o RAG. E dado de pessoa não sai de casa sem base legal e contrato.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">TEMA 14</span><span class="q-src">IA · novo</span></div>
+    <p class="q-stem"><strong>Decisão apoiada por IA na Administração: automação, direito à revisão e supervisão humana.</strong></p>
+    <h4>Texto pronto — 20 linhas</h4>
+    <div class="lines">
+      <p>Decisão apoiada em inteligência artificial na Administração não é</p>
+      <p>decisão sem responsável. O art. 20 da LGPD assegura ao titular o direito</p>
+      <p>de solicitar revisão de decisão tomada unicamente com base em tratamento</p>
+      <p>automatizado que afete seus interesses; o §1º obriga o controlador a</p>
+      <p>informar critérios e procedimentos, observado o segredo comercial; e o</p>
+      <p>§2º autoriza a ANPD a auditar quando o segredo é invocado. Somem-se o</p>
+      <p>dever de motivação do ato administrativo e o princípio da publicidade.</p>
+      <p>Daí decorre o desenho correto: o modelo prioriza, sinaliza ou ordena a</p>
+      <p>fila, mas quem decide é o agente público, com fundamentação própria, no</p>
+      <p>chamado humano no circuito. Do lado técnico, três exigências sustentam</p>
+      <p>essa arquitetura. A primeira é a explicabilidade: preferir modelo</p>
+      <p>interpretável quando o desempenho permitir e, em caixa-preta, aplicar</p>
+      <p>SHAP e LIME para justificar o caso concreto. A segunda é a avaliação</p>
+      <p>honesta: métrica escolhida pelo custo do erro, com recall quando o falso</p>
+      <p>negativo é mais grave, validação temporal e atenção ao data leakage. A</p>
+      <p>terceira é o monitoramento em produção: o desempenho cai com o tempo</p>
+      <p>porque a realidade muda, fenômeno chamado drift, o que exige reavaliação</p>
+      <p>periódica com dado novo. Acrescente-se o registro de versão do modelo,</p>
+      <p>dos dados e das decisões, para auditoria. Como salvaguarda, publica-se a</p>
+      <p>existência do sistema, seus critérios gerais e o canal de revisão.</p>
+    </div>
+    <div class="callout good" style="margin:.6rem 0">
+      <span class="callout-label">Em palavras simples</span>
+      <p>A máquina pode organizar a fila; quem assina a decisão continua sendo a pessoa, e ela precisa explicar por que decidiu assim. Além disso, modelo envelhece: o mundo muda e ele erra mais com o tempo, então tem de ser reavaliado de tempos em tempos.</p>
+    </div>
+  </div>
+</section>
+<section id="s19c">
+  <p class="sec-eyebrow">19 · simulados</p>
+  <h2>Três respostas modelo, linha a linha</h2>
+  <p class="sec-lede">Escritas na densidade que o padrão de resposta recompensa. Leia observando <em>quantos elementos técnicos cabem em uma linha</em> — é essa a variável que você controla amanhã.</p>
+
+  <div class="callout note">
+    <span class="callout-label">Como usar</span>
+    <p>Não decore o texto. Observe três coisas: (1) a linha 1 já define, sem introdução; (2) cada bloco é aberto por um conectivo de estrutura — <em>"No plano técnico…"</em>, <em>"Como algoritmo, propõe-se…"</em>; (3) todo dispositivo legal vem seguido do que ele resolve. Uma linha manuscrita comporta entre 60 e 75 caracteres — nos modelos abaixo as linhas estão ligeiramente mais longas, então na prova conte com um pouco menos de conteúdo por linha.</p>
+  </div>
+
+  <h3>Modelo 1 — LGPD, anonimização e conciliação com a LAI</h3>
+  <div class="lines">
+    <p>A Lei 13.709/2018 protege informação relacionada a pessoa natural identificada</p>
+    <p>ou identificável. Bases legislativas reúnem dados de parlamentares, cuja atuação</p>
+    <p>é pública, e de cidadãos — peticionários, inscritos em audiências e usuários da</p>
+    <p>ouvidoria —, cujo tratamento é integralmente regido pela LGPD. No plano da</p>
+    <p>licitude, o tratamento pela Assembleia funda-se na execução de política pública</p>
+    <p>(art. 7º, III, c/c art. 23), o que dispensa o consentimento, sem afastar os</p>
+    <p>princípios do art. 6º, notadamente finalidade, necessidade e transparência: a</p>
+    <p>mudança de finalidade exige nova base legal, não bastando a posse do dado.</p>
+    <p>No plano técnico, a divulgação exige anonimização, que não se confunde com a</p>
+    <p>pseudonimização — nesta a chave de reversão subsiste e o dado segue pessoal.</p>
+    <p>Aplicam-se supressão, generalização, mascaramento e k-anonimato, atentando-se</p>
+    <p>ao risco de reidentificação por cruzamento de quase-identificadores, como CEP,</p>
+    <p>data de nascimento e sexo; o art. 12, §2º, reconduz ao regime de dado pessoal a</p>
+    <p>informação empregada na formação de perfil comportamental. No plano da</p>
+    <p>transparência, a Lei 12.527/2011 firma a publicidade como regra e o sigilo como</p>
+    <p>exceção motivada, sendo o acesso independente de motivação. A conciliação é</p>
+    <p>técnica: publica-se, em transparência ativa e em formato aberto e estruturado, o</p>
+    <p>dado agregado e anonimizado, mantendo-se o individualizado em ambiente</p>
+    <p>controlado, com acesso por perfil, criptografia e trilha de auditoria. Impõem-se,</p>
+    <p>por fim, relatório de impacto e governança formal de retenção e descarte.</p>
+  </div>
+  <p><strong>Elementos marcados:</strong> conceito de dado pessoal · distinção parlamentar/cidadão · art. 7º, III · art. 23 · dispensa de consentimento · três princípios do art. 6º · vedação à mudança de finalidade · anonimização × pseudonimização · quatro técnicas · quase-identificadores · art. 12, §2º · LAI: publicidade como regra · acesso sem motivação · transparência ativa · formato aberto · agregação · três controles de segurança · RIPD · retenção e descarte. <strong>São 19 elementos em 20 linhas.</strong></p>
+
+  <h3>Modelo 2 — Modelo preditivo de tempo de tramitação</h3>
+  <div class="lines">
+    <p>A predição do tempo de tramitação configura problema supervisionado de</p>
+    <p>regressão, pois o alvo é numérico — dias entre o protocolo e a deliberação</p>
+    <p>final. Caso o enunciado o converta em "conclui até o fim da sessão?", passa a</p>
+    <p>ser classificação binária. A definição do alvo governa toda a modelagem.</p>
+    <p>As variáveis preditoras derivam do próprio rito: tipo de proposição, autoria,</p>
+    <p>comissões pelas quais deve passar, regime de urgência, número de emendas,</p>
+    <p>período da sessão legislativa e carga de trabalho do relator. Exige-se cautela</p>
+    <p>com vazamento de dados: atributos que só existem após o desfecho, como a data</p>
+    <p>de sanção, devem ser excluídos, sob pena de desempenho ilusório em teste.</p>
+    <p>Como algoritmo, propõe-se linha de base com regressão linear regularizada e,</p>
+    <p>em seguida, gradient boosting, que domina dados tabulares e trata valores</p>
+    <p>ausentes nativamente. A métrica adequada é o erro absoluto médio, robusto a</p>
+    <p>extremos, complementado pelo RMSE quando o erro grande for especialmente</p>
+    <p>custoso; a acurácia é inaplicável a alvo contínuo. A validação deve ser</p>
+    <p>temporal, com janela expansiva, treinando-se no passado e testando-se no</p>
+    <p>futuro, jamais embaralhada, sob pena de data leakage. Por se tratar de decisão</p>
+    <p>apoiada em tratamento automatizado, incide o art. 20 da LGPD, que assegura</p>
+    <p>revisão e exige informação clara sobre critérios — dever operacionalizado por</p>
+    <p>SHAP e importância por permutação, convergente com a motivação do ato</p>
+    <p>administrativo. Registre-se o risco de viés histórico e de profecia autorrealizável.</p>
+  </div>
+  <p><strong>Elementos marcados:</strong> supervisionado · regressão × classificação · definição do alvo · sete features derivadas do rito · vazamento de dados com exemplo · baseline · regularização · gradient boosting e sua justificativa · MAE e RMSE com critério de escolha · por que acurácia não serve · validação temporal expansiva · <em>data leakage</em> · art. 20 · SHAP · importância por permutação · motivação do ato · viés histórico · profecia autorrealizável.</p>
+
+  <h3>Modelo 3 — Simulação e cenários preditivos para comissões</h3>
+  <div class="lines">
+    <p>A simulação situa-se na análise prescritiva, quarto estágio após a descritiva,</p>
+    <p>a diagnóstica e a preditiva. Distingue-se da predição: esta estima um valor a</p>
+    <p>partir de atributos observados, enquanto aquela propaga incerteza através de um</p>
+    <p>modelo para produzir a distribuição dos resultados possíveis.</p>
+    <p>Na simulação de Monte Carlo, atribui-se a cada parâmetro incerto uma</p>
+    <p>distribuição de probabilidade justificada pelo histórico; amostra-se</p>
+    <p>repetidamente, propaga-se cada amostra pelo modelo e acumulam-se as saídas. O</p>
+    <p>resultado não é um número, mas uma distribuição, reportada por mediana e pelos</p>
+    <p>percentis P10, P50 e P90, além da probabilidade de exceder um limiar. O erro</p>
+    <p>decresce com a raiz do número de execuções. A análise de cenários, por sua vez,</p>
+    <p>opera com poucos futuros discretos e nomeados, de premissas explícitas, e a</p>
+    <p>análise de sensibilidade identifica, por gráfico tornado, qual premissa mais</p>
+    <p>move o resultado. Aplicada ao Legislativo, a tramitação modela-se como sistema</p>
+    <p>de filas: cada fase possui chegada, atendimento e espera, o que permite estimar</p>
+    <p>tempo médio no sistema, taxa de utilização das comissões e o gargalo do rito.</p>
+    <p>Responde-se, assim, à comissão qual a probabilidade de determinado projeto ser</p>
+    <p>votado até o encerramento da sessão legislativa; e a otimização, por</p>
+    <p>programação linear, apoia a alocação de relatorias sob restrições. Impõe-se,</p>
+    <p>todavia, comunicar a incerteza e documentar premissas, sob pena de conferir</p>
+    <p>aparência de objetividade a decisão que permanece política, observada a LGPD.</p>
+  </div>
+  <p><strong>Elementos marcados:</strong> análise prescritiva e os quatro estágios · distinção predição × simulação · Monte Carlo com mecanismo completo · justificativa da distribuição · saída como distribuição · percentis · probabilidade de exceder limiar · convergência com √n · análise de cenários e sua diferença · análise de sensibilidade · gráfico tornado · tramitação como sistema de filas · três métricas de fila · gargalo · pergunta de negócio respondida · programação linear · comunicação da incerteza · documentação de premissas · limite ético · LGPD.</p>
+
+  <div class="callout gold">
+    <span class="callout-label">O padrão que os três compartilham</span>
+    <ol>
+      <li><strong>Linha 1 define.</strong> Nenhum dos três abre com contextualização vazia.</li>
+      <li><strong>Conectivos de estrutura marcam os blocos</strong> — "No plano da licitude", "Como algoritmo, propõe-se", "Aplicada ao Legislativo". Isso entrega o critério (d) do edital sem gastar linha.</li>
+      <li><strong>Todo dispositivo vem colado ao que resolve.</strong> Nunca "conforme o art. 20" isolado.</li>
+      <li><strong>A última linha é salvaguarda</strong>, não conclusão retórica. "Em conclusão, o tema é muito importante" é linha desperdiçada.</li>
+      <li><strong>Nenhuma primeira pessoa, nenhuma opinião não fundamentada.</strong></li>
+    </ol>
+  </div>
+</section>
+<footer>
+  <p>As catorze respostas prontas são <strong>autorais</strong>, escritas a partir do conteúdo programático do Anexo II do Edital 01/2026 da ALECE e medidas em 20 linhas de 72 caracteres, o limite útil do caderno de texto definitivo.</p>
+  <p><a href="analise-de-dados.html">← Conjunto de Treino: a revisão completa</a> &#160;·&#160; <a href="questoes-analise-de-dados.html">Conjunto de Teste: as objetivas</a> &#160;·&#160; <a href="index.html">Índice dos materiais</a></p>
+</footer>
+
+</div>
+
+<script>
+// Um <details> fechado nao imprime seu conteudo. Abre todos antes de imprimir e restaura depois.
+(function () {
+  var fechados = [];
+  function abrir() {
+    fechados = [].slice.call(document.querySelectorAll('details:not([open])'));
+    fechados.forEach(function (d) { d.open = true; });
+  }
+  function restaurar() {
+    fechados.forEach(function (d) { d.open = false; });
+    fechados = [];
+  }
+  window.addEventListener('beforeprint', abrir);
+  window.addEventListener('afterprint', restaurar);
+  var mq = window.matchMedia && window.matchMedia('print');
+  if (mq && mq.addEventListener) {
+    mq.addEventListener('change', function (e) { e.matches ? abrir() : restaurar(); });
+  }
+})();
+</script>
+</body>
+</html>
