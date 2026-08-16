@@ -1,0 +1,1255 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Questões de Análise de Dados comentadas e simulado autoral no formato IDECAN, para a prova da ALECE 2026.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>">
+<title>Questões de Análise de Dados</title>
+<style>
+:root{
+  --paper:#F1F4F3; --surface:#FFFFFF; --surface-2:#E7ECEB;
+  --ink:#14191B; --ink-2:#3E4A4D; --muted:#657376;
+  --line:#D2DAD9; --line-strong:#B4C0BF;
+  --accent:#1B4B57; --accent-soft:#DCE9EB;
+  --warn:#8C2F2A; --warn-soft:#F3E1DF;
+  --good:#3A6B45; --good-soft:#DFEBE1;
+  --gold:#7A5B18; --gold-soft:#F0E7D0;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --mono:"Cascadia Mono",Consolas,"SF Mono",Menlo,"DejaVu Sans Mono",monospace;
+  --measure:70ch;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#101618; --surface:#182023; --surface-2:#1F292C;
+    --ink:#E3EAEA; --ink-2:#B6C3C4; --muted:#849496;
+    --line:#2C3A3D; --line-strong:#3D4E52;
+    --accent:#77B6C5; --accent-soft:#1B3138;
+    --warn:#E08A83; --warn-soft:#38201F;
+    --good:#8FC297; --good-soft:#1D2E22;
+    --gold:#D6B96E; --gold-soft:#332B18;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#101618; --surface:#182023; --surface-2:#1F292C;
+  --ink:#E3EAEA; --ink-2:#B6C3C4; --muted:#849496;
+  --line:#2C3A3D; --line-strong:#3D4E52;
+  --accent:#77B6C5; --accent-soft:#1B3138;
+  --warn:#E08A83; --warn-soft:#38201F;
+  --good:#8FC297; --good-soft:#1D2E22;
+  --gold:#D6B96E; --gold-soft:#332B18;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:calc(var(--measure) + 7rem);margin:0 auto;padding:0 1.5rem 5rem}
+header.hero{padding:3rem 0 1.8rem;border-bottom:2px solid var(--ink);margin-bottom:2rem}
+.kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--warn);margin:0 0 .8rem}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,5.5vw,2.9rem);line-height:1.08;letter-spacing:-.01em;margin:0 0 .7rem;text-wrap:balance}
+.dek{font-size:1.03rem;color:var(--ink-2);max-width:62ch;margin:0}
+.metastrip{display:flex;flex-wrap:wrap;gap:.35rem .85rem;margin-top:1.2rem;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+.metastrip span{white-space:nowrap}
+.metastrip span::before{content:"·";margin-right:.85rem;color:var(--line-strong)}
+.metastrip span:first-child::before{content:"";margin:0}
+section{margin:0 0 3rem;scroll-margin-top:1rem}
+h2{font-family:var(--serif);font-weight:600;font-size:1.62rem;line-height:1.2;margin:0 0 .3rem;text-wrap:balance;letter-spacing:-.005em;break-after:avoid}
+.sec-eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin:0 0 .45rem}
+.sec-lede{color:var(--ink-2);margin:.4rem 0 1.4rem;max-width:var(--measure)}
+h3{font-family:var(--sans);font-weight:650;font-size:1.02rem;margin:1.8rem 0 .5rem;color:var(--ink);break-after:avoid}
+h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin:1.4rem 0 .45rem;font-weight:600;break-after:avoid}
+p{margin:0 0 .75rem;max-width:var(--measure)}
+ul,ol{margin:0 0 .8rem;padding-left:1.15rem;max-width:var(--measure)}
+li{margin-bottom:.28rem}
+li::marker{color:var(--line-strong)}
+strong{font-weight:650}
+a{color:var(--accent)}
+code,.mono{font-family:var(--mono);font-size:.87em}
+code{background:var(--surface-2);padding:.06em .3em;border-radius:3px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:2px;padding:1rem 1.15rem;margin:0 0 .9rem;break-inside:avoid}
+.callout{border-left:3px solid var(--warn);background:var(--warn-soft);padding:.8rem 1.05rem;margin:1rem 0;border-radius:0 2px 2px 0;break-inside:avoid}
+.callout.good{border-left-color:var(--good);background:var(--good-soft)}
+.callout.note{border-left-color:var(--accent);background:var(--accent-soft)}
+.callout.gold{border-left-color:var(--gold);background:var(--gold-soft)}
+.callout p:last-child,.card p:last-child,.callout ul:last-child,.card ul:last-child,.callout ol:last-child{margin-bottom:0}
+.callout-label{font-family:var(--mono);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;display:block;margin-bottom:.3rem;color:var(--warn);font-weight:600}
+.callout.good .callout-label{color:var(--good)}
+.callout.note .callout-label{color:var(--accent)}
+.callout.gold .callout-label{color:var(--gold)}
+.tablewrap{overflow-x:auto;margin:0 0 1.1rem;border:1px solid var(--line);border-radius:2px;background:var(--surface);break-inside:avoid}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{text-align:left;padding:.45rem .7rem;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--surface-2);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+td.num,th.num{font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:.84rem;white-space:nowrap}
+.q{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--line-strong);border-radius:0 2px 2px 0;padding:.95rem 1.1rem;margin:0 0 .9rem;break-inside:avoid}
+.q-head{display:flex;gap:.55rem;align-items:baseline;flex-wrap:wrap;margin-bottom:.55rem}
+.q-id{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--accent);font-weight:600;white-space:nowrap}
+.q-src{font-family:var(--mono);font-size:.66rem;color:var(--muted)}
+.q-stem{margin:0 0 .6rem}
+.q-opts{list-style:none;padding:0;margin:0 0 .75rem}
+.q-opts li{margin:0 0 .25rem;padding-left:2rem;text-indent:-2rem;font-size:.93rem;color:var(--ink-2)}
+.q-opts .lt{font-family:var(--mono);font-weight:600;color:var(--muted);display:inline-block;width:1.65rem;text-indent:0}
+details.reveal{border-top:1px dashed var(--line-strong);padding-top:.55rem}
+details.reveal summary{cursor:pointer;list-style:none;font-family:var(--mono);font-size:.71rem;letter-spacing:.11em;text-transform:uppercase;color:var(--accent);font-weight:600;display:inline-flex;align-items:center;gap:.4rem}
+details.reveal summary::-webkit-details-marker{display:none}
+details.reveal summary::before{content:"▸";display:inline-block;transition:transform .15s ease}
+@media (prefers-reduced-motion: reduce){details.reveal summary::before{transition:none}}
+details.reveal[open] summary::before{transform:rotate(90deg)}
+details.reveal summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.answer{margin-top:.6rem;padding-left:.85rem;border-left:2px solid var(--good)}
+.answer .key{font-family:var(--mono);font-weight:700;color:var(--good);font-size:.98rem}
+.answer p{font-size:.93rem;color:var(--ink-2);margin-bottom:.45rem}
+.answer p:last-child{margin-bottom:0}
+.drill{display:grid;gap:.45rem;margin:0 0 1.1rem}
+.fc{background:var(--surface);border:1px solid var(--line);border-radius:2px;padding:.65rem .9rem;break-inside:avoid}
+.fc summary{cursor:pointer;list-style:none;font-weight:600;font-size:.94rem;display:flex;gap:.55rem;align-items:flex-start}
+.fc summary::-webkit-details-marker{display:none}
+.fc summary::before{content:"?";font-family:var(--mono);font-size:.68rem;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:2px;padding:.08rem .36rem;flex:none;margin-top:.18rem}
+.fc[open] summary::before{content:"✓";color:var(--good);background:var(--good-soft)}
+.fc summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.fc .a{margin-top:.5rem;padding-left:1.65rem;font-size:.92rem;color:var(--ink-2)}
+.fc .a p{margin-bottom:.35rem}
+.fc .a p:last-child{margin-bottom:0}
+.plan{list-style:none;padding:0;margin:0 0 1.1rem}
+.plan li{display:grid;grid-template-columns:5.2rem 1fr;gap:.85rem;padding:.6rem 0;border-bottom:1px solid var(--line);margin:0;break-inside:avoid}
+.plan li:last-child{border-bottom:0}
+.plan .t{font-family:var(--mono);font-size:.76rem;font-variant-numeric:tabular-nums;color:var(--accent);font-weight:600;padding-top:.1rem}
+.plan .d strong{display:block;margin-bottom:.08rem}
+.plan .d span{font-size:.88rem;color:var(--muted)}
+.chip{display:inline-block;font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;padding:.12rem .42rem;border-radius:2px;font-weight:600;background:var(--surface-2);color:var(--muted);vertical-align:middle}
+.chip.new{background:var(--good-soft);color:var(--good)}
+.chip.fix{background:var(--warn-soft);color:var(--warn)}
+.formula{font-family:var(--mono);font-size:.88rem;background:var(--surface-2);padding:.55rem .8rem;border-radius:2px;margin:.45rem 0 .85rem;overflow-x:auto;white-space:pre-wrap;break-inside:avoid}
+/* --- diagramas --- */
+figure.dg{margin:1.3rem 0;padding:1rem 1.1rem .9rem;background:var(--surface);border:1px solid var(--line);border-radius:2px;break-inside:avoid;max-width:none}
+figure.dg svg{display:block;width:100%;max-width:100%;height:auto;color:var(--ink-2);overflow:visible}
+figure.dg figcaption{margin-top:.75rem;padding-top:.6rem;border-top:1px solid var(--line);font-size:.86rem;line-height:1.5;color:var(--muted);max-width:none}
+figure.dg figcaption b{color:var(--ink-2);font-weight:650}
+figure.dg figcaption i{font-style:italic}
+.dg text{font-family:var(--sans);fill:currentColor}
+.dg .lbl{font-size:12px;font-weight:600}
+.dg .hd{font-size:12.5px;font-weight:700}
+.dg .sm{font-size:10.5px;fill:var(--muted)}
+.dg .mono{font-family:var(--mono);font-size:11px}
+.dg .box{fill:var(--surface-2);stroke:currentColor;stroke-width:1.1}
+.dg .box-a{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.3}
+.dg .box-w{fill:var(--warn-soft);stroke:var(--warn);stroke-width:1.3}
+.dg .box-g{fill:var(--good-soft);stroke:var(--good);stroke-width:1.3}
+.dg .ln{stroke:currentColor;stroke-width:1.1;fill:none}
+.dg .ln-a{stroke:var(--accent);stroke-width:1.5;fill:none}
+.dg .ln-w{stroke:var(--warn);stroke-width:1.5;fill:none}
+.dg .dash{stroke-dasharray:4 3}
+/* modelo de resposta com linhas numeradas */
+.lines{counter-reset:ln;margin:.6rem 0 1rem;border:1px solid var(--line);background:var(--surface);border-radius:2px;break-inside:avoid}
+.lines p{counter-increment:ln;margin:0;padding:.22rem .8rem .22rem 3rem;position:relative;font-size:.9rem;line-height:1.5;border-bottom:1px dotted var(--line);max-width:none}
+.lines p:last-child{border-bottom:0}
+.lines p::before{content:counter(ln,decimal-leading-zero);position:absolute;left:.8rem;font-family:var(--mono);font-size:.7rem;color:var(--line-strong);top:.32rem}
+.lines p.over{background:var(--warn-soft)}
+.toc{background:var(--surface);border:1px solid var(--line);border-radius:2px;padding:1rem 1.2rem;margin:0 0 2.4rem;columns:2;column-gap:2rem}
+@media (max-width:640px){.toc{columns:1}}
+.toc ol{list-style:none;padding:0;margin:0;font-size:.88rem}
+.toc li{margin-bottom:.28rem;break-inside:avoid}
+.toc a{text-decoration:none;color:var(--ink-2)}
+.toc a:hover{color:var(--accent)}
+.toc .n{font-family:var(--mono);font-size:.7rem;color:var(--line-strong);margin-right:.4rem}
+footer{border-top:1px solid var(--line);padding-top:1.3rem;margin-top:2.6rem;font-size:.83rem;color:var(--muted)}
+footer a{color:var(--muted)}
+hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
+::selection{background:var(--accent-soft)}
+@media print{
+  @page{size:A4;margin:16mm 14mm}
+  :root{--paper:#fff;--surface:#fff}
+  html,body{background:#fff;color:#000;font-size:9.6pt;line-height:1.42}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .wrap{max-width:none;padding:0}
+  header.hero{padding-top:0;break-after:page}
+  .toc{break-after:page;columns:2}
+  section{break-before:auto;margin-bottom:1.6rem}
+  h2{font-size:15pt;margin-top:0}
+  h3{font-size:10.6pt;margin-top:1.1rem}
+  h4{font-size:8pt}
+  p,li{max-width:none}
+  .q,.fc,.callout,.card,.tablewrap,.lines,.formula{break-inside:avoid}
+  details{break-inside:avoid}
+  details.reveal summary,.fc summary{color:#000}
+  a{color:#000;text-decoration:none}
+  .drill{gap:.3rem}
+  table{font-size:8.6pt}
+  th,td{padding:.28rem .5rem}
+}
+</style>
+<style>
+.backbar{border-bottom:1px solid var(--line);margin-bottom:0}
+.backbar a{display:inline-block;padding:.7rem 0;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.backbar a:hover,.backbar a:focus-visible{color:var(--accent)}
+.trait{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:0 2px 2px 0;padding:.8rem 1rem;margin:0 0 .6rem;break-inside:avoid}
+.trait h4{margin:0 0 .25rem;font-family:var(--sans);font-size:.95rem;font-weight:650;letter-spacing:0;text-transform:none;color:var(--ink)}
+.trait p{margin:0;font-size:.92rem;color:var(--ink-2)}
+.trait .ev{display:block;margin-top:.4rem;font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+.trait.t-w{border-left-color:var(--warn)}
+.trait.t-w h4{color:var(--warn)}
+.anat{background:var(--surface);border:1px solid var(--line);border-radius:2px;padding:1rem 1.15rem;margin:0 0 1rem}
+.anat .zone{padding:.5rem .7rem;margin:0 0 .4rem;border-radius:2px;font-size:.94rem}
+.z1{background:var(--surface-2)}
+.z2{background:var(--accent-soft);border-left:3px solid var(--accent)}
+.z3{background:var(--warn-soft);border-left:3px solid var(--warn)}
+.zlab{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem}
+mark{background:var(--warn-soft);color:var(--warn);font-weight:650;padding:0 .15em;border-radius:2px}
+mark.ok{background:var(--good-soft);color:var(--good)}
+.qmeta{display:flex;flex-wrap:wrap;gap:.35rem .5rem;margin:.55rem 0 0}
+.qmeta span{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;background:var(--surface-2);color:var(--muted);padding:.12rem .42rem;border-radius:2px}
+.qmeta span.trap{background:var(--warn-soft);color:var(--warn)}
+.scorebox{background:var(--surface);border:1px solid var(--line);border-radius:2px;padding:1rem 1.15rem;margin:1.2rem 0}
+.gabgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(58px,1fr));gap:.35rem;margin-top:.6rem}
+.gabgrid div{font-family:var(--mono);font-size:.78rem;text-align:center;background:var(--surface-2);border-radius:2px;padding:.3rem .1rem}
+.gabgrid div b{color:var(--good)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="backbar"><a href="index.html">← Revisões ALECE 2026</a></div>
+
+<header class="hero">
+  <p class="kicker">Especialidade 01 · Análise de Dados · Banca IDECAN · Prova 16/08/2026</p>
+  <h1>Questões</h1>
+  <p class="dek">Como a banca constrói uma questão, 24 questões reais de provas de ciência de dados com gabarito oficial, e um simulado autoral de 21 questões escritas no formato da IDECAN sobre o conteúdo do Anexo II.</p>
+  <div class="metastrip">
+    <span>50 específicas · 100 dos 120 pontos</span>
+    <span>5 alternativas · uma correta</span>
+    <span>sem desconto por erro</span>
+  </div>
+</header>
+
+<nav class="toc" aria-label="Sumário">
+  <ol>
+    <li><a href="#estilo"><span class="n">01</span>Como a IDECAN escreve</a></li>
+    <li><a href="#anatomia"><span class="n">02</span>Anatomia de uma questão</a></li>
+    <li><a href="#reais"><span class="n">03</span>24 questões reais com gabarito oficial</a></li>
+    <li><a href="#simulado"><span class="n">04</span>Simulado autoral — 21 questões</a></li>
+    <li><a href="#gabarito"><span class="n">05</span>Gabarito do simulado</a></li>
+  </ol>
+</nav>
+
+<section id="estilo">
+  <p class="sec-eyebrow">01</p>
+  <h2>Como a IDECAN escreve</h2>
+  <p class="sec-lede">Cinco traços de estilo e seis truques de distrator. Os traços vêm da análise pública do perfil da banca; os truques estão documentados nas 24 questões reais da seção seguinte, e cada um traz a questão em que aparece.</p>
+
+  <h3>Os cinco traços do estilo</h3>
+  <div class="trait">
+    <h4>1. O enunciado conta uma história antes de perguntar</h4>
+    <p>A questão abre com um cenário institucional e um personagem — "Aline, cientista de dados da CVM, foi designada para…". O comando só aparece no fim. Leia o último período primeiro: é ali que está a pergunta.</p>
+  </div>
+  <div class="trait">
+    <h4>2. As alternativas são frases inteiras, não palavras</h4>
+    <p>Você não compara termos, compara parágrafos. Isso multiplica o tempo por questão e é onde a banca esconde a inversão de uma cláusula. Leia as cinco até o fim mesmo quando a primeira parecer certa.</p>
+  </div>
+  <div class="trait">
+    <h4>3. Uma palavra decide o gabarito</h4>
+    <p>É a marca registrada declarada da banca: "pequenas alterações na redação das alternativas são suficientes para modificar o sentido da questão". Circule quantificadores e marcas de número enquanto lê.</p>
+  </div>
+  <div class="trait">
+    <h4>4. Interdisciplinaridade proposital</h4>
+    <p>A questão técnica termina em legislação e a de legislação começa num problema técnico. Anonimização puxa LGPD; painel público puxa LAI; modelo preditivo puxa o art. 20. Espere o gancho jurídico dentro da questão de dados.</p>
+  </div>
+  <div class="trait">
+    <h4>5. Predomínio de "está correto o que se afirma em"</h4>
+    <p>Itens I, II e III, ou uma sequência de V/F. Em torno da metade das questões técnicas usa esse formato. Julgue cada afirmativa isoladamente e anote V ou F na margem <em>antes</em> de olhar as alternativas — assim você não é arrastado pelo conjunto.</p>
+  </div>
+
+  <h3>Os seis truques de distrator</h3>
+  <div class="trait t-w">
+    <h4>1. Quantificador absoluto</h4>
+    <p><em>exclusivamente · apenas · sempre · nunca · todo · unicamente.</em> A afirmativa falsa quase sempre carrega um. "Ciência de Dados lida <mark>exclusivamente</mark> com dados estruturados" morre em uma palavra.</p>
+    <span class="ev">visto em: Q41 ALEGO 2026</span>
+  </div>
+  <div class="trait t-w">
+    <h4>2. Singular e plural traiçoeiros</h4>
+    <p>A afirmativa está tecnicamente impecável, menos por uma flexão. "Começando por <mark>uma de suas raízes</mark>" — uma árvore de decisão tem exatamente uma raiz. Todo o resto do período está correto, e é por isso que funciona.</p>
+    <span class="ev">visto em: Q55 ALEGO 2026</span>
+  </div>
+  <div class="trait t-w">
+    <h4>3. Premissa certa, conclusão invertida</h4>
+    <p>Metade verdadeira, metade falsa, coladas por um "portanto". "O SVM utiliza um subconjunto de pontos na função de decisão, sendo <mark>portanto pouco eficiente em memória</mark>" — a premissa é a razão pela qual ele é <em>eficiente</em>. Leia a afirmativa em duas metades e valide cada uma.</p>
+    <span class="ev">visto em: Q49 ALEGO 2026</span>
+  </div>
+  <div class="trait t-w">
+    <h4>4. Todas verdadeiras, só uma pertinente</h4>
+    <p>Grid Search, validação cruzada, ensemble e escalonamento existem e funcionam — só que a pergunta era sobre explorar <em>sistematicamente</em> combinações de hiperparâmetros. Sublinhe o verbo e o advérbio do comando antes de olhar as opções.</p>
+    <span class="ev">visto em: Q4 CVM 2024</span>
+  </div>
+  <div class="trait t-w">
+    <h4>5. Termo quase igual, mas inexistente</h4>
+    <p>"Aprendizado não <mark>subvencionado</mark>", "<mark>Aposteriori</mark>", "<mark>LogitRegression</mark>". A banca conta com a leitura por reconhecimento de padrão visual. Em questão de nomenclatura e sintaxe, leia caractere a caractere.</p>
+    <span class="ev">visto em: Q48, Q44 e Q51 ALEGO 2026</span>
+  </div>
+  <div class="trait t-w">
+    <h4>6. Fórmulas trocadas entre si</h4>
+    <p>Precisão aparece com o numerador do VPN e vice-versa. Como as duas têm a mesma forma, a troca passa despercebida. Ancoragem: o numerador sempre repete a polaridade do nome — tudo que é "positivo" parte de VP.</p>
+    <span class="ev">visto em: Q58 ALEGO 2026</span>
+  </div>
+
+  <div class="callout good">
+    <span class="callout-label">E o contrário também é verdade</span>
+    <p><strong>"I, II e III" e "F – F – F" são gabaritos legítimos</strong> e aparecem com frequência. Candidato cansado descarta por reflexo a alternativa confortável demais e erra questão de graça. Valide cada afirmativa isoladamente e aceite o resultado, mesmo quando ele for todas certas ou todas erradas.</p>
+    <span class="ev" style="font-family:var(--mono);font-size:.7rem;color:var(--muted)">visto em: Q69 e Q46 ALEGO 2026</span>
+  </div>
+</section>
+
+<section id="anatomia">
+  <p class="sec-eyebrow">02</p>
+  <h2>Anatomia de uma questão</h2>
+  <p class="sec-lede">A mesma questão, decomposta nas três zonas que você deve ler em ordem diferente da que estão impressas.</p>
+
+  <div class="anat">
+    <div class="zone z1">
+      <span class="zlab">Zona 1 — cenário · leia por último</span>
+      Com relação às características das árvores de decisão, analise as afirmativas a seguir.
+    </div>
+    <div class="zone z3">
+      <span class="zlab">Zona 3 — as afirmativas · é aqui que mora a armadilha</span>
+      <strong>I.</strong> É a representação de uma função que mapeia um vetor de valores de atributos para um único valor de saída. <mark class="ok">V</mark><br>
+      <strong>II.</strong> Uma árvore de decisão chega à sua decisão realizando uma sequência de testes, começando por <mark>uma de suas raízes</mark> e seguindo o ramo apropriado até que uma folha seja alcançada. <mark>F</mark><br>
+      <strong>III.</strong> Cada nó interno corresponde a um teste do valor de um dos atributos de entrada, os ramos são rotulados com os possíveis valores do atributo, e os nós folha especificam qual valor deve ser retornado. <mark class="ok">V</mark>
+    </div>
+    <div class="zone z2">
+      <span class="zlab">Zona 2 — o comando · leia primeiro</span>
+      Está correto o que se afirma em <strong>(A)</strong> I e III, apenas.
+    </div>
+  </div>
+
+  <h3>A ordem de leitura que economiza tempo</h3>
+  <ol>
+    <li><strong>Comando primeiro.</strong> Saber que se pede "está correto o que se afirma em" já te diz que o trabalho é julgar três afirmativas, não escolher entre cinco conceitos.</li>
+    <li><strong>Afirmativas depois</strong>, uma por vez, marcando V ou F na margem. Não olhe as alternativas ainda — elas existem para te empurrar.</li>
+    <li><strong>Cenário só se precisar.</strong> Em boa parte das questões técnicas o parágrafo de contexto é decorativo e pode ser lido por alto.</li>
+    <li><strong>Alternativas por último</strong>, cruzando com o que você já marcou. Se o seu V/F não bate com nenhuma alternativa, você errou uma afirmativa — volte para as duas de que menos tem certeza.</li>
+  </ol>
+  <div class="callout">
+    <span class="callout-label">Aritmética do tempo</span>
+    <p>São 50 questões específicas em cerca de 1h50, o que dá <strong>pouco mais de 2 minutos por questão</strong> — e você ainda tem 20 gerais e duas discursivas. Questão que passar de 3 minutos deve receber um traço na margem e ficar para a segunda passada. Como não há desconto por erro, <strong>nenhuma questão pode ficar em branco no fim</strong>.</p>
+  </div>
+</section>
+<section id="reais">
+  <p class="sec-eyebrow">03</p>
+  <h2>24 questões reais, com gabarito oficial</h2>
+  <p class="sec-lede">Sobre a IDECAN: não localizei em fonte aberta nenhuma prova dela para análise/ciência de dados — a banca não publica cadernos antigos abertamente e os agregadores estão atrás de login. O que uso aqui é o análogo mais próximo que existe.</p>
+
+  <div class="callout note">
+    <span class="callout-label">De onde vêm as questões</span>
+    <p><strong>ALEGO 2026</strong> — Assembleia Legislativa de Goiás, cargo <em>Analista Legislativo / Analista de Ciência de Dados</em>, banca FGV, aplicada em <strong>08/02/2026</strong>. Assembleia estadual, mesmo cargo, seis meses atrás. É o espelho mais fiel que existe do seu edital.<br>
+    <strong>CVM 2024</strong> — <em>Analista CVM Perfil 7 — Ciência de Dados</em>, banca FGV, prova da tarde, conhecimentos específicos.<br>
+    Gabaritos conferidos nos PDFs oficiais da FGV.</p>
+  </div>
+
+  <div class="callout">
+    <span class="callout-label">Ressalva de banca</span>
+    <p>FGV e IDECAN não são idênticas. A FGV pesa mais em código, fórmula e cálculo; a IDECAN, pelo perfil descrito para a ALECE, tende a enunciados longos e contextualizados, com alternativas que mudam de sentido por uma palavra, e mais peso em conceito e legislação que em código. Use estas questões para calibrar <strong>o tipo de armadilha</strong>, não para prever a distribuição de temas.</p>
+  </div>
+
+  <h4>Fundamentos e qualidade de dados</h4>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q41</span><span class="q-src">ALEGO 2026 · FGV</span></div>
+    <p class="q-stem">Ciência de Dados (CD) utiliza conjuntos de dados para tentar entender e resolver problemas do mundo real. Com relação aos fundamentos essenciais da CD, analise as afirmativas a seguir.<br>
+    <strong>I.</strong> Os dados figuram como o elemento central. O objetivo é extrair desses toda informação possível para que se possam tomar decisões e antecipar resultados de maneira precisa.<br>
+    <strong>II.</strong> Não é campo de conhecimento alheio às outras ciências. Ao contrário, trata-se de uma combinação de instrumentos fornecidos por diversos campos do saber, com destaque para a Estatística e a Ciência da Computação.<br>
+    <strong>III.</strong> CD lida exclusivamente com a análise de dados estruturados, como planilhas e bancos de dados SQL, focando apenas em visualizações básicas e relatórios descritivos.<br>
+    Está correto o que se afirma em</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>I, II, III.</li>
+      <li><span class="lt">(B)</span>II e III, apenas.</li>
+      <li><span class="lt">(C)</span>I e II, apenas.</li>
+      <li><span class="lt">(D)</span>III, apenas.</li>
+      <li><span class="lt">(E)</span>II, apenas.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">C</span> — I e II, apenas.</p>
+      <p>A III morre em duas palavras: <em>"exclusivamente"</em> e <em>"apenas"</em>. Ciência de dados trata estruturado, semiestruturado e não estruturado, e vai muito além de descritivo. <strong>Padrão de armadilha:</strong> a afirmativa falsa quase sempre carrega um quantificador absoluto — exclusivamente, apenas, sempre, nunca, todo.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q42</span><span class="q-src">ALEGO 2026 · FGV</span></div>
+    <p class="q-stem">A classificação das características básicas da qualidade de dados são, respectivamente,</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>intrínseca, contextual, representacional e acessibilidade, apenas.</li>
+      <li><span class="lt">(B)</span>encontrável, acessível, interpolável e reusável, apenas.</li>
+      <li><span class="lt">(C)</span>contextualização, completude e acurácia, apenas.</li>
+      <li><span class="lt">(D)</span>consistência, singularidade e relevância, apenas.</li>
+      <li><span class="lt">(E)</span>completude, acurácia e acessibilidade, apenas.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">A</span> — intrínseca, contextual, representacional e acessibilidade.</p>
+      <p>É o framework de <strong>Wang &amp; Strong</strong>, que agrupa as dimensões em quatro <em>categorias</em>. Sua v2 lista as dimensões individuais (acurácia, completude, consistência…) mas não a taxonomia que as agrupa. Guarde as quatro. A (B) é o acrônimo <strong>FAIR</strong> (Findable, Accessible, Interoperable, Reusable) — princípios de dados científicos, não de qualidade; distrator excelente e perfeitamente plausível para a IDECAN reaproveitar.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q8</span><span class="q-src">CVM 2024 · FGV</span></div>
+    <p class="q-stem">Para tomar decisões diárias, o analista João precisa consultar o preço de diversas ações do mercado financeiro, bem como outros dados da CVM. Contudo, ao acessar o ambiente de BigData da CVM, João verificou que os preços das ações desse ambiente demoravam para ser atualizados. João procurou o arquiteto de BigData da CVM para tratar a dimensão da qualidade de dados denominada:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>validade (validity);</li>
+      <li><span class="lt">(B)</span>correspondência (matching);</li>
+      <li><span class="lt">(C)</span>unicidade (uniqueness);</li>
+      <li><span class="lt">(D)</span>consistência (consistency);</li>
+      <li><span class="lt">(E)</span>temporalidade (timeliness).</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">E</span> — temporalidade (timeliness).</p>
+      <p>Dado desatualizado = falha de atualidade/temporalidade, mesmo estando correto, único e consistente. Decore o mapeamento sintoma → dimensão: <em>errado</em> = acurácia · <em>faltando</em> = completude · <em>contraditório entre fontes</em> = consistência · <em>duplicado</em> = unicidade · <em>fora do domínio/formato</em> = validade · <em>atrasado</em> = temporalidade.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q15</span><span class="q-src">CVM 2024 · FGV</span></div>
+    <p class="q-stem">Entre os atributos do conjunto de dados estão os CPFs dos clientes, o seu sexo e a quantidade de carros que eles já compraram na rede. Esses três atributos podem ser classificados, respectivamente, como:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>qualitativo nominal, qualitativo nominal e quantitativo discreto;</li>
+      <li><span class="lt">(B)</span>qualitativo nominal, qualitativo ordinal e quantitativo discreto;</li>
+      <li><span class="lt">(C)</span>qualitativo nominal, qualitativo nominal e quantitativo contínuo;</li>
+      <li><span class="lt">(D)</span>qualitativo ordinal, qualitativo nominal e quantitativo discreto;</li>
+      <li><span class="lt">(E)</span>quantitativo discreto, qualitativo nominal e quantitativo contínuo.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">A</span></p>
+      <p>CPF é <strong>qualitativo nominal</strong> apesar de ser composto por dígitos — número que não admite operação aritmética é rótulo, não quantidade. É a pegadinha mais barata e mais eficaz do tema. Contagem de carros é discreta (enumerável), não contínua.</p></div>
+    </details>
+  </div>
+
+  <h4>Aprendizado, clustering e redução de dimensionalidade</h4>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q44</span><span class="q-src">ALEGO 2026 · FGV</span></div>
+    <p class="q-stem">Selecione a alternativa que apresenta um algoritmo de regras de associação.</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>Apriori.</li>
+      <li><span class="lt">(B)</span>Aposteriori.</li>
+      <li><span class="lt">(C)</span>Ligação de Ward.</li>
+      <li><span class="lt">(D)</span>Modelo de mistura gaussiana.</li>
+      <li><span class="lt">(E)</span>Análise de componentes principais.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">A</span> — Apriori.</p>
+      <p>Note que os distratores são todos não supervisionados legítimos, mas de outra família: Ward é <em>linkage</em> hierárquico, GMM é clustering probabilístico, PCA é redução de dimensionalidade. "Aposteriori" não existe. Regras de associação: Apriori, FP-Growth, Eclat — métricas suporte, confiança e <strong>lift</strong> (lift &gt; 1 indica associação positiva).</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q48</span><span class="q-src">ALEGO 2026 · FGV</span></div>
+    <p class="q-stem">O tipo de aprendizado que faz com que o modelo tome decisões por si próprio, e é recompensado de acordo com o progresso que faz na atividade em que foi designado, se denomina</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>aprendizado não subvencionado.</li>
+      <li><span class="lt">(B)</span>aprendizado supervisionado.</li>
+      <li><span class="lt">(C)</span>aprendizado por reforço.</li>
+      <li><span class="lt">(D)</span>aprendizado autônomo.</li>
+      <li><span class="lt">(E)</span>aprendizado dedutivo.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">C</span> — por reforço.</p>
+      <p>Questão de presente. Repare no distrator (A): "não <em>subvencionado</em>" em vez de "não supervisionado". A banca conta com leitura apressada. <strong>Leia as alternativas inteiras</strong>, mesmo quando a resposta parece óbvia.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q53</span><span class="q-src">ALEGO 2026 · FGV</span></div>
+    <p class="q-stem">Analise o código:</p>
+    <div class="formula">from sklearn.cluster import KMeans
+import numpy as np
+X = np.array([[1, 2], [1, 4], [1, 0],
+              [10, 2], [10, 4], [10, 0]])
+kmeans = KMeans(n_clusters=2, random_state=0,
+                n_init="auto").fit(X)
+kmeans.labels_
+kmeans.predict([[1, 1], [14, 4]])
+kmeans.cluster_centers_</div>
+    <p class="q-stem">O resultado impresso é igual a</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>array([[1., 2.], [10., 2.]])</li>
+      <li><span class="lt">(B)</span>array([[1., 4.], [10., 4.]])</li>
+      <li><span class="lt">(C)</span>array([[1., 3.], [9., 4.]])</li>
+      <li><span class="lt">(D)</span>array([[10., 4.], [1., 4.]])</li>
+      <li><span class="lt">(E)</span>array([[10., 2.], [1., 2.]])</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">E</span> — array([[10., 2.], [1., 2.]])</p>
+      <p>Você não precisa rodar o código: os dois grupos óbvios são x=1 e x=10, e o centroide é a <strong>média</strong> de cada grupo → y = (2+4+0)/3 = 2. Logo os centros são [1,2] e [10,2]. Restam (A) e (E), que diferem só na <em>ordem</em> — e a ordem depende da inicialização. Mesmo sem certeza, você eliminou 3 alternativas em 15 segundos.<br>
+      <strong>Método para questão de código:</strong> não simule linha a linha. Descubra o que o resultado <em>tem que ser matematicamente</em> e use isso para podar.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q54</span><span class="q-src">ALEGO 2026 · FGV</span></div>
+    <p class="q-stem">Com relação à derivação da fórmula da distância de Minkowski, analise as afirmativas a seguir.<br>
+    <strong>I.</strong> Se P = 2, a fórmula calculará a distância Euclidiana.<br>
+    <strong>II.</strong> Se P = 1, a fórmula calculará a distância de Manhattan.<br>
+    <strong>III.</strong> Se P = 0, a fórmula calculará a distância Hamming.<br>
+    Está correto o que se afirma em</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>II e III, apenas.</li>
+      <li><span class="lt">(B)</span>I e III, apenas.</li>
+      <li><span class="lt">(C)</span>I e II, apenas.</li>
+      <li><span class="lt">(D)</span>II, apenas.</li>
+      <li><span class="lt">(E)</span>I, apenas.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">C</span> — I e II, apenas.</p>
+      <p>Minkowski de ordem p: <span class="mono">(Σ|xᵢ−yᵢ|^p)^(1/p)</span>. p=1 → Manhattan · p=2 → Euclidiana · p→∞ → Chebyshev. <strong>p=0 não é Hamming</strong> — a fórmula nem está definida em p=0. Hamming é outra métrica (número de posições que diferem, para strings/binários).</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q16</span><span class="q-src">CVM 2024 · FGV</span></div>
+    <p class="q-stem">Uma organização quer agrupar e-mails por tipo de problema. A equipe usou um modelo de linguagem para representar cada e-mail em um vetor de dimensão 768. Entretanto, as distâncias entre os vetores se mostraram muito pequenas, tornando o agrupamento por diversos algoritmos muito pouco significativo. Com esse problema em mente, a sequência mais apropriada de algoritmos a ser aplicada sobre os vetores é:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>PCA → t-SNE → KNN;</li>
+      <li><span class="lt">(B)</span>UMAP → KNN;</li>
+      <li><span class="lt">(C)</span>t-SNE → HDBSCAN → K-Means;</li>
+      <li><span class="lt">(D)</span>UMAP → HDBSCAN;</li>
+      <li><span class="lt">(E)</span>K-Means → t-SNE.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">D</span> — UMAP → HDBSCAN.</p>
+      <p>O enunciado descreve a <strong>maldição da dimensionalidade</strong>: em 768 dimensões as distâncias se homogeneízam. A cura é reduzir dimensionalidade <em>e depois</em> agrupar. KNN está fora — é supervisionado, e a tarefa é agrupar sem rótulo. t-SNE está fora como etapa de pipeline porque serve só para visualização e não gera transformação reutilizável. Sobra UMAP (reduz preservando estrutura global) + HDBSCAN (densidade, não exige k, marca ruído).</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q5</span><span class="q-src">CVM 2024 · FGV</span></div>
+    <p class="q-stem">Um cientista deve identificar atividades de rede incomuns. Após coletar dados sobre o tráfego, percebe que alguns pontos exibem padrões significativamente diferentes da maioria. O método que deve ser aplicado para detectar as anomalias, identificando <strong>outliers isolados</strong> nos dados, é o:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>Isolation Forest;</li>
+      <li><span class="lt">(B)</span>Box Plot (IQR);</li>
+      <li><span class="lt">(C)</span>Local Outlier Factor (LOF);</li>
+      <li><span class="lt">(D)</span>do desvio padrão;</li>
+      <li><span class="lt">(E)</span>DBSCAN.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">A</span> — Isolation Forest.</p>
+      <p>Todas as cinco detectam outlier de algum modo — a palavra que decide é <strong>"isolados"</strong>, que é literalmente o mecanismo do Isolation Forest (particiona aleatoriamente; anomalias são isoladas com menos cortes). IQR e desvio padrão são univariados. LOF é baseado em densidade <em>local relativa</em>. DBSCAN é clustering que marca ruído como subproduto. <strong>Padrão de armadilha:</strong> quando várias alternativas são tecnicamente possíveis, procure a palavra do enunciado que só descreve uma delas.</p></div>
+    </details>
+  </div>
+
+  <h4>Classificação, avaliação e modelos</h4>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q58</span><span class="q-src">ALEGO 2026 · FGV</span></div>
+    <p class="q-stem">Com relação ao cálculo das medidas de desempenho a partir da matriz de confusão, analise as afirmativas.<br>
+    <strong>I.</strong> Especificidade (Taxa de verdadeiros negativos) = VN / (VN + FP).<br>
+    <strong>II.</strong> Sensibilidade (Taxa de verdadeiros positivos, ou Recall) = VP / (VP + FN).<br>
+    <strong>III.</strong> Valor preditivo positivo (Precisão) = VN / (VN + FN).<br>
+    <strong>IV.</strong> Valor preditivo negativo (VPN) = VP / (VP + FP).<br>
+    Está correto o que se afirma em</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>III e IV, apenas.</li>
+      <li><span class="lt">(B)</span>II e IV, apenas.</li>
+      <li><span class="lt">(C)</span>II e III, apenas.</li>
+      <li><span class="lt">(D)</span>I e III, apenas.</li>
+      <li><span class="lt">(E)</span>I e II, apenas.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">E</span> — I e II, apenas.</p>
+      <p>III e IV estão <strong>trocadas</strong>: Precisão (VPP) = VP/(VP+FP) e VPN = VN/(VN+FN). Esta é a questão mais provável de aparecer na sua prova em alguma forma. Ancoragem que não falha: <em>o numerador sempre repete a primeira letra do nome</em>. Verdadeiro <strong>Positivo</strong> no topo de tudo que é "positivo"; verdadeiro <strong>Negativo</strong> no topo de tudo que é "negativo". E o denominador diz se você está olhando por linha (real → recall/especificidade) ou por coluna (predito → precisão/VPN).</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q55</span><span class="q-src">ALEGO 2026 · FGV</span></div>
+    <p class="q-stem">Com relação às características das árvores de decisão, analise as afirmativas.<br>
+    <strong>I.</strong> É a representação de uma função que mapeia um vetor de valores de atributos para um único valor de saída.<br>
+    <strong>II.</strong> Uma árvore de decisão chega à sua decisão realizando uma sequência de testes, começando por <em>uma de suas raízes</em> e seguindo o ramo apropriado até que uma folha seja alcançada.<br>
+    <strong>III.</strong> Cada nó interno corresponde a um teste do valor de um dos atributos de entrada, os ramos são rotulados com os possíveis valores do atributo, e os nós folha especificam qual valor deve ser retornado.<br>
+    Está correto o que se afirma em</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>I e III, apenas.</li>
+      <li><span class="lt">(B)</span>I e II, apenas.</li>
+      <li><span class="lt">(C)</span>III, apenas.</li>
+      <li><span class="lt">(D)</span>II, apenas.</li>
+      <li><span class="lt">(E)</span>I, apenas.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">A</span> — I e III, apenas.</p>
+      <p>A II é falsa por <strong>uma palavra no plural</strong>: "uma de suas raízes". Uma árvore tem exatamente <em>uma</em> raiz. O conteúdo restante da afirmativa está impecável — é aí que mora a armadilha. <strong>Guarde este padrão</strong>, porque é exatamente o que a análise da IDECAN descreve: "pequenas alterações na redação das alternativas são suficientes para modificar o sentido da questão". Em item V/F, leia procurando singular/plural, "todo/algum", "deve/pode", "antes/depois".</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q49</span><span class="q-src">ALEGO 2026 · FGV</span></div>
+    <p class="q-stem">Considerando vantagens e desvantagens do SVM no scikit-learn, avalie se as afirmativas são verdadeiras (V) ou falsas (F).<br>
+    ( ) Vantagem: SVM é eficaz em espaços de alta dimensionalidade e eficaz nos casos em que o número de dimensões é maior que o número de amostras.<br>
+    ( ) Desvantagem: SVM utiliza um subconjunto de pontos de treinamento na função de decisão, sendo pouco eficiente em termos de uso de memória.<br>
+    ( ) Desvantagem: se o número de características for muito maior que o número de amostras, evitar sobreajuste na escolha do Kernel e do termo de regularização é crucial.<br>
+    ( ) Vantagem: SVMs fornecem estimativas de probabilidade diretamente.<br>
+    As afirmativas são, respectivamente,</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>V – V – V – F.</li>
+      <li><span class="lt">(B)</span>V – F – V – F.</li>
+      <li><span class="lt">(C)</span>V – V – F – V.</li>
+      <li><span class="lt">(D)</span>F – V – F – V.</li>
+      <li><span class="lt">(E)</span>F – V – F – F.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">B</span> — V – F – V – F.</p>
+      <p>A 2ª inverte a conclusão: usar só um subconjunto (os <em>vetores de suporte</em>) é justamente o que torna o SVM <strong>eficiente</strong> em memória. A 4ª é falsa: SVM não dá probabilidade nativamente — o scikit-learn a obtém por <em>Platt scaling</em> com validação cruzada, que é caro (<code>probability=True</code>).<br>
+      <strong>Padrão de armadilha:</strong> premissa técnica correta + conclusão invertida. Leia a afirmativa em duas metades e valide cada uma.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q4</span><span class="q-src">CVM 2024 · FGV</span></div>
+    <p class="q-stem">A técnica que explora sistematicamente combinações de hiperparâmetros na identificação da configuração ideal para maximizar o desempenho do modelo é a:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>realização de uma Grid Search, explorando sistematicamente os valores de hiperparâmetros predefinidos;</li>
+      <li><span class="lt">(B)</span>utilização de uma Busca Aleatória, amostrando aleatoriamente o espaço de hiperparâmetros;</li>
+      <li><span class="lt">(C)</span>implementação de uma Validação Cruzada K-fold;</li>
+      <li><span class="lt">(D)</span>aplicação de métodos Ensemble;</li>
+      <li><span class="lt">(E)</span>utilização de Feature Scaling.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">A</span> — Grid Search.</p>
+      <p>A palavra-chave é <strong>"sistematicamente"</strong> — Grid Search testa exaustivamente a grade; Random Search amostra. Note que (B), (C), (D) e (E) descrevem técnicas <em>corretas em si</em>, só que respondendo a outra pergunta. <strong>Padrão:</strong> alternativas todas verdadeiras como afirmações, apenas uma pertinente ao que foi perguntado. Sublinhe o verbo do enunciado antes de olhar as opções.</p></div>
+    </details>
+  </div>
+
+  <h4>PLN, ciclo de análise e nuvem</h4>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q12</span><span class="q-src">CVM 2024 · FGV</span></div>
+    <p class="q-stem">Aline opta por representar os textos obtidos de uma rede social no formato de vetores reais de baixa dimensionalidade, calculados a partir das representações das palavras obtidas de um modelo de linguagem pré-treinado utilizando a técnica word2vec. A representação das palavras que será utilizada é chamada de:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>TF-IDF;</li>
+      <li><span class="lt">(B)</span>tokens;</li>
+      <li><span class="lt">(C)</span>n-gramas;</li>
+      <li><span class="lt">(D)</span>bag-of-words;</li>
+      <li><span class="lt">(E)</span>word embeddings.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">E</span> — word embeddings.</p>
+      <p>As três marcas do enunciado: <em>vetores reais</em>, <em>baixa dimensionalidade</em>, <em>modelo pré-treinado</em>. TF-IDF e BoW são esparsos e de alta dimensão (tamanho do vocabulário); embeddings são densos e de baixa dimensão (100–768). Se aparecer "denso" ou "semântica capturada por proximidade", é embedding.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q13</span><span class="q-src">CVM 2024 · FGV</span></div>
+    <p class="q-stem">A fase do KDD em que Aline gera os vetores a partir dos textos é chamada de:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>seleção dos dados;</li>
+      <li><span class="lt">(B)</span>limpeza dos dados;</li>
+      <li><span class="lt">(C)</span>mineração dos dados;</li>
+      <li><span class="lt">(D)</span>transformação dos dados;</li>
+      <li><span class="lt">(E)</span>enriquecimento dos dados.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">D</span> — transformação.</p>
+      <p><strong>Decore o KDD, porque sua v2 não tem</strong> — e o edital fala em ciclo de vida do dado, o que abre a porta. As cinco fases de Fayyad: <span class="mono">seleção → pré-processamento (limpeza) → transformação → mineração → interpretação/avaliação</span>. Vetorizar, reduzir dimensionalidade e criar features tudo cai em <em>transformação</em>. "Enriquecimento" não é fase do KDD — distrator puro.</p>
+      <p>Não confunda com o <strong>CRISP-DM</strong>, que pode cair no lugar: entendimento do negócio → entendimento dos dados → preparação → modelagem → avaliação → implantação. É cíclico.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q69</span><span class="q-src">ALEGO 2026 · FGV</span></div>
+    <p class="q-stem">Sobre PLN, analise as afirmativas.<br>
+    <strong>I.</strong> Permite que computadores reconheçam, entendam e gerem textos e áudios, pois combinam linguística computacional, modelagem estatística, aprendizado de máquina e deep learning.<br>
+    <strong>II.</strong> Já faz parte da vida cotidiana, alimentando mecanismos de busca, chatbots, GPS por voz e assistentes digitais.<br>
+    <strong>III.</strong> Desempenha papel crescente em soluções empresariais que otimizam e automatizam operações.<br>
+    Está correto o que se afirma em</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>I e III, apenas.</li>
+      <li><span class="lt">(B)</span>I e II, apenas.</li>
+      <li><span class="lt">(C)</span>III, apenas.</li>
+      <li><span class="lt">(D)</span>II, apenas.</li>
+      <li><span class="lt">(E)</span>I, II e III.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">E</span> — todas.</p>
+      <p>Incluí de propósito. Nem toda questão tem pegadinha — em blocos de afirmativas, "todas corretas" é uma resposta real e aparece com frequência. Candidato ansioso descarta a alternativa "I, II e III" por reflexo e erra questão de graça. <strong>Valide cada afirmativa isoladamente</strong> e aceite o resultado, mesmo quando for confortável demais.</p></div>
+    </details>
+  </div>
+
+  <h4>Modelagem, DW e engenharia</h4>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q62</span><span class="q-src">ALEGO 2026 · FGV</span></div>
+    <p class="q-stem">Com relação às propriedades dos Data Warehouses, analise as afirmativas.<br>
+    <strong>I.</strong> Sofrem muitas operações de atualização de dados e têm alta normalização de dados.<br>
+    <strong>II.</strong> São orientados por assunto e têm baixa volatilidade dos dados.<br>
+    <strong>III.</strong> Apresentam alta agregação de dados e baixo suporte a dados não relacionais.<br>
+    Está correto o que se afirma em</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>I, II e III.</li>
+      <li><span class="lt">(B)</span>I, apenas.</li>
+      <li><span class="lt">(C)</span>II, apenas.</li>
+      <li><span class="lt">(D)</span>III, apenas.</li>
+      <li><span class="lt">(E)</span>II e III, apenas.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">C</span> — II, apenas.</p>
+      <p>II é a definição de Inmon: orientado a assunto, integrado, <strong>não volátil</strong>, variável no tempo. I é o retrato do OLTP, não do DW. III é a que derruba gente: apesar de "alta agregação" ser verdade, "baixo suporte a não relacionais" foi considerada errada pela banca — DWs modernos suportam semiestruturado. Quando uma afirmativa mistura verdade e afirmação datada, a banca costuma marcá-la como falsa.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q47</span><span class="q-src">ALEGO 2026 · FGV</span></div>
+    <p class="q-stem">O tipo de dimensão que permite armazenar flags e indicadores ou coleções de dados transacionais aleatórios que não estão relacionados a nenhuma outra dimensão específica se denomina</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>Role Playing.</li>
+      <li><span class="lt">(B)</span>Degenerada.</li>
+      <li><span class="lt">(C)</span>Conformed.</li>
+      <li><span class="lt">(D)</span>Gigante.</li>
+      <li><span class="lt">(E)</span>Junk.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">E</span> — Junk (dimensão lixo).</p>
+      <p>Vocabulário Kimball que sua v2 não cobre. Vale memorizar os quatro em 30 segundos:<br>
+      <strong>Junk</strong> — junta flags e indicadores soltos numa dimensão única.<br>
+      <strong>Degenerada</strong> — atributo que fica na tabela fato sem dimensão própria (número da nota fiscal, número da proposição).<br>
+      <strong>Role playing</strong> — a mesma dimensão usada em papéis diferentes (data de protocolo, data de votação, data de sanção — todas apontam para dim_tempo).<br>
+      <strong>Conformed</strong> — dimensão compartilhada e consistente entre vários data marts.<br>
+      E ainda: <strong>SCD tipo 1</strong> sobrescreve · <strong>tipo 2</strong> versiona histórico · <strong>tipo 3</strong> guarda o valor anterior numa coluna.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q46</span><span class="q-src">ALEGO 2026 · FGV</span></div>
+    <p class="q-stem">Sobre cardinalidades em diagrama ER, avalie se as afirmativas são verdadeiras (V) ou falsas (F).<br>
+    ( ) A cardinalidade mínima 0 também recebe a denominação de "associação obrigatória".<br>
+    ( ) A cardinalidade mínima −1 recebe a denominação de "associação opcional".<br>
+    ( ) A cardinalidade máxima 0 recebe a denominação de "associação semântica".<br>
+    As afirmativas são, respectivamente,</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>V – V – V.</li>
+      <li><span class="lt">(B)</span>F – V – V.</li>
+      <li><span class="lt">(C)</span>F – F – F.</li>
+      <li><span class="lt">(D)</span>F – F – V.</li>
+      <li><span class="lt">(E)</span>V – V – F.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">C</span> — todas falsas.</p>
+      <p>Mínima <strong>0</strong> = opcional; mínima <strong>1</strong> = obrigatória. Não existe cardinalidade −1 nem cardinalidade máxima 0. Assim como "todas verdadeiras", <strong>"todas falsas" é uma resposta real</strong> — e é a que candidato cansado menos marca. Quando três afirmativas parecem esquisitas, considere seriamente F–F–F.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q59</span><span class="q-src">ALEGO 2026 · FGV</span></div>
+    <p class="q-stem">Analise o trecho:</p>
+    <div class="formula">import pandas as x
+dados_ficticios = {
+    'id_matricula': [1004, 1005],
+    'data_inicio': ['2023-08-25', '2021-02-01'],
+    'data_conclusao': ['2024-01-15', '2024-01-15']
+}
+dados = x.DataFrame(dados_ficticios)</div>
+    <p class="q-stem">A estrutura utilizada na variável <code>dados_ficticios</code> é conhecida como</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>dicionário.</li>
+      <li><span class="lt">(B)</span>conjunto.</li>
+      <li><span class="lt">(C)</span>arquivo.</li>
+      <li><span class="lt">(D)</span>tensor.</li>
+      <li><span class="lt">(E)</span>array.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">A</span> — dicionário.</p>
+      <p>Chaves entre <code>{}</code> com pares <code>chave: valor</code>. Conjunto (<code>set</code>) também usa chaves, mas sem pares. Repare no <code>import pandas as x</code>: a banca troca o alias convencional só para testar se você lê o código ou reconhece o padrão visual. O resto do código original usa <code>.dt.days</code> sobre a diferença de dois datetimes — vale lembrar que subtrair datetimes em pandas devolve <code>Timedelta</code>, e você acessa dias com <code>.dt.days</code>.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q9</span><span class="q-src">CVM 2024 · FGV</span></div>
+    <p class="q-stem">O cientista Miguel busca um serviço de nuvem que forneça recursos de computação sob demanda, tais como servidores, rede, armazenamento e outros, podendo incorporar sistemas operacionais e aplicativos. Miguel deve contratar:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>DaaS;</li>
+      <li><span class="lt">(B)</span>FaaS;</li>
+      <li><span class="lt">(C)</span>IaaS;</li>
+      <li><span class="lt">(D)</span>PaaS;</li>
+      <li><span class="lt">(E)</span>SaaS.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">C</span> — IaaS.</p>
+      <p>A marca é "podendo incorporar <em>sistemas operacionais</em>" — se você gerencia o SO, é infraestrutura. Regra de bolso: <strong>SO na sua mão = IaaS · runtime pronto, você sobe só a aplicação = PaaS · você só usa a tela = SaaS · você sobe só a função = FaaS</strong>. Este conceito também está no seu programa de Informática (item 7.7, computação em nuvem) — questão que rende nas duas disciplinas.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q20</span><span class="q-src">CVM 2024 · FGV</span></div>
+    <p class="q-stem">Ao receber um conjunto de dados com quantidade significativa de dados faltantes, uma equipe debateu duas técnicas: (1) remoção de observações contendo dados ausentes e (2) imputação multivariável, sendo que apenas uma seria aplicada. Duas características do conjunto de dados que devem ser prioritariamente consideradas na escolha entre as duas técnicas são:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>o intervalo dos atributos com dados faltantes e a fração de dados faltantes;</li>
+      <li><span class="lt">(B)</span>o número de observações e a fração de dados faltantes;</li>
+      <li><span class="lt">(C)</span>a fração de atributos com dados faltantes e o intervalo dos atributos;</li>
+      <li><span class="lt">(D)</span>uma medida de dependência estatística entre os atributos e a fração de atributos com dados faltantes;</li>
+      <li><span class="lt">(E)</span>o número de observações e uma medida de dependência estatística entre os atributos.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">E</span> — número de observações + medida de dependência entre atributos.</p>
+      <p>Raciocínio: deletar linhas só é viável se você <em>tem linhas de sobra</em> → número de observações. Imputação <strong>multivariável</strong> (MICE, KNN imputer) só funciona se os atributos forem correlacionados — se forem independentes, não há informação em outros campos para prever o ausente → medida de dependência. Questão de raciocínio, não de decoreba: entenda o mecanismo de cada técnica e a resposta cai.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">Q10</span><span class="q-src">CVM 2024 · FGV</span></div>
+    <p class="q-stem">O sistema CVMWeb armazena dados pessoais de consultores (nome, telefone, e-mail). Uma entidade financeira privada solicita ao setor de RH da CVM os dados de contato dos consultores cadastrados para oferecer linhas de crédito e financiamento imobiliário. Nesse contexto, é correto afirmar que o pedido foi:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>negado, pois há incompatibilidade entre a finalidade original da coleta e a finalidade proposta para o compartilhamento, além de não haver enquadramento em uma das exceções previstas (art. 26, §1º, da LGPD);</li>
+      <li><span class="lt">(B)</span>analisado pela autoridade competente, que decidiu que os dados dos consultores inativos poderão ser compartilhados atendendo ao princípio da não discriminação;</li>
+      <li><span class="lt">(C)</span>enviado à ANPD, que deverá emitir parecer autorizando o compartilhamento;</li>
+      <li><span class="lt">(D)</span>atendido, com base no art. 7º, II, da LGPD;</li>
+      <li><span class="lt">(E)</span>legitimado pelo art. 26, §1º da LGPD.</li>
+    </ul>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">A</span> — negado.</p>
+      <p>Dois fundamentos somados: <strong>desvio de finalidade</strong> (art. 6º, I — a finalidade nova é incompatível com a original) e o <strong>art. 26, §1º</strong>, que veda ao Poder Público transferir dados pessoais a entidades privadas fora de hipóteses estritas. Esta é a questão-modelo que a IDECAN provavelmente vai reproduzir com roupagem legislativa — troque "consultores da CVM" por "cidadãos que peticionaram na ouvidoria da ALECE" e o raciocínio é idêntico.</p>
+      <p><strong>Fixe:</strong> "já ter o dado" nunca autoriza um novo uso. Mudou a finalidade, precisa de nova base legal — e no setor público, transferir a privado é a exceção, não a regra.</p></div>
+    </details>
+  </div>
+
+  <div class="callout gold">
+    <span class="callout-label">O que essas 24 questões ensinam sobre a prova de amanhã</span>
+    <ul>
+      <li><strong>Item V/F e "está correto o que se afirma em" dominam.</strong> Metade das questões tem esse formato. Treine ler afirmativa por afirmativa, marcando V/F na margem <em>antes</em> de olhar as alternativas.</li>
+      <li><strong>A palavra que decide costuma ser um quantificador.</strong> exclusivamente · apenas · sempre · nunca · todo · uma de suas raízes. Circule esses termos ao ler.</li>
+      <li><strong>Distratores são conceitos verdadeiros fora de contexto.</strong> Random Search, K-fold e Ensemble existem e funcionam — só não respondem à pergunta feita.</li>
+      <li><strong>Questão de código raramente exige rodar o código.</strong> Descubra o resultado matematicamente esperado e elimine.</li>
+      <li><strong>"Todas corretas" e "todas falsas" são gabaritos legítimos.</strong> Não descarte por reflexo.</li>
+    </ul>
+  </div>
+</section>
+<section id="simulado">
+  <p class="sec-eyebrow">04</p>
+  <h2>Simulado autoral — 21 questões</h2>
+  <p class="sec-lede">Escritas no formato da IDECAN: enunciado contextualizado na ALECE, cinco alternativas longas, e pelo menos um dos seis truques de distrator em cada. Não são questões da banca — são minhas, calibradas pelo padrão dela e pelo conteúdo do Anexo II. Responda antes de abrir.</p>
+
+  <div class="callout note">
+    <span class="callout-label">Como usar</span>
+    <p>Faça em bloco cronometrado: <strong>21 questões em 45 minutos</strong>, que é o ritmo real da prova. Marque num papel, confira tudo no fim pelo gabarito da seção 05, e só então leia os comentários dos que errou. Conferir questão a questão infla a sua nota e esconde o padrão dos seus erros.</p>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S01</span><span class="q-src">LGPD · princípios</span></div>
+    <p class="q-stem">A Diretoria de Tecnologia da Informação da ALECE elabora política interna de tratamento de dados pessoais e precisa relacionar, no documento, os princípios previstos no art. 6º da Lei nº 13.709/2018. Assinale a alternativa em que <strong>todos</strong> os itens listados são, efetivamente, princípios previstos naquele dispositivo.</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>finalidade, adequação, necessidade e livre acesso;</li>
+      <li><span class="lt">(B)</span>finalidade, consentimento, segurança e prevenção;</li>
+      <li><span class="lt">(C)</span>qualidade dos dados, transparência, publicidade e não discriminação;</li>
+      <li><span class="lt">(D)</span>adequação, necessidade, eficiência e responsabilização;</li>
+      <li><span class="lt">(E)</span>livre acesso, segurança, razoabilidade e prestação de contas.</li>
+    </ul>
+    <div class="qmeta"><span>art. 6º</span><span class="trap">truque 4 · quase tudo verdadeiro</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">A</span></p>
+      <p>Cada distrator carrega exatamente um intruso, e todos os intrusos são termos que existem no universo jurídico — só não no art. 6º. Em (B), <strong>consentimento é base legal</strong> (art. 7º, I), não princípio: é a pegadinha campeã do tema. Em (C) e (E), <strong>publicidade</strong> e <strong>razoabilidade</strong> são princípios da Administração Pública, não da LGPD. Em (D), <strong>eficiência</strong> é do art. 37 da CF.</p>
+      <p>Os dez do art. 6º: finalidade · adequação · necessidade · livre acesso · qualidade dos dados · transparência · segurança · prevenção · não discriminação · responsabilização e prestação de contas.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S02</span><span class="q-src">LGPD · base legal no setor público</span></div>
+    <p class="q-stem">A ALECE pretende cruzar os registros de atendimento da Ouvidoria com dados de tramitação de proposições, a fim de avaliar a efetividade de programa institucional de participação popular. O tratamento envolve dados pessoais dos cidadãos que registraram manifestações. Sobre a base legal aplicável, é correto afirmar que:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>é indispensável o consentimento livre, informado e inequívoco de cada manifestante, por se tratar de finalidade diversa daquela da coleta original;</li>
+      <li><span class="lt">(B)</span>o tratamento pode fundar-se na execução de políticas públicas, prevista nos arts. 7º, III, e 23 da LGPD, hipótese em que o consentimento é dispensado, sem que isso afaste a incidência dos princípios do art. 6º;</li>
+      <li><span class="lt">(C)</span>aplica-se o legítimo interesse do controlador, base legal própria da Administração Pública e que independe de qualquer teste de balanceamento;</li>
+      <li><span class="lt">(D)</span>por se tratar de órgão do Poder Legislativo, o tratamento está integralmente excluído da incidência da LGPD, nos termos do art. 4º;</li>
+      <li><span class="lt">(E)</span>o tratamento é vedado, pois a LGPD não admite a reutilização de dados pessoais para finalidade analítica.</li>
+    </ul>
+    <div class="qmeta"><span>art. 7º, III · art. 23</span><span class="trap">truque 3 · conclusão invertida</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">B</span></p>
+      <p>Dispensar o consentimento não significa dispensar a LGPD — e é exatamente essa a metade que (B) acrescenta e as outras omitem. Em (C), o <strong>legítimo interesse não é a base do setor público</strong> para política pública, e, onde cabe, exige teste de balanceamento e transparência reforçada. Em (D), o art. 4º não exclui o Legislativo: exclui tratamento particular não econômico, jornalístico, artístico, acadêmico e de segurança pública/defesa. Em (A), a mudança de finalidade exige <em>nova base legal</em>, que aqui existe — não necessariamente consentimento.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S03</span><span class="q-src">LGPD · anonimização</span></div>
+    <p class="q-stem">A ALECE publica painel com os participantes de audiências públicas contendo, por registro, o município de residência, a data de nascimento e o sexo. Servidor sustenta que, por não haver nome nem CPF, a base está anonimizada e, portanto, fora do alcance da LGPD. Sobre a afirmação, é correto dizer que está:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>correta, pois o dado anonimizado não é considerado dado pessoal e a supressão dos identificadores diretos é suficiente para caracterizar a anonimização;</li>
+      <li><span class="lt">(B)</span>incorreta, pois município, data de nascimento e sexo constituem quase-identificadores cuja combinação permite reidentificação por cruzamento; enquanto a reversão for possível com esforços razoáveis, a base permanece sob a LGPD, nos termos do art. 12;</li>
+      <li><span class="lt">(C)</span>correta, desde que elaborado relatório de impacto à proteção de dados pessoais antes da publicação;</li>
+      <li><span class="lt">(D)</span>incorreta, porque a anonimização é vedada aos órgãos públicos, que devem publicar sempre o dado primário na maior granularidade possível;</li>
+      <li><span class="lt">(E)</span>correta, uma vez que o dever de transparência ativa previsto na LAI prevalece sobre a proteção de dados pessoais.</li>
+    </ul>
+    <div class="qmeta"><span>art. 12 · quase-identificadores</span><span class="trap">truque 1 · "suficiente"</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">B</span></p>
+      <p>Remover identificadores diretos é <em>pseudonimização por supressão</em>, não anonimização. O trio município + data de nascimento + sexo é o exemplo clássico de reidentificação: em municípios pequenos ele isola indivíduos. O tratamento correto é generalizar (faixa etária em vez de data, região em vez de município) e verificar <em>k</em>-anonimato antes de publicar.</p>
+      <p>(D) inverte um requisito de <strong>dados abertos</strong> (granularidade máxima) e o transforma em vedação à anonimização. (E) enuncia uma prevalência que não existe: LAI e LGPD se conciliam tecnicamente, por agregação.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S04</span><span class="q-src">LAI · prazos</span></div>
+    <p class="q-stem">Cidadão protocola pedido de acesso à informação junto à ALECE. A informação não está imediatamente disponível e, ao final, o acesso é negado. Nos termos da Lei nº 12.527/2011, os prazos para resposta, eventual prorrogação, interposição de recurso e decisão do recurso são, respectivamente:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>30 dias, prorrogáveis por 15, recurso em 15 dias e decisão em 10 dias;</li>
+      <li><span class="lt">(B)</span>20 dias, prorrogáveis por 10 mediante justificativa expressa, recurso em 10 dias à autoridade hierarquicamente superior e decisão em 5 dias;</li>
+      <li><span class="lt">(C)</span>20 dias, prorrogáveis por 20, recurso em 5 dias e decisão em 10 dias;</li>
+      <li><span class="lt">(D)</span>15 dias, prorrogáveis por 15, recurso em 10 dias e decisão em 10 dias;</li>
+      <li><span class="lt">(E)</span>10 dias, improrrogáveis, recurso em 20 dias e decisão em 20 dias.</li>
+    </ul>
+    <div class="qmeta"><span>Lei 12.527/2011</span><span class="trap">truque 6 · números trocados</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">B</span></p>
+      <p>A sequência é sempre <strong>20 → +10 → 10 → 5</strong>. O distrator (C) mantém os 20 iniciais e inverte apenas os dois últimos números, que é como a banca costuma montar. Se a informação estiver disponível, a resposta é <strong>imediata</strong>. E o acesso <strong>independe de motivação</strong> — exigir justificativa do requerente é ilegal.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S05</span><span class="q-src">LAI · dados abertos</span></div>
+    <p class="q-stem">A ALECE passa a divulgar mensalmente, no portal da transparência, a execução orçamentária em arquivo PDF gerado a partir de uma planilha eletrônica. O setor responsável sustenta que a medida atende aos requisitos de dados abertos do art. 8º, §3º, da LAI. A respeito, é correto afirmar que:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>a medida atende ao dispositivo, pois o PDF é formato aberto, não proprietário e de leitura universal;</li>
+      <li><span class="lt">(B)</span>a medida não atende plenamente: ainda que o PDF possa ser um formato aberto, ele não é estruturado nem facilmente legível por máquina, requisitos que seriam satisfeitos por CSV, JSON ou XML, ao lado da divulgação do dado primário na maior granularidade possível e acompanhado de metadados;</li>
+      <li><span class="lt">(C)</span>a medida atende, desde que o arquivo seja assinado digitalmente, o que supre o requisito de leitura por máquina;</li>
+      <li><span class="lt">(D)</span>a medida não atende, pois o único formato admitido pelo dispositivo é a planilha em XLSX, por preservar fórmulas e tipos;</li>
+      <li><span class="lt">(E)</span>a LAI não estabelece requisitos de formato, limitando-se a exigir a divulgação tempestiva da informação.</li>
+    </ul>
+    <div class="qmeta"><span>art. 8º, §3º</span><span class="trap">truque 5 · "único formato admitido"</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">B</span></p>
+      <p>É a distinção entre <strong>formato aberto</strong> e <strong>dado aberto</strong>. O PDF pode ser o primeiro sem ser o segundo. Repare que (D) erra por excesso na direção oposta — e ainda escolhe justamente um formato <em>proprietário</em>. Os requisitos completos: formato aberto e legível por máquina, estruturado, não proprietário, autenticidade e integridade, dado primário na maior granularidade, livre de licenças restritivas, atualizado, com metadados e acessível por ferramentas de pesquisa.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S06</span><span class="q-src">Fundamentos · tipos de dado</span></div>
+    <p class="q-stem">O projeto de análise legislativa integrará três fontes: (i) as tabelas do sistema de votação, armazenadas em banco de dados relacional; (ii) o retorno da API de proposições, entregue em JSON; e (iii) edições antigas do diário oficial, disponíveis apenas como PDF digitalizado. Quanto à estrutura, essas fontes classificam-se, respectivamente, como:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>estruturada, semiestruturada e não estruturada;</li>
+      <li><span class="lt">(B)</span>estruturada, estruturada e semiestruturada;</li>
+      <li><span class="lt">(C)</span>semiestruturada, estruturada e não estruturada;</li>
+      <li><span class="lt">(D)</span>estruturada, não estruturada e não estruturada;</li>
+      <li><span class="lt">(E)</span>semiestruturada, semiestruturada e não estruturada.</li>
+    </ul>
+    <div class="qmeta"><span>estrutura do dado</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">A</span></p>
+      <p><strong>JSON é semiestruturado</strong> — tem marcadores e hierarquia, mas não esquema rígido. É o item mais cobrado do bloco e o erro mais frequente é classificá-lo como estruturado, por vir de uma API "organizada". O PDF <em>digitalizado</em> é não estruturado e exige OCR; note que um PDF nativo de texto continuaria não estruturado, ainda que dispensasse o OCR.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S07</span><span class="q-src">Fundamentos · KDD</span></div>
+    <p class="q-stem">No projeto de agrupamento de proposições por tema, a analista aplica TF-IDF sobre as ementas já tokenizadas e sem <em>stopwords</em>, obtendo a matriz de vetores que alimentará o algoritmo de clustering. No processo de <em>Knowledge Discovery in Databases</em>, essa operação corresponde à fase de:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>seleção dos dados;</li>
+      <li><span class="lt">(B)</span>pré-processamento e limpeza;</li>
+      <li><span class="lt">(C)</span>transformação dos dados;</li>
+      <li><span class="lt">(D)</span>mineração dos dados;</li>
+      <li><span class="lt">(E)</span>enriquecimento dos dados.</li>
+    </ul>
+    <div class="qmeta"><span>KDD</span><span class="trap">truque 5 · fase inexistente</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">C</span></p>
+      <p>Vetorizar, reduzir dimensionalidade e criar features são <strong>transformação</strong>. A mineração é a fase seguinte — é onde o clustering roda. E <strong>"enriquecimento" não é fase do KDD</strong>: é distrator puro, do tipo que soa plausível por ser um termo real de engenharia de dados.</p>
+      <p>As cinco fases: seleção → pré-processamento → transformação → mineração → interpretação/avaliação. Não confunda com o CRISP-DM, que tem seis, começa pelo entendimento do negócio e termina em implantação.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S08</span><span class="q-src">Qualidade de dados</span></div>
+    <p class="q-stem">O painel de execução orçamentária da ALECE reflete a base transacional com 45 dias de defasagem. Auditoria constatou que os valores exibidos estão corretos, não há registros duplicados, os campos respeitam os domínios definidos no dicionário de dados e não há divergência entre as fontes integradas. A dimensão de qualidade comprometida é a:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>acurácia;</li>
+      <li><span class="lt">(B)</span>completude;</li>
+      <li><span class="lt">(C)</span>consistência;</li>
+      <li><span class="lt">(D)</span>atualidade;</li>
+      <li><span class="lt">(E)</span>validade.</li>
+    </ul>
+    <div class="qmeta"><span>dimensões de qualidade</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">D</span></p>
+      <p>O enunciado elimina uma a uma as outras quatro — "valores corretos" mata acurácia, "sem duplicados" mata unicidade, "respeitam os domínios" mata validade, "sem divergência entre fontes" mata consistência. Sobra a <strong>atualidade (<em>timeliness</em>)</strong>. Esse é o desenho típico da banca: em vez de perguntar a definição, ela descreve o cenário e deixa você excluir.</p>
+      <p>Mapa sintoma → dimensão: errado = acurácia · faltando = completude · contraditório = consistência · duplicado = unicidade · fora do domínio = validade · atrasado = atualidade.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S09</span><span class="q-src">Pré-processamento · dados ausentes</span></div>
+    <p class="q-stem">Em pesquisa de clima organizacional aplicada aos servidores da Casa, o campo facultativo "remuneração bruta" apresentou 28% de ausências. A análise mostrou que a probabilidade de o campo ficar em branco cresce com o valor da própria remuneração. Sobre o mecanismo de ausência e o tratamento adequado, é correto afirmar que se trata de:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>MCAR, de modo que a exclusão das observações incompletas não introduz viés, apenas reduz o poder estatístico;</li>
+      <li><span class="lt">(B)</span>MAR, bastando imputação condicionada às variáveis observadas, como cargo e tempo de serviço;</li>
+      <li><span class="lt">(C)</span>MNAR, pois a ausência depende do próprio valor não observado, caso em que nenhuma imputação padrão resolve o problema sem modelagem explícita do mecanismo de ausência;</li>
+      <li><span class="lt">(D)</span>MCAR, sendo adequada a imputação pela média, que preserva a variância original da distribuição;</li>
+      <li><span class="lt">(E)</span>MAR, sendo adequada a exclusão <em>listwise</em>, que é sempre preferível à imputação por reduzir o risco de viés.</li>
+    </ul>
+    <div class="qmeta"><span>MCAR/MAR/MNAR</span><span class="trap">truque 3 · premissa certa, conclusão falsa</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">C</span></p>
+      <p>A frase-chave é "cresce com o valor da <em>própria</em> remuneração" — a ausência depende do valor que você não tem. Isso é <strong>MNAR</strong>, o caso mais grave.</p>
+      <p>Repare nas metades falsas: em (D), a imputação pela média <strong>reduz</strong> a variância, não a preserva. Em (E), a exclusão <em>listwise</em> não é "sempre preferível" — sob MNAR ela é justamente o que mais enviesa. Em (A) a definição de MCAR está correta, mas o diagnóstico não.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S10</span><span class="q-src">Pré-processamento · outliers</span></div>
+    <p class="q-stem">Na análise do tempo de tramitação das proposições de uma legislatura, obtiveram-se o primeiro quartil Q1 = 34 dias e o terceiro quartil Q3 = 96 dias. Aplicando a regra do intervalo interquartil de Tukey com fator 1,5, o valor a partir do qual uma observação passa a ser classificada como outlier superior é:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>144 dias;</li>
+      <li><span class="lt">(B)</span>158 dias;</li>
+      <li><span class="lt">(C)</span>189 dias;</li>
+      <li><span class="lt">(D)</span>282 dias;</li>
+      <li><span class="lt">(E)</span>130 dias.</li>
+    </ul>
+    <div class="qmeta"><span>IQR de Tukey</span><span class="trap">distratores = erros de conta previsíveis</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">C</span> — 189 dias.</p>
+      <p>IQR = 96 − 34 = <strong>62</strong>. Limite superior = Q3 + 1,5 × IQR = 96 + 93 = <strong>189</strong>.</p>
+      <p>Cada distrator é um erro de conta específico: <strong>(B) 158</strong> soma o IQR sem multiplicar por 1,5 · <strong>(D) 282</strong> usa o fator 3,0, que delimita os outliers <em>extremos</em> · <strong>(A) 144</strong> multiplica 1,5 pelo próprio Q3 · <strong>(E) 130</strong> soma 1,5 vezes o Q1. Em questão de cálculo, confira qual erro cada alternativa representa antes de marcar.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S11</span><span class="q-src">Pré-processamento · escalonamento</span></div>
+    <p class="q-stem">Ao montar o pipeline de pré-processamento, a equipe precisa decidir em quais modelos incluir a etapa de padronização das variáveis numéricas. Assinale a alternativa que contém <strong>apenas</strong> algoritmos sensíveis à escala das variáveis e que, portanto, exigem essa etapa.</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>K-means, PCA, KNN e SVM;</li>
+      <li><span class="lt">(B)</span>Random Forest, XGBoost e árvore de decisão;</li>
+      <li><span class="lt">(C)</span>K-means, PCA e Random Forest;</li>
+      <li><span class="lt">(D)</span>KNN, SVM e gradient boosting;</li>
+      <li><span class="lt">(E)</span>árvore de decisão, regressão logística regularizada e PCA.</li>
+    </ul>
+    <div class="qmeta"><span>padronização</span><span class="trap">truque 4 · listas quase corretas</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">A</span></p>
+      <p>Cada distrator contamina uma lista boa com <strong>um</strong> algoritmo baseado em árvore, que particiona por limiar e é indiferente à escala: Random Forest em (C), gradient boosting em (D), árvore de decisão em (E). (B) é a lista completa dos que <em>não</em> exigem.</p>
+      <p><strong>Exigem escala:</strong> K-means, PCA, KNN, SVM, regressões regularizadas, redes neurais. <strong>Não exigem:</strong> árvores, Random Forest, gradient boosting.</p></div>
+    </details>
+  </div>
+  <div class="q">
+    <div class="q-head"><span class="q-id">S12</span><span class="q-src">Arquitetura · DW × Data Lake</span></div>
+    <p class="q-stem">A ALECE avalia a arquitetura de dados a ser adotada para o novo ambiente analítico. Sobre as características de <em>data warehouse</em> e <em>data lake</em>, analise as afirmativas a seguir.<br>
+    <strong>I.</strong> No data warehouse o esquema é aplicado no momento da gravação (<em>schema-on-write</em>), o que confere consistência e desempenho de consulta ao custo de rigidez.<br>
+    <strong>II.</strong> No data lake o dado é armazenado em seu formato nativo e o esquema é aplicado apenas na leitura (<em>schema-on-read</em>), o que exige catálogo e linhagem para evitar a degeneração em <em>data swamp</em>.<br>
+    <strong>III.</strong> O data warehouse caracteriza-se pela alta volatilidade dos dados, sofrendo operações frequentes de atualização e exclusão.<br>
+    Está correto o que se afirma em</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>I e II, apenas;</li>
+      <li><span class="lt">(B)</span>I e III, apenas;</li>
+      <li><span class="lt">(C)</span>II e III, apenas;</li>
+      <li><span class="lt">(D)</span>I, II e III;</li>
+      <li><span class="lt">(E)</span>III, apenas.</li>
+    </ul>
+    <div class="qmeta"><span>Inmon · schema-on-read</span><span class="trap">truque 3 · III descreve o OLTP</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">A</span> — I e II, apenas.</p>
+      <p>A afirmativa III inverte um dos quatro atributos de Inmon: o data warehouse é <strong>não volátil</strong>. Ele acumula histórico; quem sofre atualização e exclusão frequentes é o ambiente <strong>OLTP</strong>. Repare que III é uma descrição perfeitamente correta — só que de outra coisa. É o truque de trocar o sujeito da definição.</p>
+      <p>Inmon: orientado a assunto · integrado · <strong>não volátil</strong> · variável no tempo.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S13</span><span class="q-src">PLN · TF-IDF</span></div>
+    <p class="q-stem">Para identificar proposições com conteúdo semelhante já em tramitação, a equipe representa as ementas por TF-IDF e compara os vetores resultantes. Sobre essa representação, é correto afirmar que:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>o componente IDF valoriza os termos presentes em muitos documentos, por serem os mais representativos do corpus analisado;</li>
+      <li><span class="lt">(B)</span>a representação obtida é densa e de baixa dimensionalidade, derivada de um modelo de linguagem previamente treinado;</li>
+      <li><span class="lt">(C)</span>a técnica preserva a ordem das palavras no documento, o que a torna equivalente a um modelo de n-gramas;</li>
+      <li><span class="lt">(D)</span>o componente IDF penaliza os termos presentes em muitos documentos e valoriza os discriminativos, sendo o peso final o produto da frequência do termo no documento pelo logaritmo da razão entre o total de documentos e o número de documentos em que o termo ocorre;</li>
+      <li><span class="lt">(E)</span>por ser não supervisionada, a técnica dispensa a remoção de <em>stopwords</em>, que não exerce influência sobre o resultado.</li>
+    </ul>
+    <div class="qmeta"><span>TF-IDF</span><span class="trap">truque 3 · (A) inverte o sinal</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">D</span></p>
+      <p><span class="mono">tf-idf(t,d) = tf(t,d) × log(N / df(t))</span>. Como <em>df(t)</em> está no denominador, quanto mais documentos contêm o termo, <strong>menor</strong> o peso — é exatamente o oposto do que diz (A). A alternativa (B) descreve <em>embeddings</em>; (C) descreve n-gramas, e o TF-IDF puro ignora ordem; (E) é falsa porque <em>stopwords</em> inflam a matriz e distorcem a similaridade.</p>
+      <p>Regra de leitura: enunciado com "esparso" e "tamanho do vocabulário" → TF-IDF; com "denso", "baixa dimensionalidade" e "pré-treinado" → embedding.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S14</span><span class="q-src">Estatística · correlação</span></div>
+    <p class="q-stem">Na análise exploratória da relação entre o número de emendas apresentadas e o tempo total de tramitação, o coeficiente de correlação de Pearson calculado foi de 0,02. O gráfico de dispersão, contudo, exibe um padrão nítido em forma de U. Sobre o resultado, é correto afirmar que:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>as variáveis são independentes, uma vez que o coeficiente é praticamente nulo;</li>
+      <li><span class="lt">(B)</span>há erro de cálculo, pois um padrão visível no gráfico implica necessariamente coeficiente elevado;</li>
+      <li><span class="lt">(C)</span>deve-se substituir o coeficiente pelo de Spearman, que capta qualquer tipo de relação, inclusive as não monotônicas;</li>
+      <li><span class="lt">(D)</span>o valor obtido comprova a ausência de relação causal entre as duas variáveis;</li>
+      <li><span class="lt">(E)</span>o coeficiente de Pearson mede apenas associação linear, de modo que um valor próximo de zero não exclui relação não linear, como a relação quadrática evidenciada no gráfico.</li>
+    </ul>
+    <div class="qmeta"><span>Pearson × Spearman</span><span class="trap">truque 1 · "qualquer tipo"</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">E</span></p>
+      <p>A alternativa (C) é a mais perigosa porque está quase certa: Spearman de fato é mais geral que Pearson, mas capta relações <strong>monotônicas</strong> — e uma parábola não é monotônica. Numa relação em U, Spearman também fica próximo de zero. O quantificador "qualquer tipo" é o que derruba a alternativa.</p>
+      <p>(D) confunde correlação com causalidade na direção contrária: ausência de correlação linear não prova ausência de causa.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S15</span><span class="q-src">Agrupamento · K-means</span></div>
+    <p class="q-stem">Sobre o algoritmo K-means aplicado ao agrupamento de despesas orçamentárias, analise as afirmativas a seguir.<br>
+    <strong>I.</strong> O algoritmo busca minimizar a soma dos quadrados das distâncias intra-cluster, também denominada inércia.<br>
+    <strong>II.</strong> Por calcular centroides a partir da média dos pontos, o algoritmo é robusto à presença de valores extremos.<br>
+    <strong>III.</strong> O algoritmo exige a definição prévia do número de grupos e pressupõe clusters aproximadamente esféricos, de tamanhos e densidades semelhantes.<br>
+    Está correto o que se afirma em</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>I, II e III;</li>
+      <li><span class="lt">(B)</span>I e II, apenas;</li>
+      <li><span class="lt">(C)</span>I e III, apenas;</li>
+      <li><span class="lt">(D)</span>II e III, apenas;</li>
+      <li><span class="lt">(E)</span>III, apenas.</li>
+    </ul>
+    <div class="qmeta"><span>K-means</span><span class="trap">truque 3 · premissa certa, conclusão invertida</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">C</span> — I e III, apenas.</p>
+      <p>A afirmativa II usa uma premissa verdadeira — o centroide <em>é</em> a média — para chegar à conclusão oposta à correta. É justamente <strong>por usar médias</strong> que o K-means é <strong>sensível</strong> a outliers: um único valor extremo arrasta o centroide. A alternativa robusta é o k-medoids, que usa pontos reais como centro.</p>
+      <p>Em dados orçamentários, onde empenhos de fim de exercício produzem valores muito acima da massa, isso é decisivo — e a padronização prévia é obrigatória.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S16</span><span class="q-src">Redução de dimensionalidade · PCA</span></div>
+    <p class="q-stem">Um conjunto de dados com 40 variáveis numéricas, em escalas bastante distintas, será submetido a redução de dimensionalidade para 8 dimensões antes da etapa de agrupamento. Sobre a aplicação da Análise de Componentes Principais, é correto afirmar que:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>a técnica seleciona as 8 variáveis originais mais relevantes e descarta as 32 restantes, funcionando como método de seleção de atributos;</li>
+      <li><span class="lt">(B)</span>a técnica é supervisionada e utiliza a variável resposta para maximizar a separação entre as classes;</li>
+      <li><span class="lt">(C)</span>seria preferível empregar o t-SNE, por gerar transformação reutilizável e aplicável a novos dados;</li>
+      <li><span class="lt">(D)</span>a técnica gera 8 componentes ortogonais entre si, cada um deles combinação linear de todas as variáveis originais e ordenados por variância explicada; não constitui seleção de variáveis e exige padronização prévia, dado que as escalas diferem;</li>
+      <li><span class="lt">(E)</span>a padronização é dispensável em qualquer caso, pois a técnica opera sempre sobre a matriz de covariância.</li>
+    </ul>
+    <div class="qmeta"><span>PCA</span><span class="trap">truque 5 · (B) descreve o LDA</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">D</span></p>
+      <p>Três erros clássicos, um por alternativa. <strong>(A)</strong> — PCA <em>recombina</em> todas as variáveis, não descarta nenhuma; quem faz seleção é o Lasso. <strong>(B)</strong> — descreve a Análise Discriminante Linear, que é supervisionada. <strong>(C)</strong> — o t-SNE serve só para visualização e <em>não</em> gera transformação reutilizável, que é justamente uma vantagem do PCA.</p>
+      <p>Número de componentes: variância acumulada de 80–95%, <em>scree plot</em> ou critério de Kaiser (autovalor &gt; 1).</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S17</span><span class="q-src">Avaliação · escolha da métrica</span></div>
+    <p class="q-stem">A ALECE desenvolve classificador para triar prestações de contas com indício de irregularidade, encaminhando os casos sinalizados para análise humana. A equipe de auditoria tem capacidade folgada para examinar os encaminhamentos, e o maior risco institucional é uma irregularidade passar sem exame. A base é fortemente desbalanceada: cerca de 3% dos casos são irregulares. A métrica que deve orientar a calibração do modelo é:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>a precisão, pois cada falso positivo consome tempo escasso da equipe de auditoria;</li>
+      <li><span class="lt">(B)</span>a acurácia, por resumir em um único número o desempenho global do classificador;</li>
+      <li><span class="lt">(C)</span>o recall, pois o custo institucional do falso negativo — a irregularidade não detectada — supera o do falso positivo, que apenas gera verificação adicional dentro da capacidade disponível;</li>
+      <li><span class="lt">(D)</span>a especificidade, por medir a proporção de prestações regulares corretamente identificadas;</li>
+      <li><span class="lt">(E)</span>o erro absoluto médio, por ser robusto à presença de valores extremos.</li>
+    </ul>
+    <div class="qmeta"><span>precisão × recall</span><span class="trap">truque 4 · (A) é verdade em outro cenário</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">C</span></p>
+      <p>O enunciado planta duas informações que decidem tudo: a capacidade de auditoria é <strong>folgada</strong> (o que barateia o falso positivo e derruba a alternativa (A)) e a base é <strong>desbalanceada em 3%</strong> (o que torna a acurácia inútil — prever "tudo regular" já daria 97%).</p>
+      <p>(E) é erro de categoria: MAE é métrica de regressão, e o problema é de classificação. Em desbalanceamento forte, a <strong>curva Precision-Recall</strong> é mais informativa que a ROC.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S18</span><span class="q-src">Avaliação · matriz de confusão</span></div>
+    <p class="q-stem">A avaliação do classificador de irregularidades sobre o conjunto de teste produziu os seguintes resultados: 45 verdadeiros positivos, 15 falsos positivos, 30 falsos negativos e 410 verdadeiros negativos. A precisão e o recall do modelo são, respectivamente:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>0,75 e 0,60;</li>
+      <li><span class="lt">(B)</span>0,60 e 0,75;</li>
+      <li><span class="lt">(C)</span>0,75 e 0,96;</li>
+      <li><span class="lt">(D)</span>0,91 e 0,60;</li>
+      <li><span class="lt">(E)</span>0,60 e 0,96.</li>
+    </ul>
+    <div class="qmeta"><span>cálculo</span><span class="trap">distratores = métricas vizinhas</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">A</span></p>
+      <p>Precisão = VP/(VP+FP) = 45/60 = <strong>0,75</strong>. Recall = VP/(VP+FN) = 45/75 = <strong>0,60</strong>.</p>
+      <p>Os distratores são outras métricas da mesma matriz, calculadas corretamente: <strong>0,96</strong> é a especificidade (410/425) e <strong>0,91</strong> é a acurácia (455/500). A alternativa (B) simplesmente inverte a ordem pedida — sempre confira se o enunciado pede "respectivamente" e em que ordem.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S19</span><span class="q-src">Validação · vazamento de dados</span></div>
+    <p class="q-stem">Ao construir modelo para prever o tempo de tramitação de proposições, o analista adotou os seguintes procedimentos: <strong>(i)</strong> ajustou o <em>StandardScaler</em> sobre o conjunto completo antes de separar treino e teste; <strong>(ii)</strong> avaliou o modelo por validação cruzada k-fold com embaralhamento aleatório das observações; e <strong>(iii)</strong> incluiu, entre as variáveis preditoras, a data de publicação da norma resultante. Sobre a validade da avaliação obtida, comprometem o resultado:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>apenas o procedimento (i);</li>
+      <li><span class="lt">(B)</span>apenas o procedimento (ii);</li>
+      <li><span class="lt">(C)</span>apenas os procedimentos (i) e (iii);</li>
+      <li><span class="lt">(D)</span>os três procedimentos, pois (i) e (iii) configuram vazamento de dados e (ii) desrespeita a ordem temporal, devendo-se ajustar o escalonador somente no treino, excluir atributos posteriores ao desfecho e adotar validação com janela expansiva;</li>
+      <li><span class="lt">(E)</span>nenhum deles, desde que o coeficiente de determinação obtido no conjunto de teste seja elevado.</li>
+    </ul>
+    <div class="qmeta"><span>data leakage · validação temporal</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">D</span></p>
+      <p>São três falhas distintas empilhadas de propósito. <strong>(i)</strong> é vazamento por pré-processamento: a média e o desvio do teste entram no ajuste. <strong>(iii)</strong> é vazamento por variável do futuro — a data de publicação da norma só existe <em>depois</em> do desfecho que se quer prever. <strong>(ii)</strong> não é vazamento no sentido estrito, mas embaralhar série temporal treina no futuro para testar no passado.</p>
+      <p>A alternativa (E) é a armadilha do candidato apressado: um R² alto obtido com vazamento é <em>sintoma</em> do problema, não prova de que não há problema. Regra: <code>fit</code> só no treino, <code>transform</code> no teste, dentro de um <code>Pipeline</code>.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S20</span><span class="q-src">Simulação e cenários</span></div>
+    <p class="q-stem">Uma comissão permanente solicita à equipe de análise de dados que informe <strong>qual a probabilidade</strong> de determinado projeto de lei ser votado até o encerramento da sessão legislativa, considerando que cada fase do rito tem duração historicamente variável. A abordagem tecnicamente adequada é:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>ajustar regressão linear que devolva o número esperado de dias até a votação;</li>
+      <li><span class="lt">(B)</span>calcular, por análise descritiva, o tempo médio histórico de tramitação por tipo de proposição;</li>
+      <li><span class="lt">(C)</span>treinar árvore de decisão que classifique a proposição segundo o rito aplicável;</li>
+      <li><span class="lt">(D)</span>executar análise de sensibilidade, que fornece diretamente a probabilidade solicitada;</li>
+      <li><span class="lt">(E)</span>executar simulação de Monte Carlo, atribuindo uma distribuição de probabilidade à duração de cada fase da tramitação e propagando as amostras pelo modelo, de modo a obter a distribuição da data de conclusão e, a partir dela, a probabilidade de a votação ocorrer até a data-limite.</li>
+    </ul>
+    <div class="qmeta"><span>análise prescritiva</span><span class="trap">truque 4 · todas são técnicas válidas</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">E</span></p>
+      <p>A palavra que decide é <strong>"probabilidade"</strong>. Regressão (A) devolve um número esperado, não uma probabilidade; descritiva (B) resume o passado; classificação (C) responde outra pergunta. A análise de sensibilidade (D) existe e é útil — mas responde <em>qual premissa mais move o resultado</em>, não com que probabilidade um evento ocorre.</p>
+      <p>É a distinção entre predição e simulação: predição estima um valor a partir de atributos observados; <strong>simulação propaga incerteza e devolve uma distribuição</strong>. O reporte correto traz mediana, percentis P10/P50/P90 e a probabilidade de exceder o limiar.</p></div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="q-head"><span class="q-id">S21</span><span class="q-src">SQL · ordem lógica de execução</span></div>
+    <p class="q-stem">Analise a consulta a seguir, escrita para listar as comissões com mais de dez proposições em tramitação.</p>
+    <div class="formula">SELECT c.nome, COUNT(*) AS total
+FROM proposicao p
+JOIN comissao c ON c.id = p.comissao_id
+WHERE total &gt; 10
+GROUP BY c.nome;</div>
+    <p class="q-stem">A respeito da consulta, é correto afirmar que:</p>
+    <ul class="q-opts">
+      <li><span class="lt">(A)</span>o único problema é a ausência da cláusula ORDER BY, sem a qual a agregação não é aplicada;</li>
+      <li><span class="lt">(B)</span>a função COUNT(*) não pode ser utilizada em consultas que contenham JOIN, devendo ser substituída por COUNT(p.id);</li>
+      <li><span class="lt">(C)</span>o apelido <em>total</em>, criado na cláusula SELECT, não pode ser referenciado no WHERE, porque na ordem lógica de execução o WHERE é avaliado antes do SELECT; além disso, por incidir sobre o resultado de uma agregação, o filtro deveria constar da cláusula HAVING, avaliada após o GROUP BY;</li>
+      <li><span class="lt">(D)</span>a cláusula GROUP BY deve obrigatoriamente ser escrita antes da cláusula WHERE, o que corrigiria a consulta;</li>
+      <li><span class="lt">(E)</span>não há erro, pois o gerenciador de banco de dados resolve automaticamente os apelidos declarados no SELECT.</li>
+    </ul>
+    <div class="qmeta"><span>FROM → WHERE → GROUP BY → HAVING → SELECT</span></div>
+    <details class="reveal"><summary>Resposta</summary>
+      <div class="answer"><p><span class="key">C</span></p>
+      <p>Dois erros na mesma linha, e a alternativa correta precisa nomear os dois. A consulta correta seria <code>… GROUP BY c.nome HAVING COUNT(*) &gt; 10;</code>.</p>
+      <p>A alternativa (D) confunde <strong>ordem de escrita</strong> com <strong>ordem lógica de execução</strong> — a sintaxe do SQL exige o WHERE antes do GROUP BY, e é justamente a ordem de execução que explica o problema. Ordem lógica: <span class="mono">FROM → JOIN → WHERE → GROUP BY → HAVING → SELECT → DISTINCT → ORDER BY → LIMIT</span>. Daí decorre também que o apelido <em>pode</em> ser usado no ORDER BY.</p></div>
+    </details>
+  </div>
+</section>
+
+<section id="gabarito">
+  <p class="sec-eyebrow">05</p>
+  <h2>Gabarito do simulado</h2>
+  <p class="sec-lede">Confira tudo de uma vez, depois de terminar as 21. Só então volte aos comentários das que errou.</p>
+  <div class="scorebox">
+    <div class="gabgrid">
+      <div>S01 <b>A</b></div><div>S02 <b>B</b></div><div>S03 <b>B</b></div><div>S04 <b>B</b></div><div>S05 <b>B</b></div><div>S06 <b>A</b></div><div>S07 <b>C</b></div>
+      <div>S08 <b>D</b></div><div>S09 <b>C</b></div><div>S10 <b>C</b></div><div>S11 <b>A</b></div><div>S12 <b>A</b></div><div>S13 <b>D</b></div><div>S14 <b>E</b></div>
+      <div>S15 <b>C</b></div><div>S16 <b>D</b></div><div>S17 <b>C</b></div><div>S18 <b>A</b></div><div>S19 <b>D</b></div><div>S20 <b>E</b></div><div>S21 <b>C</b></div>
+    </div>
+  </div>
+
+  <h3>Como interpretar o seu resultado</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th class="num">Acertos</th><th>Leitura</th><th>O que fazer com o tempo que resta</th></tr></thead>
+      <tbody>
+        <tr><td class="num">17–21</td><td>Domínio consolidado</td><td>Não estude conteúdo novo. Releia só os comentários dos que errou e passe para o drill da revisão.</td></tr>
+        <tr><td class="num">13–16</td><td>Base sólida, lacunas pontuais</td><td>Identifique o bloco dos erros e volte à seção correspondente da revisão. Provavelmente são dois ou três blocos, não tudo.</td></tr>
+        <tr><td class="num">9–12</td><td>Conteúdo reconhecido, armadilhas não</td><td>Releia a seção 01 desta página. Boa parte dos erros nessa faixa é de leitura, não de conhecimento.</td></tr>
+        <tr><td class="num">até 8</td><td>Priorize os três blocos ★★★</td><td>LGPD e LAI · métricas de avaliação · clustering. São 22 a 29 das 50 questões e cabem numa noite.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <span class="callout-label">Antes de fechar</span>
+    <p>Anote o <strong>truque de distrator</strong> de cada questão que você errou, não só o assunto. Se três erros tiverem a mesma etiqueta — quantificador absoluto, conclusão invertida, termo quase igual —, o seu problema amanhã não será conteúdo, será ritmo de leitura. E esse se corrige com uma decisão simples: ler as cinco alternativas inteiras antes de marcar qualquer uma.</p>
+  </div>
+</section>
+
+<footer>
+  <p>As 24 questões da seção 03 são reais e estão creditadas individualmente: prova de Analista Legislativo — Analista de Ciência de Dados da <strong>ALEGO</strong>, banca FGV, aplicada em 08/02/2026, e prova de Analista — Perfil 7, Ciência de Dados da <strong>CVM</strong>, banca FGV, 2024. Gabaritos conferidos nos PDFs oficiais da FGV.</p>
+  <p>As 21 questões da seção 04 são <strong>autorais</strong>, escritas a partir do conteúdo programático do Anexo II do Edital 01/2026 da ALECE e calibradas pelo padrão de elaboração da IDECAN. Não reproduzem questões da banca.</p>
+  <p><a href="analise-de-dados.html">← Voltar para a revisão completa</a> &#160;·&#160; <a href="index.html">Índice dos materiais</a></p>
+</footer>
+
+</div>
+</body>
+</html>
