@@ -1,0 +1,1818 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Revisão ilustrada de Jornalismo para a prova da ALECE 2026.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📰</text></svg>">
+<title>Fechamento ALECE</title>
+<style>
+:root{
+  --paper:#F2F3F5; --card:#FFFFFF; --band:#E5E7EB;
+  --ink:#15171C; --ink2:#4A5058; --ink3:#797F88;
+  --rule:#CBD0D6; --rule2:#E0E4E8;
+  --red:#B01019; --blue:#1D4E89; --ok:#1C6B4A;
+  --redSoft:#FBE9EA; --blueSoft:#E6EDF5; --okSoft:#E3F0EA;
+  --serif:Georgia,"Times New Roman","Liberation Serif",serif;
+  --sans:"Segoe UI Variable Text","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  --mono:"Cascadia Mono",Consolas,"SF Mono",ui-monospace,monospace;
+  --shadow:0 1px 0 rgba(21,23,28,.05), 0 2px 12px rgba(21,23,28,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#101216; --card:#181B21; --band:#1D2128;
+    --ink:#E8EBEF; --ink2:#A8B0BA; --ink3:#79818C;
+    --rule:#2C323B; --rule2:#232932;
+    --red:#F2626C; --blue:#7BA9DC; --ok:#5FBF92;
+    --redSoft:#2A1416; --blueSoft:#12202F; --okSoft:#10241B;
+    --shadow:0 1px 0 rgba(0,0,0,.4), 0 2px 14px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#101216; --card:#181B21; --band:#1D2128;
+  --ink:#E8EBEF; --ink2:#A8B0BA; --ink3:#79818C;
+  --rule:#2C323B; --rule2:#232932;
+  --red:#F2626C; --blue:#7BA9DC; --ok:#5FBF92;
+  --redSoft:#2A1416; --blueSoft:#12202F; --okSoft:#10241B;
+  --shadow:0 1px 0 rgba(0,0,0,.4), 0 2px 14px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(16px,4vw,44px) 120px}
+
+/* ---- cabeçalho: primeira página ---- */
+header.capa{border-bottom:3px double var(--ink);padding:clamp(26px,5vw,54px) 0 20px;margin-bottom:6px}
+.chapeu{font-family:var(--sans);font-size:11px;font-weight:800;letter-spacing:.19em;text-transform:uppercase;color:var(--red)}
+h1{font-family:var(--serif);font-weight:700;letter-spacing:-.022em;line-height:1.0;font-size:clamp(40px,8.5vw,88px);margin:.14em 0 .16em;text-wrap:balance}
+h1 em{font-style:italic;color:var(--red)}
+.linhafina{font-family:var(--serif);font-size:clamp(16px,1.9vw,20.5px);line-height:1.5;color:var(--ink2);max-width:60ch;margin:0}
+.expediente{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:22px;font-family:var(--mono);font-size:11.5px;color:var(--ink3)}
+.expediente span{white-space:nowrap}
+
+/* ---- navegação ---- */
+nav.sumario{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--rule);margin-bottom:42px;padding:9px 0;overflow-x:auto}
+nav.sumario ul{display:flex;gap:2px;list-style:none;margin:0;padding:0;white-space:nowrap}
+nav.sumario a{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);text-decoration:none;padding:6px 10px;border-radius:3px;display:block}
+nav.sumario a:hover{background:var(--band);color:var(--ink)}
+nav.sumario a:focus-visible{outline:2px solid var(--red);outline-offset:1px}
+
+/* ---- seções ---- */
+section{margin:0 0 clamp(54px,8vw,92px)}
+.editoria{display:flex;align-items:baseline;gap:15px;border-top:3px solid var(--ink);padding-top:12px;margin-bottom:24px;flex-wrap:wrap}
+.caderno{font-family:var(--mono);font-size:12px;font-weight:700;background:var(--ink);color:var(--paper);padding:3px 8px}
+h2{font-family:var(--serif);font-weight:700;letter-spacing:-.018em;line-height:1.06;font-size:clamp(26px,4.3vw,42px);margin:0;flex:1;text-wrap:balance}
+.peso{font-family:var(--mono);font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:99px;white-space:nowrap}
+.p-alta{background:var(--red);color:#fff}
+.p-media{background:var(--blueSoft);color:var(--blue);border:1px solid var(--blue)}
+.p-base{background:var(--band);color:var(--ink2)}
+h3{font-family:var(--serif);font-size:21px;font-weight:700;letter-spacing:-.01em;margin:36px 0 12px}
+h3:first-child{margin-top:0}
+h4{font-size:11.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin:24px 0 9px}
+p{margin:0 0 14px;max-width:70ch}
+ul,ol{margin:0 0 14px;padding-left:1.15em;max-width:70ch}
+li{margin-bottom:6px}
+b.k{color:var(--red)}
+code{font-family:var(--mono);font-size:.88em;background:var(--band);padding:1px 5px;border-radius:3px}
+
+/* ---- componentes ---- */
+.card{background:var(--card);border:1px solid var(--rule2);border-radius:4px;padding:18px 20px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.scroll{overflow-x:auto}
+svg{display:block;max-width:100%;height:auto}
+
+figure.info{margin:22px 0;background:var(--card);border:1px solid var(--rule2);border-radius:4px;overflow:hidden;box-shadow:var(--shadow)}
+figure.info .corpo{padding:18px 20px}
+figure.info figcaption{border-top:1px solid var(--rule2);background:var(--band);padding:9px 20px;font-size:13px;color:var(--ink2)}
+figure.info figcaption b{color:var(--ink)}
+
+.olho{border-left:4px solid var(--red);padding:6px 0 6px 18px;margin:22px 0;font-family:var(--serif);font-size:19px;line-height:1.45;color:var(--ink)}
+
+.box{border-left:4px solid var(--red);background:var(--redSoft);padding:14px 18px;border-radius:0 4px 4px 0;margin:20px 0}
+.box .rot{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:5px}
+.box p{margin:0}
+.box.lei{border-left-color:var(--blue);background:var(--blueSoft)}
+.box.lei .rot{color:var(--blue)}
+.box.ok{border-left-color:var(--ok);background:var(--okSoft)}
+.box.ok .rot{color:var(--ok)}
+
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:16px 0}
+th{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;text-align:left;color:var(--ink3);border-bottom:2px solid var(--ink);padding:7px 12px 7px 0;vertical-align:bottom}
+td{border-bottom:1px solid var(--rule2);padding:9px 12px 9px 0;vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+dl.defs{margin:0}
+dl.defs dt{font-weight:700;margin-top:13px}
+dl.defs dt:first-child{margin-top:0}
+dl.defs dd{margin:2px 0 0;color:var(--ink2)}
+
+.termos{display:flex;flex-wrap:wrap;gap:6px;margin:0}
+.termos span{font-family:var(--mono);font-size:11.5px;background:var(--redSoft);color:var(--red);border:1px solid var(--red);padding:2px 8px;border-radius:3px}
+.termos span.n{background:var(--blueSoft);color:var(--blue);border-color:var(--blue)}
+
+/* temas da discursiva */
+.tema{border:1px solid var(--rule);border-radius:4px;background:var(--card);margin:0 0 18px;overflow:hidden;box-shadow:var(--shadow)}
+.tema>summary{list-style:none;cursor:pointer;display:flex;gap:14px;align-items:baseline;padding:15px 18px;background:var(--band)}
+.tema>summary::-webkit-details-marker{display:none}
+.tema>summary::after{content:"+";margin-left:auto;font-weight:800;font-size:20px;color:var(--red);line-height:1}
+.tema[open]>summary::after{content:"–"}
+.tema>summary:focus-visible{outline:2px solid var(--red);outline-offset:-2px}
+.tema .rank{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--paper);background:var(--ink);padding:2px 7px;border-radius:3px}
+.tema .tt{font-family:var(--serif);font-weight:700;font-size:17.5px;line-height:1.25}
+.tema .inner{padding:20px 22px}
+.tema h5{font-size:11.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin:22px 0 8px}
+.tema h5:first-child{margin-top:0}
+.modelo{font-family:var(--serif);font-size:15.5px;line-height:1.85;background:var(--band);border-left:4px solid var(--blue);padding:16px 20px;border-radius:0 4px 4px 0}
+.modelo p{margin:0 0 10px;max-width:none}
+.modelo p:last-child{margin:0}
+.blocos{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin:0}
+.blocos>div{border:1px solid var(--rule2);border-radius:4px;padding:12px 14px;background:var(--paper)}
+.blocos b{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:5px}
+.blocos p{margin:0;font-size:13.5px;color:var(--ink2)}
+
+footer{border-top:3px double var(--ink);padding-top:18px;font-size:13px;color:var(--ink3)}
+a{color:var(--red)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{
+  nav.sumario{display:none}
+  body{background:#fff;color:#000;font-size:11pt}
+  .info,.card,.tema,figure.info{page-break-inside:avoid;box-shadow:none}
+  h2,h3{page-break-after:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="capa">
+  <div class="chapeu">ALECE · Edital 01/2026 · Banca IDECAN · Analista Legislativo · Especialidade 21</div>
+  <h1>Fechamento:<br>revisão de<br><em>Jornalismo</em></h1>
+  <p class="linhafina">A prova é em <strong>16/08/2026, à tarde</strong>. Este é o material fechado na véspera — teoria, técnica de redação, assessoria, telejornalismo, legislação e o método das duas discursivas, com o que dá para desenhar, desenhado.</p>
+  <div class="expediente">
+    <span>13 vagas imediatas + 26 CR</span>
+    <span>70 questões · 120 pts</span>
+    <span>50 específicas × 2,00</span>
+    <span>2 discursivas · 20 linhas</span>
+    <span>82 discursivas corrigidas</span>
+    <span>portões fecham 14h00</span>
+  </div>
+</header>
+
+<nav class="sumario" aria-label="Seções">
+  <ul>
+    <li><a href="#regras">Regras</a></li>
+    <li><a href="#mapa">Mapa da prova</a></li>
+    <li><a href="#teorias">Teorias</a></li>
+    <li><a href="#noticiabilidade">Noticiabilidade</a></li>
+    <li><a href="#redacao">Redação e lead</a></li>
+    <li><a href="#generos">Gêneros</a></li>
+    <li><a href="#publica">Comunicação pública</a></li>
+    <li><a href="#assessoria">Assessoria</a></li>
+    <li><a href="#crise">Crise e media training</a></li>
+    <li><a href="#digital">Digital e desinformação</a></li>
+    <li><a href="#radiotv">Rádio e TV</a></li>
+    <li><a href="#edicao">Edição e diagramação</a></li>
+    <li><a href="#lei">Legislação e ética</a></li>
+    <li><a href="#simples">Linguagem simples</a></li>
+    <li><a href="#discursiva">Discursiva</a></li>
+    <li><a href="#checklist">Checklist</a></li>
+  </ul>
+</nav>
+
+<!-- ============ 0 REGRAS ============ -->
+<section id="regras">
+  <div class="editoria"><span class="caderno">00</span><h2>As regras do jogo</h2><span class="peso p-base">antes de tudo</span></div>
+
+  <div class="grid g3">
+    <div class="card">
+      <h4>Objetiva</h4>
+      <p style="margin:0"><strong style="font-size:28px;font-family:var(--serif)">70</strong> questões · <strong>120 pts</strong><br>5 alternativas (A–E)<br><span style="font-family:var(--mono);font-size:12px;color:var(--ink2)">20 gerais × 1,00 · 50 específicas × 2,00</span></p>
+    </div>
+    <div class="card">
+      <h4>Discursiva</h4>
+      <p style="margin:0"><strong style="font-size:28px;font-family:var(--serif)">2</strong> questões · até <strong>20 linhas</strong><br>20 pts cada · mínimo <strong>24,00</strong><br><span style="font-family:var(--mono);font-size:12px;color:var(--ink2)">corte: 82 candidatos (52 AC)</span></p>
+    </div>
+    <div class="card">
+      <h4>Vagas · especialidade 21</h4>
+      <p style="margin:0"><strong style="font-size:28px;font-family:var(--serif)">13</strong> imediatas + <strong>26</strong> CR<br>R$ 6.126,48 · 30h · Fortaleza<br><span style="font-family:var(--mono);font-size:12px;color:var(--ink2)">títulos: 10 pts classificatórios</span></p>
+    </div>
+  </div>
+
+  <div class="olho">Jornalismo é a terceira maior especialidade do concurso. Muitas vagas significa muita gente inscrita — o corte real não é a nota mínima, é ficar entre os 82 que terão a discursiva corrigida.</div>
+
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 190" width="760" role="img" aria-label="Três condições cumulativas de aprovação na objetiva">
+        <g font-family="Georgia,serif">
+          <rect x="4" y="34" width="210" height="86" rx="3" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+          <text x="109" y="60" text-anchor="middle" font-size="11.5" font-weight="700" letter-spacing="1.4" fill="var(--red)" font-family="var(--sans)">CONDIÇÃO 1</text>
+          <text x="109" y="88" text-anchor="middle" font-size="24" font-weight="700" fill="var(--ink)">≥ 60,00 pts</text>
+          <text x="109" y="107" text-anchor="middle" font-size="12" fill="var(--ink2)" font-family="var(--sans)">no total da objetiva</text>
+
+          <rect x="274" y="34" width="210" height="86" rx="3" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+          <text x="379" y="60" text-anchor="middle" font-size="11.5" font-weight="700" letter-spacing="1.4" fill="var(--red)" font-family="var(--sans)">CONDIÇÃO 2</text>
+          <text x="379" y="88" text-anchor="middle" font-size="24" font-weight="700" fill="var(--ink)">≥ 1,00 pt</text>
+          <text x="379" y="107" text-anchor="middle" font-size="12" fill="var(--ink2)" font-family="var(--sans)">em CADA disciplina geral</text>
+
+          <rect x="544" y="34" width="210" height="86" rx="3" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+          <text x="649" y="60" text-anchor="middle" font-size="11.5" font-weight="700" letter-spacing="1.4" fill="var(--red)" font-family="var(--sans)">CONDIÇÃO 3</text>
+          <text x="649" y="88" text-anchor="middle" font-size="24" font-weight="700" fill="var(--ink)">≥ 2,00 pts</text>
+          <text x="649" y="107" text-anchor="middle" font-size="12" fill="var(--ink2)" font-family="var(--sans)">em específicas</text>
+
+          <path d="M218 77h48" stroke="var(--ink3)" stroke-width="2" marker-end="url(#j0)"/>
+          <path d="M488 77h48" stroke="var(--ink3)" stroke-width="2" marker-end="url(#j0)"/>
+          <text x="380" y="152" text-anchor="middle" font-size="13" fill="var(--ink2)" font-family="var(--sans)">Zerar Português <tspan font-weight="800" fill="var(--red)">ou</tspan> Informática <tspan font-weight="800" fill="var(--red)">ou</tspan> Legislação elimina — mesmo com nota alta no resto.</text>
+          <text x="380" y="174" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)" font-family="var(--sans)">Não deixe nenhuma disciplina em branco. Chute o que faltar.</text>
+        </g>
+        <defs><marker id="j0" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0l9 4.5L0 9z" fill="var(--ink3)"/></marker></defs>
+      </svg>
+    </div>
+    <figcaption><b>Cumulativas:</b> falhar em uma elimina, independentemente das outras.</figcaption>
+  </figure>
+
+  <div class="box">
+    <span class="rot">Riscos formais que zeram a prova</span>
+    <p><strong>Não marcar o TIPO de caderno na folha de respostas → 0,00, sem recurso.</strong> Também: caneta não transparente · relógio de qualquer espécie · qualquer som de aparelho eletrônico · anotar gabarito em qualquer meio · não devolver os três documentos ao fiscal.</p>
+  </div>
+</section>
+
+<!-- ============ 1 MAPA ============ -->
+<section id="mapa">
+  <div class="editoria"><span class="caderno">01</span><h2>Onde estão os 100 pontos</h2><span class="peso p-alta">50 questões</span></div>
+
+  <p style="max-width:70ch">Estimativa de distribuição das 50 questões específicas, ponderada pelo peso de cada tópico na redação do Anexo II e pelo padrão de provas recentes de Jornalismo em casas legislativas. O programa da ALECE é largo, mas não é plano: <strong>assessoria, comunicação pública e técnica de redação concentram quase metade da prova</strong>.</p>
+
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 430" width="760" role="img" aria-label="Peso estimado por bloco de conteúdo">
+        <g font-family="var(--sans)" font-size="12.5">
+          <line x1="320" y1="18" x2="320" y2="404" stroke="var(--rule2)"/>
+          <line x1="398" y1="18" x2="398" y2="404" stroke="var(--rule2)"/>
+          <line x1="476" y1="18" x2="476" y2="404" stroke="var(--rule2)"/>
+          <line x1="554" y1="18" x2="554" y2="404" stroke="var(--rule2)"/>
+          <text x="320" y="14" font-size="10.5" fill="var(--ink3)" text-anchor="middle">0</text>
+          <text x="398" y="14" font-size="10.5" fill="var(--ink3)" text-anchor="middle">3</text>
+          <text x="476" y="14" font-size="10.5" fill="var(--ink3)" text-anchor="middle">6</text>
+          <text x="554" y="14" font-size="10.5" fill="var(--ink3)" text-anchor="middle">9 questões</text>
+
+          <g fill="var(--ink)">
+            <text x="310" y="38" text-anchor="end" font-weight="700">Assessoria de imprensa e release</text>
+            <text x="310" y="70" text-anchor="end" font-weight="700">Comunicação pública e institucional</text>
+            <text x="310" y="102" text-anchor="end" font-weight="700">Redação: lead, pirâmide, títulos</text>
+            <text x="310" y="134" text-anchor="end" font-weight="700">Legislação: LAI, LGPD, CF, ética</text>
+            <text x="310" y="166" text-anchor="end">Gêneros jornalísticos</text>
+            <text x="310" y="198" text-anchor="end">Teorias da comunicação</text>
+            <text x="310" y="230" text-anchor="end">Jornalismo digital e desinformação</text>
+            <text x="310" y="262" text-anchor="end">Edição: rádio, TV e telejornalismo</text>
+            <text x="310" y="294" text-anchor="end" fill="var(--ink2)">Crise e media training</text>
+            <text x="310" y="326" text-anchor="end" fill="var(--ink2)">Linguagem simples e Manual da PR</text>
+            <text x="310" y="358" text-anchor="end" fill="var(--ink2)">Arquitetura da informação</text>
+            <text x="310" y="390" text-anchor="end" fill="var(--ink2)">Diagramação, cores e papel</text>
+          </g>
+
+          <g>
+            <rect x="320" y="26" width="156" height="17" fill="var(--red)"/><rect x="476" y="26" width="52" height="17" fill="var(--red)" opacity=".35"/>
+            <rect x="320" y="58" width="156" height="17" fill="var(--red)"/><rect x="476" y="58" width="26" height="17" fill="var(--red)" opacity=".35"/>
+            <rect x="320" y="90" width="130" height="17" fill="var(--red)"/><rect x="450" y="90" width="52" height="17" fill="var(--red)" opacity=".35"/>
+            <rect x="320" y="122" width="130" height="17" fill="var(--red)"/><rect x="450" y="122" width="52" height="17" fill="var(--red)" opacity=".35"/>
+            <rect x="320" y="154" width="104" height="17" fill="var(--blue)"/><rect x="424" y="154" width="26" height="17" fill="var(--blue)" opacity=".35"/>
+            <rect x="320" y="186" width="104" height="17" fill="var(--blue)"/><rect x="424" y="186" width="26" height="17" fill="var(--blue)" opacity=".35"/>
+            <rect x="320" y="218" width="104" height="17" fill="var(--blue)"/><rect x="424" y="218" width="26" height="17" fill="var(--blue)" opacity=".35"/>
+            <rect x="320" y="250" width="78" height="17" fill="var(--blue)"/><rect x="398" y="250" width="52" height="17" fill="var(--blue)" opacity=".35"/>
+            <rect x="320" y="282" width="52" height="17" fill="var(--ink3)"/><rect x="372" y="282" width="26" height="17" fill="var(--ink3)" opacity=".35"/>
+            <rect x="320" y="314" width="52" height="17" fill="var(--ink3)"/><rect x="372" y="314" width="26" height="17" fill="var(--ink3)" opacity=".35"/>
+            <rect x="320" y="346" width="52" height="17" fill="var(--ink3)"/><rect x="372" y="346" width="26" height="17" fill="var(--ink3)" opacity=".35"/>
+            <rect x="320" y="378" width="26" height="17" fill="var(--ink3)"/><rect x="346" y="378" width="26" height="17" fill="var(--ink3)" opacity=".35"/>
+          </g>
+          <g font-family="var(--mono)" font-size="11" fill="var(--ink2)">
+            <text x="538" y="39">6–8</text><text x="512" y="71">6–7</text><text x="512" y="103">5–7</text><text x="512" y="135">5–7</text>
+            <text x="460" y="167">4–5</text><text x="460" y="199">4–5</text><text x="460" y="231">4–5</text><text x="460" y="263">3–5</text>
+            <text x="408" y="295">2–3</text><text x="408" y="327">2–3</text><text x="408" y="359">2–3</text><text x="382" y="391">1–2</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Vermelho</b> = prioridade máxima · <b>azul</b> = alta · <b>cinza</b> = média. A barra clara é a margem alta da estimativa.</figcaption>
+  </figure>
+
+  <div class="box lei">
+    <span class="rot">Como a IDECAN escreve — leitura de provas reais de 2025</span>
+    <p>A banca é <strong>literalista</strong>: preâmbulo curto que parafraseia a norma ou o conceito, comando padronizado (“assinale a alternativa correta”, “marque a opção correta”, “identifique o item correspondente”) e cinco alternativas de tamanho médio, sendo uma quase a transcrição literal da fonte. Os distratores mudam <strong>um número, um sujeito ou o alcance da regra</strong> (“exclusivamente”, “sempre”, “independentemente de”). Para Jornalismo isso significa uma coisa muito prática: <strong>decorar prazos, artigos e definições rende mais do que discutir teoria</strong>.</p>
+  </div>
+</section>
+
+<!-- ============ 2 TEORIAS ============ -->
+<section id="teorias">
+  <div class="editoria"><span class="caderno">02</span><h2>Teorias da comunicação</h2><span class="peso p-media">alta</span></div>
+
+  <h3>A linha do tempo — de quem veio o quê</h3>
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 400" width="760" role="img" aria-label="Linha do tempo das teorias da comunicação">
+        <g font-family="var(--sans)">
+          <line x1="40" y1="40" x2="40" y2="376" stroke="var(--ink)" stroke-width="2"/>
+
+          <g><circle cx="40" cy="58" r="6" fill="var(--red)"/>
+            <text x="60" y="52" font-size="13.5" font-weight="800" fill="var(--ink)">1920–40 · Teoria Hipodérmica (bala mágica)</text>
+            <text x="60" y="70" font-size="12.5" fill="var(--ink2)">Mídia todo-poderosa, público passivo e uniforme. Estímulo → resposta.</text>
+            <text x="60" y="87" font-size="12" fill="var(--ink3)">Lasswell · superada, mas cai como “concepção inicial”</text>
+          </g>
+          <g><circle cx="40" cy="112" r="6" fill="var(--red)"/>
+            <text x="60" y="106" font-size="13.5" font-weight="800" fill="var(--ink)">1940–60 · Funcionalismo e efeitos limitados</text>
+            <text x="60" y="124" font-size="12.5" fill="var(--ink2)">Lazarsfeld: <tspan font-style="italic">two-step flow</tspan> — a mensagem passa pelos líderes de opinião.</text>
+            <text x="60" y="141" font-size="12.5" fill="var(--ink2)">Merton: funções e <tspan font-weight="700">disfunção narcotizante</tspan>. Wright: as 4 funções.</text>
+            <text x="60" y="158" font-size="12" fill="var(--ink3)">Lasswell: quem diz o quê, em que canal, a quem, com que efeito</text>
+          </g>
+          <g><circle cx="40" cy="182" r="6" fill="var(--blue)"/>
+            <text x="60" y="176" font-size="13.5" font-weight="800" fill="var(--ink)">Escola de Frankfurt · crítica</text>
+            <text x="60" y="194" font-size="12.5" fill="var(--ink2)">Adorno e Horkheimer: <tspan font-weight="700">indústria cultural</tspan>. Marcuse. Benjamin (aura).</text>
+            <text x="60" y="211" font-size="12" fill="var(--ink3)">Habermas: esfera pública — base conceitual da comunicação pública</text>
+          </g>
+          <g><circle cx="40" cy="234" r="6" fill="var(--blue)"/>
+            <text x="60" y="228" font-size="13.5" font-weight="800" fill="var(--ink)">Escola de Toronto · meio</text>
+            <text x="60" y="246" font-size="12.5" fill="var(--ink2)">McLuhan: <tspan font-weight="700">“o meio é a mensagem”</tspan>, aldeia global, meios quentes × frios.</text>
+          </g>
+          <g><circle cx="40" cy="272" r="6" fill="var(--blue)"/>
+            <text x="60" y="266" font-size="13.5" font-weight="800" fill="var(--ink)">1970s · Estudos Culturais (Birmingham)</text>
+            <text x="60" y="284" font-size="12.5" fill="var(--ink2)">Stuart Hall: <tspan font-weight="700">codificação/decodificação</tspan> — leitura dominante, negociada e de oposição.</text>
+          </g>
+          <g><circle cx="40" cy="310" r="6" fill="var(--red)"/>
+            <text x="60" y="304" font-size="13.5" font-weight="800" fill="var(--ink)">1970s–80s · Teorias do jornalismo</text>
+            <text x="60" y="322" font-size="12.5" fill="var(--ink2)">Gatekeeper · Agenda-setting · Newsmaking · Espiral do silêncio · Framing</text>
+            <text x="60" y="339" font-size="12" fill="var(--ink3)">é daqui que sai a maior parte das questões — detalhadas abaixo</text>
+          </g>
+          <g><circle cx="40" cy="362" r="6" fill="var(--ink3)"/>
+            <text x="60" y="366" font-size="13.5" font-weight="800" fill="var(--ink)">Palo Alto · “é impossível não comunicar”</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <figcaption>A <b>Escola de Chicago</b> (1910–30) antecede tudo: comunicação como fator de integração social, viés empírico e comunitário.</figcaption>
+  </figure>
+
+  <h3>As cinco teorias do jornalismo que caem</h3>
+  <div class="grid g2">
+    <div class="card">
+      <h4>Gatekeeper</h4>
+      <p style="margin:0"><strong>David Manning White (1950)</strong>, a partir de Kurt Lewin. O jornalista é o “porteiro” que decide o que passa. Crítica: a decisão parece individual e subjetiva. <strong>Shoemaker e Vos</strong> atualizam: a seleção é guiada por <strong>rotinas</strong> — e as rotinas nascem de três fontes: a orientação para a audiência, as <strong>fontes externas</strong> em que o jornalista se baseia, e a cultura organizacional.</p>
+    </div>
+    <div class="card">
+      <h4>Agenda-setting</h4>
+      <p style="margin:0"><strong>McCombs e Shaw (1972)</strong>, estudo de Chapel Hill. A mídia não diz <em>o que pensar</em>, mas <strong>sobre o que pensar</strong>. <strong>Segundo nível</strong>: também sugere <em>como</em> pensar, ao destacar atributos do objeto. Conceitos vizinhos: <em>agenda pública</em>, <em>agenda da mídia</em>, <em>agenda política</em> e <strong>necessidade de orientação</strong>.</p>
+    </div>
+    <div class="card">
+      <h4>Newsmaking</h4>
+      <p style="margin:0">A notícia é <strong>construída</strong>, não espelhada. Estuda a <strong>cultura profissional</strong> e a <strong>organização do trabalho</strong>: rotinas produtivas, deadline, editorias, valores-notícia. <strong>Tuchman</strong>: a objetividade é um <strong>ritual estratégico</strong> que protege o jornalista de críticas. Opõe-se à <em>teoria do espelho</em>.</p>
+    </div>
+    <div class="card">
+      <h4>Espiral do silêncio</h4>
+      <p style="margin:0"><strong>Elisabeth Noelle-Neumann</strong>. Quem percebe sua opinião como minoritária tende a <strong>silenciar</strong>, por medo do isolamento — o que reforça a percepção de maioria da outra opinião, em espiral. Explica formação de opinião pública e o papel do clima de opinião.</p>
+    </div>
+    <div class="card">
+      <h4>Framing / enquadramento</h4>
+      <p style="margin:0"><strong>Goffman</strong>, depois <strong>Entman</strong>. Enquadrar é <strong>selecionar aspectos da realidade e torná-los salientes</strong> para promover uma definição de problema, uma interpretação causal, um juízo moral e uma recomendação de tratamento. Não confundir com agenda-setting: framing é sobre <em>como</em> se conta.</p>
+    </div>
+    <div class="card">
+      <h4>Outras que aparecem</h4>
+      <dl class="defs">
+        <dt>Teoria do espelho</dt><dd>a notícia reflete a realidade — a mais antiga e a mais criticada.</dd>
+        <dt>Teoria organizacional</dt><dd>Breed: o controle se dá por <strong>socialização na redação</strong>, não por ordem explícita.</dd>
+        <dt>Teoria instrumentalista/da ação política</dt><dd>a notícia serve a interesses.</dd>
+        <dt>Teoria estruturalista e construcionista</dt><dd>a notícia como construção social.</dd>
+      </dl>
+    </div>
+  </div>
+
+  <h3>Funções da linguagem de Jakobson — e a mais cobrada</h3>
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 250" width="760" role="img" aria-label="Fatores da comunicação e funções da linguagem de Jakobson">
+        <g font-family="var(--sans)" font-size="12.5" text-anchor="middle">
+          <text x="380" y="26" font-size="12" font-weight="800" letter-spacing="1.4" fill="var(--ink3)">FATOR → FUNÇÃO CORRESPONDENTE</text>
+
+          <rect x="300" y="44" width="160" height="40" rx="3" fill="var(--card)" stroke="var(--ink)"/>
+          <text x="380" y="62" font-weight="700" fill="var(--ink)">CONTEXTO / referente</text>
+          <text x="380" y="78" fill="var(--red)" font-weight="800">função REFERENCIAL</text>
+
+          <rect x="20" y="112" width="160" height="40" rx="3" fill="var(--card)" stroke="var(--ink)"/>
+          <text x="100" y="130" font-weight="700" fill="var(--ink)">REMETENTE</text>
+          <text x="100" y="146" fill="var(--blue)" font-weight="800">emotiva / expressiva</text>
+
+          <rect x="300" y="112" width="160" height="40" rx="3" fill="var(--card)" stroke="var(--ink)"/>
+          <text x="380" y="130" font-weight="700" fill="var(--ink)">MENSAGEM</text>
+          <text x="380" y="146" fill="var(--blue)" font-weight="800">poética</text>
+
+          <rect x="580" y="112" width="160" height="40" rx="3" fill="var(--card)" stroke="var(--ink)"/>
+          <text x="660" y="130" font-weight="700" fill="var(--ink)">DESTINATÁRIO</text>
+          <text x="660" y="146" fill="var(--blue)" font-weight="800">conativa / apelativa</text>
+
+          <rect x="180" y="180" width="160" height="40" rx="3" fill="var(--card)" stroke="var(--ink)"/>
+          <text x="260" y="198" font-weight="700" fill="var(--ink)">CONTATO / canal</text>
+          <text x="260" y="214" fill="var(--blue)" font-weight="800">fática</text>
+
+          <rect x="420" y="180" width="160" height="40" rx="3" fill="var(--card)" stroke="var(--ink)"/>
+          <text x="500" y="198" font-weight="700" fill="var(--ink)">CÓDIGO</text>
+          <text x="500" y="214" fill="var(--blue)" font-weight="800">metalinguística</text>
+
+          <g stroke="var(--rule)" stroke-width="1.2">
+            <line x1="380" y1="84" x2="380" y2="112"/><line x1="180" y1="132" x2="300" y2="132"/><line x1="460" y1="132" x2="580" y2="132"/>
+            <line x1="330" y1="152" x2="280" y2="180"/><line x1="430" y1="152" x2="480" y2="180"/>
+          </g>
+          <text x="380" y="244" font-size="13" fill="var(--ink2)" font-family="var(--serif)">A manchete factual — “PC mira crimes cometidos em redes sociais” — é <tspan font-weight="700" fill="var(--red)">referencial</tspan>: foco no contexto, informar.</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Pegadinha permanente: <b>conativa</b> (do latim <em>conatus</em>, esforço — apelo ao receptor) não é <b>conotativa</b> (sentido figurado). A banca escreve as duas juntas de propósito.</figcaption>
+  </figure>
+</section>
+
+<!-- ============ 3 NOTICIABILIDADE ============ -->
+<section id="noticiabilidade">
+  <div class="editoria"><span class="caderno">03</span><h2>Critérios de noticiabilidade</h2><span class="peso p-alta">máxima</span></div>
+
+  <p style="max-width:70ch"><strong>Noticiabilidade</strong> é o conjunto de critérios que torna um acontecimento digno de virar notícia. <strong>Valores-notícia</strong> são os elementos concretos que operam esses critérios. <strong>Nelson Traquina</strong> os divide em valores de <strong>seleção</strong> (decidir o que entra) e de <strong>construção</strong> (decidir como contar).</p>
+
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 320" width="760" role="img" aria-label="Valores-notícia de seleção e de construção">
+        <g font-family="var(--sans)">
+          <rect x="10" y="14" width="366" height="292" rx="4" fill="var(--redSoft)" stroke="var(--red)" stroke-width="2"/>
+          <text x="193" y="44" text-anchor="middle" font-size="15" font-weight="800" fill="var(--red)">VALORES DE SELEÇÃO</text>
+          <text x="193" y="64" text-anchor="middle" font-size="12.5" fill="var(--ink2)">o que vira notícia</text>
+
+          <text x="34" y="94" font-size="12" font-weight="800" letter-spacing=".9" fill="var(--ink3)">SUBSTANTIVOS — do acontecimento</text>
+          <g font-size="13" fill="var(--ink)">
+            <text x="34" y="116">morte · notoriedade · proximidade</text>
+            <text x="34" y="136">relevância · novidade · tempo (atualidade)</text>
+            <text x="34" y="156">notabilidade · inesperado · conflito</text>
+            <text x="34" y="176">infração · escândalo</text>
+          </g>
+          <text x="34" y="208" font-size="12" font-weight="800" letter-spacing=".9" fill="var(--ink3)">CONTEXTUAIS — do processo produtivo</text>
+          <g font-size="13" fill="var(--ink)">
+            <text x="34" y="230">disponibilidade · equilíbrio · visualidade</text>
+            <text x="34" y="250">concorrência · dia noticioso</text>
+          </g>
+          <text x="34" y="284" font-size="12.5" fill="var(--ink2)" font-family="var(--serif)" font-style="italic">Galtung e Ruge (1965) são a matriz original.</text>
+
+          <rect x="392" y="14" width="358" height="292" rx="4" fill="var(--blueSoft)" stroke="var(--blue)" stroke-width="2"/>
+          <text x="571" y="44" text-anchor="middle" font-size="15" font-weight="800" fill="var(--blue)">VALORES DE CONSTRUÇÃO</text>
+          <text x="571" y="64" text-anchor="middle" font-size="12.5" fill="var(--ink2)">como a notícia é contada</text>
+          <g font-size="13.5" fill="var(--ink)">
+            <text x="416" y="98" font-weight="700">Simplificação</text><text x="416" y="116" font-size="12.5" fill="var(--ink2)">quanto menos ambíguo, mais noticiável</text>
+            <text x="416" y="144" font-weight="700">Amplificação</text><text x="416" y="162" font-size="12.5" fill="var(--ink2)">quanto mais amplificado, mais notado</text>
+            <text x="416" y="190" font-weight="700">Relevância</text><text x="416" y="208" font-size="12.5" fill="var(--ink2)">tornar significativo para o leitor</text>
+            <text x="416" y="236" font-weight="700">Personalização</text><text x="416" y="254" font-size="12.5" fill="var(--ink2)">dar rosto humano ao fato</text>
+            <text x="416" y="282" font-weight="700">Dramatização e consonância</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Pergunta-tipo: dado um fato, <b>qual valor-notícia predomina</b>. Morte, conflito e notoriedade são os mais cobrados.</figcaption>
+  </figure>
+</section>
+
+<!-- ============ 4 REDAÇÃO ============ -->
+<section id="redacao">
+  <div class="editoria"><span class="caderno">04</span><h2>Redação: lead, pirâmide e título</h2><span class="peso p-alta">máxima</span></div>
+
+  <h3>A pirâmide invertida</h3>
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 320" width="760" role="img" aria-label="Estrutura da pirâmide invertida">
+        <g font-family="var(--sans)">
+          <polygon points="60,30 460,30 380,110 140,110" fill="var(--red)" opacity=".85"/>
+          <polygon points="140,114 380,114 330,186 190,186" fill="var(--red)" opacity=".55"/>
+          <polygon points="190,190 330,190 292,254 228,254" fill="var(--red)" opacity=".33"/>
+          <polygon points="228,258 292,258 268,300 252,300" fill="var(--red)" opacity=".2"/>
+
+          <text x="260" y="66" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">LEAD</text>
+          <text x="260" y="90" text-anchor="middle" font-size="12.5" fill="#fff">o mais importante · 1º parágrafo</text>
+          <text x="260" y="146" text-anchor="middle" font-size="14" font-weight="800" fill="var(--ink)">SUBLEAD</text>
+          <text x="260" y="168" text-anchor="middle" font-size="12" fill="var(--ink2)">expande o lead, detalha</text>
+          <text x="260" y="218" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">CORPO</text>
+          <text x="260" y="238" text-anchor="middle" font-size="11.5" fill="var(--ink2)">contexto, aspas, reações</text>
+          <text x="260" y="284" text-anchor="middle" font-size="11.5" fill="var(--ink2)">detalhes</text>
+
+          <path d="M500 40 L500 296" stroke="var(--ink3)" stroke-width="2" marker-end="url(#jp)"/>
+          <text x="516" y="52" font-size="12.5" font-weight="800" fill="var(--ink)">Importância decrescente</text>
+          <text x="516" y="74" font-size="12.5" fill="var(--ink2)">Nasceu do telégrafo: se a linha</text>
+          <text x="516" y="92" font-size="12.5" fill="var(--ink2)">caísse, o essencial já tinha ido.</text>
+          <text x="516" y="122" font-size="12.5" fill="var(--ink2)">Permite <tspan font-weight="700" fill="var(--ink)">cortar o texto pelo pé</tspan></text>
+          <text x="516" y="140" font-size="12.5" fill="var(--ink2)">sem perder o essencial — é a razão</text>
+          <text x="516" y="158" font-size="12.5" fill="var(--ink2)">prática da estrutura na edição.</text>
+          <text x="516" y="190" font-size="12.5" font-weight="800" fill="var(--red)">Opõe-se a:</text>
+          <text x="516" y="210" font-size="12.5" fill="var(--ink2)"><tspan font-weight="700">pirâmide normal</tspan> — narrativa cronológica,</text>
+          <text x="516" y="228" font-size="12.5" fill="var(--ink2)">clímax no fim (literatura, crônica)</text>
+          <text x="516" y="252" font-size="12.5" fill="var(--ink2)"><tspan font-weight="700">pirâmide mista</tspan> — lead forte + retomada</text>
+          <text x="516" y="270" font-size="12.5" fill="var(--ink2)">narrativa (grande reportagem)</text>
+          <defs><marker id="jp" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0l9 4.5L0 9z" fill="var(--ink3)"/></marker></defs>
+        </g>
+      </svg>
+    </div>
+    <figcaption>A pirâmide invertida é <b>estrutura de texto</b>, não gênero. Notícia e reportagem podem usá-la; crônica e editorial, não.</figcaption>
+  </figure>
+
+  <h3>O lead e as seis perguntas</h3>
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 210" width="760" role="img" aria-label="As seis perguntas do lead">
+        <g font-family="var(--sans)" text-anchor="middle">
+          <g>
+            <rect x="8" y="20" width="118" height="76" rx="4" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+            <text x="67" y="52" font-size="17" font-weight="800" fill="var(--red)">QUEM</text>
+            <text x="67" y="74" font-size="12" fill="var(--ink2)">who</text>
+          </g>
+          <g>
+            <rect x="134" y="20" width="118" height="76" rx="4" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+            <text x="193" y="52" font-size="17" font-weight="800" fill="var(--red)">O QUÊ</text>
+            <text x="193" y="74" font-size="12" fill="var(--ink2)">what</text>
+          </g>
+          <g>
+            <rect x="260" y="20" width="118" height="76" rx="4" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+            <text x="319" y="52" font-size="17" font-weight="800" fill="var(--red)">QUANDO</text>
+            <text x="319" y="74" font-size="12" fill="var(--ink2)">when</text>
+          </g>
+          <g>
+            <rect x="386" y="20" width="118" height="76" rx="4" fill="var(--card)" stroke="var(--red)" stroke-width="2"/>
+            <text x="445" y="52" font-size="17" font-weight="800" fill="var(--red)">ONDE</text>
+            <text x="445" y="74" font-size="12" fill="var(--ink2)">where</text>
+          </g>
+          <g>
+            <rect x="512" y="20" width="118" height="76" rx="4" fill="var(--card)" stroke="var(--blue)" stroke-width="2"/>
+            <text x="571" y="52" font-size="17" font-weight="800" fill="var(--blue)">COMO</text>
+            <text x="571" y="74" font-size="12" fill="var(--ink2)">how</text>
+          </g>
+          <g>
+            <rect x="638" y="20" width="114" height="76" rx="4" fill="var(--card)" stroke="var(--blue)" stroke-width="2"/>
+            <text x="695" y="52" font-size="17" font-weight="800" fill="var(--blue)">POR QUÊ</text>
+            <text x="695" y="74" font-size="12" fill="var(--ink2)">why</text>
+          </g>
+          <text x="380" y="128" font-size="13.5" fill="var(--ink2)">As quatro primeiras são o núcleo factual. <tspan font-weight="800" fill="var(--blue)">Como</tspan> e <tspan font-weight="800" fill="var(--blue)">por quê</tspan> costumam ir para o sublead ou o corpo.</text>
+
+          <text x="380" y="164" font-size="12" font-weight="800" letter-spacing="1.3" fill="var(--ink3)">TIPOS DE LEAD QUE A BANCA NOMEIA</text>
+          <text x="380" y="188" font-size="13" fill="var(--ink)" font-family="var(--serif)">clássico (as 6 perguntas) · <tspan font-weight="700">flash</tspan> (uma frase, urgência) · narrativo · descritivo · citação · pergunta · <tspan font-weight="700">chavão</tspan> (viciado, a evitar)</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Em prova, o lead que abre com “A Assembleia promoveu, na última segunda, cerimônia de entrega de títulos…” é <b>clássico</b>: traz quem, o quê, quando e onde de uma vez.</figcaption>
+  </figure>
+
+  <h3>Anatomia de uma página de notícia</h3>
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 340" width="760" role="img" aria-label="Elementos de uma página de notícia">
+        <g font-family="var(--sans)">
+          <rect x="20" y="16" width="420" height="308" fill="var(--card)" stroke="var(--rule)"/>
+          <text x="40" y="46" font-size="11" font-weight="800" letter-spacing="1.6" fill="var(--red)">SAÚDE PÚBLICA</text>
+          <text x="40" y="82" font-size="26" font-weight="700" fill="var(--ink)" font-family="var(--serif)">Assembleia aprova</text>
+          <text x="40" y="112" font-size="26" font-weight="700" fill="var(--ink)" font-family="var(--serif)">novo marco estadual</text>
+          <text x="40" y="140" font-size="14" fill="var(--ink2)" font-family="var(--serif)">Texto segue para sanção do governador e</text>
+          <text x="40" y="158" font-size="14" fill="var(--ink2)" font-family="var(--serif)">entra em vigor em noventa dias</text>
+          <g fill="var(--ink3)" opacity=".4">
+            <rect x="40" y="176" width="180" height="7"/><rect x="40" y="190" width="180" height="7"/><rect x="40" y="204" width="180" height="7"/>
+            <rect x="40" y="218" width="180" height="7"/><rect x="40" y="232" width="150" height="7"/>
+            <rect x="40" y="252" width="180" height="7"/><rect x="40" y="266" width="180" height="7"/><rect x="40" y="280" width="120" height="7"/>
+          </g>
+          <rect x="240" y="176" width="180" height="96" fill="var(--band)" stroke="var(--rule2)"/>
+          <text x="330" y="228" text-anchor="middle" font-size="12" fill="var(--ink3)">foto</text>
+          <text x="240" y="288" font-size="10.5" fill="var(--ink2)">Sessão plenária desta terça-feira</text>
+          <text x="240" y="302" font-size="10" fill="var(--ink3)">Foto: Ascom/ALECE</text>
+          <line x1="240" y1="176" x2="240" y2="272" stroke="var(--rule2)"/>
+
+          <g font-size="12.5" font-weight="700">
+            <text x="456" y="46" fill="var(--red)">CHAPÉU</text>
+            <text x="456" y="64" font-weight="400" font-size="11.5" fill="var(--ink2)">categoriza o assunto · também dito “antetítulo”</text>
+            <text x="456" y="94" fill="var(--red)">TÍTULO (manchete, se for a principal)</text>
+            <text x="456" y="112" font-weight="400" font-size="11.5" fill="var(--ink2)">verbo no presente, voz ativa, sem ponto final</text>
+            <text x="456" y="142" fill="var(--red)">LINHA FINA (subtítulo, olho de entrada)</text>
+            <text x="456" y="160" font-weight="400" font-size="11.5" fill="var(--ink2)">complementa o título, não o repete</text>
+            <text x="456" y="190" fill="var(--blue)">LEAD e SUBLEAD</text>
+            <text x="456" y="208" font-weight="400" font-size="11.5" fill="var(--ink2)">primeiro e segundo parágrafos</text>
+            <text x="456" y="238" fill="var(--blue)">LEGENDA</text>
+            <text x="456" y="256" font-weight="400" font-size="11.5" fill="var(--ink2)">descreve a foto e acrescenta informação</text>
+            <text x="456" y="286" fill="var(--blue)">CRÉDITO</text>
+            <text x="456" y="304" font-weight="400" font-size="11.5" fill="var(--ink2)">autoria da imagem — obrigatório</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Falta na figura e também cai: <b>olho</b> (trecho destacado no meio do texto), <b>boxe</b>, <b>intertítulo</b>, <b>retranca</b> (nome interno da matéria), <b>fio</b> e <b>bigode</b>.</figcaption>
+  </figure>
+
+  <div class="box">
+    <span class="rot">Regras de titulação</span>
+    <p>Título de notícia leva <strong>verbo</strong> (sem verbo é chamada, não título), preferencialmente no <strong>presente do indicativo</strong> — o “presente histórico”, que dá atualidade. <strong>Voz ativa</strong>, ordem direta, <strong>sem ponto final</strong>. Evite: título-chavão, gerúndio, siglas não consagradas, adjetivação valorativa e o <strong>título que não se sustenta no texto</strong>.</p>
+  </div>
+
+  <div class="box lei">
+    <span class="rot">Erros de composição que a banca pede para identificar</span>
+    <p><strong>Nariz de cera</strong> — introdução arrastada antes de chegar ao fato. <strong>Lead chavão</strong> — fórmula gasta e vazia. <strong>Leadmania</strong> — encher o lead com as seis perguntas de uma vez, tornando-o ilegível. <strong>Furo</strong> é a exclusiva; <strong>barriga</strong> é a informação falsa publicada; <strong>suíte</strong> é o desdobramento da notícia no dia seguinte; <strong>gancho</strong> é o motivo de atualidade que justifica a pauta.</p>
+  </div>
+</section>
+
+<!-- ============ 5 GÊNEROS ============ -->
+<section id="generos">
+  <div class="editoria"><span class="caderno">05</span><h2>Gêneros jornalísticos</h2><span class="peso p-media">alta</span></div>
+
+  <p style="max-width:70ch">A classificação de <strong>José Marques de Melo</strong> é a referência brasileira e a mais cobrada. Originalmente dois gêneros (informativo e opinativo); depois ampliada com <strong>interpretativo</strong>, <strong>diversional</strong> e <strong>utilitário</strong>.</p>
+
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 360" width="760" role="img" aria-label="Os cinco gêneros jornalísticos de Marques de Melo">
+        <g font-family="var(--sans)">
+          <rect x="290" y="10" width="180" height="36" rx="3" fill="var(--ink)"/>
+          <text x="380" y="34" text-anchor="middle" font-size="13.5" font-weight="800" fill="var(--paper)">MARQUES DE MELO</text>
+          <path d="M380 46 v18 M78 64 h604 M78 64 v16 M229 64 v16 M380 64 v16 M531 64 v16 M682 64 v16" fill="none" stroke="var(--ink)" stroke-width="1.4"/>
+
+          <g>
+            <rect x="10" y="82" width="136" height="60" rx="3" fill="var(--redSoft)" stroke="var(--red)" stroke-width="2"/>
+            <text x="78" y="106" text-anchor="middle" font-size="13.5" font-weight="800" fill="var(--red)">INFORMATIVO</text>
+            <text x="78" y="126" text-anchor="middle" font-size="11.5" fill="var(--ink2)">relata o fato</text>
+            <g font-size="12" fill="var(--ink)" text-anchor="middle">
+              <text x="78" y="164">nota</text><text x="78" y="184">notícia</text><text x="78" y="204">reportagem</text><text x="78" y="224">entrevista</text>
+            </g>
+          </g>
+          <g>
+            <rect x="161" y="82" width="136" height="60" rx="3" fill="var(--redSoft)" stroke="var(--red)" stroke-width="2"/>
+            <text x="229" y="106" text-anchor="middle" font-size="13.5" font-weight="800" fill="var(--red)">OPINATIVO</text>
+            <text x="229" y="126" text-anchor="middle" font-size="11.5" fill="var(--ink2)">emite juízo</text>
+            <g font-size="12" fill="var(--ink)" text-anchor="middle">
+              <text x="229" y="164">editorial</text><text x="229" y="184">comentário</text><text x="229" y="204">artigo</text><text x="229" y="224">resenha</text>
+              <text x="229" y="244">coluna</text><text x="229" y="264">crônica</text><text x="229" y="284">caricatura</text><text x="229" y="304">carta</text>
+            </g>
+          </g>
+          <g>
+            <rect x="312" y="82" width="136" height="60" rx="3" fill="var(--blueSoft)" stroke="var(--blue)" stroke-width="2"/>
+            <text x="380" y="106" text-anchor="middle" font-size="13.5" font-weight="800" fill="var(--blue)">INTERPRETATIVO</text>
+            <text x="380" y="126" text-anchor="middle" font-size="11.5" fill="var(--ink2)">contextualiza</text>
+            <g font-size="12" fill="var(--ink)" text-anchor="middle">
+              <text x="380" y="164">análise</text><text x="380" y="184">perfil</text><text x="380" y="204">enquete</text><text x="380" y="224">cronologia</text>
+              <text x="380" y="244">dossiê</text>
+            </g>
+          </g>
+          <g>
+            <rect x="463" y="82" width="136" height="60" rx="3" fill="var(--blueSoft)" stroke="var(--blue)" stroke-width="2"/>
+            <text x="531" y="106" text-anchor="middle" font-size="13.5" font-weight="800" fill="var(--blue)">DIVERSIONAL</text>
+            <text x="531" y="126" text-anchor="middle" font-size="11.5" fill="var(--ink2)">entretém</text>
+            <g font-size="12" fill="var(--ink)" text-anchor="middle">
+              <text x="531" y="164">história de</text><text x="531" y="182">interesse humano</text>
+              <text x="531" y="206">história colorida</text>
+            </g>
+          </g>
+          <g>
+            <rect x="614" y="82" width="136" height="60" rx="3" fill="var(--blueSoft)" stroke="var(--blue)" stroke-width="2"/>
+            <text x="682" y="106" text-anchor="middle" font-size="13.5" font-weight="800" fill="var(--blue)">UTILITÁRIO</text>
+            <text x="682" y="126" text-anchor="middle" font-size="11.5" fill="var(--ink2)">orienta a ação</text>
+            <g font-size="12" fill="var(--ink)" text-anchor="middle">
+              <text x="682" y="164">indicador</text><text x="682" y="184">cotação</text><text x="682" y="204">roteiro</text><text x="682" y="224">serviço</text>
+            </g>
+          </g>
+          <text x="380" y="342" text-anchor="middle" font-size="13" fill="var(--ink2)" font-family="var(--serif)">“Até quando o RG antigo pode ser usado? Veja como emitir a nova identidade” → <tspan font-weight="700" fill="var(--blue)">utilitário</tspan>: o leitor precisa fazer algo.</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Teste rápido: o texto <b>relata</b> (informativo) · <b>opina</b> (opinativo) · <b>explica o porquê</b> (interpretativo) · <b>diverte</b> (diversional) · <b>serve para agir</b> (utilitário).</figcaption>
+  </figure>
+
+  <h3>Distinções que viram distrator</h3>
+  <div class="grid g2">
+    <div class="card">
+      <dl class="defs">
+        <dt>Notícia × reportagem</dt><dd>A notícia relata o fato recente, é breve e factual. A <strong>reportagem</strong> aprofunda: mais fontes, contexto, apuração própria, tempo de produção maior.</dd>
+        <dt>Editorial × artigo × coluna</dt><dd><strong>Editorial</strong> é a opinião <em>do veículo</em>, sem assinatura individual. <strong>Artigo</strong> é assinado e defende uma tese. <strong>Coluna</strong> é espaço fixo, periódico, com marca autoral e mistura de informação e opinião.</dd>
+        <dt>Crônica</dt><dd>Texto curto, subjetivo, literário, a partir do cotidiano. É <strong>opinativo</strong>, na fronteira com a literatura.</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <dl class="defs">
+        <dt>Nota</dt><dd>A menor unidade informativa: um fato em uma ou duas frases. Também é o nome do texto curto lido pelo apresentador na TV.</dd>
+        <dt>Pauta</dt><dd><strong>Documento interno</strong> de planejamento: o que apurar, com quem, por quê, qual o ângulo e o gancho. Não é texto publicável.</dd>
+        <dt>Release</dt><dd>Produto da <strong>assessoria</strong>, enviado à imprensa como sugestão. Não é matéria e não deve ser publicado como veio.</dd>
+        <dt>Briefing</dt><dd>Documento em que o cliente ou a direção <strong>encomenda</strong> o trabalho: objetivo, público, prazo, orçamento, restrições.</dd>
+      </dl>
+    </div>
+  </div>
+
+  <h3>Tipos de entrevista — pelo objetivo</h3>
+  <div class="grid g3">
+    <div class="card"><h4>Ritual</h4><p style="margin:0">Interessa a <strong>exposição do entrevistado</strong>, mais que o conteúdo. É a entrevista protocolar de autoridade.</p></div>
+    <div class="card"><h4>Temática</h4><p style="margin:0">Explora a <strong>competência do entrevistado</strong> sobre um assunto específico.</p></div>
+    <div class="card"><h4>Testemunhal</h4><p style="margin:0">O entrevistado <strong>presenciou ou participou</strong> do fato e relata.</p></div>
+    <div class="card"><h4>Em profundidade</h4><p style="margin:0">Interessa a <strong>pessoa</strong>: trajetória, visão de mundo. Base do perfil.</p></div>
+    <div class="card"><h4>Confrontacional</h4><p style="margin:0">Dinâmica de <strong>cobrança</strong>, com contraditório e checagem em tempo real.</p></div>
+    <div class="card"><h4>Coletiva · pingue-pongue</h4><p style="margin:0"><strong>Coletiva</strong> é o formato (vários veículos). <strong>Pingue-pongue</strong> é o modo de publicação em pergunta e resposta.</p></div>
+  </div>
+</section>
+
+<!-- ============ 6 COMUNICAÇÃO PÚBLICA ============ -->
+<section id="publica">
+  <div class="editoria"><span class="caderno">06</span><h2>Comunicação pública e institucional</h2><span class="peso p-alta">máxima</span></div>
+
+  <div class="olho">Este é o bloco mais colado ao cargo. A pergunta de fundo, que atravessa a prova inteira e as duas discursivas, é: comunicação do Legislativo serve ao <strong>cidadão</strong> ou à <strong>autoridade</strong>? A resposta certa é sempre a primeira.</div>
+
+  <h3>Cinco conceitos que a banca embaralha</h3>
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 300" width="760" role="img" aria-label="Distinção entre comunicação pública, governamental, institucional, organizacional e propaganda">
+        <g font-family="var(--sans)">
+          <rect x="10" y="14" width="240" height="128" rx="4" fill="var(--redSoft)" stroke="var(--red)" stroke-width="2"/>
+          <text x="130" y="42" text-anchor="middle" font-size="15" font-weight="800" fill="var(--red)">COMUNICAÇÃO PÚBLICA</text>
+          <text x="30" y="66" font-size="12.5" fill="var(--ink)">Centrada no <tspan font-weight="700">interesse público</tspan> e no</text>
+          <text x="30" y="84" font-size="12.5" fill="var(--ink)">direito do cidadão à informação.</text>
+          <text x="30" y="106" font-size="12.5" fill="var(--ink2)">Pressupõe diálogo, participação e</text>
+          <text x="30" y="124" font-size="12.5" fill="var(--ink2)">prestação de contas. Base: Habermas,</text>
+          <text x="30" y="138" font-size="11.5" fill="var(--ink3)">Zémor, Elizabeth Brandão, Duarte</text>
+
+          <rect x="264" y="14" width="240" height="128" rx="4" fill="var(--card)" stroke="var(--rule)" stroke-width="1.5"/>
+          <text x="384" y="42" text-anchor="middle" font-size="15" font-weight="800" fill="var(--ink)">GOVERNAMENTAL</text>
+          <text x="284" y="66" font-size="12.5" fill="var(--ink)">Do <tspan font-weight="700">governo</tspan> enquanto gestão:</text>
+          <text x="284" y="84" font-size="12.5" fill="var(--ink)">divulga políticas e ações do Executivo.</text>
+          <text x="284" y="112" font-size="12.5" fill="var(--ink2)">É <tspan font-weight="700" fill="var(--red)">espécie</tspan> dentro da comunicação</text>
+          <text x="284" y="130" font-size="12.5" fill="var(--ink2)">pública, não sinônimo dela.</text>
+
+          <rect x="518" y="14" width="232" height="128" rx="4" fill="var(--card)" stroke="var(--rule)" stroke-width="1.5"/>
+          <text x="634" y="42" text-anchor="middle" font-size="15" font-weight="800" fill="var(--ink)">POLÍTICA</text>
+          <text x="538" y="66" font-size="12.5" fill="var(--ink)">Disputa de poder e de opinião:</text>
+          <text x="538" y="84" font-size="12.5" fill="var(--ink)">partidos, campanhas, mandatos.</text>
+          <text x="538" y="112" font-size="12.5" fill="var(--ink2)">Vedada na comunicação oficial —</text>
+          <text x="538" y="130" font-size="12.5" fill="var(--ink2)">é o limite do art. 37, § 1º.</text>
+
+          <rect x="10" y="158" width="366" height="126" rx="4" fill="var(--blueSoft)" stroke="var(--blue)" stroke-width="2"/>
+          <text x="193" y="186" text-anchor="middle" font-size="15" font-weight="800" fill="var(--blue)">COMUNICAÇÃO ORGANIZACIONAL</text>
+          <text x="30" y="210" font-size="12.5" fill="var(--ink)">O “guarda-chuva” (Margarida Kunsch):</text>
+          <text x="30" y="234" font-size="12.5" fill="var(--ink)">• <tspan font-weight="700">institucional</tspan> — imagem e identidade</text>
+          <text x="30" y="252" font-size="12.5" fill="var(--ink)">• <tspan font-weight="700">mercadológica</tspan> — produto e venda</text>
+          <text x="30" y="270" font-size="12.5" fill="var(--ink)">• <tspan font-weight="700">interna</tspan> e <tspan font-weight="700">administrativa</tspan> — o público interno</text>
+
+          <rect x="392" y="158" width="358" height="126" rx="4" fill="var(--card)" stroke="var(--rule)" stroke-width="1.5"/>
+          <text x="571" y="186" text-anchor="middle" font-size="15" font-weight="800" fill="var(--ink)">COMUNICAÇÃO INTEGRADA</text>
+          <text x="412" y="210" font-size="12.5" fill="var(--ink)">A soma coordenada das quatro acima,</text>
+          <text x="412" y="228" font-size="12.5" fill="var(--ink)">com discurso e identidade coerentes.</text>
+          <text x="412" y="256" font-size="12.5" fill="var(--ink2)"><tspan font-weight="700">Comunicação dirigida:</tspan> voltada a público</text>
+          <text x="412" y="274" font-size="12.5" fill="var(--ink2)">segmentado — escrita, oral, auxiliar, aproximativa.</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Hierarquia a decorar: <b>pública</b> é o conceito mais amplo, orientado ao cidadão; <b>governamental</b> é uma espécie dela; <b>política</b> está fora dela.</figcaption>
+  </figure>
+
+  <h3>Tipos de publicidade oficial</h3>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Tipo</th><th>Finalidade</th></tr></thead>
+    <tbody>
+      <tr><td><strong>De utilidade pública</strong></td><td>Divulga <strong>direitos e serviços</strong> à disposição do cidadão, com <strong>comando de ação objetivo e claro</strong>: informar, educar, orientar, mobilizar, prevenir ou alertar para comportamentos que tragam benefício individual ou coletivo. <em>Vacinação, prazo do IPVA, canal de denúncia.</em></td></tr>
+      <tr><td><strong>Institucional</strong></td><td>Divulga <strong>ideias, princípios e realizações</strong> do órgão, construindo sua imagem e reputação.</td></tr>
+      <tr><td><strong>Mercadológica</strong></td><td>Divulga <strong>produtos e serviços</strong> de entes públicos que atuam em concorrência de mercado (bancos públicos, estatais).</td></tr>
+      <tr><td><strong>Legal</strong></td><td>Publicação <strong>obrigatória por lei</strong>: editais, balanços, atos oficiais.</td></tr>
+      <tr><td><strong>Interna</strong></td><td>Dirigida ao <strong>público interno</strong> do órgão.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="box lei">
+    <span class="rot">CF art. 37, § 1º — decore a frase</span>
+    <p>A publicidade de atos, programas, obras, serviços e campanhas dos órgãos públicos deve ter caráter <strong>educativo, informativo ou de orientação social</strong>, <strong>vedados nomes, símbolos ou imagens que caracterizem promoção pessoal</strong> de autoridades ou servidores. Vinculada aos princípios <strong>LIMPE</strong>. No ano eleitoral, a <strong>Lei 9.504/1997, art. 73, VI, “b”</strong> proíbe publicidade institucional nos <strong>três meses anteriores ao pleito</strong>, salvo grave e urgente necessidade reconhecida pela Justiça Eleitoral.</p>
+  </div>
+</section>
+
+<!-- ============ 7 ASSESSORIA ============ -->
+<section id="assessoria">
+  <div class="editoria"><span class="caderno">07</span><h2>Assessoria de imprensa</h2><span class="peso p-alta">o bloco de maior peso</span></div>
+
+  <h3>O fluxo completo — do fato à publicação</h3>
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 240" width="760" role="img" aria-label="Fluxo da assessoria de imprensa: fato, pauta interna, release, mailing, veículo, clipping">
+        <g font-family="var(--sans)" font-size="12" text-anchor="middle">
+          <g fill="var(--card)" stroke="var(--ink)" stroke-width="1.4">
+            <rect x="6" y="40" width="110" height="52" rx="3"/><rect x="136" y="40" width="110" height="52" rx="3"/>
+            <rect x="266" y="40" width="110" height="52" rx="3"/><rect x="396" y="40" width="110" height="52" rx="3"/>
+          </g>
+          <rect x="526" y="40" width="110" height="52" rx="3" fill="var(--redSoft)" stroke="var(--red)" stroke-width="2"/>
+          <rect x="656" y="40" width="98" height="52" rx="3" fill="var(--blueSoft)" stroke="var(--blue)" stroke-width="2"/>
+
+          <g fill="var(--ink)" font-weight="700">
+            <text x="61" y="62">FATO</text><text x="61" y="80" font-weight="400" font-size="11" fill="var(--ink2)">sessão, projeto, dado</text>
+            <text x="191" y="62">PAUTA</text><text x="191" y="80" font-weight="400" font-size="11" fill="var(--ink2)">interna, com ângulo</text>
+            <text x="321" y="62">APURAÇÃO</text><text x="321" y="80" font-weight="400" font-size="11" fill="var(--ink2)">fontes, dados, aspas</text>
+            <text x="451" y="62">RELEASE</text><text x="451" y="80" font-weight="400" font-size="11" fill="var(--ink2)">redigido e aprovado</text>
+            <text x="581" y="62" fill="var(--red)">MAILING</text><text x="581" y="80" font-weight="400" font-size="11" fill="var(--ink2)">envio segmentado</text>
+            <text x="705" y="62" fill="var(--blue)">VEÍCULO</text><text x="705" y="80" font-weight="400" font-size="11" fill="var(--ink2)">decide publicar</text>
+          </g>
+          <g stroke="var(--ink3)" stroke-width="1.8">
+            <path d="M116 66h16" marker-end="url(#ja)"/><path d="M246 66h16" marker-end="url(#ja)"/>
+            <path d="M376 66h16" marker-end="url(#ja)"/><path d="M506 66h16" marker-end="url(#ja)"/><path d="M636 66h16" marker-end="url(#ja)"/>
+          </g>
+          <path d="M705 92 v34 H380 v20" fill="none" stroke="var(--blue)" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#jb)"/>
+          <rect x="300" y="146" width="160" height="46" rx="3" fill="var(--blueSoft)" stroke="var(--blue)" stroke-width="2"/>
+          <text x="380" y="166" font-weight="700" fill="var(--blue)">CLIPPING</text>
+          <text x="380" y="184" font-size="11" fill="var(--ink2)">monitoramento do que saiu</text>
+          <text x="380" y="220" font-size="12.5" fill="var(--ink2)" font-family="var(--serif)">O clipping alimenta a avaliação de resultados e realimenta a próxima pauta — o ciclo não termina na publicação.</text>
+          <defs>
+            <marker id="ja" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0l8 4L0 8z" fill="var(--ink3)"/></marker>
+            <marker id="jb" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0l8 4L0 8z" fill="var(--blue)"/></marker>
+          </defs>
+        </g>
+      </svg>
+    </div>
+    <figcaption>A assessoria <b>sugere</b>; quem decide publicar é o veículo. Alternativa que diga que a assessoria “garante” ou “determina” a publicação está errada.</figcaption>
+  </figure>
+
+  <h3>Produtos da assessoria</h3>
+  <div class="grid g2">
+    <div class="card">
+      <dl class="defs">
+        <dt>Release (press release)</dt><dd>Sugestão de pauta redigida em <strong>formato jornalístico</strong> — lead, pirâmide invertida, aspas atribuídas, dados verificáveis, contato do assessor no rodapé. Nunca é peça publicitária.</dd>
+        <dt>Press kit</dt><dd>Conjunto de materiais de apoio: release, fotos em alta, vídeos, infográficos, currículos, dados.</dd>
+        <dt>Nota oficial</dt><dd>Posicionamento formal da instituição, publicado <strong>diretamente</strong>, sem intermediação da imprensa.</dd>
+        <dt>Nota de esclarecimento</dt><dd>Corrige ou contextualiza informação divulgada.</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <dl class="defs">
+        <dt>Mailing</dt><dd>Cadastro qualificado de jornalistas e veículos, <strong>segmentado por editoria</strong>. Precisa ser atualizado — mailing desatualizado é o erro mais citado.</dd>
+        <dt>Follow-up</dt><dd>Contato posterior ao envio. Deve <strong>acrescentar informação</strong>, não cobrar publicação.</dd>
+        <dt>Clipping</dt><dd>Coleta e organização do que foi publicado. Base para relatório e para avaliação.</dd>
+        <dt>Media training</dt><dd>Preparo de porta-vozes — detalhado na próxima seção.</dd>
+        <dt>House organ</dt><dd>Publicação institucional dirigida a público interno ou externo.</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="box">
+    <span class="rot">Manual de Assessoria de Imprensa da FENAJ — o que ele fixa</span>
+    <p>A assessoria de imprensa é <strong>atividade privativa de jornalista</strong> e integra a comunicação organizacional. Seu compromisso é com a <strong>informação de interesse público</strong>, e não com a promoção do assessorado. O manual veda: <strong>divulgar informação falsa ou incompleta</strong>, condicionar informação à publicação de matéria favorável, e <strong>pagar por espaço editorial</strong> — publieditorial precisa ser identificado como tal. Prevê ainda o dever de <strong>facilitar o acesso da imprensa às fontes</strong>, garantindo agilidade no atendimento, e o registro das demandas.</p>
+  </div>
+
+  <div class="box ok">
+    <span class="rot">Rotina do atendimento à imprensa</span>
+    <p>Receber a demanda e <strong>registrar</strong> (veículo, jornalista, pergunta, prazo) · identificar a fonte competente internamente · <strong>respeitar rigorosamente o deadline</strong> — atraso equivale a não responder · retornar mesmo quando a resposta for negativa · nunca dizer “sem comentários”, que é lido como confissão; prefira explicar por que não se pode responder agora · tratar <strong>todos os veículos com isonomia</strong>, sem privilegiar aliados; a exclusiva é legítima, o favorecimento sistemático não é.</p>
+  </div>
+
+  <h3>Off, embargo e demais combinações com a fonte</h3>
+  <div class="grid g3">
+    <div class="card"><h4>Off the record</h4><p style="margin:0">A informação pode ser usada, <strong>a fonte não pode ser identificada</strong>. Combinado <em>antes</em> de a fala acontecer.</p></div>
+    <div class="card"><h4>On the record</h4><p style="margin:0">Tudo pode ser publicado <strong>com atribuição</strong>. É o padrão, salvo acordo em contrário.</p></div>
+    <div class="card"><h4>Embargo</h4><p style="margin:0">O material é entregue antes, mas só pode ser publicado <strong>a partir de data e hora combinadas</strong>.</p></div>
+  </div>
+</section>
+
+<!-- ============ 8 CRISE ============ -->
+<section id="crise">
+  <div class="editoria"><span class="caderno">08</span><h2>Gerenciamento de crise e media training</h2><span class="peso p-media">alta</span></div>
+
+  <h3>As três fases da crise</h3>
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 270" width="760" role="img" aria-label="Fases do gerenciamento de crise">
+        <g font-family="var(--sans)">
+          <rect x="10" y="20" width="240" height="200" rx="4" fill="var(--blueSoft)" stroke="var(--blue)" stroke-width="2"/>
+          <text x="130" y="48" text-anchor="middle" font-size="14.5" font-weight="800" fill="var(--blue)">1 · ANTES — prevenção</text>
+          <g font-size="12.5" fill="var(--ink)">
+            <text x="30" y="76">• Mapa de riscos e cenários</text>
+            <text x="30" y="98">• <tspan font-weight="700">Comitê de crise</tspan> constituído</text>
+            <text x="30" y="120">• <tspan font-weight="700">Porta-voz único</tspan> definido</text>
+            <text x="30" y="142">• Manual de crise e fluxo de</text>
+            <text x="42" y="160">aprovação por escrito</text>
+            <text x="30" y="182">• Media training periódico</text>
+            <text x="30" y="204">• Monitoramento contínuo</text>
+          </g>
+
+          <rect x="262" y="20" width="240" height="200" rx="4" fill="var(--redSoft)" stroke="var(--red)" stroke-width="2"/>
+          <text x="382" y="48" text-anchor="middle" font-size="14.5" font-weight="800" fill="var(--red)">2 · DURANTE — resposta</text>
+          <g font-size="12.5" fill="var(--ink)">
+            <text x="282" y="76">• <tspan font-weight="700">Agilidade</tspan>: ocupar o vazio antes</text>
+            <text x="294" y="94">que o boato ocupe</text>
+            <text x="282" y="116">• <tspan font-weight="700">Transparência</tspan> e uma só versão</text>
+            <text x="282" y="138">• Assumir o que é fato; nunca</text>
+            <text x="294" y="156">especular nem negar sem apurar</text>
+            <text x="282" y="178">• Priorizar as <tspan font-weight="700">pessoas afetadas</tspan></text>
+            <text x="282" y="200">• Canal único e atualização constante</text>
+          </g>
+
+          <rect x="514" y="20" width="236" height="200" rx="4" fill="var(--okSoft)" stroke="var(--ok)" stroke-width="2"/>
+          <text x="632" y="48" text-anchor="middle" font-size="14.5" font-weight="800" fill="var(--ok)">3 · DEPOIS — recuperação</text>
+          <g font-size="12.5" fill="var(--ink)">
+            <text x="534" y="76">• Avaliação de danos à imagem</text>
+            <text x="534" y="98">• <tspan font-weight="700">Prestação de contas</tspan> do que</text>
+            <text x="546" y="116">foi corrigido</text>
+            <text x="534" y="138">• Revisão de processos internos</text>
+            <text x="534" y="160">• Atualização do manual com</text>
+            <text x="546" y="178">as lições aprendidas</text>
+            <text x="534" y="200">• Reconstrução de reputação</text>
+          </g>
+          <text x="380" y="252" text-anchor="middle" font-size="13.5" fill="var(--ink2)" font-family="var(--serif)">Regra de ouro que a banca cobra: <tspan font-weight="700" fill="var(--red)">silêncio e “sem comentários” agravam a crise</tspan>. O vácuo é preenchido por terceiros.</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Crise não é o fato negativo em si — é o fato negativo que <b>ganha visibilidade</b> e ameaça a reputação e a confiança na instituição.</figcaption>
+  </figure>
+
+  <div class="grid g2">
+    <div class="card">
+      <h4>Media training — o que se treina</h4>
+      <ul style="margin:0">
+        <li><strong>Mensagens-chave</strong>: até três, curtas, repetíveis.</li>
+        <li><strong>Ponte</strong> (<em>bridging</em>): reconhecer a pergunta e voltar à mensagem, sem fugir.</li>
+        <li>Linguagem acessível, sem jargão técnico nem juridiquês.</li>
+        <li>Postura, ritmo, olhar, gestos e vestuário diante da câmera.</li>
+        <li><strong>Nunca</strong>: mentir, especular, falar em off achando que é on, responder com irritação, dizer “sem comentários”.</li>
+        <li>Saber que <strong>não existe microfone desligado</strong>.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>O que media training <em>não</em> é</h4>
+      <p style="margin:0">Não é treinar a fonte para <strong>enganar</strong> a imprensa nem para <strong>esconder</strong> informação — essa formulação, quando aparece na alternativa, é sempre a errada. É qualificar o porta-voz para comunicar com clareza, precisão e segurança. Também não substitui a assessoria: o porta-voz fala, a assessoria organiza, apura e responde.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9 DIGITAL ============ -->
+<section id="digital">
+  <div class="editoria"><span class="caderno">09</span><h2>Jornalismo digital e desinformação</h2><span class="peso p-media">alta</span></div>
+
+  <h3>A tipologia da desordem informacional</h3>
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 250" width="760" role="img" aria-label="Misinformation, disinformation e malinformation">
+        <g font-family="var(--sans)">
+          <rect x="10" y="20" width="240" height="150" rx="4" fill="var(--card)" stroke="var(--blue)" stroke-width="2"/>
+          <text x="130" y="50" text-anchor="middle" font-size="15" font-weight="800" fill="var(--blue)">MISINFORMAÇÃO</text>
+          <text x="130" y="82" text-anchor="middle" font-size="13.5" fill="var(--ink)">Conteúdo <tspan font-weight="700">falso</tspan></text>
+          <text x="130" y="102" text-anchor="middle" font-size="13.5" fill="var(--ink)"><tspan font-weight="700">sem intenção</tspan> de causar dano</text>
+          <text x="130" y="134" text-anchor="middle" font-size="12.5" fill="var(--ink2)">quem compartilha acredita</text>
+          <text x="130" y="152" text-anchor="middle" font-size="12.5" fill="var(--ink2)">que é verdade</text>
+
+          <rect x="262" y="20" width="240" height="150" rx="4" fill="var(--redSoft)" stroke="var(--red)" stroke-width="2"/>
+          <text x="382" y="50" text-anchor="middle" font-size="15" font-weight="800" fill="var(--red)">DESINFORMAÇÃO</text>
+          <text x="382" y="82" text-anchor="middle" font-size="13.5" fill="var(--ink)">Conteúdo <tspan font-weight="700">falso</tspan></text>
+          <text x="382" y="102" text-anchor="middle" font-size="13.5" fill="var(--ink)">criado <tspan font-weight="700">para causar dano</tspan></text>
+          <text x="382" y="134" text-anchor="middle" font-size="12.5" fill="var(--ink2)">há intenção deliberada —</text>
+          <text x="382" y="152" text-anchor="middle" font-size="12.5" fill="var(--ink2)">é o caso das campanhas coordenadas</text>
+
+          <rect x="514" y="20" width="236" height="150" rx="4" fill="var(--card)" stroke="var(--ink3)" stroke-width="2"/>
+          <text x="632" y="50" text-anchor="middle" font-size="15" font-weight="800" fill="var(--ink)">MALINFORMAÇÃO</text>
+          <text x="632" y="82" text-anchor="middle" font-size="13.5" fill="var(--ink)">Conteúdo <tspan font-weight="700">verdadeiro</tspan></text>
+          <text x="632" y="102" text-anchor="middle" font-size="13.5" fill="var(--ink)">usado <tspan font-weight="700">para causar dano</tspan></text>
+          <text x="632" y="134" text-anchor="middle" font-size="12.5" fill="var(--ink2)">vazamento, exposição de dado</text>
+          <text x="632" y="152" text-anchor="middle" font-size="12.5" fill="var(--ink2)">privado, descontextualização</text>
+
+          <text x="380" y="204" text-anchor="middle" font-size="13.5" fill="var(--ink2)" font-family="var(--serif)">Dois eixos definem a tipologia (Wardle e Derakhshan): a informação é <tspan font-weight="700" fill="var(--ink)">falsa ou verdadeira</tspan>, e há ou não <tspan font-weight="700" fill="var(--ink)">intenção de dano</tspan>.</text>
+          <text x="380" y="232" text-anchor="middle" font-size="12.5" fill="var(--ink3)">O termo “fake news” é evitado no meio técnico por ser impreciso e por ter sido apropriado politicamente para desqualificar imprensa.</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Formatos correlatos: <b>deepfake</b>, <b>cheapfake</b> (edição simples), <b>descontextualização</b> (foto real, legenda falsa), <b>sátira mal interpretada</b>.</figcaption>
+  </figure>
+
+  <div class="grid g2">
+    <div class="card">
+      <h4>Checagem de fatos — o método</h4>
+      <ol style="margin:0">
+        <li>Identificar a <strong>alegação verificável</strong> — opinião não se checa.</li>
+        <li>Rastrear a <strong>fonte primária</strong>: documento, base de dados, autor original.</li>
+        <li><strong>Busca reversa</strong> de imagem e verificação de metadados.</li>
+        <li>Confrontar com fontes independentes entre si.</li>
+        <li>Classificar (verdadeiro, falso, impreciso, insustentável) e <strong>publicar a metodologia</strong>.</li>
+        <li>Corrigir de forma transparente quando a checagem errar.</li>
+      </ol>
+      <p style="margin:10px 0 0;font-size:13.5px;color:var(--ink2)">Princípio: a <strong>transparência de método e de fontes</strong> é o que distingue checagem de opinião.</p>
+    </div>
+    <div class="card">
+      <h4>Jornalismo digital — características</h4>
+      <dl class="defs">
+        <dt>Hipertextualidade</dt><dd>links conectam o texto a documentos, contexto e séries.</dd>
+        <dt>Multimidialidade</dt><dd>convergência de texto, áudio, vídeo, foto e dados na mesma peça.</dd>
+        <dt>Interatividade</dt><dd>o público comenta, corrige, contribui e pauta.</dd>
+        <dt>Memória</dt><dd>arquivo permanente e acessível.</dd>
+        <dt>Personalização</dt><dd>conteúdo ajustado ao perfil — e daí o risco da <strong>bolha de filtro</strong> e da <strong>câmara de eco</strong>.</dd>
+        <dt>Atualização contínua</dt><dd>o texto vive; exige política de correção e de registro de alterações.</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="box lei">
+    <span class="rot">Manual de Jornalismo da EBC — os princípios que caem</span>
+    <p>A EBC é a empresa de <strong>comunicação pública</strong> federal, e seu manual é referência expressa do edital. Princípios: <strong>independência editorial</strong> em relação a governos e a interesses comerciais; <strong>pluralidade e diversidade</strong> de fontes e de pontos de vista; <strong>não discriminação</strong>; <strong>precisão e checagem</strong> antes da publicação; <strong>transparência</strong> quanto a fontes, correções e conflitos de interesse; <strong>direito de resposta</strong> assegurado; e <strong>acessibilidade</strong> como parte da missão pública — legenda, Libras e audiodescrição. Comunicação pública não é comunicação governamental: essa distinção é o coração do manual.</p>
+  </div>
+</section>
+
+<!-- ============ 10 RÁDIO E TV ============ -->
+<section id="radiotv">
+  <div class="editoria"><span class="caderno">10</span><h2>Rádio e telejornalismo</h2><span class="peso p-media">alta</span></div>
+
+  <h3>Texto para o ouvido é diferente</h3>
+  <div class="grid g2">
+    <div class="card">
+      <h4>Rádio — regras de redação</h4>
+      <ul style="margin:0">
+        <li><strong>Ordem direta</strong>: sujeito + verbo + complemento.</li>
+        <li><strong>Frases e palavras curtas</strong> — o ouvinte não pode reler.</li>
+        <li>Uma ideia por frase; <strong>presente do indicativo</strong> sempre que possível.</li>
+        <li><strong>Repetir</strong> nome e informação essencial, porque o ouvinte pode ter entrado agora.</li>
+        <li>Números <strong>arredondados</strong> e por extenso: “cerca de vinte mil”, não “19.847”.</li>
+        <li>Evitar: adjetivação emotiva do repórter, siglas não explicadas, ordem inversa, oração intercalada longa.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Formatos radiofônicos</h4>
+      <dl class="defs">
+        <dt>Nota</dt><dd>texto curto lido pelo locutor, sem áudio externo.</dd>
+        <dt>Boletim</dt><dd>relato do repórter, ao vivo ou gravado, de onde o fato acontece.</dd>
+        <dt>Reportagem</dt><dd>texto do repórter com sonoras e, às vezes, som ambiente.</dd>
+        <dt>Sonora</dt><dd>o trecho de fala da fonte. Em TV é a mesma coisa.</dd>
+        <dt>Entrada ao vivo</dt><dd>participação direta durante o programa.</dd>
+        <dt>Escalada</dt><dd>as manchetes que abrem o noticiário. <strong>Deixa</strong> é a fala que encerra e passa a vez.</dd>
+      </dl>
+    </div>
+  </div>
+
+  <h3>A lauda de telejornalismo</h3>
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 320" width="760" role="img" aria-label="Estrutura de uma lauda de telejornalismo em duas colunas">
+        <g font-family="var(--sans)">
+          <rect x="20" y="16" width="440" height="290" fill="var(--card)" stroke="var(--ink)" stroke-width="1.5"/>
+          <line x1="240" y1="16" x2="240" y2="306" stroke="var(--ink)" stroke-width="1.5"/>
+          <rect x="20" y="16" width="440" height="30" fill="var(--band)"/>
+          <text x="130" y="36" text-anchor="middle" font-size="11.5" font-weight="800" letter-spacing="1.2" fill="var(--ink)">ÁUDIO / TEXTO</text>
+          <text x="350" y="36" text-anchor="middle" font-size="11.5" font-weight="800" letter-spacing="1.2" fill="var(--ink)">VÍDEO / TÉCNICA</text>
+
+          <g font-size="11.5" fill="var(--ink)">
+            <text x="34" y="70" font-weight="700" fill="var(--red)">CABEÇA</text>
+            <text x="34" y="88" fill="var(--ink2)">texto que o apresentador lê</text>
+            <text x="34" y="104" fill="var(--ink2)">no estúdio, apresentando a matéria</text>
+            <text x="254" y="70" font-family="var(--mono)" font-size="11" fill="var(--ink2)">APRESENTADOR / TP</text>
+            <text x="254" y="88" font-family="var(--mono)" font-size="11" fill="var(--ink2)">GC: nome do apresentador</text>
+
+            <text x="34" y="136" font-weight="700" fill="var(--red)">OFF</text>
+            <text x="34" y="154" fill="var(--ink2)">narração do repórter sobre</text>
+            <text x="34" y="170" fill="var(--ink2)">as imagens; ele não aparece</text>
+            <text x="254" y="136" font-family="var(--mono)" font-size="11" fill="var(--ink2)">IMAGENS DE COBERTURA</text>
+            <text x="254" y="154" font-family="var(--mono)" font-size="11" fill="var(--ink2)">SOBE SOM 3s</text>
+
+            <text x="34" y="200" font-weight="700" fill="var(--red)">SONORA</text>
+            <text x="34" y="218" fill="var(--ink2)">fala da fonte entrevistada</text>
+            <text x="254" y="200" font-family="var(--mono)" font-size="11" fill="var(--ink2)">GC: nome e cargo da fonte</text>
+            <text x="254" y="218" font-family="var(--mono)" font-size="11" fill="var(--ink2)">DUR: 00:14</text>
+
+            <text x="34" y="248" font-weight="700" fill="var(--red)">PASSAGEM</text>
+            <text x="34" y="266" fill="var(--ink2)">repórter aparece em cena,</text>
+            <text x="34" y="282" fill="var(--ink2)">no local, dando transição</text>
+            <text x="254" y="248" font-family="var(--mono)" font-size="11" fill="var(--ink2)">REPÓRTER EM CENA</text>
+            <text x="254" y="266" font-family="var(--mono)" font-size="11" fill="var(--ink2)">PLANO MÉDIO</text>
+          </g>
+
+          <g font-size="12.5">
+            <text x="478" y="40" font-weight="800" fill="var(--ink)">Duas colunas, sempre</text>
+            <text x="478" y="60" font-size="12" fill="var(--ink2)">Esquerda: o que se ouve.</text>
+            <text x="478" y="78" font-size="12" fill="var(--ink2)">Direita: o que se vê e as ordens técnicas.</text>
+
+            <text x="478" y="112" font-weight="800" fill="var(--red)">Outros termos da lauda</text>
+            <text x="478" y="134" font-size="12" fill="var(--ink2)"><tspan font-weight="700" fill="var(--ink)">NOTA PÉ</tspan> — texto do apresentador que</text>
+            <text x="478" y="150" font-size="12" fill="var(--ink2)">fecha, depois da matéria</text>
+            <text x="478" y="172" font-size="12" fill="var(--ink2)"><tspan font-weight="700" fill="var(--ink)">NOTA COBERTA</tspan> — apresentador lê e</text>
+            <text x="478" y="188" font-size="12" fill="var(--ink2)">entram imagens sobre a voz dele</text>
+            <text x="478" y="210" font-size="12" fill="var(--ink2)"><tspan font-weight="700" fill="var(--ink)">NOTA SECA</tspan> — só o apresentador,</text>
+            <text x="478" y="226" font-size="12" fill="var(--ink2)">sem imagem de cobertura</text>
+            <text x="478" y="248" font-size="12" fill="var(--ink2)"><tspan font-weight="700" fill="var(--ink)">GC</tspan> — gerador de caracteres, o crédito</text>
+            <text x="478" y="264" font-size="12" fill="var(--ink2)">na tela. <tspan font-weight="700" fill="var(--ink)">TP</tspan> — teleprompter</text>
+            <text x="478" y="286" font-size="12" fill="var(--ink2)"><tspan font-weight="700" fill="var(--ink)">DEIXA</tspan> — últimas palavras que sinalizam</text>
+            <text x="478" y="302" font-size="12" fill="var(--ink2)">a troca; <tspan font-weight="700" fill="var(--ink)">ESPELHO</tspan> — a escalação do telejornal</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Ordem clássica de uma matéria de TV: <b>cabeça → off → sonora → off → passagem → off → sonora → nota pé</b>.</figcaption>
+  </figure>
+
+  <h3>Enquadramentos e iluminação</h3>
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 250" width="760" role="img" aria-label="Planos de enquadramento e esquema de iluminação de três pontos">
+        <g font-family="var(--sans)" text-anchor="middle">
+          <g>
+            <rect x="10" y="20" width="86" height="112" fill="var(--band)" stroke="var(--rule)"/>
+            <circle cx="53" cy="60" r="7" fill="var(--ink3)"/><path d="M53 70 c-11 0 -17 12 -18 40 h36 c-1 -28 -7 -40 -18 -40z" fill="var(--ink3)"/>
+            <text x="53" y="150" font-size="11.5" font-weight="700" fill="var(--ink)">GERAL</text>
+            <text x="53" y="166" font-size="10.5" fill="var(--ink2)">situa o ambiente</text>
+          </g>
+          <g>
+            <rect x="106" y="20" width="86" height="112" fill="var(--band)" stroke="var(--rule)"/>
+            <circle cx="149" cy="48" r="11" fill="var(--ink3)"/><path d="M149 62 c-17 0 -25 22 -26 70 h52 c-1 -48 -9 -70 -26 -70z" fill="var(--ink3)"/>
+            <text x="149" y="150" font-size="11.5" font-weight="700" fill="var(--ink)">AMERICANO</text>
+            <text x="149" y="166" font-size="10.5" fill="var(--ink2)">do joelho para cima</text>
+          </g>
+          <g>
+            <rect x="202" y="20" width="86" height="112" fill="var(--band)" stroke="var(--rule)"/>
+            <circle cx="245" cy="46" r="15" fill="var(--ink3)"/><path d="M245 64 c-22 0 -32 30 -33 68 h66 c-1 -38 -11 -68 -33 -68z" fill="var(--ink3)"/>
+            <text x="245" y="150" font-size="11.5" font-weight="700" fill="var(--ink)">MÉDIO</text>
+            <text x="245" y="166" font-size="10.5" fill="var(--ink2)">da cintura para cima</text>
+          </g>
+          <g>
+            <rect x="298" y="20" width="86" height="112" fill="var(--band)" stroke="var(--rule)"/>
+            <circle cx="341" cy="58" r="24" fill="var(--ink3)"/><path d="M341 86 c-30 0 -42 24 -43 46 h86 c-1 -22 -13 -46 -43 -46z" fill="var(--ink3)"/>
+            <text x="341" y="150" font-size="11.5" font-weight="700" fill="var(--ink)">CLOSE</text>
+            <text x="341" y="166" font-size="10.5" fill="var(--ink2)">rosto e ombros</text>
+          </g>
+          <g>
+            <rect x="394" y="20" width="86" height="112" fill="var(--band)" stroke="var(--rule)"/>
+            <circle cx="437" cy="76" r="42" fill="var(--ink3)"/>
+            <text x="437" y="150" font-size="11.5" font-weight="700" fill="var(--ink)">PRIMEIRÍSSIMO</text>
+            <text x="437" y="166" font-size="10.5" fill="var(--ink2)">só o rosto · emoção</text>
+          </g>
+
+          <line x1="500" y1="20" x2="500" y2="180" stroke="var(--rule)"/>
+
+          <g>
+            <text x="632" y="34" font-size="13" font-weight="800" fill="var(--red)">ILUMINAÇÃO DE TRÊS PONTOS</text>
+            <circle cx="632" cy="112" r="20" fill="var(--ink3)"/>
+            <g fill="var(--red)"><circle cx="570" cy="86" r="9"/><circle cx="694" cy="90" r="7"/><circle cx="632" cy="52" r="7"/></g>
+            <text x="546" y="70" font-size="11" font-weight="700" fill="var(--red)" text-anchor="end">KEY</text>
+            <text x="546" y="84" font-size="10.5" fill="var(--ink2)" text-anchor="end">principal, modela</text>
+            <text x="718" y="76" font-size="11" font-weight="700" fill="var(--red)" text-anchor="start">FILL</text>
+            <text x="718" y="90" font-size="10.5" fill="var(--ink2)" text-anchor="start">suaviza a sombra</text>
+            <text x="632" y="38" font-size="11" font-weight="700" fill="var(--red)"> </text>
+            <text x="678" y="46" font-size="11" font-weight="700" fill="var(--red)" text-anchor="start">BACK</text>
+            <text x="678" y="60" font-size="10.5" fill="var(--ink2)" text-anchor="start">separa do fundo</text>
+            <text x="632" y="164" font-size="11.5" fill="var(--ink2)">Temperatura: tungstênio ≈ 3.200 K ·</text>
+            <text x="632" y="180" font-size="11.5" fill="var(--ink2)">luz do dia ≈ 5.600 K</text>
+          </g>
+          <text x="380" y="216" font-size="12.5" fill="var(--ink2)" font-family="var(--serif)">Ângulos: <tspan font-weight="700">normal</tspan> (altura dos olhos) · <tspan font-weight="700">plongée</tspan> (de cima, diminui o sujeito) · <tspan font-weight="700">contra-plongée</tspan> (de baixo, engrandece) · holandês (inclinado, tensão)</text>
+          <text x="380" y="240" font-size="12.5" fill="var(--ink2)" font-family="var(--serif)">Microfones: <tspan font-weight="700">lapela</tspan> (entrevista sentada) · <tspan font-weight="700">direcional/boom</tspan> (capta a distância) · <tspan font-weight="700">bastão</tspan> (repórter em campo) · <tspan font-weight="700">headset</tspan></text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Em telejornalismo, o enquadramento padrão da <b>sonora</b> é o close ou o plano médio, com o entrevistado olhando para o repórter — nunca para a câmera, que é reservada ao apresentador.</figcaption>
+  </figure>
+</section>
+
+<!-- ============ 11 EDIÇÃO ============ -->
+<section id="edicao">
+  <div class="editoria"><span class="caderno">11</span><h2>Edição, diagramação e arquitetura da informação</h2><span class="peso p-base">média</span></div>
+
+  <h3>O que o editor faz</h3>
+  <p style="max-width:70ch">Editar é <strong>selecionar, hierarquizar, cortar, titular e dar unidade</strong>. Na imprensa escrita: definir o espelho da edição, a hierarquia das matérias na página, os títulos, os cortes e a relação texto-imagem. No telejornalismo: montar o <strong>espelho</strong>, definir a ordem e o tempo de cada bloco, aprovar cabeças e decidir o que entra ao vivo.</p>
+
+  <div class="grid g2">
+    <div class="card">
+      <h4>Diagramação — vocabulário mínimo</h4>
+      <dl class="defs">
+        <dt>Grid (grelha)</dt><dd>a malha de linhas horizontais e verticais que organiza os elementos e dá estrutura lógica ao layout.</dd>
+        <dt>Mancha gráfica</dt><dd>a área útil de texto e imagem na página.</dd>
+        <dt>Calha (gutter)</dt><dd>o espaço entre colunas.</dd>
+        <dt>Fólio</dt><dd>a numeração da página. <strong>Fio</strong> é o filete; <strong>boxe</strong> é o quadro destacado.</dd>
+        <dt>Legibilidade × leiturabilidade</dt><dd>a primeira é do <strong>desenho da fonte</strong>; a segunda, da <strong>composição</strong> — corpo, entrelinha, medida de linha.</dd>
+      </dl>
+    </div>
+    <div class="card">
+      <h4>Cor e papel</h4>
+      <dl class="defs">
+        <dt>Impressão</dt><dd><strong>CMYK</strong>, síntese <strong>subtrativa</strong> (pigmento). O K é de <em>key</em>, preto.</dd>
+        <dt>Tela e TV</dt><dd><strong>RGB</strong>, síntese <strong>aditiva</strong> (luz emitida). Na web, notação hexadecimal.</dd>
+        <dt>Resolução</dt><dd>300 ppi para impressão comercial; 72–150 ppi bastam para tela.</dd>
+        <dt>Papéis</dt><dd><strong>jornal</strong> (poroso, absorvente, baixa gramatura) · <strong>offset</strong> (não revestido) · <strong>couché</strong> (revestido, melhor definição de imagem) · <strong>cartão</strong> para capas. Gramatura em <strong>g/m²</strong> — não é espessura.</dd>
+      </dl>
+    </div>
+  </div>
+
+  <h3>Arquitetura da informação</h3>
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 200" width="760" role="img" aria-label="Componentes da arquitetura da informação">
+        <g font-family="var(--sans)" text-anchor="middle">
+          <g fill="var(--card)" stroke="var(--blue)" stroke-width="2">
+            <rect x="10" y="24" width="176" height="92" rx="4"/><rect x="200" y="24" width="176" height="92" rx="4"/>
+            <rect x="390" y="24" width="176" height="92" rx="4"/><rect x="580" y="24" width="170" height="92" rx="4"/>
+          </g>
+          <g>
+            <text x="98" y="52" font-size="13.5" font-weight="800" fill="var(--blue)">HIERARQUIA</text>
+            <text x="98" y="76" font-size="12" fill="var(--ink2)">ordem de importância</text>
+            <text x="98" y="94" font-size="12" fill="var(--ink2)">e níveis de navegação</text>
+
+            <text x="288" y="52" font-size="13.5" font-weight="800" fill="var(--blue)">TAXONOMIA</text>
+            <text x="288" y="76" font-size="12" fill="var(--ink2)">sistema de classificação</text>
+            <text x="288" y="94" font-size="12" fill="var(--ink2)">e rotulagem do conteúdo</text>
+
+            <text x="478" y="52" font-size="13.5" font-weight="800" fill="var(--blue)">INVENTÁRIO</text>
+            <text x="478" y="76" font-size="12" fill="var(--ink2)">levantamento de tudo que</text>
+            <text x="478" y="94" font-size="12" fill="var(--ink2)">já existe no sítio</text>
+
+            <text x="665" y="52" font-size="13.5" font-weight="800" fill="var(--blue)">WIREFRAME</text>
+            <text x="665" y="76" font-size="12" fill="var(--ink2)">esquema de baixa fidelidade:</text>
+            <text x="665" y="94" font-size="12" fill="var(--ink2)">estrutura, não visual final</text>
+          </g>
+          <text x="380" y="150" font-size="13" fill="var(--ink2)" font-family="var(--serif)">Rosenfeld e Morville: a arquitetura da informação se organiza em quatro sistemas — <tspan font-weight="700" fill="var(--ink)">organização, rotulagem, navegação e busca</tspan>.</text>
+          <text x="380" y="180" font-size="12.5" fill="var(--ink3)">Sequência de projeto: inventário → taxonomia → hierarquia → wireframe → protótipo → teste com usuários</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>No portal de um Legislativo, arquitetura da informação é condição de <b>transparência ativa</b>: informação publicada que o cidadão não encontra equivale a informação não publicada.</figcaption>
+  </figure>
+</section>
+
+<!-- ============ 12 LEGISLAÇÃO ============ -->
+<section id="lei">
+  <div class="editoria"><span class="caderno">12</span><h2>Legislação e ética</h2><span class="peso p-alta">máxima · muito objetiva</span></div>
+
+  <h3>A Constituição no campo da Comunicação Social</h3>
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:88px">Dispositivo</th><th>O que garante</th></tr></thead>
+    <tbody>
+      <tr><td class="num"><strong>Art. 5º, IV</strong></td><td>Livre manifestação do pensamento, <strong>vedado o anonimato</strong>.</td></tr>
+      <tr><td class="num"><strong>Art. 5º, V</strong></td><td><strong>Direito de resposta</strong> proporcional ao agravo, além da indenização por dano material, moral ou à imagem.</td></tr>
+      <tr><td class="num"><strong>Art. 5º, IX</strong></td><td>Livre expressão da atividade intelectual, artística, científica e de comunicação, <strong>independentemente de censura ou licença</strong>.</td></tr>
+      <tr><td class="num"><strong>Art. 5º, X</strong></td><td>Invioláveis a <strong>intimidade, vida privada, honra e imagem</strong>.</td></tr>
+      <tr><td class="num"><strong>Art. 5º, XIV</strong></td><td>Acesso à informação assegurado e <strong>sigilo da fonte</strong> resguardado, quando necessário ao exercício profissional.</td></tr>
+      <tr><td class="num"><strong>Art. 5º, XXXIII</strong></td><td>Direito de receber dos órgãos públicos informações de interesse particular ou coletivo — a raiz constitucional da LAI.</td></tr>
+      <tr><td class="num"><strong>Art. 220</strong></td><td>Nenhuma lei conterá dispositivo que embarace a liberdade de informação jornalística. <strong>Vedada toda e qualquer censura de natureza política, ideológica e artística.</strong> § 5º: <strong>vedado monopólio ou oligopólio</strong> dos meios.</td></tr>
+      <tr><td class="num"><strong>Art. 221</strong></td><td>Princípios da produção e programação: preferência a finalidades <strong>educativas, artísticas, culturais e informativas</strong>; promoção da cultura nacional e regional; <strong>regionalização</strong> da produção; respeito aos valores éticos e sociais.</td></tr>
+      <tr><td class="num"><strong>Art. 222</strong></td><td>Propriedade de empresa jornalística e de radiodifusão privativa de brasileiros ou naturalizados há mais de 10 anos; <strong>ao menos 70% do capital</strong> total e votante deve pertencer a brasileiros.</td></tr>
+      <tr><td class="num"><strong>Art. 223</strong></td><td>Compete ao Executivo outorgar e renovar concessão, observado o <strong>princípio da complementaridade</strong> dos sistemas privado, público e estatal. O Congresso aprecia o ato.</td></tr>
+      <tr><td class="num"><strong>Art. 224</strong></td><td>Institui o <strong>Conselho de Comunicação Social</strong>, como órgão auxiliar do Congresso Nacional.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="box">
+    <span class="rot">Três pegadinhas constitucionais</span>
+    <p><strong>1.</strong> O sigilo da fonte é <em>resguardado</em>, mas a liberdade de imprensa <strong>não é absoluta</strong>: convive com intimidade, honra e imagem, e responde civil e penalmente por abuso. <strong>2.</strong> A vedação é à <strong>censura</strong>, não à responsabilização posterior. <strong>3.</strong> O diploma de jornalismo <strong>não é exigível</strong> para o exercício da profissão desde decisão do STF de 2009 — mas o edital exige diploma para <em>o cargo</em>, que é outra coisa.</p>
+  </div>
+
+  <h3>Lei de Acesso à Informação — Lei 12.527/2011</h3>
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 250" width="760" role="img" aria-label="Prazos e classificações da Lei de Acesso à Informação">
+        <g font-family="var(--sans)">
+          <text x="20" y="30" font-size="13.5" font-weight="800" fill="var(--red)">A REGRA: publicidade. O SIGILO: exceção.</text>
+
+          <rect x="20" y="46" width="330" height="88" rx="4" fill="var(--card)" stroke="var(--blue)" stroke-width="2"/>
+          <text x="40" y="72" font-size="13" font-weight="800" fill="var(--blue)">PRAZOS DE RESPOSTA</text>
+          <text x="40" y="96" font-size="13" fill="var(--ink)">Imediato, se disponível. Senão: <tspan font-weight="800">20 dias</tspan></text>
+          <text x="40" y="118" font-size="13" fill="var(--ink)">prorrogáveis por mais <tspan font-weight="800">10</tspan>, com justificativa.</text>
+
+          <rect x="368" y="46" width="372" height="88" rx="4" fill="var(--card)" stroke="var(--blue)" stroke-width="2"/>
+          <text x="388" y="72" font-size="13" font-weight="800" fill="var(--blue)">RECURSO</text>
+          <text x="388" y="96" font-size="13" fill="var(--ink)"><tspan font-weight="800">10 dias</tspan> para recorrer, contados da ciência</text>
+          <text x="388" y="118" font-size="13" fill="var(--ink)">da negativa. A autoridade decide em <tspan font-weight="800">5 dias</tspan>.</text>
+
+          <text x="20" y="168" font-size="13" font-weight="800" fill="var(--red)">CLASSIFICAÇÃO DE SIGILO</text>
+          <g>
+            <rect x="20" y="180" width="228" height="46" rx="3" fill="var(--band)" stroke="var(--rule)"/>
+            <text x="134" y="200" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">RESERVADA</text>
+            <text x="134" y="218" text-anchor="middle" font-size="16" font-weight="800" fill="var(--red)">5 anos</text>
+            <rect x="258" y="180" width="228" height="46" rx="3" fill="var(--band)" stroke="var(--rule)"/>
+            <text x="372" y="200" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">SECRETA</text>
+            <text x="372" y="218" text-anchor="middle" font-size="16" font-weight="800" fill="var(--red)">15 anos</text>
+            <rect x="496" y="180" width="244" height="46" rx="3" fill="var(--band)" stroke="var(--rule)"/>
+            <text x="618" y="200" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">ULTRASSECRETA</text>
+            <text x="618" y="218" text-anchor="middle" font-size="16" font-weight="800" fill="var(--red)">25 anos</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Informação pessoal</b> (art. 31): acesso restrito por <b>100 anos</b>, independentemente de classificação.</figcaption>
+  </figure>
+
+  <div class="box lei">
+    <span class="rot">Art. 31 da LAI — o artigo que cai em prova de jornalismo</span>
+    <p>As informações pessoais relativas à intimidade, vida privada, honra e imagem <strong>terão acesso restrito por 100 anos</strong>, independentemente de classificação, e <strong>poderão ter sua divulgação autorizada a terceiros diante de previsão legal ou de consentimento expresso da pessoa a que se referirem</strong>. Ponto decisivo: a restrição <strong>não pode ser invocada</strong> para prejudicar a <strong>apuração de irregularidades</strong> em que o titular estiver envolvido, nem para obstar <strong>ações de recuperação de fatos históricos de maior relevância</strong>. E o consentimento <strong>não é exigido</strong> quando as informações forem necessárias à prevenção e diagnóstico médico (com o titular incapaz de consentir), à realização de estatísticas e pesquisas científicas de evidente interesse público (vedada a identificação), ao cumprimento de ordem judicial, à defesa de direitos humanos ou à proteção do interesse público geral.</p>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h4>Transparência ativa × passiva</h4>
+      <p style="margin:0"><strong>Ativa</strong>: o órgão publica por iniciativa própria, independentemente de pedido — é o rol mínimo obrigatório no sítio. <strong>Passiva</strong>: o órgão responde a pedido do cidadão, pelo e-SIC. A LAI veda exigir <strong>motivação</strong> do pedido e determina que o serviço de busca e fornecimento da informação seja <strong>gratuito</strong>, salvo o custo de reprodução.</p>
+    </div>
+    <div class="card">
+      <h4>LGPD e a exceção jornalística</h4>
+      <p style="margin:0">O <strong>art. 4º, II, “a”</strong> da Lei 13.709/2018 diz que a LGPD <strong>não se aplica</strong> ao tratamento de dados pessoais realizado para fins <strong>exclusivamente jornalísticos, artísticos ou acadêmicos</strong>. É a compatibilização entre proteção de dados e liberdade de imprensa. Cuidado: <strong>a exceção não alcança a comunicação institucional do órgão</strong> — o release, a foto de evento e o mailing seguem sob a LGPD.</p>
+    </div>
+  </div>
+
+  <h3>Direito de resposta — Lei 13.188/2015</h3>
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 200" width="760" role="img" aria-label="Fluxo e prazos do direito de resposta">
+        <g font-family="var(--sans)" font-size="12.5" text-anchor="middle">
+          <g fill="var(--card)" stroke="var(--ink)" stroke-width="1.4">
+            <rect x="6" y="40" width="164" height="56" rx="3"/><rect x="204" y="40" width="164" height="56" rx="3"/>
+            <rect x="402" y="40" width="164" height="56" rx="3"/><rect x="600" y="40" width="154" height="56" rx="3"/>
+          </g>
+          <g fill="var(--ink)" font-weight="700">
+            <text x="88" y="64">MATÉRIA OFENSIVA</text><text x="88" y="82" font-weight="400" font-size="11.5" fill="var(--ink2)">ofensa, erro ou inverdade</text>
+            <text x="286" y="64" fill="var(--red)">PEDIDO em 60 DIAS</text><text x="286" y="82" font-weight="400" font-size="11.5" fill="var(--ink2)">contados da divulgação</text>
+            <text x="484" y="64" fill="var(--red)">VEÍCULO tem 7 DIAS</text><text x="484" y="82" font-weight="400" font-size="11.5" fill="var(--ink2)">para divulgar a resposta</text>
+            <text x="677" y="64">JUDICIAL</text><text x="677" y="82" font-weight="400" font-size="11.5" fill="var(--ink2)">se não divulgar, rito especial</text>
+          </g>
+          <g stroke="var(--ink3)" stroke-width="1.8">
+            <path d="M170 68h28" marker-end="url(#jd)"/><path d="M368 68h28" marker-end="url(#jd)"/><path d="M566 68h28" marker-end="url(#jd)"/>
+          </g>
+          <text x="380" y="134" font-size="13" fill="var(--ink)" font-family="var(--serif)">A resposta deve sair no <tspan font-weight="700">mesmo veículo, espaço, destaque, publicidade e periodicidade</tspan> da ofensa,</text>
+          <text x="380" y="156" font-size="13" fill="var(--ink)" font-family="var(--serif)">com <tspan font-weight="700">tamanho equivalente</tspan> — e de forma <tspan font-weight="700">gratuita</tspan>.</text>
+          <text x="380" y="184" font-size="12.5" fill="var(--ink3)">Não cabe direito de resposta contra comentário de terceiro nem contra crítica ou opinião sem imputação de fato ofensivo.</text>
+          <defs><marker id="jd" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0l8 4L0 8z" fill="var(--ink3)"/></marker></defs>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Os dois números que a banca troca: <b>60 dias</b> para pedir e <b>7 dias</b> para o veículo divulgar.</figcaption>
+  </figure>
+
+  <h3>Código de Ética dos Jornalistas Brasileiros — FENAJ</h3>
+  <div class="grid g2">
+    <div class="card">
+      <h4>O que o jornalista deve</h4>
+      <ul style="margin:0">
+        <li>Tratar a informação como <strong>bem social</strong>, e não como mercadoria — é o artigo de abertura.</li>
+        <li><strong>Apurar</strong> e divulgar os fatos com precisão; ouvir os interessados.</li>
+        <li><strong>Preservar o sigilo da fonte</strong>.</li>
+        <li>Corrigir erro cometido, com o mesmo destaque.</li>
+        <li>Respeitar o direito de resposta e a presunção de inocência.</li>
+        <li>Combater a censura e defender a liberdade de imprensa.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>O que é vedado</h4>
+      <ul style="margin:0">
+        <li>Divulgar informação de <strong>caráter mórbido, sensacionalista ou contrário aos valores humanos</strong>.</li>
+        <li>Usar o cargo para obter <strong>vantagem pessoal</strong>.</li>
+        <li>Aceitar <strong>oferta de trabalho remunerado em desacordo</strong> com o piso e as normas da categoria.</li>
+        <li><strong>Plágio</strong> e apropriação de trabalho alheio.</li>
+        <li>Expor pessoa em situação de vulnerabilidade sem interesse público que justifique.</li>
+        <li>Discriminar por raça, gênero, orientação sexual, religião, condição social ou deficiência.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 13 LINGUAGEM SIMPLES ============ -->
+<section id="simples">
+  <div class="editoria"><span class="caderno">13</span><h2>Linguagem simples e redação oficial</h2><span class="peso p-base">média · tema novo</span></div>
+
+  <p style="max-width:70ch">Bloco novo no edital e, por isso mesmo, provável. São duas frentes que se conversam: a <strong>Política Nacional de Linguagem Simples</strong> (Lei 15.263/2025) e a <strong>Lei estadual do Ceará 18.246/2022</strong>, de um lado; e o <strong>Manual de Redação da Presidência da República</strong>, de outro.</p>
+
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 230" width="760" role="img" aria-label="Comparação entre texto burocrático e texto em linguagem simples">
+        <g font-family="var(--sans)">
+          <rect x="10" y="16" width="360" height="180" rx="4" fill="var(--redSoft)" stroke="var(--red)" stroke-width="2"/>
+          <text x="30" y="44" font-size="12" font-weight="800" letter-spacing="1.3" fill="var(--red)">ANTES · burocratês</text>
+          <text x="30" y="74" font-size="13" fill="var(--ink)" font-family="var(--serif)">“Fica estabelecido que o requerente</text>
+          <text x="30" y="94" font-size="13" fill="var(--ink)" font-family="var(--serif)">deverá proceder à juntada da</text>
+          <text x="30" y="114" font-size="13" fill="var(--ink)" font-family="var(--serif)">documentação comprobatória no</text>
+          <text x="30" y="134" font-size="13" fill="var(--ink)" font-family="var(--serif)">prazo improrrogável de 15 dias, sob</text>
+          <text x="30" y="154" font-size="13" fill="var(--ink)" font-family="var(--serif)">pena de indeferimento sumário.”</text>
+          <text x="30" y="182" font-size="11.5" fill="var(--ink2)">voz passiva · jargão · sujeito escondido · 32 palavras</text>
+
+          <rect x="390" y="16" width="360" height="180" rx="4" fill="var(--okSoft)" stroke="var(--ok)" stroke-width="2"/>
+          <text x="410" y="44" font-size="12" font-weight="800" letter-spacing="1.3" fill="var(--ok)">DEPOIS · linguagem simples</text>
+          <text x="410" y="78" font-size="15" fill="var(--ink)" font-family="var(--serif)">“Envie os documentos em até</text>
+          <text x="410" y="102" font-size="15" fill="var(--ink)" font-family="var(--serif)">15 dias. Se você não enviar,</text>
+          <text x="410" y="126" font-size="15" fill="var(--ink)" font-family="var(--serif)">seu pedido será negado.”</text>
+          <text x="410" y="164" font-size="11.5" fill="var(--ink2)">voz ativa · fala com “você” · ordem direta</text>
+          <text x="410" y="182" font-size="11.5" fill="var(--ink2)">uma ideia por frase · 18 palavras</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Princípios: <b>foco no leitor</b> · palavras comuns · voz ativa · ordem direta · frases e parágrafos curtos · uma ideia por frase · estrutura com títulos e listas · desenho e hierarquia visual que ajudem a encontrar.</figcaption>
+  </figure>
+
+  <div class="box lei">
+    <span class="rot">Manual de Redação da Presidência da República — os atributos</span>
+    <p>A redação oficial exige <strong>impessoalidade, clareza, concisão, formalidade, padronização e uso da norma culta</strong>. Note bem, porque é exatamente aqui que a banca arma a questão: <strong>excesso de adjetivos e detalhamentos desnecessários carrega o texto de subjetividade e o torna incompatível com a redação oficial</strong>. Um texto emotivo e adjetivado pode até funcionar como literatura — mas é <strong>inadequado</strong> como documento oficial. E atenção ao falso amigo: a redação oficial não é “personalizada”; ela é <strong>impessoal</strong>.</p>
+  </div>
+
+  <div class="box ok">
+    <span class="rot">Linguagem simples não é empobrecer</span>
+    <p>Simplificar é <strong>adequar ao público</strong>, preservando a exatidão da informação. Não significa omitir dado essencial, nem infantilizar, nem abandonar o termo técnico quando ele é necessário — significa <strong>explicá-lo na primeira ocorrência</strong>. No Legislativo, isso se traduz em traduzir o processo legislativo para o cidadão: o que é um projeto de lei, em que fase está, o que muda na vida dele.</p>
+  </div>
+</section>
+
+<!-- ============ 14 DISCURSIVA ============ -->
+<section id="discursiva">
+  <div class="editoria"><span class="caderno">14</span><h2>Discursiva: 40 pontos e o corte real</h2><span class="peso p-alta">decide a vaga</span></div>
+
+  <p style="max-width:70ch">São <strong>2 questões de até 20 linhas</strong>, 20 pontos cada, com mínimo de <strong>24,00 de 40</strong>. Apenas <strong>82 candidatos</strong> de Jornalismo terão a discursiva corrigida — 52 na ampla concorrência. Quem chega aqui já passou pela objetiva, então <strong>é a discursiva que classifica</strong>.</p>
+
+  <div class="olho">Discursiva de concurso não é redação criativa nem texto jornalístico. É montagem de peças técnicas em ordem. Quem escreve bonito e não cita norma tira menos que quem escreve simples e ancora tudo.</div>
+
+  <h3>Os critérios de correção do edital</h3>
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 200" width="760" role="img" aria-label="Critérios de avaliação da prova discursiva">
+        <g font-family="var(--sans)" font-size="12.5" text-anchor="middle">
+          <rect x="8" y="16" width="176" height="76" rx="4" fill="var(--redSoft)" stroke="var(--red)" stroke-width="2"/>
+          <text x="96" y="42" font-size="13" font-weight="800" fill="var(--red)">DOMÍNIO DA MATÉRIA</text>
+          <text x="96" y="62" fill="var(--ink2)">terminologia técnica</text>
+          <text x="96" y="80" fill="var(--ink2)">precisa e correta</text>
+
+          <rect x="200" y="16" width="176" height="76" rx="4" fill="var(--redSoft)" stroke="var(--red)" stroke-width="2"/>
+          <text x="288" y="42" font-size="13" font-weight="800" fill="var(--red)">ENFRENTAMENTO</text>
+          <text x="288" y="62" fill="var(--ink2)">responder exatamente</text>
+          <text x="288" y="80" fill="var(--ink2)">o que foi perguntado</text>
+
+          <rect x="392" y="16" width="176" height="76" rx="4" fill="var(--card)" stroke="var(--ink)" stroke-width="1.5"/>
+          <text x="480" y="42" font-size="13" font-weight="800" fill="var(--ink)">COESÃO E COERÊNCIA</text>
+          <text x="480" y="62" fill="var(--ink2)">conectivos, progressão,</text>
+          <text x="480" y="80" fill="var(--ink2)">organização textual</text>
+
+          <rect x="584" y="16" width="168" height="76" rx="4" fill="var(--card)" stroke="var(--ink)" stroke-width="1.5"/>
+          <text x="668" y="42" font-size="13" font-weight="800" fill="var(--ink)">NORMA CULTA</text>
+          <text x="668" y="62" fill="var(--ink2)">gramática, ortografia,</text>
+          <text x="668" y="80" fill="var(--ink2)">pontuação</text>
+
+          <rect x="200" y="108" width="368" height="60" rx="4" fill="var(--blueSoft)" stroke="var(--blue)" stroke-width="2"/>
+          <text x="384" y="134" font-size="13" font-weight="800" fill="var(--blue)">FUNDAMENTAÇÃO TÉCNICA — E LEGAL, QUANDO CABÍVEL</text>
+          <text x="384" y="156" fill="var(--ink2)">é o critério que separa a nota 12 da nota 18</text>
+          <text x="384" y="192" font-size="12.5" fill="var(--ink2)">Reprodução de norma <tspan font-weight="800" fill="var(--red)">sem articulação com o caso não pontua</tspan>.</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Manuscrita, caneta azul ou preta, <b>sem qualquer identificação</b>. O que passar da linha 20 é <b>desconsiderado</b> — não perde ponto: simplesmente não é lido.</figcaption>
+  </figure>
+
+  <h3>A arquitetura das 20 linhas</h3>
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 330" width="760" role="img" aria-label="Distribuição das 20 linhas da resposta">
+        <g font-family="var(--sans)">
+          <g stroke="var(--rule2)" stroke-width="1">
+            <line x1="30" y1="30" x2="470" y2="30"/><line x1="30" y1="44" x2="470" y2="44"/><line x1="30" y1="58" x2="470" y2="58"/>
+            <line x1="30" y1="72" x2="470" y2="72"/><line x1="30" y1="86" x2="470" y2="86"/><line x1="30" y1="100" x2="470" y2="100"/>
+            <line x1="30" y1="114" x2="470" y2="114"/><line x1="30" y1="128" x2="470" y2="128"/><line x1="30" y1="142" x2="470" y2="142"/>
+            <line x1="30" y1="156" x2="470" y2="156"/><line x1="30" y1="170" x2="470" y2="170"/><line x1="30" y1="184" x2="470" y2="184"/>
+            <line x1="30" y1="198" x2="470" y2="198"/><line x1="30" y1="212" x2="470" y2="212"/><line x1="30" y1="226" x2="470" y2="226"/>
+            <line x1="30" y1="240" x2="470" y2="240"/><line x1="30" y1="254" x2="470" y2="254"/><line x1="30" y1="268" x2="470" y2="268"/>
+            <line x1="30" y1="282" x2="470" y2="282"/><line x1="30" y1="296" x2="470" y2="296"/>
+          </g>
+          <rect x="30" y="18" width="440" height="40" fill="var(--red)" opacity=".17"/>
+          <rect x="30" y="58" width="440" height="196" fill="var(--blue)" opacity=".13"/>
+          <rect x="30" y="254" width="440" height="42" fill="var(--ok)" opacity=".2"/>
+          <rect x="30" y="296" width="440" height="14" fill="var(--ink)" opacity=".13"/>
+          <g fill="var(--ink3)" font-family="var(--mono)" font-size="10">
+            <text x="16" y="34" text-anchor="end">1</text><text x="16" y="62" text-anchor="end">3</text>
+            <text x="16" y="146" text-anchor="end">9</text><text x="16" y="258" text-anchor="end">17</text><text x="16" y="300" text-anchor="end">20</text>
+          </g>
+          <g font-size="13">
+            <text x="492" y="32" font-weight="800" fill="var(--red)">LINHAS 1–2 · DEFINIR</text>
+            <text x="492" y="50" fill="var(--ink2)">Conceito central e recorte da resposta.</text>
+            <text x="492" y="66" fill="var(--ink2)">Nunca abra com “A questão pede que…”.</text>
+
+            <text x="492" y="100" font-weight="800" fill="var(--blue)">LINHAS 3–16 · DESENVOLVER</text>
+            <text x="492" y="118" fill="var(--ink2)">Três blocos técnicos nomeados, 4 a 5 linhas cada.</text>
+            <text x="492" y="134" fill="var(--ink2)">Terminologia: noticiabilidade, gatekeeping, release,</text>
+            <text x="492" y="150" fill="var(--ink2)">transparência ativa, porta-voz único, mailing.</text>
+            <text x="492" y="166" fill="var(--ink2)">Ancoragem: CF art. 37 § 1º e arts. 220–224, LAI</text>
+            <text x="492" y="182" fill="var(--ink2)">12.527/2011, LGPD 13.709/2018, Lei 13.188/2015,</text>
+            <text x="492" y="198" fill="var(--ink2)">Código de Ética da FENAJ, Manual da EBC.</text>
+            <text x="492" y="222" font-weight="700" fill="var(--ink)">Abra cada bloco com conectivo forte:</text>
+            <text x="492" y="238" fill="var(--ink2)">“Em primeiro lugar…” / “No plano da rotina…” /</text>
+            <text x="492" y="254" fill="var(--ink2)">“Do ponto de vista normativo…”</text>
+
+            <text x="492" y="284" font-weight="800" fill="var(--ok)">LINHAS 17–19 · ATERRISSAR NA ALECE</text>
+            <text x="492" y="302" fill="var(--ink2)">Aplicação concreta ao Legislativo cearense.</text>
+            <text x="492" y="322" font-weight="800" fill="var(--ink)">LINHA 20 · SALVAGUARDA</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Calibragem: uma linha manuscrita comporta ~10 a 12 palavras. Vinte linhas = <b>200 a 240 palavras</b>. Prefira períodos de duas linhas — período longo é onde nasce o erro de concordância.</figcaption>
+  </figure>
+
+  <h3>Banco de tijolos</h3>
+  <div class="grid g2">
+    <div class="card">
+      <h4>Aberturas</h4>
+      <ul style="margin:0;font-size:14.5px">
+        <li>“A comunicação pública distingue-se da governamental por ter como centro o <strong>cidadão e o interesse público</strong>, e não a gestão ou a autoridade.”</li>
+        <li>“<em>[Conceito]</em> designa <em>[definição técnica]</em> e, no Poder Legislativo, cumpre função de <strong>informação, transparência e prestação de contas</strong>.”</li>
+        <li>“Responder a <em>[demanda]</em> exige articular três planos: o <strong>conceitual</strong>, o <strong>da rotina profissional</strong> e o <strong>normativo</strong>.”</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Aterrissagens na ALECE</h4>
+      <ul style="margin:0;font-size:14.5px">
+        <li>“Na Assembleia Legislativa do Ceará, isso se traduz na cobertura das sessões e comissões, no portal e na TV Assembleia, nas redes sociais institucionais, no atendimento à imprensa e no apoio aos gabinetes.”</li>
+        <li>“Cabe ao Analista de Jornalismo <strong>acompanhar as atividades institucionais para sua adequada divulgação</strong> e realizar a cobertura junto à imprensa regional, nacional e internacional — atribuições expressas no edital.”</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Salvaguardas</h4>
+      <ul style="margin:0;font-size:14.5px">
+        <li>“Assim, impessoalidade, precisão e acessibilidade não são limites à comunicação do Legislativo, mas <strong>condições de sua legitimidade</strong>.”</li>
+        <li>“Garante-se, com isso, o direito do cidadão à informação e a confiança pública na instituição.”</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>O que derruba a nota</h4>
+      <ul style="margin:0;font-size:14.5px">
+        <li>Qualquer <strong>identificação</strong> na folha.</li>
+        <li>Passar da linha 20 — o argumento que ficou lá fora não existe.</li>
+        <li>Copiar norma <strong>sem articular</strong> com o caso.</li>
+        <li>Escrever como <strong>matéria jornalística</strong>: a discursiva é texto técnico-dissertativo, não reportagem.</li>
+        <li>Resposta genérica, que serviria para qualquer órgão.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Os 10 temas prováveis</h3>
+  <p style="max-width:70ch">Os três primeiros vêm com <strong>resposta-modelo escrita por inteiro</strong>, no tamanho de 20 linhas. Os demais trazem blocos, termos obrigatórios e a norma a citar.</p>
+
+  <details class="tema" open>
+    <summary><span class="rank">01</span><span class="tt">Comunicação pública no Poder Legislativo: conceito, limites e papel do jornalista</span></summary>
+    <div class="inner">
+      <h5>O que a banca quer ouvir</h5>
+      <p>Que comunicação pública <strong>não é divulgação da autoridade</strong>, e que o limite constitucional da impessoalidade é o que a define. É o tema mais colado à descrição do cargo.</p>
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>1 · conceito</b><p>Comunicação pública × governamental × política × institucional. Centro no cidadão, direito à informação, diálogo e prestação de contas.</p></div>
+        <div><b>2 · o limite normativo</b><p>CF art. 37, § 1º: caráter educativo, informativo ou de orientação social; vedada promoção pessoal. LIMPE. Restrição eleitoral.</p></div>
+        <div><b>3 · a prática</b><p>Cobertura das sessões, linguagem simples, acessibilidade, transparência ativa, atendimento isonômico à imprensa.</p></div>
+      </div>
+      <h5>Termos e normas</h5>
+      <p class="termos"><span>interesse público</span><span>transparência ativa</span><span>prestação de contas</span><span>impessoalidade</span><span>linguagem simples</span><span class="n">CF art. 37 § 1º</span><span class="n">CF art. 220</span><span class="n">Lei 12.527/2011</span><span class="n">Lei 9.504/1997 art. 73</span></p>
+      <h5>Resposta-modelo · 20 linhas</h5>
+      <div class="modelo">
+        <p>A comunicação pública é aquela orientada pelo interesse público e pelo direito do cidadão à informação, distinguindo-se da comunicação governamental, que divulga a gestão, e da comunicação política, que disputa poder e opinião. No Poder Legislativo, seu objeto é o processo de produção das leis e a fiscalização — matéria que pertence à sociedade e não a quem exerce o mandato.</p>
+        <p>Seu limite é normativo e expresso. O art. 37, § 1º, da Constituição determina que a publicidade dos atos, programas, obras, serviços e campanhas tenha caráter educativo, informativo ou de orientação social, vedando nomes, símbolos ou imagens que caracterizem promoção pessoal de autoridades ou servidores. A Lei nº 9.504/1997, por sua vez, restringe a publicidade institucional nos três meses anteriores ao pleito. Ao lado disso, a Lei nº 12.527/2011 impõe a publicidade como regra e o sigilo como exceção, estruturando a transparência ativa.</p>
+        <p>Na prática profissional, cabe ao jornalista traduzir o processo legislativo em linguagem acessível, apurar com precisão antes de divulgar, assegurar pluralidade de vozes, atender a imprensa com isonomia e garantir acessibilidade — legenda, Libras e audiodescrição — nos produtos audiovisuais.</p>
+        <p>Na Assembleia Legislativa do Ceará, isso alcança a cobertura de sessões e comissões, o portal, a TV Assembleia, as redes institucionais e o apoio aos gabinetes. Assim, a impessoalidade não restringe a comunicação do Legislativo: é a condição de sua legitimidade.</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="tema">
+    <summary><span class="rank">02</span><span class="tt">Assessoria de imprensa em órgão público: rotina, produtos e limites éticos</span></summary>
+    <div class="inner">
+      <h5>O que a banca quer ouvir</h5>
+      <p>Que a assessoria pública tem <strong>duas lealdades simultâneas</strong> — à instituição e ao interesse público — e que, havendo conflito, prevalece o segundo. E que ela <strong>sugere</strong>, não controla.</p>
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>1 · função e produtos</b><p>Release, press kit, nota oficial, mailing segmentado, follow-up, clipping, media training, house organ.</p></div>
+        <div><b>2 · rotina de atendimento</b><p>Registro da demanda, identificação da fonte, respeito ao deadline, retorno mesmo negativo, isonomia entre veículos.</p></div>
+        <div><b>3 · limites éticos</b><p>FENAJ: informação como bem social; vedado divulgar informação falsa ou incompleta, condicionar informação a matéria favorável, pagar por espaço editorial.</p></div>
+      </div>
+      <h5>Termos e normas</h5>
+      <p class="termos"><span>mailing segmentado</span><span>deadline</span><span>clipping</span><span>follow-up</span><span>off the record</span><span>isonomia</span><span class="n">Manual da FENAJ</span><span class="n">Código de Ética</span><span class="n">Lei 12.527/2011</span></p>
+      <h5>Resposta-modelo · 20 linhas</h5>
+      <div class="modelo">
+        <p>A assessoria de imprensa é a atividade jornalística que intermedeia a relação entre uma instituição e os veículos de comunicação. Em órgão público, sua finalidade não é promover autoridades, mas dar visibilidade a informações de interesse coletivo, integrando-se ao dever constitucional de publicidade.</p>
+        <p>Seus produtos típicos são o release, redigido em formato jornalístico, com lead, pirâmide invertida, aspas atribuídas e dados verificáveis; o press kit, com material de apoio; a nota oficial, de posicionamento direto; e o clipping, que monitora a repercussão e realimenta o planejamento. Sustentam essa produção um mailing segmentado e atualizado e o media training dos porta-vozes.</p>
+        <p>A rotina de atendimento exige registro das demandas, identificação da fonte competente, respeito rigoroso ao deadline do veículo e retorno mesmo quando a resposta é negativa — “sem comentários” é lido como confissão. Impõe-se, ainda, tratamento isonômico entre os veículos, vedado o favorecimento sistemático de aliados.</p>
+        <p>Os limites são éticos e normativos. O Código de Ética dos Jornalistas Brasileiros trata a informação como bem social, e o manual da FENAJ veda divulgar informação falsa ou incompleta, condicionar o acesso à publicação de matéria favorável e pagar por espaço editorial. Cabe lembrar que a assessoria sugere a pauta; a decisão de publicar é sempre do veículo. Na Assembleia Legislativa do Ceará, essa rotina se aplica à cobertura de sessões, comissões e ações institucionais, resguardando a credibilidade da Casa.</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="tema">
+    <summary><span class="rank">03</span><span class="tt">Gerenciamento de crise de imagem em instituição pública</span></summary>
+    <div class="inner">
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>1 · prevenção</b><p>Mapa de riscos, comitê de crise, porta-voz único, manual, media training, monitoramento.</p></div>
+        <div><b>2 · resposta</b><p>Agilidade, transparência, versão única, assumir o que é fato, priorizar afetados, canal centralizado.</p></div>
+        <div><b>3 · recuperação</b><p>Avaliação de danos, prestação de contas do que foi corrigido, revisão de processos, atualização do manual.</p></div>
+      </div>
+      <h5>Termos e normas</h5>
+      <p class="termos"><span>comitê de crise</span><span>porta-voz único</span><span>janela de ouro</span><span>monitoramento</span><span>nota de esclarecimento</span><span class="n">CF art. 37 § 1º</span><span class="n">Lei 12.527/2011</span><span class="n">Lei 13.188/2015</span></p>
+      <h5>Resposta-modelo · 20 linhas</h5>
+      <div class="modelo">
+        <p>Crise de imagem é o evento negativo que ganha visibilidade pública e ameaça a reputação e a confiança depositada na instituição. Em órgão público, o dano não é apenas reputacional: atinge a credibilidade da própria função estatal, o que torna a resposta um dever, e não uma opção de conveniência.</p>
+        <p>A fase preventiva é decisiva. Exige mapeamento de riscos e cenários, constituição de comitê de crise, designação de porta-voz único, manual com fluxo de aprovação por escrito, media training periódico e monitoramento permanente de imprensa e redes sociais.</p>
+        <p>Na resposta, três parâmetros orientam a conduta: agilidade, para ocupar o espaço informativo antes que o boato o ocupe; transparência, assumindo o que já está apurado sem especular sobre o que não está; e unidade de versão, com um único canal oficial e atualizações constantes. O silêncio e o “sem comentários” agravam a crise, porque o vácuo é preenchido por terceiros. Prioriza-se, sempre, a informação às pessoas diretamente afetadas.</p>
+        <p>Superada a fase aguda, cabe avaliar danos, prestar contas publicamente das medidas corretivas, rever os processos que permitiram a falha e atualizar o manual. Na Assembleia Legislativa do Ceará, esse protocolo se articula com a Lei nº 12.527/2011, pois a transparência é o instrumento mais eficaz de recomposição da confiança pública.</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="tema">
+    <summary><span class="rank">04</span><span class="tt">Combate à desinformação e checagem de fatos na comunicação institucional</span></summary>
+    <div class="inner">
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>1 · tipologia</b><p>Misinformação (falsa, sem intenção) × desinformação (falsa, com intenção de dano) × malinformação (verdadeira, usada para causar dano).</p></div>
+        <div><b>2 · método de checagem</b><p>Alegação verificável, fonte primária, busca reversa de imagem, fontes independentes, classificação e publicação da metodologia.</p></div>
+        <div><b>3 · o papel da instituição</b><p>Ocupar o espaço com informação oficial verificável, dados abertos, resposta rápida, educação midiática, não amplificar o boato ao desmenti-lo.</p></div>
+      </div>
+      <h5>Termos e normas</h5>
+      <p class="termos"><span>desordem informacional</span><span>deepfake</span><span>descontextualização</span><span>bolha de filtro</span><span>transparência de método</span><span class="n">Lei 12.527/2011</span><span class="n">Manual da EBC</span><span class="n">Lei 13.188/2015</span></p>
+      <h5>Abertura pronta</h5>
+      <div class="modelo"><p>A desinformação distingue-se do simples erro pela intenção: enquanto a misinformação é o conteúdo falso compartilhado de boa-fé, a desinformação é produzida deliberadamente para causar dano, e a malinformação usa conteúdo verdadeiro com a mesma finalidade.</p></div>
+      <div class="box" style="margin:16px 0 0"><span class="rot">Atenção</span><p>Diga que a resposta institucional <strong>não deve repetir o boato no título</strong> — desmentido mal construído amplifica o que pretendia corrigir. Esse é o tipo de precisão profissional que a banca premia.</p></div>
+    </div>
+  </details>
+
+  <details class="tema">
+    <summary><span class="rank">05</span><span class="tt">LAI e transparência ativa: o papel do jornalista do Legislativo</span></summary>
+    <div class="inner">
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>1 · a regra</b><p>Publicidade é regra, sigilo é exceção. Transparência ativa × passiva. Vedado exigir motivação; serviço gratuito.</p></div>
+        <div><b>2 · prazos e limites</b><p>20 dias + 10; recurso em 10, decisão em 5. Reservada 5 / secreta 15 / ultrassecreta 25. Informação pessoal 100 anos (art. 31).</p></div>
+        <div><b>3 · a tradução</b><p>Publicar não basta: linguagem simples, formato aberto e utilizável, arquitetura da informação que permita encontrar.</p></div>
+      </div>
+      <h5>Termos e normas</h5>
+      <p class="termos"><span>transparência ativa</span><span>e-SIC</span><span>dados abertos</span><span>formato utilizável</span><span>art. 31</span><span class="n">Lei 12.527/2011</span><span class="n">CF art. 5º XXXIII</span><span class="n">LGPD art. 4º</span></p>
+      <h5>Fechamento pronto</h5>
+      <div class="modelo"><p>Informação publicada que o cidadão não consegue localizar ou compreender equivale a informação não publicada: a transparência só se realiza quando a arquitetura da informação e a linguagem tornam o dado efetivamente acessível.</p></div>
+    </div>
+  </details>
+
+  <details class="tema">
+    <summary><span class="rank">06</span><span class="tt">Ética do jornalista servidor público: entre a instituição e o interesse público</span></summary>
+    <div class="inner">
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>1 · o duplo vínculo</b><p>Dever funcional de lealdade à instituição × dever profissional de veracidade. Quando colidem, prevalece o interesse público.</p></div>
+        <div><b>2 · o Código de Ética</b><p>Informação como bem social; apuração e precisão; sigilo da fonte; correção de erro com o mesmo destaque; vedado usar o cargo para vantagem pessoal.</p></div>
+        <div><b>3 · ética no serviço público</b><p>LIMPE, impessoalidade, sigilo funcional sobre material não publicado, conflito de interesses, vedação à promoção pessoal.</p></div>
+      </div>
+      <h5>Termos e normas</h5>
+      <p class="termos"><span>informação como bem social</span><span>sigilo da fonte</span><span>conflito de interesses</span><span>impessoalidade</span><span class="n">Código de Ética FENAJ</span><span class="n">CF art. 5º XIV</span><span class="n">CF art. 37 § 1º</span><span class="n">Res. ALECE 783/2026</span></p>
+      <h5>Abertura pronta</h5>
+      <div class="modelo"><p>O jornalista que exerce função pública responde simultaneamente a dois estatutos: o Código de Ética da profissão, que trata a informação como bem social, e o regime jurídico do servidor, regido pelos princípios da legalidade, impessoalidade, moralidade, publicidade e eficiência.</p></div>
+    </div>
+  </details>
+
+  <details class="tema">
+    <summary><span class="rank">07</span><span class="tt">Linguagem simples e acessibilidade na comunicação legislativa</span></summary>
+    <div class="inner">
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>1 · linguagem simples</b><p>Foco no leitor, palavras comuns, voz ativa, ordem direta, uma ideia por frase, estrutura com títulos e listas.</p></div>
+        <div><b>2 · acessibilidade</b><p>Legenda, janela de Libras, audiodescrição, texto alternativo, contraste, documento em formato acessível.</p></div>
+        <div><b>3 · o caso legislativo</b><p>Traduzir o processo legislativo: o que é o projeto, em que fase está, o que muda na vida do cidadão.</p></div>
+      </div>
+      <h5>Termos e normas</h5>
+      <p class="termos"><span>foco no leitor</span><span>voz ativa</span><span>janela de Libras</span><span>audiodescrição</span><span>texto alternativo</span><span class="n">Lei 15.263/2025</span><span class="n">Lei estadual CE 18.246/2022</span><span class="n">Lei 13.146/2015</span><span class="n">e-MAG</span></p>
+      <div class="box ok" style="margin:16px 0 0"><span class="rot">Diferencial</span><p>Registre que simplificar <strong>não é omitir nem infantilizar</strong>: é preservar a exatidão adequando o vocabulário, explicando o termo técnico na primeira ocorrência.</p></div>
+    </div>
+  </details>
+
+  <details class="tema">
+    <summary><span class="rank">08</span><span class="tt">Cobertura jornalística do processo legislativo: critérios e desafios</span></summary>
+    <div class="inner">
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>1 · noticiabilidade aplicada</b><p>Relevância, impacto na vida do cidadão, atualidade, conflito. Nem toda tramitação é notícia; o gancho é o efeito prático.</p></div>
+        <div><b>2 · técnica</b><p>Lead que responde “o que muda”, pirâmide invertida, pluralidade de fontes (favoráveis e contrários), checagem do texto aprovado, precisão sobre a fase de tramitação.</p></div>
+        <div><b>3 · limites</b><p>Impessoalidade, equilíbrio entre bancadas, cuidado com o texto ainda não votado, direito de resposta.</p></div>
+      </div>
+      <h5>Termos e normas</h5>
+      <p class="termos"><span>valores-notícia</span><span>gancho</span><span>pirâmide invertida</span><span>pluralidade de fontes</span><span>suíte</span><span class="n">CF art. 37 § 1º</span><span class="n">Lei 12.527/2011</span><span class="n">Regimento Interno</span></p>
+      <h5>Abertura pronta</h5>
+      <div class="modelo"><p>Cobrir o processo legislativo exige traduzir procedimento em consequência: ao leitor não interessa primariamente o rito, mas o que a proposição, se aprovada, altera concretamente em sua vida.</p></div>
+    </div>
+  </details>
+
+  <details class="tema">
+    <summary><span class="rank">09</span><span class="tt">Redes sociais e comunicação digital do Legislativo</span></summary>
+    <div class="inner">
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>1 · características do digital</b><p>Hipertextualidade, multimidialidade, interatividade, memória, personalização, atualização contínua.</p></div>
+        <div><b>2 · gestão</b><p>Política de uso, tom de voz institucional, moderação transparente, política de correção, resposta ao cidadão, métricas de alcance e engajamento.</p></div>
+        <div><b>3 · limites</b><p>Impessoalidade, veracidade, LGPD nos dados coletados, acessibilidade (alt text, legenda), vedação à promoção pessoal.</p></div>
+      </div>
+      <h5>Termos e normas</h5>
+      <p class="termos"><span>tom de voz</span><span>moderação</span><span>bolha de filtro</span><span>alt text</span><span>métricas</span><span class="n">CF art. 37 § 1º</span><span class="n">LGPD</span><span class="n">Lei 12.965/2014</span></p>
+      <h5>Fechamento pronto</h5>
+      <div class="modelo"><p>Nas redes, o Legislativo não disputa atenção como anunciante, mas informa como Poder: o critério de sucesso não é o engajamento, e sim a compreensão pública do que a Casa faz.</p></div>
+    </div>
+  </details>
+
+  <details class="tema">
+    <summary><span class="rank">10</span><span class="tt">Direito de resposta, erro e correção na comunicação institucional</span></summary>
+    <div class="inner">
+      <h5>Blocos</h5>
+      <div class="blocos">
+        <div><b>1 · fundamento</b><p>CF art. 5º, V: direito de resposta proporcional ao agravo, além da indenização.</p></div>
+        <div><b>2 · a lei</b><p>Lei 13.188/2015: pedido em 60 dias; veículo divulga em 7 dias; mesmo veículo, espaço, destaque, publicidade e periodicidade; gratuita; rito judicial especial se descumprido.</p></div>
+        <div><b>3 · a conduta profissional</b><p>Código de Ética: corrigir erro com o mesmo destaque. Política de correção transparente, com registro da alteração no ambiente digital.</p></div>
+      </div>
+      <h5>Termos e normas</h5>
+      <p class="termos"><span>proporcional ao agravo</span><span>mesmo destaque</span><span>nota de esclarecimento</span><span>errata</span><span class="n">CF art. 5º V</span><span class="n">Lei 13.188/2015</span><span class="n">Código de Ética FENAJ</span></p>
+      <h5>Abertura pronta</h5>
+      <div class="modelo"><p>O direito de resposta é garantia constitucional que assegura ao ofendido manifestar-se proporcionalmente ao agravo sofrido, sem prejuízo da indenização por dano material, moral ou à imagem.</p></div>
+    </div>
+  </details>
+
+  <div class="box">
+    <span class="rot">Se cair um tema fora da lista</span>
+    <p>Use o <strong>molde universal de três planos</strong>: <strong>(1) conceitual</strong> — defina o termo com precisão técnica; <strong>(2) profissional</strong> — descreva a rotina, o procedimento, os produtos, com terminologia da área; <strong>(3) normativo e institucional</strong> — ancore em lei ou código e aterrisse na ALECE. Feche com a salvaguarda. Esse molde já entrega “domínio da matéria” e “fundamentação técnica” mesmo num tema que você não previu.</p>
+  </div>
+</section>
+
+<!-- ============ 15 CHECKLIST ============ -->
+<section id="checklist">
+  <div class="editoria"><span class="caderno">15</span><h2>Últimas horas</h2><span class="peso p-alta">16/08, tarde</span></div>
+
+  <h3>Ordem de retorno decrescente</h3>
+  <div class="scroll">
+  <table>
+    <thead><tr><th style="width:34px">#</th><th>Bloco</th><th>O que revisar</th></tr></thead>
+    <tbody>
+      <tr><td class="num"><strong>1</strong></td><td><strong>Comunicação pública</strong></td><td>pública × governamental × política × organizacional · tipos de publicidade oficial (utilidade pública, institucional, mercadológica, legal) · CF art. 37 § 1º</td></tr>
+      <tr><td class="num"><strong>2</strong></td><td><strong>Assessoria</strong></td><td>release · mailing · clipping · follow-up · off/on/embargo · rotina de atendimento · manual da FENAJ</td></tr>
+      <tr><td class="num"><strong>3</strong></td><td><strong>Legislação</strong></td><td>LAI (20+10, 5/15/25, art. 31, 100 anos) · Direito de resposta (60 e 7 dias) · LGPD art. 4º · CF arts. 5º e 220–224</td></tr>
+      <tr><td class="num"><strong>4</strong></td><td><strong>Redação</strong></td><td>pirâmide invertida · lead e as 6 perguntas · tipos de lead · chapéu, título, linha fina, olho · nariz de cera, furo, barriga, suíte, gancho</td></tr>
+      <tr><td class="num"><strong>5</strong></td><td><strong>Gêneros</strong></td><td>os 5 de Marques de Melo e o que fica em cada um · editorial × artigo × coluna · pauta × release × briefing · tipos de entrevista</td></tr>
+      <tr><td class="num"><strong>6</strong></td><td><strong>Teorias</strong></td><td>gatekeeper · agenda-setting (e o 2º nível) · newsmaking e Tuchman · espiral do silêncio · framing · Jakobson</td></tr>
+      <tr><td class="num"><strong>7</strong></td><td><strong>Noticiabilidade</strong></td><td>valores de seleção (substantivos e contextuais) × valores de construção</td></tr>
+      <tr><td class="num"><strong>8</strong></td><td><strong>Rádio e TV</strong></td><td>lauda em duas colunas · cabeça, off, sonora, passagem, nota pé, GC · nota seca × coberta · planos e iluminação de 3 pontos</td></tr>
+      <tr><td class="num"><strong>9</strong></td><td><strong>Crise e media training</strong></td><td>três fases · porta-voz único · o que media training não é</td></tr>
+      <tr><td class="num"><strong>10</strong></td><td><strong>Digital</strong></td><td>misinformação × desinformação × malinformação · método de checagem · características do jornalismo digital · Manual da EBC</td></tr>
+      <tr><td class="num"><strong>11</strong></td><td><strong>Linguagem simples</strong></td><td>princípios · Manual de Redação da PR (impessoalidade × adjetivação) · Leis 15.263/2025 e 18.246/2022</td></tr>
+      <tr><td class="num"><strong>12</strong></td><td><strong>Gerais</strong></td><td>só o suficiente para não zerar: Português, Informática, Legislação e Ética</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Divisão das 5 horas</h3>
+  <figure class="info">
+    <div class="corpo scroll">
+      <svg viewBox="0 0 760 160" width="760" role="img" aria-label="Divisão sugerida do tempo de prova">
+        <g font-family="var(--sans)">
+          <rect x="30" y="40" width="256" height="40" fill="var(--red)"/>
+          <rect x="286" y="40" width="93" height="40" fill="var(--blue)"/>
+          <rect x="379" y="40" width="280" height="40" fill="var(--ink)"/>
+          <rect x="659" y="40" width="70" height="40" fill="var(--ok)"/>
+          <g fill="#fff" font-size="12.5" font-weight="800" text-anchor="middle">
+            <text x="158" y="65">50 ESPECÍFICAS</text><text x="332" y="65">20 GERAIS</text><text x="519" y="65">2 DISCURSIVAS</text><text x="694" y="65">REVISÃO</text>
+          </g>
+          <g font-size="12" fill="var(--ink2)" text-anchor="middle">
+            <text x="158" y="100">~1h50</text><text x="332" y="100">~40 min</text><text x="519" y="100">~2h00</text><text x="694" y="100">30 min</text>
+          </g>
+          <g font-size="11.5" fill="var(--ink3)">
+            <text x="30" y="30">14h00</text><text x="379" y="30" text-anchor="middle">16h30</text><text x="729" y="30" text-anchor="end">19h00</text>
+          </g>
+          <text x="380" y="134" text-anchor="middle" font-size="13" fill="var(--ink2)">Transcreva a folha de respostas <tspan font-weight="800" fill="var(--red)">antes</tspan> de entrar nas discursivas.</text>
+          <text x="380" y="154" text-anchor="middle" font-size="12.5" fill="var(--ink3)">Saída da sala só após 17h00 · banheiro entre 15h00 e ~18h40 · os 3 últimos saem juntos</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>Questão que travar: <b>marque e siga</b>. Uma específica vale 2,00 — o mesmo que duas gerais. Não gaste seis minutos numa só.</figcaption>
+  </figure>
+
+  <div class="grid g2">
+    <div class="card">
+      <h4>Na bolsa</h4>
+      <ul style="margin:0">
+        <li><strong>Documento de identidade original com foto</strong></li>
+        <li>Cartão de Confirmação de Inscrição</li>
+        <li><strong>Duas canetas transparentes</strong>, tinta azul ou preta, ponta grossa</li>
+        <li>Água e um lanche leve</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Deixar em casa</h4>
+      <ul style="margin:0">
+        <li><strong>Relógio de qualquer espécie</strong>, inclusive analógico</li>
+        <li>Qualquer eletrônico não lacrável</li>
+        <li>Celular <strong>desligado</strong> no invólucro lacrado, sob a carteira. Qualquer som elimina</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box">
+    <span class="rot">Os três gestos que decidem tudo</span>
+    <p><strong>1.</strong> Chegar por volta das <strong>12h30</strong> — portões fecham às <strong>14h00</strong>, horário de Brasília, sem tolerância.<br>
+    <strong>2.</strong> <strong>Marcar o TIPO de caderno</strong> na folha de respostas assim que ela chegar. Esquecer = 0,00 sem recurso.<br>
+    <strong>3.</strong> Devolver ao fiscal a <strong>folha de respostas assinada + caderno de texto definitivo + caderno de prova</strong>.</p>
+  </div>
+</section>
+
+<footer>
+  <p style="margin:0 0 6px"><strong>Fechamento ALECE</strong> — revisão final para Analista Legislativo, especialidade 21 · Jornalismo.</p>
+  <p style="margin:0">Conteúdo consolidado a partir do Edital 01/2026 da Assembleia Legislativa do Estado do Ceará. Os pesos por bloco são <strong>estimativa</strong>, não distribuição oficial. Boa prova.</p>
+</footer>
+
+</div>
+
+<script>
+// Um <details> fechado nao imprime seu conteudo. Abre todos antes de imprimir e restaura depois.
+(function () {
+  var fechados = [];
+  function abrir() {
+    fechados = [].slice.call(document.querySelectorAll('details:not([open])'));
+    fechados.forEach(function (d) { d.open = true; });
+  }
+  function restaurar() {
+    fechados.forEach(function (d) { d.open = false; });
+    fechados = [];
+  }
+  window.addEventListener('beforeprint', abrir);
+  window.addEventListener('afterprint', restaurar);
+  var mq = window.matchMedia && window.matchMedia('print');
+  if (mq && mq.addEventListener) {
+    mq.addEventListener('change', function (e) { e.matches ? abrir() : restaurar(); });
+  }
+})();
+</script>
+</body>
+</html>

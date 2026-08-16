@@ -1,0 +1,940 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Questões reais de Jornalismo comentadas e simulado no formato IDECAN.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎙️</text></svg>">
+<title>Pauta de Questões</title>
+<style>
+:root{
+  --paper:#F2F3F5; --card:#FFFFFF; --band:#E5E7EB;
+  --ink:#15171C; --ink2:#4A5058; --ink3:#797F88;
+  --rule:#CBD0D6; --rule2:#E0E4E8;
+  --red:#B01019; --blue:#1D4E89; --ok:#1C6B4A;
+  --redSoft:#FBE9EA; --blueSoft:#E6EDF5; --okSoft:#E3F0EA;
+  --serif:Georgia,"Times New Roman","Liberation Serif",serif;
+  --sans:"Segoe UI Variable Text","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  --mono:"Cascadia Mono",Consolas,"SF Mono",ui-monospace,monospace;
+  --shadow:0 1px 0 rgba(21,23,28,.05), 0 2px 12px rgba(21,23,28,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#101216; --card:#181B21; --band:#1D2128;
+    --ink:#E8EBEF; --ink2:#A8B0BA; --ink3:#79818C;
+    --rule:#2C323B; --rule2:#232932;
+    --red:#F2626C; --blue:#7BA9DC; --ok:#5FBF92;
+    --redSoft:#2A1416; --blueSoft:#12202F; --okSoft:#10241B;
+    --shadow:0 1px 0 rgba(0,0,0,.4), 0 2px 14px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#101216; --card:#181B21; --band:#1D2128;
+  --ink:#E8EBEF; --ink2:#A8B0BA; --ink3:#79818C;
+  --rule:#2C323B; --rule2:#232932;
+  --red:#F2626C; --blue:#7BA9DC; --ok:#5FBF92;
+  --redSoft:#2A1416; --blueSoft:#12202F; --okSoft:#10241B;
+  --shadow:0 1px 0 rgba(0,0,0,.4), 0 2px 14px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:0 clamp(16px,4vw,40px) 110px}
+
+header.capa{border-bottom:3px double var(--ink);padding:clamp(26px,5vw,54px) 0 20px;margin-bottom:6px}
+.chapeu{font-size:11px;font-weight:800;letter-spacing:.19em;text-transform:uppercase;color:var(--red)}
+h1{font-family:var(--serif);font-weight:700;letter-spacing:-.022em;line-height:1.02;font-size:clamp(38px,8vw,76px);margin:.14em 0 .16em;text-wrap:balance}
+h1 em{font-style:italic;color:var(--red)}
+.linhafina{font-family:var(--serif);font-size:clamp(16px,1.9vw,19.5px);line-height:1.5;color:var(--ink2);max-width:62ch;margin:0}
+
+nav.sumario{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--rule);margin-bottom:42px;padding:9px 0;overflow-x:auto}
+nav.sumario ul{display:flex;gap:2px;list-style:none;margin:0;padding:0;white-space:nowrap}
+nav.sumario a{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);text-decoration:none;padding:6px 10px;border-radius:3px;display:block}
+nav.sumario a:hover{background:var(--band);color:var(--ink)}
+nav.sumario a:focus-visible{outline:2px solid var(--red);outline-offset:1px}
+
+section{margin:0 0 clamp(52px,7vw,88px)}
+.editoria{display:flex;align-items:baseline;gap:15px;border-top:3px solid var(--ink);padding-top:12px;margin-bottom:22px;flex-wrap:wrap}
+.caderno{font-family:var(--mono);font-size:12px;font-weight:700;background:var(--ink);color:var(--paper);padding:3px 8px}
+h2{font-family:var(--serif);font-weight:700;letter-spacing:-.018em;line-height:1.06;font-size:clamp(25px,4vw,38px);margin:0;flex:1;text-wrap:balance}
+.tag{font-family:var(--mono);font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:99px;background:var(--band);color:var(--ink2);white-space:nowrap}
+h3{font-family:var(--serif);font-size:20px;font-weight:700;margin:32px 0 12px}
+h3:first-child{margin-top:0}
+p{margin:0 0 14px;max-width:70ch}
+ul,ol{margin:0 0 14px;padding-left:1.15em;max-width:70ch}
+li{margin-bottom:6px}
+.card{background:var(--card);border:1px solid var(--rule2);border-radius:4px;padding:18px 20px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.scroll{overflow-x:auto}
+svg{display:block;max-width:100%;height:auto}
+code{font-family:var(--mono);font-size:.88em;background:var(--band);padding:1px 5px;border-radius:3px}
+
+.box{border-left:4px solid var(--red);background:var(--redSoft);padding:14px 18px;border-radius:0 4px 4px 0;margin:20px 0}
+.box .rot{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:5px}
+.box p{margin:0}
+.box.lei{border-left-color:var(--blue);background:var(--blueSoft)}
+.box.lei .rot{color:var(--blue)}
+
+/* questão */
+.q{background:var(--card);border:1px solid var(--rule2);border-radius:4px;margin:0 0 20px;overflow:hidden;box-shadow:var(--shadow)}
+.q .head{display:flex;gap:12px;align-items:center;padding:10px 18px;background:var(--band);border-bottom:1px solid var(--rule2);flex-wrap:wrap}
+.q .num{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--red)}
+.q .src{font-size:12px;color:var(--ink2);letter-spacing:.03em}
+.q .body{padding:18px 20px}
+.q .enun{margin:0 0 14px}
+.q ol.alt{list-style:none;counter-reset:alt;margin:0;padding:0;max-width:none}
+.q ol.alt li{counter-increment:alt;position:relative;padding:7px 10px 7px 40px;margin:0 0 2px;border-radius:4px;font-size:15px}
+.q ol.alt li::before{content:"(" counter(alt,upper-alpha) ")";position:absolute;left:8px;top:7px;font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ink3)}
+.q ol.alt li.ok{background:var(--okSoft);box-shadow:inset 3px 0 0 var(--ok)}
+.q ol.alt li.ok::before{color:var(--ok)}
+.gab{border-top:1px solid var(--rule2);background:var(--paper);padding:14px 20px}
+.gab .key{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:700;background:var(--ok);color:#fff;padding:2px 9px;border-radius:3px;margin-right:9px}
+.gab p{margin:8px 0 0;font-size:14.5px;color:var(--ink2)}
+.gab p strong{color:var(--ink)}
+.gab p:first-of-type{display:inline}
+
+details.reveal>summary{cursor:pointer;list-style:none;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--red);padding:12px 20px;background:var(--paper);border-top:1px solid var(--rule2)}
+details.reveal>summary::-webkit-details-marker{display:none}
+details.reveal>summary::after{content:" ▸"}
+details.reveal[open]>summary::after{content:" ▾"}
+details.reveal>summary:focus-visible{outline:2px solid var(--red);outline-offset:-2px}
+
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:16px 0}
+th{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;text-align:left;color:var(--ink3);border-bottom:2px solid var(--ink);padding:7px 12px 7px 0;vertical-align:bottom}
+td{border-bottom:1px solid var(--rule2);padding:9px 12px 9px 0;vertical-align:top}
+tr:last-child td{border-bottom:none}
+footer{border-top:3px double var(--ink);padding-top:18px;font-size:13px;color:var(--ink3)}
+a{color:var(--red)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{nav.sumario{display:none}body{background:#fff;color:#000}.q,.card{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="capa">
+  <div class="chapeu">ALECE 2026 · Banca IDECAN · Analista Legislativo · Jornalismo</div>
+  <h1>Pauta de<br><em>questões</em></h1>
+  <p class="linhafina">Como a IDECAN monta uma questão, dezesseis questões reais de Jornalismo de provas de 2025 e 2026 com resposta comentada — inclusive de uma assembleia legislativa — e um simulado autoral de vinte questões no formato da banca.</p>
+</header>
+
+<nav class="sumario" aria-label="Seções">
+  <ul>
+    <li><a href="#estilo">Como a IDECAN escreve</a></li>
+    <li><a href="#reais">Questões reais 2025–2026</a></li>
+    <li><a href="#simulado">Simulado · 20 questões</a></li>
+  </ul>
+</nav>
+
+<div class="box">
+  <span class="rot">Leia isto antes</span>
+  <p><strong>A IDECAN não tem prova de Jornalismo recente disponível publicamente.</strong> Então este caderno faz duas coisas: <strong>(1)</strong> extrai o <em>formato</em> da banca de provas IDECAN reais de 2025 e <strong>(2)</strong> traz o <em>conteúdo</em> de Jornalismo de provas de 2025 e 2026 de outras bancas — com destaque para a <strong>FGV/AL-RO de fevereiro de 2026</strong>, que é o caso mais próximo possível: Analista Legislativo em Comunicação Social/Jornalismo, numa assembleia legislativa, com 27 questões da área.</p>
+</div>
+
+<!-- ===== ESTILO ===== -->
+<section id="estilo">
+  <div class="editoria"><span class="caderno">A</span><h2>Como a IDECAN escreve</h2><span class="tag">provas de 2025</span></div>
+
+  <p>O padrão é consistente e favorável a quem decorou: a banca é <strong>literalista</strong>. Cobra definição, número e texto de norma muito mais do que raciocínio de projeto ou análise de caso.</p>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3 style="margin:0 0 10px;font-size:16px;font-family:var(--sans);font-weight:800">Os cinco traços do estilo</h3>
+      <ol style="margin:0;font-size:15px">
+        <li><strong>Preâmbulo curto</strong> — 1 a 3 linhas que parafraseiam a norma ou situam o conceito, às vezes quase ao pé da letra.</li>
+        <li><strong>Comando padronizado</strong> — “assinale a alternativa correta”, “marque a opção correta”, “identifique o item correspondente”.</li>
+        <li><strong>Cinco alternativas (A–E)</strong> de tamanho médio, uma a três linhas. Raramente frases longas e argumentativas.</li>
+        <li><strong>Uma alternativa é o texto da norma</strong>, quase transcrito; as outras quatro são o mesmo texto alterado em um ponto.</li>
+        <li><strong>Comando negativo ocasional</strong>, com o “NÃO” em caixa-alta. Quando aparecer, circule.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3 style="margin:0 0 10px;font-size:16px;font-family:var(--sans);font-weight:800">Os cinco truques de distrator</h3>
+      <ol style="margin:0;font-size:15px">
+        <li><strong>Troca de número</strong> — 20 dias vira 30 · 60 dias vira 30 · 7 dias vira 15 · 100 anos vira 50.</li>
+        <li><strong>Troca de sujeito</strong> — atribui a competência ao órgão errado, ou inverte quem faz o quê.</li>
+        <li><strong>Alargamento do alcance</strong> — “exclusivamente”, “sempre”, “em qualquer hipótese”. <strong>Absolutismo quase sempre é erro.</strong></li>
+        <li><strong>Inversão de par conceitual</strong> — troca comunicação pública por governamental, misinformação por desinformação, ativa por passiva, editorial por artigo.</li>
+        <li><strong>Meia-verdade</strong> — começa certa e erra na oração final. <strong>Leia a alternativa inteira.</strong></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="box lei">
+    <span class="rot">Estratégia derivada disso</span>
+    <p>Em Jornalismo, <strong>ataque primeiro o número e o absolutismo</strong>. Antes de julgar o mérito, varra as cinco alternativas procurando um prazo que você sabe de cor e advérbios de exclusão. Isso costuma eliminar duas ou três de imediato. E fique especialmente atento aos <strong>pares que a banca adora inverter</strong>: pública × governamental, ativa × passiva, informativo × opinativo, legibilidade × leiturabilidade, conativa × conotativa.</p>
+  </div>
+
+  <h3>Anatomia de uma questão IDECAN</h3>
+  <div class="scroll">
+    <svg viewBox="0 0 900 380" width="900" role="img" aria-label="Estrutura anotada de uma questão da IDECAN">
+      <g font-family="var(--sans)">
+        <rect x="14" y="14" width="540" height="352" rx="4" fill="var(--card)" stroke="var(--rule)" stroke-width="1.5"/>
+        <text x="36" y="48" font-size="14" font-weight="800" fill="var(--ink)">32.</text>
+        <text x="66" y="48" font-size="13.5" fill="var(--ink)">Os serviços de proteção social básica serão executados</text>
+        <text x="66" y="68" font-size="13.5" fill="var(--ink)">de forma direta nos Centros de Referência da Assistência</text>
+        <text x="66" y="88" font-size="13.5" fill="var(--ink)">Social — CRAS […]. Sobre o CRAS,</text>
+        <text x="66" y="112" font-size="13.5" font-weight="800" fill="var(--red)">assinale a alternativa correta.</text>
+
+        <text x="36" y="152" font-size="13" fill="var(--ink2)">(A) O CRAS atua com famílias e indivíduos em seu</text>
+        <text x="56" y="170" font-size="13" fill="var(--ink2)">contexto comunitário […]</text>
+        <text x="36" y="200" font-size="13" fill="var(--ink2)">(B) O CRAS é uma unidade pública estatal de base</text>
+        <text x="56" y="218" font-size="13" fill="var(--ink2)">territorial […] que abrange um total de até</text>
+        <text x="56" y="238" font-size="13" font-weight="800" fill="var(--red)">2.000 famílias/ano.</text>
+        <text x="36" y="268" font-size="13" fill="var(--ink3)">(C) …</text>
+        <text x="36" y="292" font-size="13" fill="var(--ink3)">(D) …</text>
+        <text x="36" y="316" font-size="13" fill="var(--ink3)">(E) …</text>
+        <text x="36" y="352" font-size="11.5" font-style="italic" fill="var(--ink3)">IDECAN · 2025 · SESAP-RN · Assistente Social</text>
+
+        <g stroke="var(--blue)" stroke-width="1.5" fill="none">
+          <path d="M564 62 L490 62"/><path d="M564 116 L400 116"/><path d="M564 238 L330 238"/>
+        </g>
+        <g font-size="13">
+          <text x="576" y="48" font-weight="800" fill="var(--blue)">1 · PREÂMBULO</text>
+          <text x="576" y="68" fill="var(--ink2)">Texto da norma quase transcrito.</text>
+          <text x="576" y="86" fill="var(--ink2)">Não é enfeite: é onde a chave</text>
+          <text x="576" y="104" fill="var(--ink2)">da resposta costuma estar.</text>
+
+          <text x="576" y="136" font-weight="800" fill="var(--blue)">2 · COMANDO</text>
+          <text x="576" y="156" fill="var(--ink2)">Sempre padronizado. Se vier</text>
+          <text x="576" y="174" fill="var(--ink2)">com “NÃO”, circule na hora.</text>
+
+          <text x="576" y="212" font-weight="800" fill="var(--blue)">3 · O DISTRATOR NUMÉRICO</text>
+          <text x="576" y="232" fill="var(--ink2)">A alternativa está inteira certa</text>
+          <text x="576" y="250" fill="var(--ink2)">— menos o número. É a</text>
+          <text x="576" y="268" fill="var(--ink2)">assinatura da banca.</text>
+          <text x="576" y="300" font-weight="800" fill="var(--red)">Traduzindo para Jornalismo:</text>
+          <text x="576" y="320" fill="var(--ink2)">“20 dias” da LAI vira 30 · “60 dias”</text>
+          <text x="576" y="338" fill="var(--ink2)">do direito de resposta vira 90 ·</text>
+          <text x="576" y="356" fill="var(--ink2)">“70% do capital” do art. 222 vira 51%.</text>
+        </g>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== REAIS ===== -->
+<section id="reais">
+  <div class="editoria"><span class="caderno">B</span><h2>Questões reais de 2025 e 2026</h2><span class="tag">16 comentadas</span></div>
+
+  <p>A maioria vem da prova <strong>FGV / AL-RO, aplicada em 7 de fevereiro de 2026</strong>, para Analista Legislativo em Comunicação Social — Jornalismo. É o material mais próximo do que André vai enfrentar: mesma natureza de cargo, casa legislativa, mesmo ano, 27 questões da área. O estilo da FGV é mais discursivo que o da IDECAN, mas <strong>o conteúdo cobrado é exatamente o do edital da ALECE</strong>. Completam o conjunto três questões do Instituto Consulplan, cujo formato é bem mais próximo do da IDECAN.</p>
+
+  <p>Alternativas muito extensas aparecem abreviadas com […], preservado o sentido. Selecionei questões cuja resposta é tecnicamente inequívoca; as respostas e os comentários são meus.</p>
+
+  <div class="q">
+    <div class="head"><span class="num">Q 36</span><span class="src">FGV · 2026 · AL-RO · Teorias — gatekeeping</span></div>
+    <div class="body">
+      <p class="enun">Shoemaker e Vos acreditam que as rotinas emergem de três fontes distintas: da orientação dos jornalistas para a audiência consumidora, <strong>das fontes exteriores nas quais os jornalistas se baseiam para suas notícias</strong> e do contexto e cultura organizacionais. Sobre a <strong>segunda</strong> fonte apontada pelos autores, é correto afirmar que</p>
+      <ol class="alt">
+        <li>os jornalistas possuem apenas uma ideia abstrata, de segunda mão, sobre o que o público deseja da mídia.</li>
+        <li>os prazos finais rotineiros dentro de uma organização jornalística podem afetar o processo de gatekeeping.</li>
+        <li>um evento se adequa bem às organizações jornalísticas se puder ser transformado em notícia dentro dos limites de um veículo de comunicação de massa.</li>
+        <li>valores de notícias padrão se baseiam em suposições sobre o que é importante ou capaz de prender a atenção do público.</li>
+        <li class="ok">os jornalistas tendem a se basear em um conjunto relativamente previsível de canais rotineiros de coleta de notícias, que normalmente envolvem <strong>fontes oficiais</strong>.</li>
+      </ol>
+    </div>
+    <div class="gab">
+      <span class="key">E</span>
+      <p><strong>Questão de leitura atenta, não de memória.</strong> O enunciado já nomeia as três fontes; basta ver qual alternativa fala da <em>segunda</em>. (A) e (D) tratam da <strong>audiência</strong>, que é a primeira; (B) e (C) tratam da <strong>organização</strong>, que é a terceira. Só (E) fala de <strong>fontes externas</strong> — e traz o dado que importa: a rotina leva o jornalista a depender de <strong>fontes oficiais</strong>, principal crítica ao modelo.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">Q 40</span><span class="src">FGV · 2026 · AL-RO · Jakobson</span></div>
+    <div class="body">
+      <p class="enun">“O remetente envia uma mensagem ao destinatário. Para ser eficaz, a mensagem requer um(a) ______ a que se refere […]; um(a) ______ total ou parcialmente comum ao remetente e ao destinatário (ou, em outras palavras, ao codificador e ao decodificador da mensagem); e, finalmente, um contato, um(a) ______ físico(a) e uma conexão psicológica entre o remetente e o destinatário […]”. As três palavras que completam o texto são, respectivamente,</p>
+      <ol class="alt">
+        <li>linguagem, sinal e estrutura.</li>
+        <li>código, estrutura e disponibilidade.</li>
+        <li>tempo, idioma e ambiente.</li>
+        <li class="ok">contexto, código e canal.</li>
+        <li>realidade, simbologia e aparelho.</li>
+      </ol>
+    </div>
+    <div class="gab">
+      <span class="key">D</span>
+      <p>Os seis fatores de Jakobson: <strong>remetente, destinatário, mensagem, contexto, código e canal (contato)</strong>. As pistas estão no próprio texto: “a que se refere” = <strong>contexto</strong>; “comum ao codificador e ao decodificador” = <strong>código</strong>; “contato físico” = <strong>canal</strong>. Decore o par fator → função e você resolve qualquer questão dessa família.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">Q 41</span><span class="src">FGV · 2026 · AL-RO · Funções da linguagem</span></div>
+    <div class="body">
+      <p class="enun">As manchetes “PC mira crimes cometidos em redes sociais” e “Ariquemes ganha centro de formação” exemplificam o que Roman Jakobson define como função</p>
+      <ol class="alt">
+        <li>conotativa.</li>
+        <li>conativa.</li>
+        <li class="ok">referencial.</li>
+        <li>metalinguística.</li>
+        <li>emotiva.</li>
+      </ol>
+    </div>
+    <div class="gab">
+      <span class="key">C</span>
+      <p>Manchete factual, terceira pessoa, sem apelo nem emoção: foco no <strong>contexto</strong>, logo função <strong>referencial</strong> — a função por excelência do texto noticioso. E repare no truque: <strong>(A) conotativa e (B) conativa</strong> lado a lado. <em>Conativa</em> é a função de apelo ao receptor; <em>conotativa</em> nem é função da linguagem — é tipo de sentido. Quando as duas aparecerem juntas, a banca está testando desatenção.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">Q 39</span><span class="src">FGV · 2026 · AL-RO · Modelos de comunicação</span></div>
+    <div class="body">
+      <p class="enun">Para Lee Thayer, “a comunicação não é algo que alguém faz a outrem, mas é um processo que está continuamente em curso dentro de cada um de nós”. Ele propõe um modelo baseado nos níveis expressos a seguir, <strong>à exceção de um. Assinale-o.</strong></p>
+      <ol class="alt">
+        <li>organizacional.</li>
+        <li class="ok">afetivo.</li>
+        <li>interpessoal.</li>
+        <li>intrapessoal.</li>
+        <li>tecnológico.</li>
+      </ol>
+    </div>
+    <div class="gab">
+      <span class="key">B</span>
+      <p>Os níveis de Thayer são <strong>intrapessoal, interpessoal, organizacional e tecnológico</strong>. “Afetivo” é o intruso. Note o comando: <strong>“à exceção de um. Assinale-o”</strong> — marca-se o que <em>não</em> pertence. É o mesmo mecanismo do “NÃO” em caixa-alta da IDECAN, e é onde mais se perde ponto por pressa.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">Q 43</span><span class="src">FGV · 2026 · AL-RO · LAI, art. 31</span></div>
+    <div class="body">
+      <p class="enun">O art. 31 da LAI, que trata do respeito à intimidade, vida privada, honra e imagem das pessoas, dispõe que as informações pessoais</p>
+      <ol class="alt">
+        <li>poderão ter a restrição invocada para evitar a apuração de irregularidades em que o titular estiver envolvido.</li>
+        <li>terão seu acesso restrito, independentemente de classificação de sigilo, pelo prazo máximo de <strong>25 anos</strong> a contar da sua data de produção.</li>
+        <li class="ok">poderão ter autorizada sua divulgação ou acesso por terceiros diante de <strong>previsão legal ou consentimento expresso</strong> da pessoa a que se referirem.</li>
+        <li>poderão ter a restrição invocada para evitar ações voltadas para a recuperação de fatos históricos de maior relevância.</li>
+        <li>exigirão consentimento expresso quando as informações, mesmo <strong>sem identificação pessoal</strong>, se destinarem à realização de estatísticas e pesquisas científicas de evidente interesse público.</li>
+      </ol>
+    </div>
+    <div class="gab">
+      <span class="key">C</span>
+      <p>Exemplar de como o artigo é cobrado. (B) troca o número: são <strong>100 anos</strong>, não 25 — 25 é o prazo da classificação <em>ultrassecreta</em>, coisa distinta. (A) e (D) invertem o sentido: a lei diz exatamente o contrário, que a restrição <strong>não pode ser invocada</strong> para prejudicar a apuração de irregularidades nem a recuperação de fatos históricos relevantes. (E) inverte de novo: sem identificação pessoal, o consentimento é <strong>dispensado</strong>.</p>
+      <p><strong>Os quatro números da LAI:</strong> 20 (+10) dias para responder · 10 dias para recorrer · 5/15/25 anos de classificação · 100 anos para informação pessoal.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">Q 44</span><span class="src">FGV · 2026 · AL-RO · Manual de Redação da Presidência</span></div>
+    <div class="body">
+      <p class="enun">“Apurado, com impressionante agilidade e precisão, naquela tarde de 2009, o resultado da consulta à população acreana, verificou-se que a <strong>esmagadora e ampla</strong> maioria da população daquele <strong>distante</strong> estado manifestou-se pela <strong>efusiva e indubitável</strong> rejeição […]. Não satisfeita, <strong>inconformada e indignada</strong> […]”. O texto foi disponibilizado para fins didáticos no Manual de Redação da Presidência da República porque</p>
+      <ol class="alt">
+        <li>configura-se como bom exemplo de redação oficial, caracterizada pela concisão, coerência e impessoalidade.</li>
+        <li>devido à falta de informações sobre a vontade da população, não atende ao princípio da <strong>personalização</strong> característico da redação oficial.</li>
+        <li class="ok">devido ao emprego <strong>excessivo de adjetivos e detalhamentos desnecessários</strong>, apresenta carga afetiva incompatível com a redação oficial, que deve primar pela <strong>impessoalidade</strong>.</li>
+        <li>estabelece-se como bom exemplo de texto jornalístico noticioso, mas fora dos padrões de um texto oficial.</li>
+        <li>mostra-se inadequado como jornalismo, mas atende ao que se espera da redação oficial pelo uso formal da linguagem.</li>
+      </ol>
+    </div>
+    <div class="gab">
+      <span class="key">C</span>
+      <p>O texto é o <strong>contra-exemplo</strong> do manual: enxurrada de adjetivos valorativos onde deveria haver relato objetivo. (B) inventa um princípio — a redação oficial é <strong>impessoal</strong>, jamais “personalizada”; é o distrator por termo falso. (D) também não serve: aquele texto não é bom jornalismo noticioso, porque o excesso de adjetivação viola igualmente a objetividade jornalística.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">Q 47</span><span class="src">FGV · 2026 · AL-RO · Comunicação pública</span></div>
+    <div class="body">
+      <p class="enun">O Guia de Comunicação Pública da Associação Brasileira de Comunicação Pública classifica o tipo de publicidade que “tem como finalidade divulgar direitos e serviços colocados à disposição do cidadão. Ele apresenta <strong>comando de ação</strong> objetivo, claro e de fácil entendimento, tem o objetivo de informar, educar, orientar, mobilizar, prevenir ou alertar a população para adotar comportamentos que lhe tragam benefícios individuais ou coletivos”. O tipo referido é a publicidade</p>
+      <ol class="alt">
+        <li>interna.</li>
+        <li class="ok">de utilidade pública.</li>
+        <li>mercadológica.</li>
+        <li>institucional.</li>
+        <li>legal.</li>
+      </ol>
+    </div>
+    <div class="gab">
+      <span class="key">B</span>
+      <p>A expressão-chave é <strong>“comando de ação”</strong>: a publicidade de utilidade pública quer que o cidadão <em>faça</em> algo — vacine-se, denuncie, pague no prazo. A <strong>institucional</strong> divulga ideias e realizações, construindo imagem; a <strong>mercadológica</strong> vende produto de estatal em concorrência; a <strong>legal</strong> é a publicação obrigatória por lei. Decore os cinco tipos: é definição pura, exatamente o feitio da IDECAN.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">Q 49</span><span class="src">FGV · 2026 · AL-RO · Gêneros de Marques de Melo</span></div>
+    <div class="body">
+      <p class="enun">Texto assinado por pesquisadora, publicado em julho de 2025: “O 17 de julho […] é um chamado ético e político para repensarmos a nossa relação com a natureza. […] <strong>Não quero</strong> sugerir respostas universais […] <strong>sempre reafirmo</strong> a importância de estarmos atentos aos discursos reducionistas […] <strong>O que sugiro</strong> é lucidez.” Segundo a classificação de Marques de Melo, o texto integra o gênero</p>
+      <ol class="alt">
+        <li>Informativo, pois é notícia factual sobre o Dia de Proteção às Florestas.</li>
+        <li>Utilitário, pois é útil ao estimular a reflexão sobre a crise sistêmica.</li>
+        <li>Interpretativo, pois é reportagem que interpreta a crise para além dos aspectos climáticos.</li>
+        <li class="ok">Opinativo, pois traz a opinião de uma educadora que desenvolve pesquisas ligadas à temática do artigo.</li>
+        <li>Diversional, pois propõe perguntas sem oferecer resposta pronta.</li>
+      </ol>
+    </div>
+    <div class="gab">
+      <span class="key">D</span>
+      <p>Texto <strong>assinado</strong>, em <strong>primeira pessoa</strong> (“não quero”, “reafirmo”, “sugiro”), defendendo uma tese: é <strong>artigo</strong>, gênero <strong>opinativo</strong>. Verbo em 1ª pessoa e juízo de valor explícito derrubam de saída “informativo” e “interpretativo”. E (B) arma uma cilada de vocabulário: “útil” no sentido comum não é o <em>gênero utilitário</em>, que é o de serviço — cotação, roteiro, previsão do tempo.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">Q 50</span><span class="src">FGV · 2026 · AL-RO · Gênero utilitário</span></div>
+    <div class="body">
+      <p class="enun">A partir dos títulos publicados no G1 de Rondônia, é possível identificar que o <strong>gênero utilitário</strong> está representado em</p>
+      <ol class="alt">
+        <li class="ok">“Até quando o RG antigo pode ser usado? Veja como emitir a nova identidade em RO”.</li>
+        <li>“Motociclista se choca contra árvore e morre em Porto Velho”.</li>
+        <li>“Saiba quem era a servidora que morreu após ser atingida por carro em Porto Velho”.</li>
+        <li>“Servidor do INSS denuncia ter sido aliciado para participar de esquema de fraude e PF inicia investigação em RO”.</li>
+        <li>“Idoso que sonha em ser engenheiro civil faz Enem pela primeira vez em RO: ‘sonho não depende de idade’”.</li>
+      </ol>
+    </div>
+    <div class="gab">
+      <span class="key">A</span>
+      <p><strong>Utilitário = o leitor precisa fazer alguma coisa.</strong> Só (A) entrega serviço acionável: prazo + como emitir. (B) e (D) são <strong>informativos</strong>; (C) tem cara de <strong>interpretativo</strong>, perfil; (E) é <strong>diversional</strong>, história de interesse humano. Repare que a mesma prova cobra o esquema dos gêneros <strong>duas vezes</strong>, nas questões 49 e 50 — sinal claro de que vale decorar a árvore dos cinco.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">Q 51</span><span class="src">FGV · 2026 · AL-RO · Tipos de lead</span></div>
+    <div class="body">
+      <p class="enun">“A Assembleia Legislativa de Rondônia (Alero) promoveu na última segunda-feira (17) uma cerimônia de entrega de Títulos Honoríficos prevista no Requerimento 2776/2025, apresentado pela deputada Ieda Chaves. A cerimônia, realizada no auditório Amizael Gomes da Silva, reuniu autoridades, familiares e representantes de diversas instituições […]”. Esse lead pode ser classificado como</p>
+      <ol class="alt">
+        <li>flash.</li>
+        <li>narrativo.</li>
+        <li>chavão.</li>
+        <li>descritivo.</li>
+        <li class="ok">clássico.</li>
+      </ol>
+    </div>
+    <div class="gab">
+      <span class="key">E</span>
+      <p>Traz <strong>quem</strong> (Alero), <strong>o quê</strong> (entrega de títulos), <strong>quando</strong> (segunda, 17) e <strong>onde</strong> (auditório): é a fórmula das seis perguntas, ou seja, <strong>lead clássico</strong>. O <strong>flash</strong> é a frase única de urgência; o <strong>narrativo</strong> abre contando uma cena; o <strong>chavão</strong> é o vício da fórmula gasta.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">Q 54</span><span class="src">FGV · 2026 · AL-RO · Diagramação</span></div>
+    <div class="body">
+      <p class="enun">Ao conceber o visual de uma publicação, “a malha de linhas entrecruzadas, normalmente em direção horizontal e vertical, utilizada para organizar os elementos de um desenho e dar uma estrutura lógica a um layout” (Wolf, 2011) é conhecida como</p>
+      <ol class="alt">
+        <li>quadratim.</li>
+        <li>dingbat.</li>
+        <li>calha.</li>
+        <li class="ok">grid.</li>
+        <li>pictograma.</li>
+      </ol>
+    </div>
+    <div class="gab">
+      <span class="key">D</span>
+      <p>Definição literal de <strong>grid</strong> (grelha). Os distratores são todos termos reais da área, o que torna a questão perigosa para quem só “acha”: <strong>quadratim</strong> é a unidade tipográfica equivalente ao corpo da fonte; <strong>dingbat</strong> é o caractere ornamental; <strong>calha</strong> é o espaço entre colunas — próximo, mas é a <em>parte</em>, não a malha; <strong>pictograma</strong> é o símbolo figurativo.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">Q 55</span><span class="src">FGV · 2026 · AL-RO · Redação para rádio</span></div>
+    <div class="body">
+      <p class="enun">O texto jornalístico para rádio precisa ser objetivo, direto e claro. Por esse motivo, <strong>deve-se evitar</strong></p>
+      <ol class="alt">
+        <li>o uso de frases e palavras curtas, pois quanto mais longas, mais fluido será o texto.</li>
+        <li class="ok">descrever uma situação usando adjetivos que expressem <strong>unicamente as emoções do repórter</strong>.</li>
+        <li>frases em ordem direta nas quais o sujeito seja seguido pelo verbo […]</li>
+        <li>[…]</li>
+        <li>[…]</li>
+      </ol>
+    </div>
+    <div class="gab">
+      <span class="key">B</span>
+      <p>Questão de <strong>comando invertido</strong>: pede o que <em>evitar</em>. Frase curta e ordem direta são recomendações — logo (A) e (C) descrevem boas práticas e não podem ser a resposta. O que se evita é a <strong>adjetivação subjetiva</strong>, que projeta a emoção do repórter no lugar do fato. Vale para rádio, para TV e, com ainda mais força, para a redação oficial: é o mesmo princípio da Q 44 acima.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">Q 42</span><span class="src">FGV · 2026 · AL-RO · Acessibilidade · ABNT NBR 17225:2025</span></div>
+    <div class="body">
+      <p class="enun">A norma ABNT NBR 17225:2025 lista requisitos de acessibilidade em imagens, <strong>exceto um. Assinale-o.</strong></p>
+      <ol class="alt">
+        <li>Todas as imagens que transmitem informação ou conteúdo relevante devem ter texto alternativo que descreva essa informação.</li>
+        <li>Todas as imagens de texto que sejam essenciais devem ter texto alternativo com o mesmo conteúdo.</li>
+        <li class="ok">Todas as imagens <strong>funcionais</strong> devem ter texto alternativo <strong>vazio</strong> ou que permita que sejam ignoradas por tecnologia assistiva.</li>
+        <li>Todas as imagens decorativas devem ter texto alternativo vazio ou estar implementadas de modo que possam ser ignoradas por tecnologia assistiva.</li>
+        <li>Todas as imagens complexas devem ter texto alternativo que as identifique e descrição detalhada disponível.</li>
+      </ol>
+    </div>
+    <div class="gab">
+      <span class="key">C</span>
+      <p>Distinção que vale ouro em prova de comunicação pública: <strong>imagem decorativa</strong> recebe <strong>alt vazio</strong>, para o leitor de tela ignorá-la; <strong>imagem funcional</strong> — a que é botão ou link — precisa de alt que descreva <strong>a função</strong> (“buscar”, “abrir o menu”). A alternativa trocou uma pela outra. Guarde os cinco tipos: informativa, de texto, funcional, decorativa e complexa.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">Q 31</span><span class="src">Consulplan · 2025 · Câmara de Araraquara · Técnica de redação</span></div>
+    <div class="body">
+      <p class="enun">Sobre um texto noticioso hipotético — anúncio de descoberta científica, com reações de líderes mundiais e de ambientalistas —, considerando as técnicas de redação jornalística, <strong>assinale a afirmativa INCORRETA</strong>.</p>
+      <ol class="alt">
+        <li>O sublead, no segundo parágrafo, expande as informações do lead, fornecendo detalhes adicionais.</li>
+        <li>O terceiro parágrafo introduz contextualização e reações, seguindo a lógica da pirâmide invertida.</li>
+        <li>A estrutura segue o princípio da pirâmide invertida, apresentando as informações mais importantes no início.</li>
+        <li>O lead apresenta as informações essenciais, incluindo quem, o quê, quando, onde e como.</li>
+        <li class="ok">O texto como um todo adota abordagem <strong>opinativa</strong>, destacando a relevância do trabalho do cientista e sugerindo que os líderes mundiais estão sendo excessivamente cautelosos.</li>
+      </ol>
+    </div>
+    <div class="gab">
+      <span class="key">E</span>
+      <p>Repare no formato — <strong>é exatamente o desenho de questão que a IDECAN usa</strong>: texto-base, comando com “INCORRETA” em caixa-alta, cinco alternativas descritivas. O texto do enunciado é <strong>informativo</strong>: relata o anúncio e registra reações dos dois lados sem tomar partido. Registrar que <em>houve</em> cautela não é opinar que a cautela é excessiva — essa diferença é toda a questão.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">Q 35</span><span class="src">Consulplan · 2025 · Câmara de Araraquara · Entrevista</span></div>
+    <div class="body">
+      <p class="enun">Em sessão ordinária, um jornalista produziu reportagem com o presidente da Casa, destacando aspectos mais <strong>visíveis de sua atuação</strong> durante a sessão e a entrevista. Do ponto de vista dos objetivos da entrevista, essa abordagem é caracterizada como:</p>
+      <ol class="alt">
+        <li>Confrontacional, pois estabelece dinâmica acusatória entre entrevistador e entrevistado.</li>
+        <li>Testemunhal, pois evidencia a exposição do entrevistado em detrimento do conteúdo de suas declarações.</li>
+        <li>Em profundidade, pois documenta o relato do entrevistado sobre eventos dos quais participou.</li>
+        <li>Temática, pois aborda aspectos intrínsecos à autoridade e competência do entrevistado.</li>
+        <li class="ok">Ritual, pois o ponto de interesse está mais centrado na <strong>exposição do entrevistado</strong>, independentemente de temas específicos.</li>
+      </ol>
+    </div>
+    <div class="gab">
+      <span class="key">E</span>
+      <p>A <strong>entrevista ritual</strong> é a protocolar: o que importa é a autoridade <em>aparecer</em>, não o que ela diz. É comuníssima na cobertura legislativa, e a banca gosta de cobrá-la por isso mesmo. Cuidado com (B): a descrição “exposição em detrimento do conteúdo” foi deliberadamente colada no rótulo errado — <strong>testemunhal</strong> é quando a fonte relata o que presenciou.</p>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">Q 36</span><span class="src">Consulplan · 2025 · Câmara de Araraquara · Release</span></div>
+    <div class="body">
+      <p class="enun">Sobre estratégias para produção e divulgação de releases, <strong>assinale a alternativa que apresenta uma abordagem INCORRETA</strong>.</p>
+      <ol class="alt">
+        <li>Na adaptação para podcasts, fornecer roteiro com pontos-chave claros, dados traduzidos para a oralidade e citações breves.</li>
+        <li>Para vídeos, priorizar storytelling visual, dados em motion graphics e depoimentos curtos.</li>
+        <li>Para blogs especializados, investir em conteúdo tecnicamente aprofundado, com análises detalhadas e referências pertinentes ao nicho.</li>
+        <li>Para redes sociais, priorizar elementos visuais impactantes, textos curtos e uso estratégico de hashtags.</li>
+        <li class="ok">Para a imprensa tradicional, manter o padrão clássico com <strong>lead extenso</strong>, priorizando <strong>citações longas de executivos</strong> e <strong>excluindo links externos</strong>.</li>
+      </ol>
+    </div>
+    <div class="gab">
+      <span class="key">E</span>
+      <p>Três erros empilhados numa alternativa só — assinatura do distrator bem construído. O lead deve ser <strong>enxuto</strong>, não extenso; citação de dirigente deve ser <strong>curta e relevante</strong>, nunca o centro do release; e <strong>links são desejáveis</strong>, porque dão ao jornalista acesso à fonte primária. A regra por trás de tudo: <strong>o release existe para facilitar o trabalho do jornalista</strong>, não para exibir o assessorado.</p>
+    </div>
+  </div>
+
+  <div class="box lei">
+    <span class="rot">O que essas 16 questões dizem sobre onde estudar</span>
+    <p>Somando os temas: <strong>4</strong> de teoria e funções da linguagem, <strong>3</strong> de gêneros e técnica de redação, <strong>2</strong> de comunicação pública, <strong>2</strong> de legislação, <strong>2</strong> de assessoria e entrevista, <strong>1</strong> de rádio, <strong>1</strong> de diagramação, <strong>1</strong> de acessibilidade. Isso confirma o mapa de pesos do caderno de revisão e mostra que <strong>Jakobson, Marques de Melo e os prazos da LAI aparecem em praticamente toda prova da área</strong>. Se o tempo for curto, comece por esses três.</p>
+  </div>
+</section>
+
+<!-- ===== SIMULADO ===== -->
+<section id="simulado">
+  <div class="editoria"><span class="caderno">C</span><h2>Simulado no formato IDECAN</h2><span class="tag">20 questões autorais</span></div>
+
+  <p>Escritas por mim, aplicando o <strong>formato da banca</strong> — preâmbulo curto, comando padronizado, cinco alternativas de tamanho médio e distratores por troca de número, de sujeito e por absolutismo — ao <strong>conteúdo específico do Edital 01/2026</strong>. Resolva primeiro; o gabarito de cada uma está escondido.</p>
+
+  <div class="q">
+    <div class="head"><span class="num">01</span><span class="src">Comunicação pública</span></div>
+    <div class="body">
+      <p class="enun">A literatura distingue comunicação pública de outras modalidades praticadas por órgãos estatais. Sobre essa distinção, <strong>assinale a alternativa correta</strong>.</p>
+      <ol class="alt">
+        <li>Comunicação pública e comunicação governamental são expressões sinônimas, ambas designando a divulgação das ações do gestor.</li>
+        <li>A comunicação pública tem como centro o interesse público e o direito do cidadão à informação, sendo a comunicação governamental uma de suas espécies, voltada à divulgação da gestão.</li>
+        <li>A comunicação política integra a comunicação pública, uma vez que o mandato eletivo decorre da vontade popular.</li>
+        <li>A comunicação organizacional é espécie da comunicação pública, aplicável exclusivamente a órgãos estatais.</li>
+        <li>A comunicação pública dispensa mecanismos de diálogo e participação, bastando a divulgação unilateral de informações.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">B</span>
+        <p>Hierarquia a fixar: <strong>pública</strong> é o conceito mais amplo, orientado ao cidadão; <strong>governamental</strong> é espécie dela; <strong>política</strong> está fora, porque disputa poder. (D) inverte a relação — a organizacional é o guarda-chuva de Kunsch e vale para qualquer organização, pública ou privada. (E) nega o elemento definidor, que é o diálogo.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">02</span><span class="src">Publicidade oficial</span></div>
+    <div class="body">
+      <p class="enun">A publicidade dos órgãos públicos é classificada segundo sua finalidade. <strong>Marque a opção correta</strong>.</p>
+      <ol class="alt">
+        <li>A publicidade legal destina-se a construir a imagem institucional do órgão perante a sociedade.</li>
+        <li>A publicidade mercadológica é vedada a qualquer ente da Administração Pública.</li>
+        <li>A publicidade de utilidade pública divulga direitos e serviços à disposição do cidadão, apresentando comando de ação claro e objetivo.</li>
+        <li>A publicidade institucional exige comando de ação e destina-se a alterar comportamentos individuais.</li>
+        <li>A publicidade interna é dirigida ao público externo, com finalidade de prestação de contas.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">C</span>
+        <p>Quatro trocas de rótulo nos distratores. <strong>Legal</strong> é a publicação obrigatória por lei (editais, balanços). <strong>Mercadológica</strong> é permitida a entes que atuam em concorrência de mercado. <strong>Institucional</strong> divulga ideias e realizações, sem comando de ação. <strong>Interna</strong> é dirigida ao público interno — (E) inverte no próprio enunciado da alternativa.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">03</span><span class="src">Constituição · comunicação social</span></div>
+    <div class="body">
+      <p class="enun">A Constituição Federal disciplina a Comunicação Social nos arts. 220 a 224. Sobre esses dispositivos, <strong>identifique o item correto</strong>.</p>
+      <ol class="alt">
+        <li>É admitida a censura de natureza política e ideológica, desde que autorizada judicialmente.</li>
+        <li>A propriedade de empresa jornalística é privativa de brasileiros ou naturalizados há mais de dez anos, devendo ao menos setenta por cento do capital total e votante pertencer a brasileiros.</li>
+        <li>É permitido o monopólio dos meios de comunicação social, desde que precedido de autorização legislativa.</li>
+        <li>A outorga e a renovação de concessão de radiodifusão competem privativamente ao Poder Judiciário.</li>
+        <li>O Conselho de Comunicação Social é órgão vinculado ao Poder Executivo federal.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">B</span>
+        <p>Decore o número: <strong>70% do capital</strong> e <strong>10 anos</strong> de naturalização (art. 222). (A) e (C) invertem vedações expressas — a censura política, ideológica e artística é <strong>vedada</strong>, e o monopólio ou oligopólio, também. (D) troca o sujeito: a outorga compete ao <strong>Executivo</strong>, com apreciação do Congresso (art. 223). (E) erra o vínculo: o Conselho é <strong>órgão auxiliar do Congresso Nacional</strong> (art. 224).</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">04</span><span class="src">LAI · prazos</span></div>
+    <div class="body">
+      <p class="enun">A Lei nº 12.527/2011 estabelece prazos para o atendimento de pedidos de acesso à informação. Sobre esses prazos, <strong>assinale a alternativa correta</strong>.</p>
+      <ol class="alt">
+        <li>O órgão dispõe de trinta dias para responder, prorrogáveis por mais quinze mediante justificativa.</li>
+        <li>O órgão deve conceder o acesso imediato quando a informação estiver disponível; não sendo possível, dispõe de vinte dias, prorrogáveis por mais dez mediante justificativa expressa.</li>
+        <li>O prazo para interposição de recurso é de trinta dias, contados da ciência da negativa.</li>
+        <li>A informação pessoal relativa à intimidade tem acesso restrito por vinte e cinco anos, conforme a classificação ultrassecreta.</li>
+        <li>O requerente deve apresentar motivação do pedido, sob pena de indeferimento.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">B</span>
+        <p><strong>20 + 10</strong> para responder; <strong>10 dias</strong> para recorrer e <strong>5</strong> para a autoridade decidir. (D) confunde deliberadamente dois regimes: informação pessoal é <strong>100 anos</strong>, independentemente de classificação; 25 anos é a ultrassecreta. E (E) contraria vedação expressa: <strong>é proibido exigir motivação</strong> do pedido.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">05</span><span class="src">Direito de resposta</span></div>
+    <div class="body">
+      <p class="enun">A Lei nº 13.188/2015 regulamenta o direito de resposta ou retificação do ofendido em matéria divulgada por veículo de comunicação social. Sobre a matéria, <strong>marque a opção correta</strong>.</p>
+      <ol class="alt">
+        <li>O pedido deve ser formulado no prazo decadencial de sessenta dias contados da divulgação, e o veículo tem sete dias para divulgar a resposta.</li>
+        <li>O pedido deve ser formulado em até trinta dias, e o veículo dispõe de quinze dias para a divulgação.</li>
+        <li>A resposta poderá ser divulgada em veículo diverso, desde que de alcance equivalente.</li>
+        <li>O ofendido arcará com os custos da divulgação da resposta, ressalvada a hipótese de gratuidade judicialmente deferida.</li>
+        <li>Cabe direito de resposta contra crítica ou opinião, ainda que não haja imputação de fato ofensivo.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">A</span>
+        <p><strong>60 dias para pedir, 7 dias para divulgar</strong> — são os dois números que a banca troca. A resposta sai no <strong>mesmo veículo, espaço, destaque, publicidade e periodicidade</strong>, com tamanho equivalente e de forma <strong>gratuita</strong>: isso derruba (C) e (D). E (E) inverte o requisito: sem imputação de fato ofensivo, não há direito de resposta.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">06</span><span class="src">LGPD e atividade jornalística</span></div>
+    <div class="body">
+      <p class="enun">A Lei nº 13.709/2018 delimita seu próprio âmbito de aplicação. Sobre esse ponto, <strong>identifique o item correto</strong>.</p>
+      <ol class="alt">
+        <li>A lei aplica-se indistintamente a todo tratamento de dados pessoais, sem qualquer exceção.</li>
+        <li>A lei não se aplica ao tratamento de dados realizado para fins exclusivamente jornalísticos, artísticos ou acadêmicos.</li>
+        <li>A lei não se aplica à comunicação institucional de órgãos públicos, por se tratar de atividade informativa.</li>
+        <li>Fotografia que identifica pessoa natural não constitui dado pessoal para os fins da lei.</li>
+        <li>O consentimento é a única base legal admitida para o tratamento de dados pela Administração Pública.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">B</span>
+        <p>Art. 4º, II, “a”. É a compatibilização entre proteção de dados e liberdade de imprensa. <strong>Cuidado com (C)</strong>, que é a extensão indevida da mesma regra: a exceção alcança a atividade <em>jornalística</em>, não a <strong>comunicação institucional do órgão</strong> — release, foto de evento e mailing seguem sob a LGPD. (D) é falsa e (E) inverte: no setor público, as bases usuais são execução de políticas públicas e cumprimento de obrigação legal.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">07</span><span class="src">Teorias do jornalismo</span></div>
+    <div class="body">
+      <p class="enun">A hipótese formulada por McCombs e Shaw, a partir do estudo de Chapel Hill, sustenta que os meios de comunicação influenciam a percepção pública ao definir os assuntos em torno dos quais o debate se organiza. Essa formulação corresponde à teoria</p>
+      <ol class="alt">
+        <li>do gatekeeper.</li>
+        <li>do espelho.</li>
+        <li>da espiral do silêncio.</li>
+        <li>do agendamento.</li>
+        <li>do newsmaking.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">D</span>
+        <p><strong>Agenda-setting</strong> (agendamento): a mídia não diz <em>o que pensar</em>, mas <strong>sobre o que pensar</strong>. No segundo nível, ao destacar atributos do objeto, sugere também <em>como</em> pensar. Guarde o par nome-autor: gatekeeper→<strong>White</strong>, agendamento→<strong>McCombs e Shaw</strong>, espiral do silêncio→<strong>Noelle-Neumann</strong>, objetividade como ritual estratégico→<strong>Tuchman</strong>, enquadramento→<strong>Goffman e Entman</strong>.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">08</span><span class="src">Valores-notícia</span></div>
+    <div class="body">
+      <p class="enun">Nelson Traquina classifica os valores-notícia em valores de seleção e valores de construção. Sobre essa classificação, <strong>assinale a alternativa correta</strong>.</p>
+      <ol class="alt">
+        <li>Os valores de construção determinam quais acontecimentos serão transformados em notícia.</li>
+        <li>Os valores de seleção dividem-se em substantivos, relativos ao acontecimento, e contextuais, relativos ao processo de produção.</li>
+        <li>A disponibilidade e a concorrência são valores substantivos, por dizerem respeito ao próprio fato.</li>
+        <li>A personalização e a dramatização são valores de seleção contextuais.</li>
+        <li>A morte e o conflito são valores de construção, por orientarem o modo de narrar.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">B</span>
+        <p>Os <strong>de seleção</strong> decidem <em>o que entra</em> e se subdividem em substantivos (morte, notoriedade, proximidade, conflito) e contextuais (disponibilidade, concorrência, visualidade, dia noticioso). Os <strong>de construção</strong> decidem <em>como contar</em> — simplificação, amplificação, relevância, personalização, dramatização, consonância. As alternativas (A), (C), (D) e (E) apenas trocam itens de coluna.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">09</span><span class="src">Redação · pirâmide invertida</span></div>
+    <div class="body">
+      <p class="enun">Sobre a estrutura da pirâmide invertida na redação jornalística, <strong>marque a opção correta</strong>.</p>
+      <ol class="alt">
+        <li>Consiste em apresentar os fatos em ordem cronológica, reservando o desfecho para o último parágrafo.</li>
+        <li>Constitui gênero jornalístico autônomo, distinto da notícia e da reportagem.</li>
+        <li>Organiza o texto em ordem decrescente de importância, permitindo que o texto seja cortado pelo fim sem perda do essencial.</li>
+        <li>É estrutura própria da crônica e do editorial, por permitir o desenvolvimento gradual do argumento.</li>
+        <li>Foi abandonada no jornalismo digital, em razão da inexistência de limite de espaço.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">C</span>
+        <p>(A) descreve a <strong>pirâmide normal</strong>, de clímax final. (B) confunde <strong>estrutura</strong> com <strong>gênero</strong> — distinção que a banca adora. (D) inverte: crônica e editorial não usam pirâmide invertida. (E) é falsa: a estrutura permanece útil no digital, onde a leitura é ainda mais fragmentada e o leitor abandona o texto cedo.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">10</span><span class="src">Gêneros jornalísticos</span></div>
+    <div class="body">
+      <p class="enun">Considerando a classificação dos gêneros jornalísticos consagrada por José Marques de Melo, <strong>identifique o item correto</strong>.</p>
+      <ol class="alt">
+        <li>O editorial pertence ao gênero informativo, por relatar a posição factual do veículo.</li>
+        <li>A nota, a notícia, a reportagem e a entrevista integram o gênero informativo.</li>
+        <li>A coluna pertence ao gênero utilitário, por prestar serviço periódico ao leitor.</li>
+        <li>O gênero diversional compreende o roteiro, a cotação e o indicador.</li>
+        <li>A crônica integra o gênero interpretativo, por contextualizar o cotidiano.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">B</span>
+        <p>Os quatro do informativo: <strong>nota, notícia, reportagem e entrevista</strong>. <strong>Editorial, coluna e crônica</strong> são <strong>opinativos</strong>. <strong>Roteiro, cotação e indicador</strong> são <strong>utilitários</strong> — (D) atribuiu ao diversional, que é o das histórias de interesse humano. Memorize a árvore inteira: é o esquema mais rentável da prova.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">11</span><span class="src">Gêneros · distinções</span></div>
+    <div class="body">
+      <p class="enun">Sobre a distinção entre editorial, artigo e coluna, <strong>assinale a alternativa correta</strong>.</p>
+      <ol class="alt">
+        <li>O editorial expressa a opinião institucional do veículo e não recebe assinatura individual; o artigo é assinado e defende uma tese; a coluna é espaço fixo e periódico, com marca autoral.</li>
+        <li>O editorial é assinado pelo diretor de redação, o que lhe confere caráter pessoal.</li>
+        <li>O artigo expressa a posição do veículo, razão pela qual dispensa assinatura.</li>
+        <li>A coluna é texto eventual, publicado sem periodicidade definida.</li>
+        <li>Os três são gêneros informativos, uma vez que partem de fatos apurados.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">A</span>
+        <p>Os três são <strong>opinativos</strong>, o que já elimina (E). O eixo da distinção é <strong>de quem é a opinião</strong>: do veículo (editorial, sem assinatura individual) ou de uma pessoa (artigo e coluna). A coluna acrescenta <strong>periodicidade e espaço fixo</strong> — é o que (D) nega.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">12</span><span class="src">Assessoria · produtos</span></div>
+    <div class="body">
+      <p class="enun">Sobre os produtos e as rotinas da assessoria de imprensa, <strong>marque a opção correta</strong>.</p>
+      <ol class="alt">
+        <li>O release é peça publicitária destinada à publicação integral pelos veículos.</li>
+        <li>A pauta é documento enviado à imprensa para que substitua a apuração jornalística.</li>
+        <li>O clipping consiste no monitoramento e na organização das inserções obtidas, subsidiando a avaliação de resultados.</li>
+        <li>O follow-up destina-se a cobrar do jornalista a publicação do material enviado.</li>
+        <li>O mailing deve ser o mais amplo possível, sem segmentação, a fim de ampliar o alcance.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">C</span>
+        <p>Quatro erros conceituais nos distratores. O release é <strong>sugestão em formato jornalístico</strong>, não peça publicitária nem texto para publicação integral. A <strong>pauta é documento interno</strong> de planejamento. O follow-up deve <strong>acrescentar informação</strong>, jamais cobrar publicação. E o mailing precisa ser <strong>segmentado por editoria</strong> — disparo indiscriminado queima a relação com a redação.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">13</span><span class="src">Assessoria · relação com a fonte</span></div>
+    <div class="body">
+      <p class="enun">Na relação entre jornalistas e fontes, adotam-se convenções que disciplinam o uso da informação. Sobre elas, <strong>identifique o item correto</strong>.</p>
+      <ol class="alt">
+        <li>No <em>off the record</em>, a informação não pode ser utilizada em hipótese alguma.</li>
+        <li>No <em>off the record</em>, a informação pode ser utilizada, vedada a identificação da fonte.</li>
+        <li>O embargo autoriza a publicação imediata, dispensada a checagem prévia.</li>
+        <li>O <em>on the record</em> pressupõe a omissão do nome da fonte, salvo autorização expressa.</li>
+        <li>As convenções podem ser estabelecidas pela fonte após a concessão da entrevista, vinculando retroativamente o jornalista.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">B</span>
+        <p><strong>Off</strong> = usa a informação, protege a fonte. <strong>On</strong> = tudo publicável com atribuição, e é o padrão — (D) inverte. <strong>Embargo</strong> = entrega antecipada com data e hora combinadas para publicar, o que (C) desvirtua. E (E) é o erro mais importante na prática: a combinação tem de ser feita <strong>antes</strong> da fala; ninguém declara off depois de já ter dito.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">14</span><span class="src">Ética profissional</span></div>
+    <div class="body">
+      <p class="enun">O Código de Ética dos Jornalistas Brasileiros estabelece deveres e vedações à conduta profissional. Sobre esse diploma, <strong>assinale a alternativa correta</strong>.</p>
+      <ol class="alt">
+        <li>A informação é tratada como mercadoria, submetida à lógica de mercado do veículo.</li>
+        <li>A informação é tratada como bem social, sendo vedada a divulgação de caráter mórbido ou sensacionalista.</li>
+        <li>O sigilo da fonte pode ser revelado sempre que solicitado pela autoridade administrativa.</li>
+        <li>A correção de erro publicado é facultativa, cabendo ao veículo avaliar sua conveniência.</li>
+        <li>É admitido condicionar a divulgação de informação à publicação de matéria favorável ao assessorado.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">B</span>
+        <p>“<strong>A informação é bem social</strong>” abre o Código e é a frase mais citada dele — (A) a inverte. O sigilo da fonte é <strong>resguardado</strong> constitucionalmente (art. 5º, XIV). A correção de erro é <strong>dever</strong>, e com o <strong>mesmo destaque</strong> da publicação original. E (E) descreve conduta expressamente vedada pelo manual da FENAJ.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">15</span><span class="src">Gerenciamento de crise</span></div>
+    <div class="body">
+      <p class="enun">Sobre o gerenciamento de crises de imagem em instituições públicas, <strong>marque a opção correta</strong>.</p>
+      <ol class="alt">
+        <li>Recomenda-se o silêncio institucional nas primeiras horas, a fim de evitar a ampliação do episódio.</li>
+        <li>Recomenda-se designar múltiplos porta-vozes, para demonstrar transparência e pluralidade interna.</li>
+        <li>Recomenda-se agilidade na resposta, unidade de versão, porta-voz único e divulgação apenas do que já foi apurado.</li>
+        <li>A fase preventiva é dispensável quando a instituição possui assessoria de imprensa estruturada.</li>
+        <li>Encerrada a fase aguda, não cabe prestação de contas, para evitar a reabertura do assunto.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">C</span>
+        <p>Os três parâmetros da resposta: <strong>agilidade, transparência e unidade de versão</strong>. (A) contraria a regra de ouro — <strong>o silêncio agrava</strong>, porque o vácuo é ocupado por terceiros. (B) é o erro oposto: múltiplos porta-vozes produzem versões divergentes. (D) e (E) suprimem as fases de prevenção e de recuperação, que são justamente onde a crise se evita e a confiança se reconstrói.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">16</span><span class="src">Media training</span></div>
+    <div class="body">
+      <p class="enun">Sobre o <em>media training</em> aplicado a porta-vozes de instituições públicas, <strong>identifique o item correto</strong>.</p>
+      <ol class="alt">
+        <li>Consiste em preparar o porta-voz para omitir informações desfavoráveis à instituição.</li>
+        <li>Consiste em capacitar o porta-voz para comunicar-se com clareza e precisão, definindo mensagens-chave e técnicas de condução da entrevista.</li>
+        <li>Destina-se exclusivamente a situações de crise, sendo dispensável na rotina institucional.</li>
+        <li>Substitui a assessoria de imprensa, uma vez que habilita a fonte a tratar diretamente com os veículos.</li>
+        <li>Recomenda o uso da expressão “sem comentários” como estratégia de contenção.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">B</span>
+        <p>(A) é o distrator ético — media training <strong>não</strong> treina ninguém para enganar ou esconder, e essa formulação é sempre a errada. (C) restringe indevidamente: o treino é <strong>periódico e preventivo</strong>. (D) confunde papéis. (E) recomenda justamente o que se ensina a evitar, porque “sem comentários” é lido como confissão.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">17</span><span class="src">Desinformação</span></div>
+    <div class="body">
+      <p class="enun">A literatura sobre desordem informacional distingue três fenômenos. Conteúdo <strong>verdadeiro</strong>, divulgado com a <strong>intenção de causar dano</strong> — como a exposição de dado privado ou a descontextualização deliberada —, denomina-se</p>
+      <ol class="alt">
+        <li>misinformação.</li>
+        <li>desinformação.</li>
+        <li>malinformação.</li>
+        <li>propaganda computacional.</li>
+        <li>sátira.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">C</span>
+        <p>Dois eixos definem a tipologia: a informação é <strong>falsa ou verdadeira</strong>, e há ou não <strong>intenção de dano</strong>. <strong>Misinformação</strong> = falsa, sem intenção. <strong>Desinformação</strong> = falsa, com intenção. <strong>Malinformação</strong> = verdadeira, com intenção. É o único caso em que o conteúdo é verdadeiro — e por isso o mais fácil de errar.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">18</span><span class="src">Telejornalismo · lauda</span></div>
+    <div class="body">
+      <p class="enun">Na estrutura de uma matéria de telejornalismo, o texto lido pelo apresentador no estúdio, que antecede e apresenta a reportagem, denomina-se</p>
+      <ol class="alt">
+        <li>off.</li>
+        <li>cabeça.</li>
+        <li>passagem.</li>
+        <li>sonora.</li>
+        <li>nota pé.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">B</span>
+        <p>Sequência clássica: <strong>cabeça</strong> (apresentador introduz) → <strong>off</strong> (narração do repórter sobre imagens) → <strong>sonora</strong> (fala da fonte) → <strong>passagem</strong> (repórter aparece em cena) → <strong>nota pé</strong> (apresentador fecha). Some: <strong>nota seca</strong> (só o apresentador) × <strong>nota coberta</strong> (com imagens sobre a voz dele), <strong>GC</strong> (gerador de caracteres) e <strong>espelho</strong> (a escalação do telejornal).</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">19</span><span class="src">Redação oficial e linguagem simples</span></div>
+    <div class="body">
+      <p class="enun">Sobre os atributos da redação oficial, conforme o Manual de Redação da Presidência da República, e sobre os princípios da linguagem simples, <strong>assinale a alternativa correta</strong>.</p>
+      <ol class="alt">
+        <li>A redação oficial caracteriza-se pela personalização, de modo a aproximar o texto do destinatário.</li>
+        <li>O emprego abundante de adjetivos confere ênfase e é recomendado na comunicação oficial.</li>
+        <li>A redação oficial caracteriza-se pela impessoalidade, clareza, concisão, formalidade e padronização, sendo incompatível com a adjetivação valorativa excessiva.</li>
+        <li>A linguagem simples pressupõe a supressão de informações técnicas, ainda que essenciais à compreensão do ato.</li>
+        <li>A linguagem simples aplica-se apenas a peças publicitárias, não alcançando documentos oficiais.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">C</span>
+        <p>(A) inventa um atributo — a redação oficial é <strong>impessoal</strong>, nunca “personalizada”. (B) inverte a recomendação. (D) é o mal-entendido mais comum: simplificar <strong>não é omitir</strong>, é explicar o termo técnico na primeira ocorrência. (E) contraria a Política Nacional de Linguagem Simples (Lei 15.263/2025) e a Lei estadual do Ceará 18.246/2022, que alcançam a comunicação da Administração como um todo.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="q">
+    <div class="head"><span class="num">20</span><span class="src">Arquitetura da informação</span></div>
+    <div class="body">
+      <p class="enun">No projeto de um portal institucional, o levantamento sistemático de todo o conteúdo já existente no sítio, com vistas à sua reorganização, denomina-se</p>
+      <ol class="alt">
+        <li>taxonomia.</li>
+        <li>wireframe.</li>
+        <li>inventário de conteúdo.</li>
+        <li>hierarquia.</li>
+        <li>rotulagem.</li>
+      </ol>
+    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab"><span class="key">C</span>
+        <p>Sequência do projeto: <strong>inventário</strong> (o que existe) → <strong>taxonomia</strong> (como classificar) → <strong>hierarquia</strong> (o que vem antes) → <strong>wireframe</strong> (esquema estrutural de baixa fidelidade) → protótipo → teste. Rosenfeld e Morville organizam a arquitetura da informação em quatro sistemas: <strong>organização, rotulagem, navegação e busca</strong>.</p>
+      </div>
+    </details>
+  </div>
+
+  <div class="box">
+    <span class="rot">Gabarito corrido</span>
+    <p style="font-family:var(--mono);font-size:15px;letter-spacing:.04em">01 B · 02 C · 03 B · 04 B · 05 A · 06 B · 07 D · 08 B · 09 C · 10 B · 11 A · 12 C · 13 B · 14 B · 15 C · 16 B · 17 C · 18 B · 19 C · 20 C</p>
+  </div>
+</section>
+
+<footer>
+  <p style="margin:0 0 6px"><strong>Pauta de Questões</strong> — apoio à prova de Analista Legislativo · Jornalismo · ALECE · 16/08/2026.</p>
+  <p style="margin:0">Questões reais transcritas das provas FGV 2026 (AL-RO, Analista Legislativo em Comunicação Social — Jornalismo) e Instituto Consulplan 2025 (Câmara Municipal de Araraquara/SP), recuperadas de repositórios públicos. As <strong>20 questões do simulado são autorais</strong>, escritas no formato da IDECAN sobre o conteúdo programático do Edital 01/2026. Respostas e comentários são meus.</p>
+</footer>
+
+</div>
+
+<script>
+// Um <details> fechado nao imprime seu conteudo. Abre todos antes de imprimir e restaura depois.
+(function () {
+  var fechados = [];
+  function abrir() {
+    fechados = [].slice.call(document.querySelectorAll('details:not([open])'));
+    fechados.forEach(function (d) { d.open = true; });
+  }
+  function restaurar() {
+    fechados.forEach(function (d) { d.open = false; });
+    fechados = [];
+  }
+  window.addEventListener('beforeprint', abrir);
+  window.addEventListener('afterprint', restaurar);
+  var mq = window.matchMedia && window.matchMedia('print');
+  if (mq && mq.addEventListener) {
+    mq.addEventListener('change', function (e) { e.matches ? abrir() : restaurar(); });
+  }
+})();
+</script>
+</body>
+</html>
