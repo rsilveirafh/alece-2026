@@ -122,6 +122,10 @@ details.reveal summary:focus-visible{outline:2px solid var(--accent);outline-off
 .chip{display:inline-block;font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;padding:.12rem .42rem;border-radius:2px;font-weight:600;background:var(--surface-2);color:var(--muted);vertical-align:middle}
 .chip.new{background:var(--good-soft);color:var(--good)}
 .chip.fix{background:var(--warn-soft);color:var(--warn)}
+/* glosa: o que a sigla quer dizer, em uma linha, antes do conteudo */
+.gloss{margin:-.15rem 0 .9rem;padding:.45rem .8rem;background:var(--surface);border-left:2px solid var(--line-strong);font-size:.88rem;line-height:1.5;color:var(--ink-2);max-width:var(--measure);break-inside:avoid}
+.gloss b{font-weight:650;color:var(--ink)}
+.gloss i{font-style:italic;color:var(--muted)}
 .formula{font-family:var(--mono);font-size:.88rem;background:var(--surface-2);padding:.55rem .8rem;border-radius:2px;margin:.45rem 0 .85rem;overflow-x:auto;white-space:pre-wrap;break-inside:avoid}
 /* --- diagramas --- */
 figure.dg{margin:1.3rem 0;padding:1rem 1.1rem .9rem;background:var(--surface);border:1px solid var(--line);border-radius:2px;break-inside:avoid;max-width:none}
@@ -311,7 +315,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
         <tr><td>Classificação, predição e métricas de avaliação</td><td class="num">7–9</td><td>★★★</td></tr>
         <tr><td>Qualidade, limpeza e governança de dados</td><td class="num">5–7</td><td>★★</td></tr>
         <tr><td>Fundamentos (DIKW, tipos de dado, ciclo de vida, KDD)</td><td class="num">4–5</td><td>★★</td></tr>
-        <tr><td>Coleta e integração: ETL, APIs, scraping, DW × Data Lake</td><td class="num">4–6</td><td>★★</td></tr>
+        <tr><td>Coleta e integração: ETL, APIs, scraping, DW (<em>data warehouse</em>) × Data Lake</td><td class="num">4–6</td><td>★★</td></tr>
         <tr><td>SQL e modelagem</td><td class="num">3–5</td><td>★★</td></tr>
         <tr><td>Python/pandas/scikit-learn, R, Git, notebooks</td><td class="num">4–6</td><td>★</td></tr>
         <tr><td>PLN em textos legislativos</td><td class="num">3–4</td><td>★</td></tr>
@@ -326,6 +330,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
 <section id="s4">
   <p class="sec-eyebrow">04 · ★★★</p>
   <h2>LGPD — Lei 13.709/2018</h2>
+  <p class="gloss"><b>LGPD</b> — Lei Geral de Proteção de Dados Pessoais. Define quem pode tratar dado de pessoa natural, com que fundamento e sob quais deveres. Vale para o setor público, com regras próprias nos arts. 23 a 32.</p>
 
   <h3>Conceitos estruturantes</h3>
   <ul>
@@ -334,7 +339,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
     <li><strong>Dado anonimizado</strong>: perdeu a possibilidade de associação, direta ou indireta, ao indivíduo, considerando meios técnicos razoáveis e disponíveis na ocasião do tratamento. Não é dado pessoal (art. 12) → fora do escopo da LGPD, <em>salvo</em> se o processo for revertido ou puder ser revertido com esforços razoáveis.</li>
     <li><strong>Pseudonimização</strong>: o dado perde a possibilidade de associação <em>direta</em>, mantida em separado a chave de reversão. <strong>Continua sendo dado pessoal.</strong></li>
     <li><strong>Tratamento</strong>: toda operação — coleta, produção, recepção, classificação, utilização, acesso, reprodução, transmissão, distribuição, processamento, arquivamento, armazenamento, eliminação, avaliação, controle, modificação, comunicação, transferência, difusão, extração.</li>
-    <li><strong>Agentes</strong>: controlador (decide sobre o tratamento) · operador (trata em nome do controlador) · encarregado/DPO (canal entre titular, controlador e ANPD). A ANPD fiscaliza e sanciona.</li>
+    <li><strong>Agentes</strong>: controlador (decide sobre o tratamento) · operador (trata em nome do controlador) · encarregado/<strong>DPO</strong> (<em>Data Protection Officer</em> — a pessoa indicada como canal entre titular, controlador e ANPD). A <strong>ANPD</strong> — Autoridade Nacional de Proteção de Dados, autarquia federal que regulamenta a lei — fiscaliza e sanciona.</li>
   </ul>
 
   <div class="callout note">
@@ -471,7 +476,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
     <li><strong>§1º</strong>: o controlador deve fornecer informações claras e adequadas sobre os critérios e procedimentos, <em>observados os segredos comercial e industrial</em>.</li>
     <li><strong>§2º</strong>: em caso de não oferecimento de informações sob alegação de segredo, <strong>a ANPD poderá realizar auditoria</strong> para verificação de aspectos discriminatórios.</li>
   </ul>
-  <p>Este é o artigo que liga a LGPD à explicabilidade de modelos (SHAP, LIME, importância por permutação) e ao dever de motivação do ato administrativo. É o gancho jurídico mais forte para qualquer discursiva sobre modelos preditivos no setor público.</p>
+  <p>Este é o artigo que liga a LGPD à explicabilidade de modelos (SHAP, LIME, importância por permutação — as três técnicas estão explicadas na seção 16) e ao dever de motivação do ato administrativo. É o gancho jurídico mais forte para qualquer discursiva sobre modelos preditivos no setor público.</p>
 
   <h3>Não aplicação (art. 4º)</h3>
   <p>Tratamento por pessoa natural para fins exclusivamente particulares e não econômicos; fins jornalísticos, artísticos ou acadêmicos; segurança pública, defesa nacional, segurança do Estado, atividades de investigação e repressão de infrações penais (lei específica); dados provenientes de fora do país sem comunicação ou uso compartilhado com agentes brasileiros.</p>
@@ -480,8 +485,8 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
   <ul>
     <li><strong>Anonimização e agregação</strong> antes de publicar painéis com dados de pessoas. Cuidado com reidentificação por cruzamento — os <em>quase-identificadores</em> clássicos são CEP + data de nascimento + sexo.</li>
     <li><strong>Técnicas citáveis</strong>: supressão, generalização, mascaramento, adição de ruído, <em>k</em>-anonimato, <em>l</em>-diversidade, <em>t</em>-proximidade, privacidade diferencial.</li>
-    <li><strong>Segurança</strong>: controle de acesso por perfil, criptografia em trânsito (TLS) e em repouso, logs de auditoria, princípio do menor privilégio, segregação de ambientes (produção × análise), retenção e descarte ao fim do ciclo de vida.</li>
-    <li><strong>RIPD</strong> (relatório de impacto à proteção de dados pessoais) é recomendável em tratamentos de risco, especialmente com legítimo interesse, perfilamento ou dado sensível.</li>
+    <li><strong>Segurança</strong>: controle de acesso por perfil, criptografia em trânsito (<strong>TLS</strong>, <em>Transport Layer Security</em> — o protocolo que cifra o tráfego; é o “S” do HTTPS) e em repouso, logs de auditoria, princípio do menor privilégio, segregação de ambientes (produção × análise), retenção e descarte ao fim do ciclo de vida.</li>
+    <li><strong>RIPD</strong> (relatório de impacto à proteção de dados pessoais; em inglês <em>DPIA</em>, <em>Data Protection Impact Assessment</em>) é recomendável em tratamentos de risco, especialmente com legítimo interesse, perfilamento ou dado sensível.</li>
     <li><span class="chip new">v3</span> O <strong>encarregado</strong> pode ter a indicação dispensada pela ANPD conforme porte e natureza da entidade (art. 41, §3º). Não é obrigatório universalmente.</li>
   </ul>
 
@@ -492,9 +497,10 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
 <section id="s5">
   <p class="sec-eyebrow">05 · ★★★</p>
   <h2>LAI — Lei 12.527/2011 e dados abertos</h2>
+  <p class="gloss"><b>LAI</b> — Lei de Acesso à Informação. É a contraparte da LGPD: obriga o Estado a publicar e a responder pedidos de informação. Uma manda abrir, a outra manda proteger — e a prova cobra exatamente onde as duas se encontram.</p>
 
   <p><strong>Regra estruturante:</strong> publicidade é a regra, sigilo é a exceção. O acesso <strong>independe de motivação</strong> — exigir justificativa do requerente é ilegal.</p>
-  <p><strong>Transparência ativa</strong> (divulgação de ofício em sítio eletrônico, independentemente de pedido) × <strong>transparência passiva</strong> (mediante requerimento, via SIC).</p>
+  <p><strong>Transparência ativa</strong> (divulgação de ofício em sítio eletrônico, independentemente de pedido) × <strong>transparência passiva</strong> (mediante requerimento, via <strong>SIC</strong> — Serviço de Informação ao Cidadão, o balcão físico ou eletrônico que recebe o pedido).</p>
 
   <div class="tablewrap">
     <table>
@@ -570,6 +576,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
   <h2>Fundamentos de Ciência de Dados</h2>
 
   <h3>DIKW</h3>
+  <p class="gloss"><b>DIKW</b> — <i>Data, Information, Knowledge, Wisdom</i>: dado, informação, conhecimento e sabedoria. É a pirâmide que descreve como o registro bruto vira decisão, um degrau de contexto por vez.</p>
   <p>Dado (registro bruto, sem contexto) → informação (dado contextualizado; responde "o quê / quem / quando") → conhecimento (padrões, relações, aplicação; responde "como") → sabedoria ou inteligência (julgamento e decisão; responde "por quê" e "o que fazer").</p>
 
   <h3>Tipos de dados quanto à estrutura</h3>
@@ -641,6 +648,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
   <p>Coleta → armazenamento → processamento → análise → visualização → <strong>descarte</strong>. O descarte fecha o ciclo e conecta com o princípio da necessidade da LGPD e com a política de retenção.</p>
 
   <h3><span class="chip new">v3</span> KDD e CRISP-DM</h3>
+  <p class="gloss"><b>KDD</b> — <i>Knowledge Discovery in Databases</i>, descoberta de conhecimento em bases de dados. É o processo acadêmico clássico (Fayyad, 1996) que vai do dado bruto ao conhecimento; a mineração é apenas uma das suas cinco fases.<br><b>CRISP-DM</b> — <i>Cross-Industry Standard Process for Data Mining</i>, processo padrão intersetorial para mineração de dados. É a versão de mercado (1999): mesmo miolo, mas começa no problema de negócio, termina em sistema no ar e recomeça.</p>
   <p>Nenhum dos dois estava na v2 e ambos são cobrados como se fossem óbvios.</p>
   <div class="tablewrap">
     <table>
@@ -702,7 +710,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
     <li><strong>Semissupervisionado</strong> — poucos rótulos + muitos não rotulados.</li>
     <li><strong>Por reforço</strong> — agente, ambiente, ação, recompensa, política. O modelo aprende por tentativa e recompensa.</li>
   </ul>
-  <p><strong>Regras de associação</strong>: Apriori, FP-Growth, Eclat. Métricas: <em>suporte</em> (frequência do conjunto), <em>confiança</em> (P(B|A)) e <strong>lift</strong> (razão entre a confiança e o suporte de B — lift &gt; 1 indica associação positiva; = 1 indica independência).</p>
+  <p><strong>Regras de associação</strong> (“quem faz A tende a fazer B”): <strong>Apriori</strong> (monta candidatos por níveis e poda os pouco frequentes), <strong>FP-Growth</strong> (<em>Frequent Pattern Growth</em> — comprime a base numa árvore e dispensa a geração de candidatos, por isso é mais rápido), <strong>Eclat</strong> (varre na vertical, cruzando listas de transações). Métricas: <em>suporte</em> (frequência do conjunto), <em>confiança</em> (P(B|A)) e <strong>lift</strong> (razão entre a confiança e o suporte de B — lift &gt; 1 indica associação positiva; = 1 indica independência).</p>
 
   <h3><span class="chip new">v3</span> Inferência estatística como conceito básico</h3>
   <p>O edital lista <em>"inferência estatística"</em> ao lado de dado, informação e conhecimento — no bloco de <strong>fundamentos</strong>, não no de estatística. Isso sinaliza cobrança conceitual.</p>
@@ -717,9 +725,9 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
   <div class="callout">
     <span class="callout-label">As três leituras erradas que a banca oferece</span>
     <ul>
-      <li><strong>IC de 95%</strong> não significa "95% de chance de o parâmetro estar neste intervalo". Significa que <em>o procedimento</em> captura o parâmetro em 95% das amostras repetidas.</li>
+      <li><strong>IC de 95%</strong> (intervalo de confiança) não significa "95% de chance de o parâmetro estar neste intervalo". Significa que <em>o procedimento</em> captura o parâmetro em 95% das amostras repetidas.</li>
       <li><strong>p-valor</strong> = P(dado tão ou mais extremo | H₀ verdadeira). Não é P(H₀ verdadeira), não é probabilidade de erro, não mede tamanho de efeito.</li>
-      <li><strong>TCL</strong> diz que a distribuição da <em>média amostral</em> tende à normal com n grande — não diz que os dados se tornam normais.</li>
+      <li><strong>TCL</strong> (teorema central do limite) diz que a distribuição da <em>média amostral</em> tende à normal com n grande — não diz que os dados se tornam normais.</li>
     </ul>
   </div>
   <p><strong>Erro tipo I</strong> (α — rejeitar H₀ verdadeira) e <strong>tipo II</strong> (β — não rejeitar H₀ falsa); <strong>poder = 1 − β</strong>. Significância estatística ≠ relevância prática: com n muito grande, diferenças irrelevantes ficam significativas.</p>
@@ -733,17 +741,17 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
   <p>Acurácia · completude · consistência · atualidade (<em>timeliness</em>) · unicidade · validade · integridade · rastreabilidade.</p>
   <div class="callout note">
     <span class="callout-label">v3 — a taxonomia que agrupa as dimensões</span>
-    <p>Framework de <strong>Wang &amp; Strong</strong>, cobrado literalmente na ALEGO 2026: as características básicas da qualidade se classificam em <strong>intrínseca · contextual · representacional · acessibilidade</strong>. Não confunda com <strong>FAIR</strong> (Findable, Accessible, Interoperable, Reusable), que é princípio de dados científicos e aparece como distrator.</p>
+    <p>Framework de <strong>Wang &amp; Strong</strong>, cobrado literalmente na ALEGO 2026: as características básicas da qualidade se classificam em <strong>intrínseca · contextual · representacional · acessibilidade</strong>. Não confunda com <strong>FAIR</strong> (<em>Findable, Accessible, Interoperable, Reusable</em> — localizável, acessível, interoperável e reutilizável), que é princípio de dados científicos e aparece como distrator.</p>
   </div>
   <p><strong>Mapa sintoma → dimensão</strong>, que resolve a questão sozinho: errado = acurácia · faltando = completude · contraditório entre fontes = consistência · duplicado = unicidade · fora do domínio ou do formato = validade · atrasado = <strong>atualidade / timeliness</strong>.</p>
 
   <h3>Valores ausentes — mecanismos</h3>
   <ul>
-    <li><strong>MCAR</strong> (Missing Completely At Random): a ausência não depende de nada. Exclusão não enviesa, só perde poder estatístico.</li>
-    <li><strong>MAR</strong> (Missing At Random): a ausência depende de variáveis <em>observadas</em>. Imputação condicional funciona bem.</li>
-    <li><strong>MNAR</strong> (Missing Not At Random): a ausência depende do <em>próprio valor não observado</em> — quem tem renda alta omite renda. É o caso mais grave; nenhuma imputação padrão resolve sem modelar o mecanismo.</li>
+    <li><strong>MCAR</strong> (<em>Missing Completely At Random</em> — ausente completamente ao acaso): a ausência não depende de nada. Exclusão não enviesa, só perde poder estatístico.</li>
+    <li><strong>MAR</strong> (<em>Missing At Random</em> — ausente ao acaso, <em>dado o que se observa</em>): a ausência depende de variáveis <em>observadas</em>. Imputação condicional funciona bem.</li>
+    <li><strong>MNAR</strong> (<em>Missing Not At Random</em> — ausente não ao acaso): a ausência depende do <em>próprio valor não observado</em> — quem tem renda alta omite renda. É o caso mais grave; nenhuma imputação padrão resolve sem modelar o mecanismo.</li>
   </ul>
-  <p><strong>Tratamentos:</strong> exclusão <em>listwise</em>/<em>pairwise</em>; imputação por média, mediana ou moda; KNN imputer; MICE (imputação múltipla por equações encadeadas); modelos com tratamento nativo de missing (XGBoost, LightGBM); criação de <em>flag</em> de ausência.</p>
+  <p><strong>Tratamentos:</strong> exclusão <em>listwise</em>/<em>pairwise</em>; imputação por média, mediana ou moda; <strong>KNN</strong> imputer (<em>k-Nearest Neighbors</em> — preenche com o valor dos k registros mais parecidos); <strong>MICE</strong> (<em>Multivariate Imputation by Chained Equations</em> — imputação múltipla por equações encadeadas: cada variável com buraco é prevista pelas demais, em rodadas); modelos com tratamento nativo de missing (XGBoost, LightGBM); criação de <em>flag</em> de ausência.</p>
   <div class="callout">
     <span class="callout-label">Dois pontos que caem</span>
     <p>Imputar pela <strong>média reduz artificialmente a variância</strong> e distorce correlações. Com assimetria ou outliers, <strong>mediana &gt; média</strong>.<br>
@@ -752,9 +760,9 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
 
   <h3>Outliers</h3>
   <ul>
-    <li><strong>Regra do IQR</strong> (boxplot de Tukey): outlier fora de <span class="mono">[Q1 − 1,5×IQR ; Q3 + 1,5×IQR]</span>, com IQR = Q3 − Q1. Fator 3,0 para extremos.</li>
-    <li><strong>Z-score</strong>: <span class="mono">z = (x − μ)/σ</span>, corte usual |z| &gt; 3. Sensível a outliers, porque média e desvio são contaminados por eles → alternativa robusta é o <strong>z modificado com mediana e MAD</strong>.</li>
-    <li><strong>Multivariado</strong>: distância de Mahalanobis, <strong>Isolation Forest</strong> (isola anomalias com poucos cortes aleatórios), <strong>LOF</strong> (densidade local relativa), DBSCAN (marca ruído como subproduto).</li>
+    <li><strong>Regra do IQR</strong> (<em>interquartile range</em>, a amplitude interquartil — o comprimento da caixa do boxplot de Tukey): outlier fora de <span class="mono">[Q1 − 1,5×IQR ; Q3 + 1,5×IQR]</span>, com IQR = Q3 − Q1 (Q1 e Q3 são o primeiro e o terceiro quartis: os valores que deixam 25% e 75% dos dados abaixo de si). Fator 3,0 para extremos.</li>
+    <li><strong>Z-score</strong>: <span class="mono">z = (x − μ)/σ</span>, corte usual |z| &gt; 3. Sensível a outliers, porque média e desvio são contaminados por eles → alternativa robusta é o <strong>z modificado com mediana e MAD</strong> (<em>median absolute deviation</em>, desvio absoluto mediano — a mediana das distâncias até a mediana).</li>
+    <li><strong>Multivariado</strong>: distância de Mahalanobis, <strong>Isolation Forest</strong> (isola anomalias com poucos cortes aleatórios), <strong>LOF</strong> (<em>Local Outlier Factor</em> — compara a densidade ao redor do ponto com a dos vizinhos), DBSCAN (agrupamento por densidade, detalhado na seção 09; marca ruído como subproduto).</li>
   </ul>
   <p><strong>Outlier ≠ erro.</strong> Pode ser evento legítimo — pico de proposições no encerramento da sessão legislativa. Remover sem análise é erro conceitual e é alternativa errada garantida.</p>
 
@@ -804,7 +812,8 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
   <p><strong>One-hot</strong> (nominais de baixa cardinalidade; atenção à armadilha das dummies — com k categorias use k−1 colunas em modelos lineares) · <strong>ordinal/label encoding</strong> (só quando há ordem real) · <strong>target/mean encoding</strong> (risco de vazamento; exige validação) · frequency encoding · hashing.</p>
 
   <h3>Governança (DAMA-DMBOK)</h3>
-  <p><strong>Catálogo</strong> (inventário pesquisável de ativos) · <strong>dicionário de dados</strong> (campo, tipo, domínio, regra de negócio) · <strong>linhagem</strong> (origem → transformações → consumo) · <strong>metadados</strong> descritivos, estruturais e administrativos · papéis de <em>data owner</em>, <em>data steward</em> e custodiante técnico · políticas de qualidade, retenção, acesso e classificação da informação · <strong>MDM</strong> (dado mestre) · SLA de dados.</p>
+  <p class="gloss"><b>DAMA-DMBOK</b> — <i>Data Management Association · Data Management Body of Knowledge</i>: o “corpo de conhecimento” em gestão de dados publicado pela DAMA International. É de onde vem o vocabulário de governança que a banca cobra abaixo.</p>
+  <p><strong>Catálogo</strong> (inventário pesquisável de ativos) · <strong>dicionário de dados</strong> (campo, tipo, domínio, regra de negócio) · <strong>linhagem</strong> (origem → transformações → consumo) · <strong>metadados</strong> descritivos, estruturais e administrativos · papéis de <em>data owner</em>, <em>data steward</em> e custodiante técnico · políticas de qualidade, retenção, acesso e classificação da informação · <strong>MDM</strong> (<em>Master Data Management</em>, gestão de dado mestre — manter uma versão única e confiável das entidades centrais: parlamentar, órgão, fornecedor) · <strong>SLA</strong> de dados (<em>Service Level Agreement</em>, acordo de nível de serviço — prazo e qualidade prometidos a quem consome o dado).</p>
 </section>
 
 <section id="s8">
@@ -812,7 +821,8 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
   <h2>Coleta, integração e interoperabilidade</h2>
 
   <h3>ETL × ELT</h3>
-  <p><strong>ETL</strong> transforma antes de carregar (DW clássico, área de <em>staging</em>). <strong>ELT</strong> carrega bruto e transforma no destino (nuvem, data lake, poder de processamento no destino).</p>
+  <p class="gloss"><b>ETL</b> — <i>Extract, Transform, Load</i>: extrair, transformar, carregar. <b>ELT</b> troca a ordem das duas últimas: extrair, carregar e só então transformar. A sigla já é a resposta da questão — o que muda é <i>onde</i> a transformação acontece.</p>
+  <p><strong>ETL</strong> transforma antes de carregar (o <strong>DW</strong> — <em>data warehouse</em>, armazém de dados — clássico, com área de <em>staging</em>). <strong>ELT</strong> carrega bruto e transforma no destino (nuvem, data lake, poder de processamento no destino).</p>
 
   <h3>Arquiteturas</h3>
   <ul>
@@ -820,7 +830,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
     <li><strong>Modelagem dimensional (Kimball)</strong> — tabela <strong>fato</strong> (métricas + chaves + granularidade declarada) e <strong>dimensões</strong> (contexto descritivo). <strong>Esquema estrela</strong> = dimensões desnormalizadas, menos joins, consulta mais rápida, mais redundância. <strong>Floco de neve</strong> = dimensões normalizadas, menos redundância, mais joins, mais lento.</li>
     <li><strong>Data Lake</strong> — dado bruto no formato nativo, <em>schema-on-read</em>. Vira "data swamp" sem catálogo e governança.</li>
     <li><strong>Lakehouse</strong> — camada transacional sobre o lake. <strong>Data mart</strong> — recorte temático ou departamental.</li>
-    <li><strong>OLTP</strong> (transacional, normalizado, escritas curtas, ACID) × <strong>OLAP</strong> (analítico, agregações, cubos: <em>drill-down</em>, <em>roll-up</em>, <em>slice</em>, <em>dice</em>, <em>pivot</em>).</li>
+    <li><strong>OLTP</strong> (<em>Online Transaction Processing</em> — o sistema do dia a dia, que registra uma transação por vez: transacional, normalizado, escritas curtas, ACID) × <strong>OLAP</strong> (<em>Online Analytical Processing</em> — o sistema de análise, que lê muito e agrega: cubos com <em>drill-down</em>, <em>roll-up</em>, <em>slice</em>, <em>dice</em>, <em>pivot</em>).</li>
   </ul>
 
 <figure class="dg">
@@ -888,7 +898,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
       </tbody>
     </table>
   </div>
-  <p><strong>SCD</strong> (Slowly Changing Dimension): <strong>tipo 1</strong> sobrescreve · <strong>tipo 2</strong> versiona o histórico com linhas novas e vigência · <strong>tipo 3</strong> guarda o valor anterior em coluna adicional.</p>
+  <p><strong>SCD</strong> (<em>Slowly Changing Dimension</em>, dimensão que muda lentamente — como tratar o atributo que muda com o tempo, tipo o partido do parlamentar): <strong>tipo 1</strong> sobrescreve · <strong>tipo 2</strong> versiona o histórico com linhas novas e vigência · <strong>tipo 3</strong> guarda o valor anterior em coluna adicional.</p>
 
 <figure class="dg">
 <svg viewBox="0 0 660 300" role="img" aria-label="Esquema estrela tem dimensões desnormalizadas ligadas diretamente à tabela fato; floco de neve normaliza as dimensões em tabelas auxiliares, exigindo mais junções.">
@@ -931,10 +941,12 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
 <figcaption><b>Conte as caixas penduradas.</b> As duas modelagens têm a mesma tabela fato e as mesmas dimensões; a diferença é que o floco de neve quebra cada dimensão em tabelas auxiliares normalizadas. Cada quebra economiza espaço e cobra uma junção a mais na consulta — daí a regra de que estrela é mais rápida e floco de neve é mais econômico.</figcaption>
 </figure>
   <h3>APIs REST</h3>
-  <p><em>Stateless</em>, recursos identificados por URI. <strong>GET</strong> (ler) · <strong>POST</strong> (criar) · <strong>PUT</strong> (substituir) · <strong>PATCH</strong> (atualizar parcial) · <strong>DELETE</strong>.</p>
-  <p>Códigos: 200 OK · 201 Created · 204 No Content · 301/302 redirecionamento · 400 requisição inválida · <strong>401 não autenticado</strong> · <strong>403 não autorizado</strong> · 404 não encontrado · <strong>429 rate limit</strong> · 500 erro do servidor. Paginação por offset/limit ou cursor; autenticação por API key, token Bearer ou OAuth 2.0; JSON como payload; documentação em OpenAPI/Swagger.</p>
+  <p class="gloss"><b>API</b> — <i>Application Programming Interface</i>, interface de programação: a porta documentada por onde um sistema entrega dados a outro, sem passar por tela. <b>REST</b> — <i>Representational State Transfer</i>: o estilo de arquitetura dominante nessas portas, em que cada dado é um recurso com endereço próprio.</p>
+  <p><em>Stateless</em>, recursos identificados por <strong>URI</strong> (<em>Uniform Resource Identifier</em> — o endereço do recurso). <strong>GET</strong> (ler) · <strong>POST</strong> (criar) · <strong>PUT</strong> (substituir) · <strong>PATCH</strong> (atualizar parcial) · <strong>DELETE</strong>.</p>
+  <p>Códigos: 200 OK · 201 Created · 204 No Content · 301/302 redirecionamento · 400 requisição inválida · <strong>401 não autenticado</strong> · <strong>403 não autorizado</strong> · 404 não encontrado · <strong>429 rate limit</strong> · 500 erro do servidor. Paginação por offset/limit ou cursor; autenticação por API key, token Bearer ou <strong>OAuth 2.0</strong> (protocolo que autoriza o acesso por token temporário, sem entregar a senha); JSON como payload; documentação em OpenAPI/Swagger.</p>
 
   <h3>Web scraping</h3>
+  <p class="gloss"><b>Web scraping</b> — “raspagem”: extrair dado lendo a própria página HTML, quando não existe dado aberto nem API. <b>DOM</b> — <i>Document Object Model</i>: a árvore de elementos em que o navegador transforma a página, e por onde o raspador navega.</p>
   <p>Parsing do DOM/HTML. <strong>BeautifulSoup</strong> e <strong>Scrapy</strong> para conteúdo estático; <strong>Selenium/Playwright</strong> para páginas renderizadas por JavaScript. Boas práticas: respeitar <code>robots.txt</code> e termos de uso, <em>throttling</em>, identificar <em>user-agent</em>, cache local.</p>
   <div class="callout note">
     <span class="callout-label">Hierarquia correta de acesso</span>
@@ -976,7 +988,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
     <table>
       <thead><tr><th>Fonte</th><th>Natureza</th><th>Desafio técnico dominante</th></tr></thead>
       <tbody>
-        <tr><td>Diários oficiais</td><td>não estruturado (PDF)</td><td>distinguir PDF nativo de digitalizado; segmentar por ato; NER</td></tr>
+        <tr><td>Diários oficiais</td><td>não estruturado (PDF)</td><td>distinguir PDF nativo de digitalizado; segmentar por ato; NER (reconhecimento de entidades — seção 12)</td></tr>
         <tr><td>Proposições</td><td>semiestruturado + texto</td><td>tramitação como série de eventos; similaridade entre PLs</td></tr>
         <tr><td>Sistemas de votação</td><td>estruturado</td><td>granularidade (votação × voto individual); dado pessoal de parlamentar é público, de cidadão não</td></tr>
         <tr><td>Dados orçamentários</td><td>estruturado, hierárquico</td><td>estágios da despesa; comparabilidade entre exercícios</td></tr>
@@ -993,6 +1005,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
 <section id="s9">
   <p class="sec-eyebrow">09 · ★★★</p>
   <h2>Estatística, EDA e agrupamento</h2>
+  <p class="gloss"><b>EDA</b> — <i>Exploratory Data Analysis</i>, análise exploratória de dados. É a fase de olhar antes de modelar: distribuições, valores estranhos, relações entre variáveis. O nome é de John Tukey, o mesmo do boxplot.</p>
 
   <h3>Descritiva</h3>
   <ul>
@@ -1050,17 +1063,20 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
   <p><strong>Correlação não implica causalidade</strong>: confundidor, causalidade reversa, correlação espúria, viés de seleção. E <strong>r ≈ 0 não exclui relação não linear</strong> — uma parábola perfeita pode ter r = 0.</p>
 
   <h3>K-means</h3>
+  <p class="gloss"><b>K-means</b> — “k médias”. Agrupamento não supervisionado que divide os dados em <i>k</i> grupos, cada um representado pela <i>média</i> dos seus pontos (o centroide). O k é escolhido por você, não descoberto pelo algoritmo — e é daí que sai metade das questões.</p>
   <p><strong>Algoritmo:</strong> (1) escolher k; (2) inicializar centroides — <em>k-means++</em> reduz má inicialização; (3) atribuir cada ponto ao centroide mais próximo (distância euclidiana); (4) recalcular centroides como <strong>média</strong> dos pontos do grupo; (5) repetir até convergir.</p>
-  <p>Minimiza a <strong>inércia / SSE intra-cluster</strong>.</p>
+  <p>Minimiza a <strong>inércia / SSE intra-cluster</strong> (<em>Sum of Squared Errors</em>, soma dos quadrados das distâncias de cada ponto ao seu centroide).</p>
   <p><strong>Quatro fraquezas cobradas:</strong> exige k a priori · sensível a escala, outliers e inicialização · pressupõe clusters esféricos, de tamanhos e densidades semelhantes · converge para mínimo local. Em compensação, escala bem.</p>
   <p><strong>Escolha de k:</strong> método do cotovelo (<em>elbow</em>) sobre a inércia; <strong>coeficiente de silhueta</strong> <span class="mono">s = (b − a)/max(a,b)</span>, com a = distância média intra-cluster e b = distância média ao cluster vizinho mais próximo — varia de −1 a 1, maior é melhor, ~0 indica ponto de fronteira e negativo sugere atribuição errada. Também Davies-Bouldin (menor é melhor), Calinski-Harabasz (maior é melhor) e <em>gap statistic</em>.</p>
-  <p><strong>Variantes:</strong> k-medoids/PAM (mais robusto a outliers, usa pontos reais como centro), k-modes (categóricas), GMM (probabilístico, atribuição suave).</p>
+  <p><strong>Variantes:</strong> k-medoids/<strong>PAM</strong> (<em>Partitioning Around Medoids</em> — mais robusto a outliers, usa pontos reais como centro), k-modes (categóricas), <strong>GMM</strong> (<em>Gaussian Mixture Model</em>, mistura de gaussianas — probabilístico, dá a cada ponto uma probabilidade de pertencer a cada grupo em vez de um rótulo fechado).</p>
 
   <h3>DBSCAN</h3>
+  <p class="gloss"><b>DBSCAN</b> — <i>Density-Based Spatial Clustering of Applications with Noise</i>: agrupamento espacial por densidade, com ruído. Traduzindo o nome: grupo é região densa, e o que fica isolado é declarado ruído em vez de ser encaixado à força.</p>
   <p>Parâmetros <strong>eps</strong> (raio da vizinhança) e <strong>minPts</strong>. Classifica pontos em <em>core</em>, <em>border</em> e <em>noise</em>.</p>
-  <p><strong>Vantagens:</strong> não exige k, encontra clusters de forma arbitrária, identifica ruído explicitamente. <strong>Limitações:</strong> sofre com densidades muito diferentes entre clusters e com alta dimensionalidade. <strong>OPTICS</strong> e <strong>HDBSCAN</strong> generalizam para densidades variáveis.</p>
+  <p><strong>Vantagens:</strong> não exige k, encontra clusters de forma arbitrária, identifica ruído explicitamente. <strong>Limitações:</strong> sofre com densidades muito diferentes entre clusters e com alta dimensionalidade. <strong>OPTICS</strong> (<em>Ordering Points To Identify the Clustering Structure</em>) e <strong>HDBSCAN</strong> (<em>Hierarchical DBSCAN</em>, o DBSCAN em versão hierárquica) generalizam para densidades variáveis.</p>
 
   <h3>Hierárquico</h3>
+  <p class="gloss"><b>Agrupamento hierárquico</b> — em vez de um número fixo de grupos, constrói uma árvore de fusões (o dendrograma). Você decide quantos grupos quer depois, escolhendo a altura em que corta a árvore.</p>
   <p><strong>Aglomerativo</strong> (bottom-up: cada ponto é um cluster e vão se fundindo) × <strong>divisivo</strong> (top-down). Resultado visualizado no <strong>dendrograma</strong>; o número de clusters vem do corte na altura desejada. Não exige k a priori, mas é O(n²)–O(n³) — não escala.</p>
   <p><strong>Linkages:</strong> <em>single</em> (menor distância; gera encadeamento/<em>chaining</em>) · <em>complete</em> (maior distância; clusters compactos) · <em>average</em> · <strong>Ward</strong> (minimiza o aumento da variância intra-cluster; o mais usado).</p>
 
@@ -1121,6 +1137,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
 <figcaption><b>Três perguntas resolvem a escolha.</b> A primeira pergunta separa K-means de todo o resto; a segunda testa o pressuposto que o K-means impõe silenciosamente (clusters esféricos, de tamanho e densidade parecidos); a terceira separa densidade de hierarquia. Repare no bloco de cima: em alta dimensionalidade nenhum dos ramos funciona bem antes de reduzir, porque todos dependem de distância.</figcaption>
 </figure>
   <h3>PCA</h3>
+  <p class="gloss"><b>PCA</b> — <i>Principal Component Analysis</i>, análise de componentes principais. Troca as variáveis originais por poucas combinações delas (os componentes), escolhidas para reter o máximo de variação possível. Serve para reduzir dimensionalidade, não para escolher variáveis.</p>
   <p>Técnica <strong>linear e não supervisionada</strong> que projeta os dados em componentes <strong>ortogonais</strong> (não correlacionados), ordenados por variância explicada. Baseia-se nos autovalores e autovetores da matriz de covariância — ou de correlação, quando os dados são padronizados.</p>
   <ul>
     <li>Exige <strong>padronização</strong> se as escalas diferem.</li>
@@ -1135,6 +1152,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
   </div>
 
   <h3>t-SNE e UMAP</h3>
+  <p class="gloss"><b>t-SNE</b> — <i>t-distributed Stochastic Neighbor Embedding</i>. <b>UMAP</b> — <i>Uniform Manifold Approximation and Projection</i>. As duas achatam dados de muitas dimensões em duas ou três para você <i>enxergar</i>, preservando quem está perto de quem. São primas não lineares do PCA.</p>
   <p><strong>t-SNE</strong>: não linear, <strong>estocástico</strong>, preserva estrutura <em>local</em> (vizinhanças), usado apenas para <strong>visualização</strong> em 2D/3D. Hiperparâmetro de <em>perplexidade</em> (~5–50).</p>
   <p><strong>Limitações que caem:</strong> o resultado muda entre execuções; distâncias entre clusters e tamanhos de cluster <strong>não são interpretáveis</strong>; custo computacional alto; <strong>não gera transformação reutilizável</strong> para novos dados, ao contrário do PCA.</p>
   <p><strong>UMAP</strong> é mais rápido, preserva melhor a estrutura global e gera transformação reutilizável — por isso é o passo correto <em>antes</em> de agrupar em alta dimensionalidade.</p>
@@ -1150,14 +1168,14 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
 
   <h3>Modelos</h3>
   <ul>
-    <li><strong>Regressão linear</strong> — OLS minimiza a soma dos quadrados dos resíduos. Pressupostos: linearidade, independência dos erros, homocedasticidade, normalidade dos resíduos, ausência de multicolinearidade (VIF &gt; 5–10 acende alerta). <strong>R² ajustado</strong> penaliza o número de preditores — o R² comum <em>nunca diminui</em> ao adicionar variáveis, e essa é a pegadinha clássica.</li>
+    <li><strong>Regressão linear</strong> — <strong>OLS</strong> (<em>Ordinary Least Squares</em>, mínimos quadrados ordinários) minimiza a soma dos quadrados dos resíduos. Pressupostos: linearidade, independência dos erros, homocedasticidade, normalidade dos resíduos, ausência de multicolinearidade (<strong>VIF</strong>, <em>Variance Inflation Factor</em> ou fator de inflação da variância, &gt; 5–10 acende alerta). <strong>R² ajustado</strong> penaliza o número de preditores — o R² comum <em>nunca diminui</em> ao adicionar variáveis, e essa é a pegadinha clássica.</li>
     <li><strong>Regressão logística</strong> — <strong>é classificação, apesar do nome</strong>. Função sigmoide, saída é probabilidade em [0,1], limiar padrão 0,5 (ajustável conforme o custo dos erros). Estimada por <strong>máxima verossimilhança</strong>, não por OLS. Coeficiente = variação no log-odds; <span class="mono">exp(β)</span> = razão de chances (odds ratio).</li>
     <li><strong>Árvore de decisão</strong> — particiona o espaço por critérios de impureza: <strong>Gini</strong> <span class="mono">= 1 − Σpᵢ²</span> · <strong>entropia</strong> <span class="mono">= −Σpᵢ log₂ pᵢ</span> e ganho de informação · variância/MSE em regressão. Interpretável, capta não linearidade e interações, não exige escalonamento; propensa a overfitting → poda, profundidade máxima, mínimo de amostras por folha. <strong>Tem exatamente uma raiz</strong>, nós internos que testam atributos, ramos rotulados pelos valores e folhas que retornam o valor de saída.</li>
-    <li><strong>Random Forest</strong> — <em>bagging</em> (bootstrap agregado) + amostragem aleatória de features em cada nó, o que <strong>descorrelaciona</strong> as árvores. Treino paralelizável, reduz principalmente a <strong>variância</strong>, fornece erro OOB e importância de variáveis.</li>
-    <li><strong>Gradient Boosting / XGBoost / LightGBM</strong> — ensemble <strong>sequencial</strong>: cada árvore corrige os resíduos/gradientes da anterior. Reduz principalmente o <strong>viés</strong>; regularização L1/L2, subsampling, early stopping, tratamento nativo de missing. Costuma superar RF em dado tabular, ao custo de mais tuning e maior risco de overfitting.</li>
-    <li><strong>KNN</strong> — preguiçoso (sem fase de treino), sensível a escala e à maldição da dimensionalidade. Distância de <strong>Minkowski</strong>: <span class="mono">(Σ|xᵢ−yᵢ|^p)^(1/p)</span> — p=1 Manhattan, p=2 Euclidiana, p→∞ Chebyshev.</li>
+    <li><strong>Random Forest</strong> — <em>bagging</em> (bootstrap agregado) + amostragem aleatória de features em cada nó, o que <strong>descorrelaciona</strong> as árvores. Treino paralelizável, reduz principalmente a <strong>variância</strong>, fornece erro <strong>OOB</strong> (<em>out-of-bag</em> — calculado nas amostras que ficaram de fora do sorteio de cada árvore, o que dispensa um conjunto de validação) e importância de variáveis.</li>
+    <li><strong>Gradient Boosting / XGBoost</strong> (<em>eXtreme Gradient Boosting</em>) <strong>/ LightGBM</strong> (<em>Light Gradient Boosting Machine</em>) — ensemble <strong>sequencial</strong>: cada árvore corrige os resíduos/gradientes da anterior. Reduz principalmente o <strong>viés</strong>; regularização L1/L2, subsampling, early stopping, tratamento nativo de missing. Costuma superar a Random Forest em dado tabular, ao custo de mais tuning e maior risco de overfitting.</li>
+    <li><strong>KNN</strong> (<em>k-Nearest Neighbors</em>, k vizinhos mais próximos — classifica pelo voto dos k registros mais parecidos) — preguiçoso (sem fase de treino), sensível a escala e à maldição da dimensionalidade. Distância de <strong>Minkowski</strong>: <span class="mono">(Σ|xᵢ−yᵢ|^p)^(1/p)</span> — p=1 Manhattan, p=2 Euclidiana, p→∞ Chebyshev.</li>
     <li><strong>Naive Bayes</strong> — assume independência condicional entre atributos; excelente baseline para texto.</li>
-    <li><strong>SVM</strong> — margem máxima, <em>kernel trick</em>. Eficaz em alta dimensionalidade, inclusive quando há mais dimensões que amostras. <strong>É eficiente em memória</strong> porque usa apenas os vetores de suporte. <strong>Não fornece probabilidade diretamente</strong> — o scikit-learn a obtém por Platt scaling com validação cruzada, que é caro.</li>
+    <li><strong>SVM</strong> (<em>Support Vector Machine</em>, máquina de vetores de suporte — traça a fronteira que passa o mais longe possível dos dois lados) — margem máxima, <em>kernel trick</em>. Eficaz em alta dimensionalidade, inclusive quando há mais dimensões que amostras. <strong>É eficiente em memória</strong> porque usa apenas os vetores de suporte. <strong>Não fornece probabilidade diretamente</strong> — o scikit-learn a obtém por Platt scaling com validação cruzada, que é caro.</li>
   </ul>
   <div class="callout note">
     <span class="callout-label">A comparação mais cobrada</span>
@@ -1212,6 +1230,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
 <figcaption><b>A seta conta a história.</b> No bagging as setas saem em paralelo e voltam a se juntar: como cada árvore vê uma amostra diferente, os erros individuais se cancelam e a variância cai. No boosting as setas formam uma corrente: cada modelo recebe o que o anterior errou, o que reduz o viés mas impede paralelizar e aumenta o risco de overfitting.</figcaption>
 </figure>
   <h3>Matriz de confusão</h3>
+  <p class="gloss">O alfabeto do bloco, para ler as fórmulas sem tropeçar: <b>VP</b> verdadeiro positivo · <b>VN</b> verdadeiro negativo · <b>FP</b> falso positivo · <b>FN</b> falso negativo. Nas siglas das métricas: <b>VPP</b> valor preditivo positivo (a precisão) · <b>VPN</b> valor preditivo negativo · <b>TPR</b> <i>true positive rate</i> (o recall) · <b>TNR</b> <i>true negative rate</i> (a especificidade) · <b>FPR</b> <i>false positive rate</i>.</p>
   <div class="tablewrap">
     <table>
       <thead><tr><th></th><th>Predito Positivo</th><th>Predito Negativo</th></tr></thead>
@@ -1290,10 +1309,10 @@ F1            = 2·(P·R)/(P+R)      média harmônica</div>
     <li><strong>Priorize precisão</strong> quando o falso positivo custa caro: acusar servidor honesto, bloquear pagamento legítimo, apontar irregularidade inexistente.</li>
     <li><strong>Priorize recall</strong> quando o falso negativo custa caro: fraude não detectada, irregularidade que passa, doença não diagnosticada.</li>
     <li><strong>Acurácia engana</strong> em classes desbalanceadas — prever sempre a majoritária numa base 99/1 dá 99% de acurácia e utilidade zero.</li>
-    <li><strong>ROC</strong>: TPR (y) × FPR (x) variando o limiar. <strong>AUC</strong>: 0,5 = aleatório · 1,0 = perfeito · &lt; 0,5 = pior que aleatório, bastando inverter as predições. <strong>Curva Precision-Recall</strong> é mais informativa em forte desbalanceamento.</li>
+    <li><strong>ROC</strong> (<em>Receiver Operating Characteristic</em> — curva herdada da leitura de radar na 2ª Guerra): TPR (y) × FPR (x) variando o limiar. <strong>AUC</strong> (<em>Area Under the Curve</em>, área sob a curva): 0,5 = aleatório · 1,0 = perfeito · &lt; 0,5 = pior que aleatório, bastando inverter as predições. <strong>Curva Precision-Recall</strong> é mais informativa em forte desbalanceamento.</li>
     <li><strong>Trade-off</strong>: baixar o limiar aumenta recall e reduz precisão; subir faz o inverso. <strong>A escolha do limiar é de negócio, não estatística.</strong></li>
-    <li>Outras: MCC, Kappa de Cohen, log loss, Brier score.</li>
-    <li><strong>Regressão</strong>: MAE (robusto), MSE, RMSE (mesma unidade do alvo, penaliza erro grande), MAPE (%, instável perto de zero), R².</li>
+    <li>Outras: <strong>MCC</strong> (<em>Matthews Correlation Coefficient</em> — resume a matriz inteira num número só e não se deixa enganar por desbalanceamento), Kappa de Cohen (concordância além do acaso), log loss e Brier score (penalizam a probabilidade mal calibrada, não só o rótulo).</li>
+    <li><strong>Regressão</strong>: <strong>MAE</strong> (<em>Mean Absolute Error</em>, erro absoluto médio — robusto), <strong>MSE</strong> (<em>Mean Squared Error</em>, erro quadrático médio), <strong>RMSE</strong> (<em>Root Mean Squared Error</em>, a raiz do anterior — mesma unidade do alvo, penaliza erro grande), <strong>MAPE</strong> (<em>Mean Absolute Percentage Error</em>, erro percentual absoluto médio — instável perto de zero), R².</li>
   </ul>
 
   <h3>Viés, variância e validação</h3>
@@ -1334,7 +1353,7 @@ F1            = 2·(P·R)/(P+R)      média harmônica</div>
     <li><strong>Overfitting = alta variância</strong>: ótimo no treino, ruim no teste. Corrige com mais dados, regularização, poda, redução de features, early stopping, dropout, validação cruzada.</li>
     <li><strong>Underfitting = alto viés</strong>: ruim nos dois. Corrige com modelo mais complexo, mais features, menos regularização.</li>
     <li><strong>Regularização</strong>: <strong>L1/Lasso zera coeficientes</strong> → faz seleção de variáveis; <strong>L2/Ridge</strong> encolhe sem zerar, lida bem com multicolinearidade; Elastic Net combina.</li>
-    <li><strong>Validação</strong>: holdout (treino/validação/teste) · k-fold (k = 5 ou 10) · k-fold <strong>estratificado</strong> (preserva a proporção das classes) · leave-one-out · <em>nested CV</em> para tuning e avaliação honesta.</li>
+    <li><strong>Validação</strong>: holdout (treino/validação/teste) · k-fold (k = 5 ou 10) · k-fold <strong>estratificado</strong> (preserva a proporção das classes) · leave-one-out · <em>nested CV</em> (validação cruzada aninhada: um laço escolhe os hiperparâmetros, o outro mede o resultado) para tuning e avaliação honesta.</li>
     <li><strong>Séries temporais: nunca embaralhar.</strong> Validação com janela deslizante (<em>rolling</em>) ou expansiva (<em>expanding</em>), sempre treinando no passado e testando no futuro.</li>
   </ul>
   <div class="callout">
@@ -1345,7 +1364,7 @@ F1            = 2·(P·R)/(P+R)      média harmônica</div>
       <li>Duplicatas entre treino e teste.</li>
       <li>Usar informação do futuro em série temporal.</li>
     </ol>
-    <p><strong>Regra:</strong> <code>fit</code> só no treino, <code>transform</code> no teste — de preferência dentro de um <code>Pipeline</code>. E <strong>SMOTE só no treino</strong>, depois do split.</p>
+    <p><strong>Regra:</strong> <code>fit</code> só no treino, <code>transform</code> no teste — de preferência dentro de um <code>Pipeline</code>. E <strong>SMOTE</strong> (<em>Synthetic Minority Over-sampling Technique</em> — cria exemplos artificiais da classe rara interpolando vizinhos) <strong>só no treino</strong>, depois do split.</p>
   </div>
   <p><strong>Desbalanceamento:</strong> SMOTE (oversampling sintético), undersampling, <code>class_weight='balanced'</code>, ajuste de limiar, métricas adequadas.</p>
   <p><strong>Ajuste de hiperparâmetros:</strong> Grid Search explora <em>sistematicamente</em> uma grade predefinida; Random Search <em>amostra</em> o espaço e costuma ser mais eficiente com muitos hiperparâmetros; otimização bayesiana usa o histórico para escolher o próximo ponto.</p>
@@ -1361,7 +1380,7 @@ F1            = 2·(P·R)/(P+R)      média harmônica</div>
   <h3>Simulação de Monte Carlo</h3>
   <ul>
     <li><strong>Mecanismo</strong>: amostrar repetidamente de distribuições de probabilidade atribuídas às entradas incertas, propagar cada amostra pelo modelo e acumular as saídas.</li>
-    <li><strong>O resultado não é um número, é uma distribuição.</strong> Reporta-se média, mediana, percentis (P10 / P50 / P90) e probabilidade de exceder um limiar.</li>
+    <li><strong>O resultado não é um número, é uma distribuição.</strong> Reporta-se média, mediana, percentis (<strong>P10 / P50 / P90</strong> — o valor abaixo do qual caem 10%, 50% e 90% das simulações; P50 é a mediana) e probabilidade de exceder um limiar.</li>
     <li><strong>Convergência</strong> melhora com √n: quadruplicar o número de simulações reduz o erro pela metade. Mesma lógica do erro amostral.</li>
     <li><strong>Quando usar</strong>: há incerteza simultânea em vários parâmetros e a combinação delas não é analiticamente tratável.</li>
     <li><strong>Pré-requisito honesto</strong>: você precisa justificar a distribuição escolhida para cada entrada. Assumir normal por conveniência é erro metodológico citável.</li>
@@ -1458,11 +1477,11 @@ F1            = 2·(P·R)/(P+R)      média harmônica</div>
 <figcaption><b>A fila mostra onde intervir.</b> Modelada assim, a tramitação deixa de ser uma sequência de prazos regimentais e passa a ser um sistema com capacidade finita em cada etapa. A estação com fila acumulada e utilização saturada é o gargalo — e é a única cuja melhoria muda o tempo total. Esse é o argumento que transforma uma análise descritiva de prazos em recomendação prescritiva para a comissão.</figcaption>
 </figure>
   <p>Modela processos com etapas, chegadas e atendimentos — <strong>a tramitação legislativa é literalmente um sistema de filas</strong>: proposição chega, aguarda em comissão, é relatada, aguarda pauta, é votada.</p>
-  <p>Métricas típicas: tempo médio no sistema, tempo médio de espera por etapa, <strong>taxa de utilização</strong> de cada estação (relator, comissão), tamanho médio da fila, identificação do <strong>gargalo</strong>. Notação Kendall A/B/c (ex.: M/M/1). Ferramenta: SimPy, Arena.</p>
+  <p>Métricas típicas: tempo médio no sistema, tempo médio de espera por etapa, <strong>taxa de utilização</strong> de cada estação (relator, comissão), tamanho médio da fila, identificação do <strong>gargalo</strong>. Notação Kendall A/B/c — chegada / atendimento / nº de servidores (ex.: <span class="mono">M/M/1</span> = chegadas de Poisson, atendimento exponencial, um servidor só). Ferramenta: SimPy, Arena.</p>
 
   <h3>Otimização</h3>
   <ul>
-    <li><strong>Programação linear</strong>: função objetivo (maximizar ou minimizar) + restrições + variáveis de decisão. Solver do Excel, PuLP, <code>scipy.optimize</code>, OR-Tools.</li>
+    <li><strong>Programação linear</strong>: função objetivo (maximizar ou minimizar) + restrições + variáveis de decisão. Solver do Excel, PuLP, <code>scipy.optimize</code>, OR-Tools (<em>Operations Research Tools</em>, a biblioteca de pesquisa operacional do Google).</li>
     <li>Aplicações no Legislativo: alocação de servidores por comissão, escalonamento de pauta, distribuição de relatorias respeitando limites por parlamentar.</li>
     <li><strong>Programação inteira</strong> quando as variáveis são indivisíveis (não se aloca meio servidor). Heurísticas e metaheurísticas (algoritmos genéticos, simulated annealing) quando o espaço é grande demais.</li>
   </ul>
@@ -1481,9 +1500,10 @@ F1            = 2·(P·R)/(P+R)      média harmônica</div>
 <section id="s12">
   <p class="sec-eyebrow">12 · ★</p>
   <h2>PLN em textos legislativos</h2>
+  <p class="gloss"><b>PLN</b> — processamento de linguagem natural; em inglês <i>NLP, Natural Language Processing</i>. É tudo que faz o computador tratar texto escrito por gente — diário oficial, ementa, parecer — como dado analisável.</p>
 
   <h3>Pipeline</h3>
-  <p>Limpeza → tokenização → normalização (minúsculas, remoção de acentos e pontuação) → remoção de <em>stopwords</em> → <strong>stemming</strong> (trunca sufixos por regra; o resultado pode não ser palavra real; RSLP para o português) ou <strong>lematização</strong> (retorna o lema de dicionário, usa morfologia e classe gramatical; mais precisa e mais custosa) → vetorização.</p>
+  <p>Limpeza → tokenização → normalização (minúsculas, remoção de acentos e pontuação) → remoção de <em>stopwords</em> → <strong>stemming</strong> (trunca sufixos por regra; o resultado pode não ser palavra real; o algoritmo padrão em português é o <strong>RSLP</strong>, Removedor de Sufixos da Língua Portuguesa) ou <strong>lematização</strong> (retorna o lema de dicionário, usa morfologia e classe gramatical; mais precisa e mais custosa) → vetorização.</p>
 
 <figure class="dg">
 <svg viewBox="0 0 660 270" role="img" aria-label="Pipeline de processamento de linguagem natural, com bifurcação entre stemming e lematização e, ao final, entre representações esparsas e densas.">
@@ -1533,10 +1553,10 @@ F1            = 2·(P·R)/(P+R)      média harmônica</div>
   <h3>Representações</h3>
   <ul>
     <li><strong>Bag of Words</strong> — frequência bruta; ignora ordem e sintaxe; esparso e de alta dimensão.</li>
-    <li><strong>TF-IDF</strong> — <span class="mono">tf-idf(t,d) = tf(t,d) × log(N / df(t))</span>. O <strong>IDF penaliza termos presentes em muitos documentos</strong> e valoriza os discriminativos. É a representação mais cobrada.</li>
+    <li><strong>TF-IDF</strong> (<em>Term Frequency – Inverse Document Frequency</em>: frequência do termo no documento × inverso da frequência dele na coleção) — <span class="mono">tf-idf(t,d) = tf(t,d) × log(N / df(t))</span>. O <strong>IDF penaliza termos presentes em muitos documentos</strong> e valoriza os discriminativos. É a representação mais cobrada.</li>
     <li><strong>N-gramas</strong> — capturam sequências curtas ("projeto de lei", "regime de urgência").</li>
-    <li><strong>Embeddings estáticos</strong> — Word2Vec (<em>CBOW</em> prevê a palavra pelo contexto; <em>Skip-gram</em> prevê o contexto pela palavra), GloVe, FastText (subpalavras, bom para português flexionado). Vetores <strong>densos e de baixa dimensão</strong>.</li>
-    <li><strong>Contextuais</strong> — BERT e transformers: atenção, bidirecionalidade, o mesmo termo recebe vetores diferentes conforme o contexto.</li>
+    <li><strong>Embeddings estáticos</strong> — Word2Vec (<em>CBOW</em>, <em>Continuous Bag of Words</em>, prevê a palavra pelo contexto; <em>Skip-gram</em> prevê o contexto pela palavra), GloVe, FastText (subpalavras, bom para português flexionado). Vetores <strong>densos e de baixa dimensão</strong>.</li>
+    <li><strong>Contextuais</strong> — <strong>BERT</strong> (<em>Bidirectional Encoder Representations from Transformers</em>) e transformers: atenção, bidirecionalidade, o mesmo termo recebe vetores diferentes conforme o contexto.</li>
   </ul>
   <p><strong>Como distinguir na prova:</strong> se o enunciado diz "esparso", "tamanho do vocabulário", "frequência" → BoW ou TF-IDF. Se diz "denso", "baixa dimensionalidade", "pré-treinado", "semântica por proximidade" → embeddings.</p>
 
@@ -1544,10 +1564,10 @@ F1            = 2·(P·R)/(P+R)      média harmônica</div>
   <p><strong>Cosseno</strong> (ângulo entre vetores, ignora magnitude — padrão em texto) · <strong>Jaccard</strong> (interseção sobre união de conjuntos) · <strong>Levenshtein</strong> (distância de edição, útil para nomes e deduplicação) · <strong>Jaro-Winkler</strong> (favorece prefixos coincidentes).</p>
 
   <h3>Tarefas típicas no Legislativo</h3>
-  <p>Classificação de documentos por tema · <strong>NER</strong> (extrair nomes de parlamentares, números de lei, órgãos, datas) · <strong>modelagem de tópicos</strong> — LDA (modelo generativo probabilístico: documento = mistura de tópicos, tópico = distribuição de palavras) e NMF · análise de sentimentos (léxico × supervisionado; ironia e negação são os pontos fracos) · sumarização (extrativa × abstrativa) · <strong>detecção de proposições similares ou duplicadas</strong>.</p>
+  <p>Classificação de documentos por tema · <strong>NER</strong> (<em>Named Entity Recognition</em>, reconhecimento de entidades nomeadas — extrair nomes de parlamentares, números de lei, órgãos, datas) · <strong>modelagem de tópicos</strong> — <strong>LDA</strong> (<em>Latent Dirichlet Allocation</em>; modelo generativo probabilístico: documento = mistura de tópicos, tópico = distribuição de palavras) e <strong>NMF</strong> (<em>Non-negative Matrix Factorization</em>, fatoração de matriz não negativa) · análise de sentimentos (léxico × supervisionado; ironia e negação são os pontos fracos) · sumarização (extrativa × abstrativa) · <strong>detecção de proposições similares ou duplicadas</strong>.</p>
 
   <h3>Extração de documentos</h3>
-  <p><strong>PDF nativo</strong> → pdfplumber, PyMuPDF, PyPDF; tabelas → Camelot/Tabula. <strong>PDF digitalizado ou imagem</strong> → OCR (Tesseract), com pré-processamento (binarização, <em>deskew</em>, remoção de ruído) e validação da taxa de erro.</p>
+  <p><strong>PDF nativo</strong> → pdfplumber, PyMuPDF, PyPDF; tabelas → Camelot/Tabula. <strong>PDF digitalizado ou imagem</strong> → <strong>OCR</strong> (<em>Optical Character Recognition</em>, reconhecimento óptico de caracteres — Tesseract), com pré-processamento (binarização, <em>deskew</em>, remoção de ruído) e validação da taxa de erro.</p>
   <div class="callout note">
     <span class="callout-label">Sempre distinga</span>
     <p><strong>"PDF com texto" de "PDF que é imagem".</strong> É o primeiro diagnóstico de qualquer pipeline de diário oficial, e a limitação do OCR (erro de reconhecimento, tabelas quebradas, colunas embaralhadas) é ponto de atenção citável na discursiva.</p>
@@ -1560,8 +1580,8 @@ F1            = 2·(P·R)/(P+R)      média harmônica</div>
 
   <h3>Componentes e decomposição</h3>
   <p><strong>Tendência</strong> · <strong>sazonalidade</strong> (período fixo) · <strong>ciclo</strong> (período variável) · <strong>ruído</strong>. Decomposição <strong>aditiva</strong> (amplitude sazonal constante) × <strong>multiplicativa</strong> (amplitude cresce com o nível).</p>
-  <p><strong>Estacionariedade</strong>: média, variância e autocovariância estáveis no tempo. Testes <strong>ADF</strong> (H₀: existe raiz unitária → série <em>não</em> estacionária) e <strong>KPSS</strong> (H₀ invertida: é estacionária). Diferenciação para estacionarizar; log para estabilizar variância.</p>
-  <p><strong>Identificação</strong>: ACF (autocorrelação, sugere q) e PACF (parcial, sugere p). <strong>ARIMA(p,d,q)</strong>; <strong>SARIMA</strong>(p,d,q)(P,D,Q)ₛ para sazonalidade; suavização exponencial simples / Holt / Holt-Winters; Prophet; ARIMAX com regressores exógenos.</p>
+  <p><strong>Estacionariedade</strong>: média, variância e autocovariância estáveis no tempo. Testes <strong>ADF</strong> (<em>Augmented Dickey-Fuller</em> — H₀: existe raiz unitária → série <em>não</em> estacionária) e <strong>KPSS</strong> (Kwiatkowski-Phillips-Schmidt-Shin, os quatro autores — H₀ invertida: é estacionária). Diferenciação para estacionarizar; log para estabilizar variância.</p>
+  <p><strong>Identificação</strong>: <strong>ACF</strong> (<em>autocorrelation function</em>, função de autocorrelação — sugere q) e <strong>PACF</strong> (a parcial, <em>partial ACF</em> — sugere p). <strong>ARIMA(p,d,q)</strong> (<em>AutoRegressive Integrated Moving Average</em>: autorregressivo, integrado por diferenciação, de médias móveis); <strong>SARIMA</strong>(p,d,q)(P,D,Q)ₛ, o ARIMA sazonal; suavização exponencial simples / Holt / Holt-Winters; Prophet; ARIMAX com regressores exógenos.</p>
   <p><strong>Avaliação</strong>: MAE, RMSE, MAPE e <strong>backtesting temporal</strong> — nunca validação embaralhada.</p>
   <p><strong>Aplicações</strong>: tempo médio de tramitação, volume de proposições por período, execução orçamentária mensal, demanda da ouvidoria.</p>
 
@@ -1584,7 +1604,8 @@ F1            = 2·(P·R)/(P+R)      média harmônica</div>
   <p><strong>Boas práticas (Tufte)</strong>: maximizar o <em>data-ink ratio</em>, eliminar <em>chartjunk</em>, evitar 3D e eixos truncados em barras, ordenar categorias por valor, usar paletas acessíveis a daltônicos, escala sequencial para dado ordenado e divergente para desvios em torno de um ponto neutro. <strong>Lie factor</strong> = distorção entre o efeito visual e a variação real do dado.</p>
 
   <h3>Ferramentas de BI</h3>
-  <p><strong>Power BI</strong>: Power Query (ETL, linguagem <strong>M</strong>) · <strong>DAX</strong> (medidas e colunas calculadas) · modelo estrela com relacionamentos e cardinalidade · <strong>medida</strong> (avaliada em tempo de consulta, responde ao contexto de filtro, não pesa no modelo) × <strong>coluna calculada</strong> (materializada, consome memória, avaliada em contexto de linha) · contexto de linha × contexto de filtro · CALCULATE, FILTER, ALL, SUMX · modos <strong>Import</strong>, <strong>DirectQuery</strong> e <strong>Composite</strong> · gateway para fontes locais · <strong>RLS</strong> (segurança em nível de linha) — essencial em dados de pessoal e ponte direta com a LGPD.</p>
+  <p class="gloss"><b>BI</b> — <i>Business Intelligence</i>, inteligência de negócio: a camada que transforma o dado tratado em painel, indicador e relatório para quem decide. É o produto final da cadeia, não uma técnica de análise.</p>
+  <p><strong>Power BI</strong>: Power Query (ETL, linguagem <strong>M</strong>) · <strong>DAX</strong> (<em>Data Analysis Expressions</em>, a linguagem de fórmulas do Power BI — medidas e colunas calculadas) · modelo estrela com relacionamentos e cardinalidade · <strong>medida</strong> (avaliada em tempo de consulta, responde ao contexto de filtro, não pesa no modelo) × <strong>coluna calculada</strong> (materializada, consome memória, avaliada em contexto de linha) · contexto de linha × contexto de filtro · CALCULATE, FILTER, ALL, SUMX · modos <strong>Import</strong>, <strong>DirectQuery</strong> e <strong>Composite</strong> · gateway para fontes locais · <strong>RLS</strong> (<em>Row-Level Security</em>, segurança em nível de linha — cada pessoa enxerga só as linhas a que tem direito) — essencial em dados de pessoal e ponte direta com a LGPD.</p>
   <p><strong>Tableau</strong>: exploração visual. <strong>Metabase</strong>: open source, forte em SQL e perguntas simples.</p>
   <p><strong>Bibliotecas Python de visualização</strong>: matplotlib (baixo nível, figure/axes), seaborn (alto nível, estatístico), plotly, bokeh, altair. <em>PyGTK não é biblioteca de visualização de dados</em> — é toolkit de interface gráfica, e apareceu como distrator na ALEGO 2026.</p>
 </section>
@@ -1592,6 +1613,7 @@ F1            = 2·(P·R)/(P+R)      média harmônica</div>
 <section id="s14">
   <p class="sec-eyebrow">14 · ★★</p>
   <h2>SQL e modelagem</h2>
+  <p class="gloss"><b>SQL</b> — <i>Structured Query Language</i>, linguagem estruturada de consulta. É a língua franca dos bancos relacionais: você declara <i>o que</i> quer e o gerenciador decide <i>como</i> buscar.</p>
 
   <h3>Ordem lógica de execução</h3>
   <div class="formula">FROM → JOIN → WHERE → GROUP BY → HAVING → SELECT → DISTINCT → ORDER BY → LIMIT</div>
@@ -1645,12 +1667,12 @@ F1            = 2·(P·R)/(P+R)      média harmônica</div>
   </ul>
 
   <h3>Recursos avançados</h3>
-  <p>Subconsultas escalares e correlacionadas · <code>IN</code> × <code>EXISTS</code> · CTE (<code>WITH</code>) e CTE recursiva · <strong>funções de janela</strong>: <code>ROW_NUMBER()</code> (sequencial, sem empate) · <code>RANK()</code> (empata e <strong>pula</strong> posições: 1,1,3) · <code>DENSE_RANK()</code> (empata e <strong>não pula</strong>: 1,1,2) · <code>NTILE()</code> · <code>LAG()</code>/<code>LEAD()</code> · agregações com <code>OVER (PARTITION BY … ORDER BY …)</code>.</p>
+  <p>Subconsultas escalares e correlacionadas · <code>IN</code> × <code>EXISTS</code> · <strong>CTE</strong> (<em>Common Table Expression</em>, expressão de tabela comum — o bloco <code>WITH</code>, que nomeia um resultado intermediário) e CTE recursiva · <strong>funções de janela</strong>: <code>ROW_NUMBER()</code> (sequencial, sem empate) · <code>RANK()</code> (empata e <strong>pula</strong> posições: 1,1,3) · <code>DENSE_RANK()</code> (empata e <strong>não pula</strong>: 1,1,2) · <code>NTILE()</code> · <code>LAG()</code>/<code>LEAD()</code> · agregações com <code>OVER (PARTITION BY … ORDER BY …)</code>.</p>
 
   <h3>Modelagem e desempenho</h3>
-  <p>Chave primária e estrangeira, integridade referencial. <strong>Normalização</strong>: 1FN (atributos atômicos) · 2FN (sem dependência parcial da chave composta) · 3FN (sem dependência transitiva). Desnormalização proposital em analytics. Índices aceleram leitura e oneram escrita. View (virtual) × materialized view (armazenada). <strong>ACID</strong>: atomicidade, consistência, isolamento, durabilidade. Categorias: DDL, DML, DQL, DCL, TCL.</p>
-  <p><strong>Modelo ER, notação de Peter Chen</strong>: entidade = retângulo · atributo = elipse · <strong>relacionamento = losango</strong> · chave = atributo sublinhado. <strong>Cardinalidade mínima 0 = opcional; mínima 1 = obrigatória.</strong> Não existe cardinalidade −1 nem máxima 0.</p>
-  <p><strong>NoSQL</strong>: documento (MongoDB) · chave-valor (Redis) · colunar (Cassandra) · grafo (Neo4j). <strong>Teorema CAP</strong>: consistência, disponibilidade e tolerância a partição — escolha dois. Consistência eventual, esquema flexível.</p>
+  <p>Chave primária e estrangeira, integridade referencial. <strong>Normalização</strong>: 1FN (atributos atômicos) · 2FN (sem dependência parcial da chave composta) · 3FN (sem dependência transitiva). Desnormalização proposital em analytics. Índices aceleram leitura e oneram escrita. View (virtual) × materialized view (armazenada). <strong>ACID</strong>: atomicidade, consistência, isolamento, durabilidade — as quatro garantias de uma transação. Categorias de comando: <strong>DDL</strong> (<em>Data Definition</em> — <code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>), <strong>DML</strong> (<em>Manipulation</em> — <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>), <strong>DQL</strong> (<em>Query</em> — <code>SELECT</code>), <strong>DCL</strong> (<em>Control</em> — <code>GRANT</code>, <code>REVOKE</code>) e <strong>TCL</strong> (<em>Transaction Control</em> — <code>COMMIT</code>, <code>ROLLBACK</code>).</p>
+  <p><strong>Modelo ER</strong> (entidade-relacionamento)<strong>, notação de Peter Chen</strong>: entidade = retângulo · atributo = elipse · <strong>relacionamento = losango</strong> · chave = atributo sublinhado. <strong>Cardinalidade mínima 0 = opcional; mínima 1 = obrigatória.</strong> Não existe cardinalidade −1 nem máxima 0.</p>
+  <p><strong>NoSQL</strong>: documento (MongoDB) · chave-valor (Redis) · colunar (Cassandra) · grafo (Neo4j). <strong>Teorema CAP</strong> (<em>Consistency, Availability, Partition tolerance</em>): consistência, disponibilidade e tolerância a partição — escolha dois. Consistência eventual, esquema flexível.</p>
 </section>
 
 <section id="s15">
@@ -1701,12 +1723,13 @@ F1            = 2·(P·R)/(P+R)      média harmônica</div>
   </div>
 
   <h3>XAI</h3>
+  <p class="gloss"><b>XAI</b> — <i>eXplainable Artificial Intelligence</i>, IA explicável. É o campo que responde “por que o modelo decidiu isso?”. No setor público não é refinamento técnico: é o que sustenta a motivação do ato administrativo.</p>
   <p>Modelos <strong>intrinsecamente interpretáveis</strong> (regressão linear e logística, árvore rasa, sistemas de regras) × <strong>caixa-preta</strong> (Random Forest, boosting, redes neurais).</p>
-  <p><strong>Técnicas post-hoc</strong>: <strong>SHAP</strong> (valores de Shapley; explicação local e global, aditiva e consistente) · <strong>LIME</strong> (aproximação local por modelo simples) · importância por permutação · PDP/ICE · contrafactuais.</p>
+  <p><strong>Técnicas post-hoc</strong>: <strong>SHAP</strong> (<em>SHapley Additive exPlanations</em> — reparte a predição entre as variáveis usando os valores de Shapley da teoria dos jogos; explicação local e global, aditiva e consistente) · <strong>LIME</strong> (<em>Local Interpretable Model-agnostic Explanations</em> — aproxima a vizinhança do caso por um modelo simples) · importância por permutação · <strong>PDP/ICE</strong> (<em>Partial Dependence Plot</em> e <em>Individual Conditional Expectation</em> — o efeito de uma variável, no agregado e caso a caso) · contrafactuais.</p>
   <p>No setor público isso não é luxo: conecta o <strong>art. 20 da LGPD</strong> (revisão de decisões automatizadas), o dever de <strong>motivação do ato administrativo</strong> e o princípio da <strong>publicidade</strong>.</p>
 
   <h3>Reprodutibilidade</h3>
-  <p>Fixar <em>seed</em> · versionar código (Git) e dados (DVC) · congelar ambiente (<code>requirements.txt</code>, conda, Docker) · documentar linhagem e decisões · separar dado bruto de processado · README executável de ponta a ponta.</p>
+  <p>Fixar <em>seed</em> · versionar código (Git) e dados (<strong>DVC</strong>, <em>Data Version Control</em> — versiona o dado grande fora do repositório, deixando nele só o ponteiro) · congelar ambiente (<code>requirements.txt</code>, conda, Docker) · documentar linhagem e decisões · separar dado bruto de processado · README executável de ponta a ponta.</p>
 </section>
 
 <section id="s17">
@@ -1731,13 +1754,13 @@ F1            = 2·(P·R)/(P+R)      média harmônica</div>
     <p><strong>"Tecnologias emergentes no setor público. 9.1 Conceitos básicos de inteligência artificial. 9.2 Técnicas de prompts."</strong> É novo, quase ninguém estuda, e você trabalha com isso. Provavelmente 1 das 5 questões.</p>
   </div>
   <ul>
-    <li><strong>Técnicas de prompt</strong>: <em>zero-shot</em> (só instrução) · <em>few-shot</em> (com exemplos) · <em>chain-of-thought</em> (pedir o raciocínio passo a passo) · <em>role prompting</em> (atribuir papel) · <strong>RAG</strong> (recuperar documentos e injetar no contexto, reduzindo alucinação). Componentes de um bom prompt: contexto, tarefa, formato de saída, restrições, exemplos.</li>
+    <li><strong>Técnicas de prompt</strong>: <em>zero-shot</em> (só instrução) · <em>few-shot</em> (com exemplos) · <em>chain-of-thought</em> (pedir o raciocínio passo a passo) · <em>role prompting</em> (atribuir papel) · <strong>RAG</strong> (<em>Retrieval-Augmented Generation</em>, geração aumentada por recuperação — busca documentos e injeta no contexto, reduzindo alucinação). Componentes de um bom prompt: contexto, tarefa, formato de saída, restrições, exemplos.</li>
     <li><strong>Conceitos de IA</strong>: IA ⊃ aprendizado de máquina ⊃ aprendizado profundo. Token, janela de contexto, temperatura, alucinação. <strong>Fine-tuning × prompt engineering × RAG</strong> — três formas distintas de adaptar um modelo. IA generativa × discriminativa.</li>
     <li><strong>Segurança</strong>: confidencialidade, integridade e disponibilidade (+ autenticidade e não repúdio). <strong>Assinatura digital garante autoria e integridade, não confidencialidade</strong> — quem garante sigilo é a criptografia. Assina-se com a chave <strong>privada</strong>; verifica-se com a pública.</li>
     <li><strong>Backup</strong>: completo · <strong>incremental</strong> (só o que mudou desde o último backup de qualquer tipo; backup rápido, restauração lenta) · <strong>diferencial</strong> (o que mudou desde o último completo; backup lento, restauração rápida). Regra 3-2-1.</li>
     <li><strong>Malwares</strong>: vírus (precisa de hospedeiro) · worm (propaga-se sozinho) · trojan · ransomware · spyware/keylogger · rootkit · botnet. <strong>Phishing e engenharia social não são malware</strong>, são técnicas de ataque. Firewall filtra tráfego; antivírus detecta código malicioso.</li>
     <li><strong>Excel</strong>: referência relativa (A1) × absoluta ($A$1) × mista. <code>PROCV</code> só procura à direita e exige a chave na primeira coluna do intervalo; <code>PROCX</code> não tem essa limitação. <code>CONT.SE</code> × <code>SOMASE</code> × <code>SOMASES</code>. Tabela dinâmica agrega; filtro apenas oculta.</li>
-    <li><strong>Nuvem</strong>: <strong>IaaS</strong> (você gerencia o SO) · <strong>PaaS</strong> (runtime pronto, você sobe a aplicação) · <strong>SaaS</strong> (você só usa) · <strong>FaaS</strong> (você sobe só a função). OneDrive e SharePoint são SaaS. Intranet (interna) × extranet (parceiros externos autorizados).</li>
+    <li><strong>Nuvem</strong>: <strong>IaaS</strong> (<em>Infrastructure as a Service</em> — você gerencia o SO) · <strong>PaaS</strong> (<em>Platform</em> — runtime pronto, você sobe a aplicação) · <strong>SaaS</strong> (<em>Software</em> — você só usa) · <strong>FaaS</strong> (<em>Function</em> — você sobe só a função). OneDrive e SharePoint são SaaS. Intranet (interna) × extranet (parceiros externos autorizados).</li>
   </ul>
 
   <h3>Legislação e Ética</h3>
@@ -2239,7 +2262,7 @@ F1            = 2·(P·R)/(P+R)      média harmônica</div>
     <details class="fc"><summary>Os quatro níveis de interoperabilidade — e qual é o gargalo real.</summary><div class="a"><p><strong>Técnica → semântica → organizacional → legal.</strong> O gargalo real é a <strong>semântica</strong>: dois sistemas podem trocar JSON perfeitamente e ainda discordar sobre o que é "proposição arquivada".</p></div></details>
     <details class="fc"><summary>Por que existe blocagem em record linkage?</summary><div class="a"><p>Porque comparar todos os registros com todos é <strong>O(n²)</strong>. A blocagem agrupa candidatos plausíveis antes de comparar. Pipeline: <strong>normalizar → blocar → comparar → decidir</strong>. Linkage determinístico (chave exata) × probabilístico (Fellegi-Sunter).</p></div></details>
     <details class="fc"><summary>Os três estágios da despesa pública.</summary><div class="a"><p><strong>Empenho → liquidação → pagamento.</strong> Empenhado não é pago. Um painel que soma "empenhado" e chama de "executado" está tecnicamente errado — e isso vira alternativa ou tema discursivo.</p></div></details>
-    <details class="fc"><summary>As quatro categorias de qualidade de dados de Wang &amp; Strong.</summary><div class="a"><p><strong>Intrínseca · contextual · representacional · acessibilidade.</strong> Não confunda com <strong>FAIR</strong> (Findable, Accessible, Interoperable, Reusable), que é princípio de dados científicos e aparece como distrator.</p></div></details>
+    <details class="fc"><summary>As quatro categorias de qualidade de dados de Wang &amp; Strong.</summary><div class="a"><p><strong>Intrínseca · contextual · representacional · acessibilidade.</strong> Não confunda com <strong>FAIR</strong> (<em>Findable, Accessible, Interoperable, Reusable</em> — localizável, acessível, interoperável e reutilizável), que é princípio de dados científicos e aparece como distrator.</p></div></details>
     <details class="fc"><summary>Junk, degenerada, role playing e conformed — o que é cada uma?</summary><div class="a"><p><strong>Junk</strong>: agrupa flags soltos. <strong>Degenerada</strong>: atributo que fica na fato sem dimensão própria (número da proposição). <strong>Role playing</strong>: mesma dimensão em papéis diferentes (datas de protocolo, votação e sanção → dim_tempo). <strong>Conformed</strong>: compartilhada entre data marts.</p></div></details>
     <details class="fc"><summary>Qual base legal existe no art. 11 e não no art. 7º da LGPD?</summary><div class="a"><p><strong>Garantia da prevenção à fraude e à segurança do titular</strong>, nos processos de identificação e autenticação. E o art. 11 exclui legítimo interesse e proteção do crédito.</p></div></details>
   </div>
