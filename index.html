@@ -37,19 +37,19 @@ body{
   font-family:"Segoe UI Variable Text","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
   font-size:16px;line-height:1.58;-webkit-font-smoothing:antialiased;
 }
-.wrap{max-width:880px;margin:0 auto;padding:clamp(32px,7vw,80px) clamp(16px,4vw,40px) 100px}
+.wrap{max-width:1240px;margin:0 auto;padding:clamp(32px,6vw,72px) clamp(16px,4vw,48px) 100px}
 .eyebrow{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3)}
-h1{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:800;letter-spacing:-.035em;line-height:.95;font-size:clamp(36px,8vw,74px);margin:.16em 0 .18em;text-wrap:balance}
+h1{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:800;letter-spacing:-.035em;line-height:.95;font-size:clamp(36px,7.5vw,86px);margin:.16em 0 .18em;text-wrap:balance}
 h1 em{font-style:normal;color:var(--mag)}
-.dek{color:var(--ink2);max-width:60ch;margin:0 0 10px;font-size:clamp(15px,1.7vw,18px)}
+.dek{color:var(--ink2);max-width:66ch;margin:0 0 10px;font-size:clamp(15px,1.7vw,18px)}
 .colorbar{display:flex;height:12px;margin:26px 0 0;border:1px solid var(--rule)}
 .colorbar span{flex:1}
 h2{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:800;letter-spacing:-.02em;font-size:20px;margin:0 0 4px}
 .sec{border-top:2px solid var(--ink);padding-top:14px;margin:clamp(44px,7vw,72px) 0 0}
 .sec>.lbl{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:14px}
-.cards{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:16px;align-items:start}
+.cards{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:16px;align-items:stretch}
 a.card{
-  display:block;text-decoration:none;color:inherit;background:var(--card);
+  display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--card);
   border:1px solid var(--rule2);border-radius:6px;padding:20px 22px;box-shadow:var(--shadow);
   transition:border-color .15s ease, transform .15s ease;
 }
@@ -58,10 +58,10 @@ a.card:focus-visible{outline:2px solid var(--mag);outline-offset:2px}
 a.card .ic{font-size:26px;line-height:1;display:block;margin-bottom:8px}
 a.card .kind{display:inline-block;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);border:1px solid currentColor;border-radius:99px;padding:1px 8px;margin-bottom:8px}
 a.card p{margin:0;color:var(--ink2);font-size:14.5px}
-a.card .go{display:inline-block;margin-top:12px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mag)}
+a.card .go{display:inline-block;margin-top:auto;padding-top:12px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mag)}
 .meta{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0}
 .meta span{font-family:"Cascadia Mono",Consolas,monospace;font-size:12px;background:var(--band);color:var(--ink2);padding:3px 10px;border-radius:99px}
-.nota{border-left:4px solid var(--cyan);background:var(--card);padding:14px 18px;border-radius:0 4px 4px 0;margin:34px 0 0;font-size:14.5px;color:var(--ink2)}
+.nota{border-left:4px solid var(--cyan);background:var(--card);padding:14px 18px;border-radius:0 4px 4px 0;margin:34px 0 0;font-size:14.5px;color:var(--ink2);max-width:92ch}
 .nota strong{color:var(--ink)}
 footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:16px;font-size:13px;color:var(--ink3)}
 </style>
@@ -98,7 +98,7 @@ footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:16px;font-si
         <span class="ic" aria-hidden="true">✍️</span>
         <span class="kind">Discursivas</span>
         <h2>Original</h2>
-        <p>As duas questões de 20 linhas: critérios de correção do edital, método em cinco passos, arquitetura das linhas, banco de frases prontas e dez temas prováveis com esqueleto.</p>
+        <p>As duas questões de 20 linhas: critérios de correção do edital, método em cinco passos, arquitetura das linhas, banco de frases prontas e onze temas prováveis com esqueleto — um deles sobre inteligência artificial.</p>
         <span class="go">Abrir →</span>
       </a>
       <a class="card" href="questoes-design.html">
@@ -152,7 +152,7 @@ footer{border-top:1px solid var(--rule);margin-top:56px;padding-top:16px;font-si
         <span class="ic" aria-hidden="true">✍️</span>
         <span class="kind">Discursivas</span>
         <h2>Editorial</h2>
-        <p>As duas questões de 20 linhas: critérios de correção do edital, arquitetura das linhas, banco de tijolos com frases prontas e dez temas prováveis com esqueleto.</p>
+        <p>As duas questões de 20 linhas: critérios de correção do edital, arquitetura das linhas, banco de tijolos com frases prontas e onze temas prováveis com esqueleto — um deles sobre inteligência artificial.</p>
         <span class="go">Abrir →</span>
       </a>
       <a class="card" href="jornalismo-questoes.html">
