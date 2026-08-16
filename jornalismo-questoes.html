@@ -86,8 +86,9 @@ code{font-family:var(--mono);font-size:.88em;background:var(--band);padding:1px 
 .q ol.alt{list-style:none;counter-reset:alt;margin:0;padding:0;max-width:none}
 .q ol.alt li{counter-increment:alt;position:relative;padding:7px 10px 7px 40px;margin:0 0 2px;border-radius:4px;font-size:15px}
 .q ol.alt li::before{content:"(" counter(alt,upper-alpha) ")";position:absolute;left:8px;top:7px;font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ink3)}
-.q ol.alt li.ok{background:var(--okSoft);box-shadow:inset 3px 0 0 var(--ok)}
-.q ol.alt li.ok::before{color:var(--ok)}
+/* O realce da alternativa correta so aparece depois que a pessoa abre o gabarito. */
+.q:has(details.reveal[open]) ol.alt li.ok{background:var(--okSoft);box-shadow:inset 3px 0 0 var(--ok)}
+.q:has(details.reveal[open]) ol.alt li.ok::before{color:var(--ok)}
 .gab{border-top:1px solid var(--rule2);background:var(--paper);padding:14px 20px}
 .gab .key{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:700;background:var(--ok);color:#fff;padding:2px 9px;border-radius:3px;margin-right:9px}
 .gab p{margin:8px 0 0;font-size:14.5px;color:var(--ink2)}
@@ -108,7 +109,10 @@ footer{border-top:3px double var(--ink);padding-top:18px;font-size:13px;color:va
 a{color:var(--red)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 @media print{
-  .voltar-indice{display:none}nav.sumario{display:none}body{background:#fff;color:#000}.q,.card{page-break-inside:avoid}}
+  .voltar-indice{display:none}nav.sumario{display:none}body{background:#fff;color:#000}.q,.card{page-break-inside:avoid}
+  details.reveal>summary{display:none!important}details.reveal>*{display:block!important}
+  .q ol.alt li.ok{background:var(--okSoft);box-shadow:inset 3px 0 0 var(--ok)}
+  .q ol.alt li.ok::before{color:var(--ok)}}
 </style>
 </head>
 <body>
@@ -236,10 +240,12 @@ a{color:var(--red)}
         <li class="ok">os jornalistas tendem a se basear em um conjunto relativamente previsível de canais rotineiros de coleta de notícias, que normalmente envolvem <strong>fontes oficiais</strong>.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="key">E</span>
-      <p><strong>Questão de leitura atenta, não de memória.</strong> O enunciado já nomeia as três fontes; basta ver qual alternativa fala da <em>segunda</em>. (A) e (D) tratam da <strong>audiência</strong>, que é a primeira; (B) e (C) tratam da <strong>organização</strong>, que é a terceira. Só (E) fala de <strong>fontes externas</strong> — e traz o dado que importa: a rotina leva o jornalista a depender de <strong>fontes oficiais</strong>, principal crítica ao modelo.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="key">E</span>
+        <p><strong>Questão de leitura atenta, não de memória.</strong> O enunciado já nomeia as três fontes; basta ver qual alternativa fala da <em>segunda</em>. (A) e (D) tratam da <strong>audiência</strong>, que é a primeira; (B) e (C) tratam da <strong>organização</strong>, que é a terceira. Só (E) fala de <strong>fontes externas</strong> — e traz o dado que importa: a rotina leva o jornalista a depender de <strong>fontes oficiais</strong>, principal crítica ao modelo.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -254,10 +260,12 @@ a{color:var(--red)}
         <li>realidade, simbologia e aparelho.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="key">D</span>
-      <p>Os seis fatores de Jakobson: <strong>remetente, destinatário, mensagem, contexto, código e canal (contato)</strong>. As pistas estão no próprio texto: “a que se refere” = <strong>contexto</strong>; “comum ao codificador e ao decodificador” = <strong>código</strong>; “contato físico” = <strong>canal</strong>. Decore o par fator → função e você resolve qualquer questão dessa família.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="key">D</span>
+        <p>Os seis fatores de Jakobson: <strong>remetente, destinatário, mensagem, contexto, código e canal (contato)</strong>. As pistas estão no próprio texto: “a que se refere” = <strong>contexto</strong>; “comum ao codificador e ao decodificador” = <strong>código</strong>; “contato físico” = <strong>canal</strong>. Decore o par fator → função e você resolve qualquer questão dessa família.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -272,10 +280,12 @@ a{color:var(--red)}
         <li>emotiva.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="key">C</span>
-      <p>Manchete factual, terceira pessoa, sem apelo nem emoção: foco no <strong>contexto</strong>, logo função <strong>referencial</strong> — a função por excelência do texto noticioso. E repare no truque: <strong>(A) conotativa e (B) conativa</strong> lado a lado. <em>Conativa</em> é a função de apelo ao receptor; <em>conotativa</em> nem é função da linguagem — é tipo de sentido. Quando as duas aparecerem juntas, a banca está testando desatenção.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="key">C</span>
+        <p>Manchete factual, terceira pessoa, sem apelo nem emoção: foco no <strong>contexto</strong>, logo função <strong>referencial</strong> — a função por excelência do texto noticioso. E repare no truque: <strong>(A) conotativa e (B) conativa</strong> lado a lado. <em>Conativa</em> é a função de apelo ao receptor; <em>conotativa</em> nem é função da linguagem — é tipo de sentido. Quando as duas aparecerem juntas, a banca está testando desatenção.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -290,10 +300,12 @@ a{color:var(--red)}
         <li>tecnológico.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="key">B</span>
-      <p>Os níveis de Thayer são <strong>intrapessoal, interpessoal, organizacional e tecnológico</strong>. “Afetivo” é o intruso. Note o comando: <strong>“à exceção de um. Assinale-o”</strong> — marca-se o que <em>não</em> pertence. É o mesmo mecanismo do “NÃO” em caixa-alta da IDECAN, e é onde mais se perde ponto por pressa.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="key">B</span>
+        <p>Os níveis de Thayer são <strong>intrapessoal, interpessoal, organizacional e tecnológico</strong>. “Afetivo” é o intruso. Note o comando: <strong>“à exceção de um. Assinale-o”</strong> — marca-se o que <em>não</em> pertence. É o mesmo mecanismo do “NÃO” em caixa-alta da IDECAN, e é onde mais se perde ponto por pressa.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -308,11 +320,13 @@ a{color:var(--red)}
         <li>exigirão consentimento expresso quando as informações, mesmo <strong>sem identificação pessoal</strong>, se destinarem à realização de estatísticas e pesquisas científicas de evidente interesse público.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="key">C</span>
-      <p>Exemplar de como o artigo é cobrado. (B) troca o número: são <strong>100 anos</strong>, não 25 — 25 é o prazo da classificação <em>ultrassecreta</em>, coisa distinta. (A) e (D) invertem o sentido: a lei diz exatamente o contrário, que a restrição <strong>não pode ser invocada</strong> para prejudicar a apuração de irregularidades nem a recuperação de fatos históricos relevantes. (E) inverte de novo: sem identificação pessoal, o consentimento é <strong>dispensado</strong>.</p>
-      <p><strong>Os quatro números da LAI:</strong> 20 (+10) dias para responder · 10 dias para recorrer · 5/15/25 anos de classificação · 100 anos para informação pessoal.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="key">C</span>
+        <p>Exemplar de como o artigo é cobrado. (B) troca o número: são <strong>100 anos</strong>, não 25 — 25 é o prazo da classificação <em>ultrassecreta</em>, coisa distinta. (A) e (D) invertem o sentido: a lei diz exatamente o contrário, que a restrição <strong>não pode ser invocada</strong> para prejudicar a apuração de irregularidades nem a recuperação de fatos históricos relevantes. (E) inverte de novo: sem identificação pessoal, o consentimento é <strong>dispensado</strong>.</p>
+        <p><strong>Os quatro números da LAI:</strong> 20 (+10) dias para responder · 10 dias para recorrer · 5/15/25 anos de classificação · 100 anos para informação pessoal.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -327,10 +341,12 @@ a{color:var(--red)}
         <li>mostra-se inadequado como jornalismo, mas atende ao que se espera da redação oficial pelo uso formal da linguagem.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="key">C</span>
-      <p>O texto é o <strong>contra-exemplo</strong> do manual: enxurrada de adjetivos valorativos onde deveria haver relato objetivo. (B) inventa um princípio — a redação oficial é <strong>impessoal</strong>, jamais “personalizada”; é o distrator por termo falso. (D) também não serve: aquele texto não é bom jornalismo noticioso, porque o excesso de adjetivação viola igualmente a objetividade jornalística.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="key">C</span>
+        <p>O texto é o <strong>contra-exemplo</strong> do manual: enxurrada de adjetivos valorativos onde deveria haver relato objetivo. (B) inventa um princípio — a redação oficial é <strong>impessoal</strong>, jamais “personalizada”; é o distrator por termo falso. (D) também não serve: aquele texto não é bom jornalismo noticioso, porque o excesso de adjetivação viola igualmente a objetividade jornalística.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -345,10 +361,12 @@ a{color:var(--red)}
         <li>legal.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="key">B</span>
-      <p>A expressão-chave é <strong>“comando de ação”</strong>: a publicidade de utilidade pública quer que o cidadão <em>faça</em> algo — vacine-se, denuncie, pague no prazo. A <strong>institucional</strong> divulga ideias e realizações, construindo imagem; a <strong>mercadológica</strong> vende produto de estatal em concorrência; a <strong>legal</strong> é a publicação obrigatória por lei. Decore os cinco tipos: é definição pura, exatamente o feitio da IDECAN.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="key">B</span>
+        <p>A expressão-chave é <strong>“comando de ação”</strong>: a publicidade de utilidade pública quer que o cidadão <em>faça</em> algo — vacine-se, denuncie, pague no prazo. A <strong>institucional</strong> divulga ideias e realizações, construindo imagem; a <strong>mercadológica</strong> vende produto de estatal em concorrência; a <strong>legal</strong> é a publicação obrigatória por lei. Decore os cinco tipos: é definição pura, exatamente o feitio da IDECAN.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -363,10 +381,12 @@ a{color:var(--red)}
         <li>Diversional, pois propõe perguntas sem oferecer resposta pronta.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="key">D</span>
-      <p>Texto <strong>assinado</strong>, em <strong>primeira pessoa</strong> (“não quero”, “reafirmo”, “sugiro”), defendendo uma tese: é <strong>artigo</strong>, gênero <strong>opinativo</strong>. Verbo em 1ª pessoa e juízo de valor explícito derrubam de saída “informativo” e “interpretativo”. E (B) arma uma cilada de vocabulário: “útil” no sentido comum não é o <em>gênero utilitário</em>, que é o de serviço — cotação, roteiro, previsão do tempo.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="key">D</span>
+        <p>Texto <strong>assinado</strong>, em <strong>primeira pessoa</strong> (“não quero”, “reafirmo”, “sugiro”), defendendo uma tese: é <strong>artigo</strong>, gênero <strong>opinativo</strong>. Verbo em 1ª pessoa e juízo de valor explícito derrubam de saída “informativo” e “interpretativo”. E (B) arma uma cilada de vocabulário: “útil” no sentido comum não é o <em>gênero utilitário</em>, que é o de serviço — cotação, roteiro, previsão do tempo.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -381,10 +401,12 @@ a{color:var(--red)}
         <li>“Idoso que sonha em ser engenheiro civil faz Enem pela primeira vez em RO: ‘sonho não depende de idade’”.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="key">A</span>
-      <p><strong>Utilitário = o leitor precisa fazer alguma coisa.</strong> Só (A) entrega serviço acionável: prazo + como emitir. (B) e (D) são <strong>informativos</strong>; (C) tem cara de <strong>interpretativo</strong>, perfil; (E) é <strong>diversional</strong>, história de interesse humano. Repare que a mesma prova cobra o esquema dos gêneros <strong>duas vezes</strong>, nas questões 49 e 50 — sinal claro de que vale decorar a árvore dos cinco.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="key">A</span>
+        <p><strong>Utilitário = o leitor precisa fazer alguma coisa.</strong> Só (A) entrega serviço acionável: prazo + como emitir. (B) e (D) são <strong>informativos</strong>; (C) tem cara de <strong>interpretativo</strong>, perfil; (E) é <strong>diversional</strong>, história de interesse humano. Repare que a mesma prova cobra o esquema dos gêneros <strong>duas vezes</strong>, nas questões 49 e 50 — sinal claro de que vale decorar a árvore dos cinco.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -399,10 +421,12 @@ a{color:var(--red)}
         <li class="ok">clássico.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="key">E</span>
-      <p>Traz <strong>quem</strong> (Alero), <strong>o quê</strong> (entrega de títulos), <strong>quando</strong> (segunda, 17) e <strong>onde</strong> (auditório): é a fórmula das seis perguntas, ou seja, <strong>lead clássico</strong>. O <strong>flash</strong> é a frase única de urgência; o <strong>narrativo</strong> abre contando uma cena; o <strong>chavão</strong> é o vício da fórmula gasta.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="key">E</span>
+        <p>Traz <strong>quem</strong> (Alero), <strong>o quê</strong> (entrega de títulos), <strong>quando</strong> (segunda, 17) e <strong>onde</strong> (auditório): é a fórmula das seis perguntas, ou seja, <strong>lead clássico</strong>. O <strong>flash</strong> é a frase única de urgência; o <strong>narrativo</strong> abre contando uma cena; o <strong>chavão</strong> é o vício da fórmula gasta.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -417,10 +441,12 @@ a{color:var(--red)}
         <li>pictograma.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="key">D</span>
-      <p>Definição literal de <strong>grid</strong> (grelha). Os distratores são todos termos reais da área, o que torna a questão perigosa para quem só “acha”: <strong>quadratim</strong> é a unidade tipográfica equivalente ao corpo da fonte; <strong>dingbat</strong> é o caractere ornamental; <strong>calha</strong> é o espaço entre colunas — próximo, mas é a <em>parte</em>, não a malha; <strong>pictograma</strong> é o símbolo figurativo.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="key">D</span>
+        <p>Definição literal de <strong>grid</strong> (grelha). Os distratores são todos termos reais da área, o que torna a questão perigosa para quem só “acha”: <strong>quadratim</strong> é a unidade tipográfica equivalente ao corpo da fonte; <strong>dingbat</strong> é o caractere ornamental; <strong>calha</strong> é o espaço entre colunas — próximo, mas é a <em>parte</em>, não a malha; <strong>pictograma</strong> é o símbolo figurativo.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -435,10 +461,12 @@ a{color:var(--red)}
         <li>[…]</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="key">B</span>
-      <p>Questão de <strong>comando invertido</strong>: pede o que <em>evitar</em>. Frase curta e ordem direta são recomendações — logo (A) e (C) descrevem boas práticas e não podem ser a resposta. O que se evita é a <strong>adjetivação subjetiva</strong>, que projeta a emoção do repórter no lugar do fato. Vale para rádio, para TV e, com ainda mais força, para a redação oficial: é o mesmo princípio da Q 44 acima.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="key">B</span>
+        <p>Questão de <strong>comando invertido</strong>: pede o que <em>evitar</em>. Frase curta e ordem direta são recomendações — logo (A) e (C) descrevem boas práticas e não podem ser a resposta. O que se evita é a <strong>adjetivação subjetiva</strong>, que projeta a emoção do repórter no lugar do fato. Vale para rádio, para TV e, com ainda mais força, para a redação oficial: é o mesmo princípio da Q 44 acima.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -453,10 +481,12 @@ a{color:var(--red)}
         <li>Todas as imagens complexas devem ter texto alternativo que as identifique e descrição detalhada disponível.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="key">C</span>
-      <p>Distinção que vale ouro em prova de comunicação pública: <strong>imagem decorativa</strong> recebe <strong>alt vazio</strong>, para o leitor de tela ignorá-la; <strong>imagem funcional</strong> — a que é botão ou link — precisa de alt que descreva <strong>a função</strong> (“buscar”, “abrir o menu”). A alternativa trocou uma pela outra. Guarde os cinco tipos: informativa, de texto, funcional, decorativa e complexa.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="key">C</span>
+        <p>Distinção que vale ouro em prova de comunicação pública: <strong>imagem decorativa</strong> recebe <strong>alt vazio</strong>, para o leitor de tela ignorá-la; <strong>imagem funcional</strong> — a que é botão ou link — precisa de alt que descreva <strong>a função</strong> (“buscar”, “abrir o menu”). A alternativa trocou uma pela outra. Guarde os cinco tipos: informativa, de texto, funcional, decorativa e complexa.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -471,10 +501,12 @@ a{color:var(--red)}
         <li class="ok">O texto como um todo adota abordagem <strong>opinativa</strong>, destacando a relevância do trabalho do cientista e sugerindo que os líderes mundiais estão sendo excessivamente cautelosos.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="key">E</span>
-      <p>Repare no formato — <strong>é exatamente o desenho de questão que a IDECAN usa</strong>: texto-base, comando com “INCORRETA” em caixa-alta, cinco alternativas descritivas. O texto do enunciado é <strong>informativo</strong>: relata o anúncio e registra reações dos dois lados sem tomar partido. Registrar que <em>houve</em> cautela não é opinar que a cautela é excessiva — essa diferença é toda a questão.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="key">E</span>
+        <p>Repare no formato — <strong>é exatamente o desenho de questão que a IDECAN usa</strong>: texto-base, comando com “INCORRETA” em caixa-alta, cinco alternativas descritivas. O texto do enunciado é <strong>informativo</strong>: relata o anúncio e registra reações dos dois lados sem tomar partido. Registrar que <em>houve</em> cautela não é opinar que a cautela é excessiva — essa diferença é toda a questão.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -489,10 +521,12 @@ a{color:var(--red)}
         <li class="ok">Ritual, pois o ponto de interesse está mais centrado na <strong>exposição do entrevistado</strong>, independentemente de temas específicos.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="key">E</span>
-      <p>A <strong>entrevista ritual</strong> é a protocolar: o que importa é a autoridade <em>aparecer</em>, não o que ela diz. É comuníssima na cobertura legislativa, e a banca gosta de cobrá-la por isso mesmo. Cuidado com (B): a descrição “exposição em detrimento do conteúdo” foi deliberadamente colada no rótulo errado — <strong>testemunhal</strong> é quando a fonte relata o que presenciou.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="key">E</span>
+        <p>A <strong>entrevista ritual</strong> é a protocolar: o que importa é a autoridade <em>aparecer</em>, não o que ela diz. É comuníssima na cobertura legislativa, e a banca gosta de cobrá-la por isso mesmo. Cuidado com (B): a descrição “exposição em detrimento do conteúdo” foi deliberadamente colada no rótulo errado — <strong>testemunhal</strong> é quando a fonte relata o que presenciou.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -507,10 +541,12 @@ a{color:var(--red)}
         <li class="ok">Para a imprensa tradicional, manter o padrão clássico com <strong>lead extenso</strong>, priorizando <strong>citações longas de executivos</strong> e <strong>excluindo links externos</strong>.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="key">E</span>
-      <p>Três erros empilhados numa alternativa só — assinatura do distrator bem construído. O lead deve ser <strong>enxuto</strong>, não extenso; citação de dirigente deve ser <strong>curta e relevante</strong>, nunca o centro do release; e <strong>links são desejáveis</strong>, porque dão ao jornalista acesso à fonte primária. A regra por trás de tudo: <strong>o release existe para facilitar o trabalho do jornalista</strong>, não para exibir o assessorado.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="key">E</span>
+        <p>Três erros empilhados numa alternativa só — assinatura do distrator bem construído. O lead deve ser <strong>enxuto</strong>, não extenso; citação de dirigente deve ser <strong>curta e relevante</strong>, nunca o centro do release; e <strong>links são desejáveis</strong>, porque dão ao jornalista acesso à fonte primária. A regra por trás de tudo: <strong>o release existe para facilitar o trabalho do jornalista</strong>, não para exibir o assessorado.</p>
+      </div>
+    </details>
   </div>
 
   <div class="box lei">

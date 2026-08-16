@@ -92,8 +92,9 @@ svg{display:block;max-width:100%;height:auto}
   content:"(" counter(alt,upper-alpha) ")";position:absolute;left:8px;top:7px;
   font-family:"Cascadia Mono",Consolas,monospace;font-size:13px;font-weight:700;color:var(--ink3);
 }
-.q ol.alt li.ok{background:var(--greenSoft);box-shadow:inset 3px 0 0 var(--green)}
-.q ol.alt li.ok::before{color:var(--green)}
+/* O realce da alternativa correta so aparece depois que a pessoa abre o gabarito. */
+.q:has(details.reveal[open]) ol.alt li.ok{background:var(--greenSoft);box-shadow:inset 3px 0 0 var(--green)}
+.q:has(details.reveal[open]) ol.alt li.ok::before{color:var(--green)}
 .gab{border-top:1px solid var(--rule2);background:var(--paper);padding:14px 20px}
 .gab .tag{display:inline-block;font-family:"Cascadia Mono",Consolas,monospace;font-size:12px;font-weight:700;background:var(--green);color:#fff;padding:2px 9px;border-radius:3px;margin-right:9px}
 .gab p{margin:8px 0 0;font-size:14.5px;color:var(--ink2)}
@@ -114,7 +115,9 @@ footer{border-top:2px solid var(--ink);padding-top:18px;font-size:13px;color:var
 a{color:var(--mag)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 @media print{
-  .voltar-indice{display:none}nav.toc{display:none}body{background:#fff;color:#000}details.reveal>summary{display:none}details.reveal>*{display:block!important}}
+  .voltar-indice{display:none}nav.toc{display:none}body{background:#fff;color:#000}details.reveal>summary{display:none!important}details.reveal>*{display:block!important}
+  .q ol.alt li.ok{background:var(--greenSoft);box-shadow:inset 3px 0 0 var(--green)}
+  .q ol.alt li.ok::before{color:var(--green)}}
 </style>
 </head>
 <body>
@@ -261,10 +264,12 @@ a{color:var(--mag)}
         <li>apaixonou.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="tag">C</span>
-      <p><strong>Repare no formato:</strong> alternativas de <em>uma palavra</em>. A banca gosta desse desenho enxuto quando testa vocabulário e sentido contextual. Em design, o equivalente é a questão que pede o nome do conceito — “fechamento”, “pregnância”, “leiturabilidade” — com cinco termos soltos. <strong>Treine reconhecer o termo pelo fenômeno, não o inverso.</strong></p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="tag">C</span>
+        <p><strong>Repare no formato:</strong> alternativas de <em>uma palavra</em>. A banca gosta desse desenho enxuto quando testa vocabulário e sentido contextual. Em design, o equivalente é a questão que pede o nome do conceito — “fechamento”, “pregnância”, “leiturabilidade” — com cinco termos soltos. <strong>Treine reconhecer o termo pelo fenômeno, não o inverso.</strong></p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -277,11 +282,13 @@ a{color:var(--mag)}
         <li>[…]</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="tag">Estrutura</span>
-      <p><strong>O que importa aqui não é a resposta, é o mecanismo.</strong> A banca pegou dois dispositivos vizinhos da mesma lei — a lista de <em>objetivos</em> e a lista de <em>princípios</em> — e misturou. A alternativa (B) é verdadeira como afirmação, mas é <strong>princípio</strong>, não objetivo. Esse é o truque nº 2 da lista anterior, a troca de categoria.</p>
-      <p><strong>Tradução para o seu edital:</strong> espere questões que misturem <em>elementos</em> visuais com <em>princípios</em> da composição; <em>direitos morais</em> com <em>patrimoniais</em>; <em>categorias</em> de sinalização com <em>princípios</em> de wayfinding; itens do <em>manual de IV</em> com atributos de <em>uma boa marca</em>. Quando o comando disser “um objetivo”, “uma diretriz”, “um princípio”, “uma categoria” — <strong>sublinhe a palavra</strong>, porque é ali que está a pegadinha.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="tag">Estrutura</span>
+        <p><strong>O que importa aqui não é a resposta, é o mecanismo.</strong> A banca pegou dois dispositivos vizinhos da mesma lei — a lista de <em>objetivos</em> e a lista de <em>princípios</em> — e misturou. A alternativa (B) é verdadeira como afirmação, mas é <strong>princípio</strong>, não objetivo. Esse é o truque nº 2 da lista anterior, a troca de categoria.</p>
+        <p><strong>Tradução para o seu edital:</strong> espere questões que misturem <em>elementos</em> visuais com <em>princípios</em> da composição; <em>direitos morais</em> com <em>patrimoniais</em>; <em>categorias</em> de sinalização com <em>princípios</em> de wayfinding; itens do <em>manual de IV</em> com atributos de <em>uma boa marca</em>. Quando o comando disser “um objetivo”, “uma diretriz”, “um princípio”, “uma categoria” — <strong>sublinhe a palavra</strong>, porque é ali que está a pegadinha.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -296,10 +303,12 @@ a{color:var(--mag)}
         <li><code>[SADV][SV][SN][SP][SN]</code></li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="tag">C</span>
-      <p><strong>Guarde esta:</strong> a IDECAN gosta de <strong>questão esquemática</strong> — pede para você ler um diagrama, uma hierarquia de encaixe, uma estrutura aninhada. Para uma prova de <em>design</em>, isso é ótima notícia e péssima ao mesmo tempo: pode vir uma questão que mostre um <strong>diagrama de fechamento de arquivo</strong>, uma <strong>estrutura de grid</strong> ou um <strong>esquema de anatomia tipográfica</strong> e peça o rótulo correto. Revise as figuras do caderno visual olhando para elas, não lendo o texto ao lado.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="tag">C</span>
+        <p><strong>Guarde esta:</strong> a IDECAN gosta de <strong>questão esquemática</strong> — pede para você ler um diagrama, uma hierarquia de encaixe, uma estrutura aninhada. Para uma prova de <em>design</em>, isso é ótima notícia e péssima ao mesmo tempo: pode vir uma questão que mostre um <strong>diagrama de fechamento de arquivo</strong>, uma <strong>estrutura de grid</strong> ou um <strong>esquema de anatomia tipográfica</strong> e peça o rótulo correto. Revise as figuras do caderno visual olhando para elas, não lendo o texto ao lado.</p>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -330,10 +339,12 @@ a{color:var(--mag)}
         <li>Rítmica, harmonia, luz e sombra.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="tag">B</span>
-      <p><strong>A questão mais previsível de toda a prova.</strong> Os distratores misturam <em>elementos</em> (ponto, linha, plano, cor) com <em>princípios</em> (contraste, simetria, ritmo, harmonia) — exatamente a troca de categoria que a IDECAN também faz. Elementos são a matéria; princípios são o modo de organizá-la.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="tag">B</span>
+        <p><strong>A questão mais previsível de toda a prova.</strong> Os distratores misturam <em>elementos</em> (ponto, linha, plano, cor) com <em>princípios</em> (contraste, simetria, ritmo, harmonia) — exatamente a troca de categoria que a IDECAN também faz. Elementos são a matéria; princípios são o modo de organizá-la.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -345,10 +356,12 @@ a{color:var(--mag)}
         <li class="ok">RGB.</li><li>Pantone.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="tag">D</span>
-      <p>“<strong>Luz emitida</strong>” é a palavra-chave: síntese <strong>aditiva</strong>. HSL e HSV são modelos de <em>descrição</em> da cor (matiz, saturação, luminosidade/valor), não sistemas baseados em luz emitida; CMYK é subtrativo; Pantone é sistema de cor especial para impressão.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="tag">D</span>
+        <p>“<strong>Luz emitida</strong>” é a palavra-chave: síntese <strong>aditiva</strong>. HSL e HSV são modelos de <em>descrição</em> da cor (matiz, saturação, luminosidade/valor), não sistemas baseados em luz emitida; CMYK é subtrativo; Pantone é sistema de cor especial para impressão.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -363,11 +376,13 @@ a{color:var(--mag)}
         <li class="ok">Opera com uma chapa metálica fotossensível de propriedades hidrofóbicas, em que as áreas protegidas da exposição retêm a tinta, enquanto as regiões não protegidas interagem com a água, impedindo a fixação da tinta e delimitando as áreas de impressão.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="tag">E</span>
-      <p>Só (E) descreve o princípio real: <strong>repulsão entre água e tinta</strong> numa matriz plana, com áreas oleófilas e hidrófilas. (A) erra ao chamar o offset de transferência direta — ele é justamente <strong>indireto</strong>, passando pela blanqueta (é daí que vem o nome <em>offset</em>). (C) e (D) negam o CTP, que é o padrão desde os anos 2000.</p>
-      <p><strong>Guarde o par:</strong> offset = <strong>planográfico e indireto</strong>. Esse é o tipo de detalhe que a IDECAN transformaria em distrator.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="tag">E</span>
+        <p>Só (E) descreve o princípio real: <strong>repulsão entre água e tinta</strong> numa matriz plana, com áreas oleófilas e hidrófilas. (A) erra ao chamar o offset de transferência direta — ele é justamente <strong>indireto</strong>, passando pela blanqueta (é daí que vem o nome <em>offset</em>). (C) e (D) negam o CTP, que é o padrão desde os anos 2000.</p>
+        <p><strong>Guarde o par:</strong> offset = <strong>planográfico e indireto</strong>. Esse é o tipo de detalhe que a IDECAN transformaria em distrator.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -382,10 +397,12 @@ a{color:var(--mag)}
         <li>Andy Warhol utilizou a serigrafia de maneira experimental, mas a técnica <strong>não teve papel significativo</strong> em sua obra.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="tag">B</span>
-      <p>Note como (A), (C) e (D) morrem por <strong>absolutismo</strong> — “exclusivamente”, “de forma exclusiva”, “restrita a”. É o truque nº 3 da lista da seção A, e ele funciona igual em qualquer banca. A serigrafia é <strong>permeográfica</strong>: a tinta atravessa a matriz nas áreas abertas.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="tag">B</span>
+        <p>Note como (A), (C) e (D) morrem por <strong>absolutismo</strong> — “exclusivamente”, “de forma exclusiva”, “restrita a”. É o truque nº 3 da lista da seção A, e ele funciona igual em qualquer banca. A serigrafia é <strong>permeográfica</strong>: a tinta atravessa a matriz nas áreas abertas.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -400,10 +417,12 @@ a{color:var(--mag)}
         <li>É uma etapa <strong>opcional</strong> que não requer ajustes de cores, resoluções ou formatos […]</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="tag">C</span>
-      <p>Pré-impressão é tudo que acontece <strong>depois</strong> da arte pronta e <strong>antes</strong> da máquina rodar: conversão de cor, verificação de resolução, imposição, prova, pré-voo, gravação de chapa. A definição por posição no fluxo é o que a banca cobra.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="tag">C</span>
+        <p>Pré-impressão é tudo que acontece <strong>depois</strong> da arte pronta e <strong>antes</strong> da máquina rodar: conversão de cor, verificação de resolução, imposição, prova, pré-voo, gravação de chapa. A definição por posição no fluxo é o que a banca cobra.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -418,10 +437,12 @@ a{color:var(--mag)}
         <li>As diferenças entre os formatos são <strong>meramente estruturais e não afetam</strong> a renderização ou a qualidade tipográfica […]</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="tag">D</span>
-      <p>Duas trocas de autoria nos distratores: <strong>TrueType é da Apple</strong> (depois adotado pela Microsoft) e <strong>PostScript Type 1 é da Adobe</strong> — (A) e (B) simplesmente inverteram. É o truque nº 2, troca de sujeito. E (C) inverte a hierarquia: o OpenType é que é superior em recursos.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="tag">D</span>
+        <p>Duas trocas de autoria nos distratores: <strong>TrueType é da Apple</strong> (depois adotado pela Microsoft) e <strong>PostScript Type 1 é da Adobe</strong> — (A) e (B) simplesmente inverteram. É o truque nº 2, troca de sujeito. E (C) inverte a hierarquia: o OpenType é que é superior em recursos.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -436,10 +457,12 @@ a{color:var(--mag)}
         <li>A profundidade de campo é afetada <strong>apenas</strong> pela sensibilidade ISO e pela velocidade do obturador […]</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="tag">C</span>
-      <p>Regra a decorar: <strong>quanto menor a distância focal, maior a profundidade de campo</strong> (mantidos abertura e distância). E o par irmão: <strong>quanto menor o número f, maior a abertura e menor a profundidade de campo</strong>. (A) e (B) são o mesmo conceito invertido — a banca escreve os dois lados e você escolhe.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="tag">C</span>
+        <p>Regra a decorar: <strong>quanto menor a distância focal, maior a profundidade de campo</strong> (mantidos abertura e distância). E o par irmão: <strong>quanto menor o número f, maior a abertura e menor a profundidade de campo</strong>. (A) e (B) são o mesmo conceito invertido — a banca escreve os dois lados e você escolhe.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -454,10 +477,12 @@ a{color:var(--mag)}
         <li class="ok">Um conjunto de elementos e estruturas organizacionais que permitem ao usuário localizar e acessar conteúdos em uma interface digital, incluindo menus, links, botões de busca, estrutura hierárquica de páginas e caminhos de navegação.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="tag">E</span>
-      <p>Navegação é um dos quatro sistemas da <strong>arquitetura da informação</strong> de Rosenfeld &amp; Morville — junto com organização, rotulagem e busca. Guarde os quatro: eles são candidatos naturais a questão de múltipla escolha.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="tag">E</span>
+        <p>Navegação é um dos quatro sistemas da <strong>arquitetura da informação</strong> de Rosenfeld &amp; Morville — junto com organização, rotulagem e busca. Guarde os quatro: eles são candidatos naturais a questão de múltipla escolha.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -472,10 +497,12 @@ a{color:var(--mag)}
         <li>É amplamente moldada pelas estratégias de marketing e publicidade, <strong>sem considerar</strong> cultura, missão e valores […]</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="tag">C</span>
-      <p>O eixo da questão é a direção da seta: <strong>identidade é o que a organização emite; imagem é o que o público recebe e interpreta.</strong> (A) confunde imagem com identidade visual — o erro mais comum da área. Se cair na ALECE, esse par vale ponto certo.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="tag">C</span>
+        <p>O eixo da questão é a direção da seta: <strong>identidade é o que a organização emite; imagem é o que o público recebe e interpreta.</strong> (A) confunde imagem com identidade visual — o erro mais comum da área. Se cair na ALECE, esse par vale ponto certo.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -490,10 +517,12 @@ a{color:var(--mag)}
         <li>HTML e CSS são ferramentas visuais empregadas apenas para design, enquanto JavaScript é a única capaz de estruturar, estilizar e interagir […]</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="tag">A</span>
-      <p>Estrutura / apresentação / comportamento. Detalhe fino que a banca adora: <strong>HTML e CSS não são linguagens de programação</strong> — HTML é de marcação e CSS é de estilo. (B) tropeça exatamente aí.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="tag">A</span>
+        <p>Estrutura / apresentação / comportamento. Detalhe fino que a banca adora: <strong>HTML e CSS não são linguagens de programação</strong> — HTML é de marcação e CSS é de estilo. (B) tropeça exatamente aí.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -508,10 +537,12 @@ a{color:var(--mag)}
         <li>A interação entre abertura, velocidade e ISO ocorre <strong>de maneira independente</strong> […]</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="tag">A</span>
-      <p>(B), (C) e (D) invertem cada um dos três vértices do triângulo — abertura ampla <em>aumenta</em> a luz e <em>reduz</em> a profundidade de campo; ISO alto <em>aumenta</em> a sensibilidade e <em>gera</em> ruído; ISO alto <em>agrava</em> a superexposição. E (E) nega a própria ideia de triângulo.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="tag">A</span>
+        <p>(B), (C) e (D) invertem cada um dos três vértices do triângulo — abertura ampla <em>aumenta</em> a luz e <em>reduz</em> a profundidade de campo; ISO alto <em>aumenta</em> a sensibilidade e <em>gera</em> ruído; ISO alto <em>agrava</em> a superexposição. E (E) nega a própria ideia de triângulo.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -526,10 +557,12 @@ a{color:var(--mag)}
         <li>O processo ocorre de forma simultânea e contínua, <strong>sem distinção clara</strong> entre percepção geral e análise detalhada.</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="tag">B</span>
-      <p>É a Gestalt aplicada à página: <strong>o todo antes das partes</strong>. Primeiro o olho lê a mancha, a hierarquia e o branco; depois entra no texto. É exatamente o que justifica a existência de hierarquia tipográfica — e a resposta de qualquer questão que oponha “geral → detalhe” a “detalhe → geral”.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="tag">B</span>
+        <p>É a Gestalt aplicada à página: <strong>o todo antes das partes</strong>. Primeiro o olho lê a mancha, a hierarquia e o branco; depois entra no texto. É exatamente o que justifica a existência de hierarquia tipográfica — e a resposta de qualquer questão que oponha “geral → detalhe” a “detalhe → geral”.</p>
+      </div>
+    </details>
   </div>
 
   <div class="q">
@@ -544,10 +577,12 @@ a{color:var(--mag)}
         <li>A legibilidade <strong>não está relacionada</strong> à relação entre fundo e texto […]</li>
       </ol>
     </div>
-    <div class="gab">
-      <span class="tag">C</span>
-      <p><strong>Aqui eu aviso:</strong> (C) e (D) são ambas verdadeiras. Marco (C) porque o comando pede a alternativa que <em>melhor explica o impacto do contraste</em>, e (C) trata o contraste como fator central e explica o mecanismo (figura-fundo se condicionando mutuamente); (D) apenas o admite como um fator entre outros. Numa prova, quando duas alternativas são verdadeiras, <strong>vence a que responde mais diretamente ao comando</strong> — e essa é uma regra que vale para a IDECAN também.</p>
-    </div>
+    <details class="reveal"><summary>Ver gabarito e comentário</summary>
+      <div class="gab">
+        <span class="tag">C</span>
+        <p><strong>Aqui eu aviso:</strong> (C) e (D) são ambas verdadeiras. Marco (C) porque o comando pede a alternativa que <em>melhor explica o impacto do contraste</em>, e (C) trata o contraste como fator central e explica o mecanismo (figura-fundo se condicionando mutuamente); (D) apenas o admite como um fator entre outros. Numa prova, quando duas alternativas são verdadeiras, <strong>vence a que responde mais diretamente ao comando</strong> — e essa é uma regra que vale para a IDECAN também.</p>
+      </div>
+    </details>
   </div>
 
   <div class="nota">
